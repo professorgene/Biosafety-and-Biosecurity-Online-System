@@ -1,0 +1,243 @@
+/*
+* === pages selection, Custom Button===
+*/
+div.option1 {
+	width: 500px;
+    height: 100px;
+  align-items: center;
+  justify-content: center }
+div.option1 h5 {
+  margin: 0 }
+
+/*
+* === Hover Effect ===
+*/  
+.hover1 {
+  border-radius: 4px;
+  background-color: black;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.hover1 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.hover1 span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.hover1:hover span {
+  padding-right: 25px;
+}
+
+.hover1:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*
+* === Hover Effect User Manual Icon===
+*/
+
+.hovicon {
+    display: inline-block;
+    line-height: 90px;
+    cursor: pointer;
+    margin: 20px;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    color: #fff;
+}
+.hovicon.small {
+    font-size: 25px;
+    line-height:45px;
+    width:45px;
+    height:45px;
+    margin:7px;
+}
+
+.hovicon:after {
+    pointer-events: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    content:'';
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+}
+/* Effect 1 */
+ .hovicon.effect-1 {
+    background: black;
+    -webkit-transition: background 0.2s, color 0.2s;
+    -moz-transition: background 0.2s, color 0.2s;
+    transition: background 0.2s, color 0.2s;
+}
+.hovicon.effect-1:after {
+	
+    top: -7px;
+    left: -7px;
+    padding: 7px;
+    box-shadow: 0 0 0 4px #2E2E2E;
+    -webkit-transition: -webkit-transform 0.2s, opacity 0.2s;
+    -webkit-transform: scale(.8);
+    -moz-transition: -moz-transform 0.2s, opacity 0.2s;
+    -moz-transform: scale(.8);
+    -ms-transform: scale(.8);
+    transition: transform 0.2s, opacity 0.2s;
+    transform: scale(.8);
+    opacity: 0;
+}
+/* Effect 1a */
+ .hovicon.effect-1.sub-a:hover {
+    background: white;
+    color: #41ab6b;
+}
+.hovicon.effect-1.sub-a:hover i {
+    color: #41ab6b;
+}
+.hovicon.effect-1.sub-a:hover:after {
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+#texthover{
+	font-size: 12px;
+}
+
+/*
+* === breadcrumb ===
+*/
+  
+#breadcrumb1{
+  display: inline-block;
+  position: relative;
+  font-family: Helvetica, sans-serif;
+  font-size: 14px;
+  line-height: 1em;
+  border-radius: 2px;
+  overflow: hidden;
+}
+#breadcrumb1 ul {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#breadcrumb1 ul li {
+  margin: 0;
+  background-color: #353A40;
+  transition: 0.3s;
+}
+#breadcrumb1 ul li:first-child a {
+  margin-left: 0;
+}
+#breadcrumb1 ul li:last-child {
+  border-radius: 0 100px 100px 0;
+}
+#breadcrumb1 ul li:last-child a {
+  padding-right: 30px;
+}
+#breadcrumb1 ul li:last-child a:before {
+  display: none;
+}
+#breadcrumb1 ul li:hover {
+  background-color: #297ffe;
+}
+#breadcrumb1 ul li:hover a {
+  color: #ffffff;
+}
+#breadcrumb1 ul li:hover a:before {
+  background-color: #297ffe;
+}
+#breadcrumb1 ul li.active {
+  background-color: #eef5ff;
+}
+#breadcrumb1 ul li.active a {
+  color: black;
+}
+#breadcrumb1 ul li.active a:before {
+  background-color: #eef5ff;
+}
+#breadcrumb1 ul li a {
+  position: relative;
+  box-sizing: border-box;
+  display: inline-block;
+  
+  font-family: sans-serif;
+  font-size: 0.9em;
+  font-weight: 600;
+  padding: 12px 0 12px 30px;
+  margin-left: 30px;
+  color: #ffffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.3s;
+}
+#breadcrumb1 ul li a:before {
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 0;
+  width: 30px;
+  height: 100%;
+  background-color: #353A40;
+  border-radius: 0 100px 100px 0;
+  box-shadow: 10px 0 10px rgba(0, 0, 0, 0.2);
+  transition: 0.3s;
+}
+#breadcrumb1 ul li a i {
+  -webkit-transform: scale(1.4);
+  -ms-transform: scale(1.4);
+  transform: scale(1.4);
+}
+/*
+* === carousel ===
+*/
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-size: 100%, 100%;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after
+{
+  content: '>';
+  font-size: 55px;
+  color: black;
+}
+
+.carousel-control-prev-icon:after {
+  content: '<';
+  font-size: 55px;
+  color: black;
+}
