@@ -1,10 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class lmoproject extends CI_Controller {
+class annex2 extends CI_Controller {
 
+	
 	public function index()
 	{
-		$this->load->template('lmoproject_view');
+		$this->load->template('annex2_view');
 	}
 }
