@@ -46,59 +46,17 @@ if(!$this->session->userdata('isLogin')){
 <body>
 
     <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            
-            <?php if ($this->session->userdata('isLogin')){ ?>
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
-            
-            <ul class="list-unstyled components">
-                <p>BBOS</p>
-                <li>
-                    <?php if($readnotif[0] ==0) { ?>
-                    <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index">
-                        <span class="fa-layers fa-fw">
-                            <i class="fas fa-bell fa-lg" style="color:#F65C26;"></i>
-                            <span class="fa-layers-counter" style="color:#F65C26;"><?php echo $readnotif[1] ?> Notifications</span>
-                        </span>
-                    </a>
-                    <?php } else { ?>
-                    <a class="nav-link" href="<?php echo base_url(); ?>index.php/notification/index"><i class="fa fa-bell fa-lg fa-fw"></i> Notifications</a>
-                    <?php } ?>
-                </li>
-                
-                <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 || $this->session->userdata('account_type') == 5 || $this->session->userdata('account_type') == 6 ) { ?>
-                <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>index.php/adminpage/index"><i class="fa fa-tv fa-lg fa-fw"></i> Administrator Panel</a>
-                </li>
-                
-                <?php } ?>
-                <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>index.php/settings/index"><i class="fa fa-user fa-lg fa-fw"></i> My Account</a>
-                </li>
-                <li>
-                    <a class="nav-link" href="<?php echo base_url(); ?>index.php/landing/logout"><i class="fa fa-sign-out-alt fa-lg fa-fw"></i> Log Out</a>
-                </li>
-            </ul>
-            <?php } else { ?>
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
-            <?php } ?>    
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
+        <!-- Navigation Bar -->
+        <?php include_once 'template/navbar.php' ?>
+        
         <!-- Page Content Insert Here -->
         <div id="content">
             <div class="container-fluid">
                 <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
-                    <div onclick="location.href='<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
+                    <div onclick="location.href='<?php echo base_url(); ?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
                         <i class="hovicon small effect-1 sub-a icon-book" title="Click to Download SSBC User Manual"></i>
                         <br>
-                        <a href="<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
+                        <a href="<?php echo base_url(); ?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
                     </div>
                 </h2>
                 <br>

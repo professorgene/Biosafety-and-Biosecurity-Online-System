@@ -37,27 +37,22 @@ if($this->session->userdata('isLogin')){
                 <div class="col-lg-3 col-md-3 col-sm-2 col-1">
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-8 col-10 bg-white">
-                    <?php echo form_open('landing/index'); ?>
+                    <?php echo form_open('landing/recovery'); ?>
                         <!--
                         <br/>
                         <h1 style="text-align:center;">Swinburne BBOS</h1>
                         -->
                         <br/>
-                        <legend>Login</legend>
+                        <legend>Password Recovery</legend>
                         <br/>
                         <div class="form-group">
                             <label for="email_add">Email Address:</label>
                             <input class="form-control" id="email_add" name="account_email" placeholder="Enter your email address here." type="text" value="<?php echo set_value('account_email'); ?>" />
                             <span class="text-danger"><?php echo form_error('account_email'); ?></span>
                         </div>
-                        <div class="form-group">
-                            <label for="password">Password:</label>
-                            <input class="form-control" id="password" name="account_password" placeholder="Enter your password here." type="password" value="<?php echo set_value('account_password'); ?>" />
-                            <span class="text-danger"><?php echo form_error('account_password'); ?></span>
-                        </div>
                         <div class="form-group text-center">
                             <span class="col-md-4"></span>
-                            <button name="submit" type="submit" class="btn btn-success col-md-4">Login</button>
+                            <button name="submit" type="submit" class="btn btn-success col-md-4">Recover Password</button>
                             <span class="col-md-4"></span>
                         </div>
                     <?php echo form_close(); ?>
@@ -71,8 +66,7 @@ if($this->session->userdata('isLogin')){
                 <div class="col-lg-6 col-md-6 col-sm-8 col-10 text-center bg-white">
                     <br/>
                 <?php echo $this->session->flashdata('msg'); ?>
-                    <p>Need an Account? <a href="<?php echo base_url(); ?>index.php/registration/index">Register Here</a></p>
-                    <p>Forgot your password? <a href="<?php echo base_url(); ?>index.php/landing/recovery">Recover Your Password Here</a></p>
+                    <p>Remember Your Password? <a href="<?php echo base_url(); ?>index.php/landing/index">Click Here to Login Now</a></p>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-2 col-1">
                 </div>
