@@ -38,10 +38,6 @@ if($this->session->userdata('isLogin')){
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-8 col-10 bg-white">
                     <?php echo form_open('landing/index'); ?>
-                        <!--
-                        <br/>
-                        <h1 style="text-align:center;">Swinburne BBOS</h1>
-                        -->
                         <br/>
                         <legend>Login</legend>
                         <br/>

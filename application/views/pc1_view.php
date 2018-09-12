@@ -1,19 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
+<!DOCTYPE html>
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>New Application - Living Modified Organisms: PC1 Form</title>
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url()?>assets/css/simple-sidebar.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    <title>Biosafety and Biosecurity Online System - PC1 Form</title>
     
     <style>
         body {
@@ -64,50 +59,49 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         
     </style>
-
-</head>
-
+</head>    
 <body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
-            
-            <ul class="list-unstyled components">
-            <p>BBOS</p>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/lmoproject">Living Modified Organisms</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/annex2">Annex 2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/forme">Form E</a>
-            </li>
-            <li class="active">
-                <a href="<?php echo base_url(); ?>index.php/pc1">PC1</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc2">PC2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/hirarc">OHS - HIRARC</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/swp">Safe Work Procedure</a>
-            </li>
-        </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content Insert Here -->
-        <div id="content">
-            <div class="container-fluid">
-                <?php if(isset($editload)) { echo form_open('pc1/update_form'); } else { echo form_open('pc1/index'); } ?>
+    <?php include_once 'template/navbar.php' ?>
+    
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            $new1 = $item->project_add_qualification;
+            $new2 = $item->project_add_name;
+            $new3 = $item->project_add_department;
+            $new4 = $item->project_add_campus;
+            $new5 = $item->project_add_postal_address;
+            $new6 = $item->project_add_telephone;
+            $new7 = $item->project_add_fax;
+            $new8 = $item->project_add_email_address;
+            $new9 = $item->project_add_title;
+            $a = explode(",", $new1);
+            $b = explode(",", $new2);
+            $c = explode(",", $new3);
+            $d = explode(",", $new4);
+            $e = explode(",", $new5);
+            $f = explode(",", $new6);
+            $g = explode(",", $new7);
+            $h = explode(",", $new8);
+            $i = explode(",", $new9);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+    
+    <div class="container">
+        <br/>
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
+        <div class="row">
+     <div class="col-md-10">
+         
+               <?php if(isset($editload)) { echo form_open('pc1/update_form'); } else { echo form_open('pc1/index'); } ?>
                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
          
          <?php if(isset($error)){echo $error;} ?>
@@ -616,13 +610,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>
+            
+            <div class="col-md-2">
+                <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
+                    <a href="#section_1" class="btn btn-success">Section 1</a> 
+                    <a href="#section_5" class="btn btn-success">Section 2</a>
+                    <a href="#section_10" class="btn btn-success">Section 3</a>
+                    <a href="#section_15" class="btn btn-success">Section 4</a>
+                </div>   
+            </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
+        
+        
     </div>
-    <!-- /#wrapper -->
-
-
 </body>
-
 </html>

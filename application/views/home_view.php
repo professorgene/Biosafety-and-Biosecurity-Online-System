@@ -4,22 +4,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 if(!$this->session->userdata('isLogin')){
     redirect('landing/index');
 }
-
 ?><!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Swinburne Sarawak Biosafety and Biosecurity Online System - Home Page</title>
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url()?>assets/css/simple-sidebar.css" type="text/css" rel="stylesheet">
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" />
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    <title>Swinburne Biosafety and Biosecurity Online System - Homepage</title>
     
     <style>
         body {
@@ -37,31 +27,29 @@ if(!$this->session->userdata('isLogin')){
         
         a, a:hover, a:active, a:visited {
             text-decoration: none;
-            /*color: black;*/
+            color: black;
         }
     </style>
-    
 </head>
 
 <body>
+    <!-- Navigation -->
+    <?php include_once 'template/navbar.php' ?>
 
-    <div id="wrapper">
-        <!-- Navigation Bar -->
-        <?php include_once 'template/navbar.php' ?>
-        
-        <!-- Page Content Insert Here -->
-        <div id="content">
-            <div class="container-fluid">
-                <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
-                    <div onclick="location.href='<?php echo base_url(); ?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
-                        <i class="hovicon small effect-1 sub-a icon-book" title="Click to Download SSBC User Manual"></i>
-                        <br>
-                        <a href="<?php echo base_url(); ?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
-                    </div>
-                </h2>
-                <br>
-                
-                <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading -->
+        <h2 class="my-4 text-center">Welcome, <?php echo $this->session->userdata('account_name'); ?> 
+			<div onclick="location.href='<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
+				<i class="hovicon small effect-1 sub-a icon-book" title="Click to Download SSBC User Manual"></i>
+				<br>
+				<a href="<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
+			</div>
+        </h2>
+			<br>
+
+        <div class="row">
+            <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/applicationpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety.jpg') ?>" alt=""></a>
@@ -153,15 +141,7 @@ if(!$this->session->userdata('isLogin')){
                 </div>
             </div>
             <?php } ?>
-                
-            </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-
+	</div>
 </body>
-
 </html>

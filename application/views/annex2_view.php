@@ -1,19 +1,15 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
+<!DOCTYPE html>
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>New Application - Living Modified Organisms: Annex 2 Form</title>
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url()?>assets/css/simple-sidebar.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    
+    <title>Biosafety and Biosecurity Online System - Annex 2</title>
     
     <style>
         body {
@@ -36,49 +32,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           margin:-60px 0 0; /* negative fixed header height */
         }
     </style>
-
-</head>
-
+</head>    
 <body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
+    <?php include_once 'template/navbar.php' ?>
+    
+    <?php
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
+            $ar3 = $item->personnel_involved;
+            $ar4 = $item->personnel_designation;
+            $i = explode(",", $ar3);
+            $e = explode(",", $ar4);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+    
+    <div class="container">
+        
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
+        <div class="row">
+        
             
-            <ul class="list-unstyled components">
-            <p>BBOS</p>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/lmoproject">Living Modified Organisms</a>
-            </li>
-            <li class="active">
-                <a href="<?php echo base_url(); ?>index.php/annex2">Annex 2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/forme">Form E</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc1">PC1</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc2">PC2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/hirarc">OHS - HIRARC</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/swp">Safe Work Procedure</a>
-            </li>
-        </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content Insert Here -->
-        <div id="content">
-            <div class="container-fluid">
+            <div class="col-md-10">
                 
                 <?php if(isset($editload)) { echo form_open('annex2/update_form'); } else { echo form_open('annex2/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
@@ -88,9 +70,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
 
-                <div>
-                    <h4><strong>IBC/AP/13/ANNEX 2</strong></h4>
-                </div>
+
+                   <div>
+                       <h4><strong>IBC/AP/13/ANNEX 2</strong></h4>
+                   </div>
                    
                    <div><h4><strong>IBC ASSESSMENT OF PROJECT PROPOSAL INVOLVING MODERN BIOTECHNOLOGY ACTIVITIES</strong></h4></div>
                    
@@ -318,14 +301,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
+                
+                
+            </div>
+            
+            <div class="col-md-2">
+                
+                
+                
+                <div class="btn-group-vertical btn-sample">
+                    <a href="#top" class="btn btn-success">Top</a>
+                    <a href="#section_1" class="btn btn-success">Section 1</a>
+                    <a href="#section_2" class="btn btn-success">Section 2</a>
+                    <a href="#section_3" class="btn btn-success">Section 3</a>
+                    <a href="#section_4" class="btn btn-success">Section 4</a>
+                </div>   
             </div>
         </div>
-        <!-- /#page-content-wrapper -->
-
+        
+        
     </div>
-    <!-- /#wrapper -->
-
-
 </body>
-
 </html>

@@ -1,21 +1,16 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-?><!DOCTYPE html>
-<html lang="en">
-
-<head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>New Application - Living Modified Organisms: Form E</title>
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url()?>assets/css/simple-sidebar.css" type="text/css" rel="stylesheet">
+if(!$this->session->userdata('isLogin')){
+    redirect('landing/index');
+}
+?>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+        <title>Biosafety and Biosecurity Online System - Form E</title>
     
-    <style>
+        <style>
             body {
                 padding-top: 82px;
             }
@@ -94,50 +89,116 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }           
             
         </style>
-
-</head>
-
-<body>
-
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
+    </head>
+    <body>
+        
+        <?php include_once 'template/navbar.php' ?>
+        
+        <?php
+    
+    
+    if(isset($load)){
+        foreach($retrieved as $item){
             
-            <ul class="list-unstyled components">
-            <p>BBOS</p>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/lmoproject">Living Modified Organisms</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/annex2">Annex 2</a>
-            </li>
-            <li class="active">
-                <a href="<?php echo base_url(); ?>index.php/forme">Form E</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc1">PC1</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc2">PC2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/hirarc">OHS - HIRARC</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/swp">Safe Work Procedure</a>
-            </li>
-        </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content Insert Here -->
-        <div id="content">
-            <div class="container-fluid">
-                <?php if(isset($editload)) { echo form_open('forme/update_form'); } else { echo form_open('forme/index'); } ?>
+            $new1 = $item->project_team_name;
+            $new2 = $item->project_team_address;
+            $new3 = $item->project_team_telephone_number;
+            $new4 = $item->project_team_email_address;
+            $new5 = $item->project_team_qualification;
+            $new6 = $item->project_team_designation;
+            $new7 = $item->LMO_desc_name_parent;
+            $new8 = $item->LMO_desc_name_donor;
+            $new9 = $item->LMO_desc_method;
+            $new10 = $item->LMO_desc_class;
+            $new11 = $item->LMO_desc_trait;
+            $new12 = $item->LMO_desc_genes_function;
+            $new13 = $item->risk_assessment_genes_potential_hazard;
+            $new14 = $item->risk_assessment_genes_comments;
+            $new15 = $item->risk_assessment_genes_management;
+            $new16 = $item->risk_assessment_genes_residual;
+            $new17 = $item->risk_assessment_admin_potential_hazard;
+            $new18 = $item->risk_assessment_admin_comments;
+            $new19 = $item->risk_assessment_admin_management;
+            $new20 = $item->risk_assessment_admin_residual;
+            $new21 = $item->risk_assessment_containment_potential_hazard;
+            $new22 = $item->risk_assessment_containment_comments;
+            $new23 = $item->risk_assessment_containment_management;
+            $new24 = $item->risk_assessment_containment_residual;
+            $new25 = $item->risk_assessment_special_potential_hazard;
+            $new26 = $item->risk_assessment_special_comments;
+            $new27 = $item->risk_assessment_special_management;
+            $new28 = $item->risk_assessment_special_residual;
+            $new29 = $item->premise_name;
+            $new30 = $item->premise_type;
+            $new31 = $item->premise_BSL;
+            $new32 = $item->premise_IBC;
+            $new33 = $item->premise_IBC_date;
+            $new34 = $item->premise_certification_date;
+            $new35 = $item->premise_certification_no;
+            $new36 = $item->premise_address;
+            $new37 = $item->premise_officer_name;
+            $new38 = $item->premise_telephone_business;
+            $new39 = $item->premise_telephone_mobile;
+            $new40 = $item->premise_fax;
+            $new41 = $item->premise_email;
+            
+            $a = explode(",", $new1);
+            $b = explode(",", $new2);
+            $c = explode(",", $new3);
+            $d = explode(",", $new4);
+            $e = explode(",", $new5);
+            $f = explode(",", $new6);
+            $g = explode(",", $new7);
+            $h = explode(",", $new8);
+            $i = explode(",", $new9);
+            $j = explode(",", $new10);
+            $k = explode(",", $new11);
+            $l = explode(",", $new12);
+            $m = explode(",", $new13);
+            $n = explode(",", $new14);
+            $o = explode(",", $new15);
+            $p = explode(",", $new16);
+            $q = explode(",", $new17);
+            $r = explode(",", $new18);
+            $s = explode(",", $new19);
+            $t = explode(",", $new20);
+            $u = explode(",", $new21);
+            $v = explode(",", $new22);
+            $w = explode(",", $new23);
+            $x = explode(",", $new24);
+            $y = explode(",", $new25);
+            $z = explode(",", $new26);
+            $aa = explode(",", $new27);
+            $ab = explode(",", $new28);
+            $ac = explode(",", $new29);
+            $ad = explode(",", $new30);
+            $ae = explode(",", $new31);
+            $af = explode(",", $new32);
+            $ag = explode(",", $new33);
+            $ah = explode(",", $new34);
+            $ai = explode(",", $new35);
+            $aj = explode(",", $new36);
+            $ak = explode(",", $new37);
+            $al = explode(",", $new38);
+            $am = explode(",", $new39);
+            $an = explode(",", $new40);
+            $ao = explode(",", $new41);
+        }
+        
+        
+    }else{
+           
+        }
+    
+    ?>
+        
+        <div class="container">
+            <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+            <hr>
+            <div class="row">
+                
+                <div class="col-md-11">
+                    <?php if(isset($editload)) { echo form_open('forme/update_form'); } else { echo form_open('forme/index'); } ?>
                     <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                     
                     
@@ -1478,7 +1539,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             
                         </div>
                         <hr>
-                <div>
+                    
+                    <div>
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
                 </div>
                     
@@ -1491,22 +1553,35 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 </div>
                 <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
-            </div>
+                </div>
+                
+                 <div class="col-md-1">
+                     <div class="btn-group-vertical btn-sample">
+                         <a href="#top" class="btn btn-success">Top</a>
+                         <a href="#part_a" class="btn btn-success">Section 1</a>
+                         <a href="#part_b" class="btn btn-success">Section 2</a>
+                         <a href="#part_c" class="btn btn-success">Section 3</a>
+                         <a href="#part_d" class="btn btn-success">Section 4</a>
+                         <a href="#part_e" class="btn btn-success">Section 5</a>
+                         <a href="#part_f" class="btn btn-success">Section 6</a>
+                         <a href="#part_g" class="btn btn-success">Section 7</a>
+                     </div>   
+                 </div>
+                
+            </div>    
+                
+                
         </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-    
-    <script>
+        
+        
+        <script>
             (function($){       
                 $('input[type="file"]').bind('change',function(){           
                     $("#img_text").html($('input[type="file"]').val());
                 });
             })(jQuery)
         </script>
+        
 
-
-</body>
-
+    </body>
 </html>

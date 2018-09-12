@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/Biosafety-and-Biosecurity-Online-System/';
+$config['base_url'] = 'http://localhost/Biosecurity-and-Biosafety/';
 
 /*
 |--------------------------------------------------------------------------
@@ -158,6 +158,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
+# Aethylwyne: Added '=' into permitted uri chars for base64 encoding
 $config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-=';
 
 /*

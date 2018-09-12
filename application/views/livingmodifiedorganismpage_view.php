@@ -2,153 +2,129 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>New Application - Living Modified Organisms</title>
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url()?>assets/css/simple-sidebar.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    
+    <title>Swinburne Biosafety and Biosecurity Online System - Living Modified Organism</title>
     
     <style>
         body {
-            padding-top: 82px;
+            padding-top: 54px;
         }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
+
+        .portfolio-item {
+            margin-bottom: 30px;
         }
-        
-        .approve_section{
-            display: none;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tblTitle2{
-            background-color: #808080;
-            color: white;
-            text-align: center;
-        }
-        
-        .greendata{
-            background-color: lawngreen;
-        }
-        
-        .reddata{
-            background-color: red;
-        }
-        
-        .yellowdata{
-            background-color: yellow;
-        }
-        
-        .colspace{
-            width: 50px;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
+
+        .card-img-top {
+            height: auto;
+            width: 100%;
         }
     </style>
-    
-
 </head>
 
 <body>
+    <!-- Navigation -->
+    <?php include_once 'template/navbar.php' ?>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
-            
-            <ul class="list-unstyled components">
-            <p>BBOS</p>
-            <li class="active">
-                <a href="<?php echo base_url(); ?>index.php/lmoproject">Living Modified Organisms</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/annex2">Annex 2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/forme">Form E</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc1">PC1</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/pc2">PC2</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/hirarc">OHS - HIRARC</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/swp">Safe Work Procedure</a>
-            </li>
-        </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content Insert Here -->
-        <div id="content">
-            <div class="container-fluid">
-                <div>
-                        <h4>Announcements</h4>
-                    </div>
-                    
-                    <div>
-                        <div class="row">
-                            <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
-                                <ol class="carousel-indicators">
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                                    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                                </ol>
-                                <div class="carousel-inner" role="listbox">
-                                    <div class="carousel-item active">
-                                        <img class="d-block img-fluid" src="<?php echo base_url('assets\images\2_LMO\lmo1.jpg') ?>" alt="First slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block img-fluid" src="<?php echo base_url('assets\images\2_LMO\lmo2.jpg') ?>" alt="Second slide">
-                                    </div>
-                                    <div class="carousel-item">
-                                        <img class="d-block img-fluid" src="<?php echo base_url('assets\images\2_LMO\lmo3.jpg') ?>" alt="Third slide">
-                                    </div>
-                                </div>
-                                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Previous</span>
-                                </a>
-                                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                    <span class="sr-only">Next</span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading -->
+        <br>
+        
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+		
+		<hr>
+	<div class="row" >
+	<div class="col-lg-5" >
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/annex2">		
+                    <div class="option1 card col-md-9 hover1" title="Annex 2 IBC Assessment of Project Proposal Involving Modern Biotechnology Activities">
+                        <h5><span>ANNEX 2</span></h5>		
+                    </div>				
+            </a>
+		</div>		
+		
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/forme">		
+                    <div class="option1 card col-md-9 hover1" title="NBB/N/CU/15/FORM E">
+                        <h5><span>FORM E</span></h5>		
+                    </div>				
+            </a>
+		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/pc1">		
+                    <div class="option1 card col-md-9 hover1" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 1 (PC1)">
+                        <h5><span>SBC - APPLICATION FOR NLRDS SUITABLE FOR PC1</span></h5>	
+                    </div>				
+            </a>
+		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/pc2">		
+                    <div class="option1 card col-md-9 hover1" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 2 (PC2)">
+                        <h5><span>SBC - APPLICATION FOR NLRDS SUITABLE FOR PC2</span></h5>	
+                    </div>				
+            </a>
+		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/hirarc?type=1">		
+                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC)">
+                        <h5><span>OHS-F-4.5.X HIRARC FORM</span></h5>	
+                    </div>				
+            </a>
+		</div>
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/swp?type=1">		
+                    <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
+                        <h5><span>SAFE WORK PROCEDURE</span></h5>	
+                    </div>				
+            </a>
+		</div>
+        <br/>
     </div>
-    <!-- /#wrapper -->
-
-
+		
+		<div class="col-lg-7">
+			<div>		
+				<h4>Announcements</h4>
+			</div>				
+			<div>		
+				<div class="row">
+          <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            </ol>
+			<div class="carousel-inner" role="listbox">
+              <div class="carousel-item active">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\2_LMO\lmo1.jpg') ?>" alt="First slide">
+			  </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\2_LMO\lmo2.jpg') ?>" alt="Second slide">
+			  </div>
+              <div class="carousel-item">
+                <img class="d-block img-fluid" src="<?php echo base_url('assets\images\2_LMO\lmo3.jpg') ?>" alt="Third slide">			  
+			  </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="sr-only">Next</span>
+            </a>
+          </div>				
+				</div>
+			</div>
+			
+		</div>
+	</div>	
+	</div>
+        <br/>
 </body>
-
 </html>

@@ -2,97 +2,52 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Procurement of Biological Material</title>
-
-    <!-- Custom styles for this template -->
-    <link href="<?php echo base_url()?>assets/css/simple-sidebar.css" type="text/css" rel="stylesheet">
+    <title>Swinburne Biosafety and Biosecurity Online System - Exempt Dealing Page</title>
     
     <style>
         body {
-            padding-top: 82px;
+            padding-top: 54px;
         }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
+
+        .portfolio-item {
+            margin-bottom: 30px;
         }
-        
-        .approve_section{
-            display: none;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tblTitle2{
-            background-color: #808080;
-            color: white;
-            text-align: center;
-        }
-        
-        .greendata{
-            background-color: lawngreen;
-        }
-        
-        .reddata{
-            background-color: red;
-        }
-        
-        .yellowdata{
-            background-color: yellow;
-        }
-        
-        .colspace{
-            width: 50px;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
+
+        .card-img-top {
+            height: auto;
+            width: 100%;
         }
     </style>
-    
-
 </head>
 
 <body>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
+    <!-- Navigation -->
+    <?php include_once 'template/navbar.php' ?>
 
-    <div id="wrapper">
-
-        <!-- Sidebar -->
-        <nav id="sidebar">
-            <div class="sidebar-header">
-                <h3>Swinburne Sarawak</h3>
-            </div>
-            
-            <ul class="list-unstyled components">
-            <p>BBOS</p>
-            <li class="active">
-                <a href="<?php echo base_url(); ?>index.php/procurementpage">Procurement of Biological Material</a>
-            </li>
-            <li>
-                <a href="<?php echo base_url(); ?>index.php/procurement">Pre-Purchase Material Risk Assessment</a>
-            </li>
-        </ul>
-        </nav>
-        <!-- /#sidebar-wrapper -->
-
-        <!-- Page Content Insert Here -->
-        <div id="content">
-            <div class="container-fluid">
-                <?php if(isset($product_list)) { ?>		
+    <!-- Page Content -->
+    <div class="container">
+        <!-- Page Heading -->
+        <br>
+  
+    <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        
+		<hr>
+	<div class="row" >
+	<div class="col-lg-5" >
+        
+        <div class="row">
+            <a href="<?php echo base_url(); ?>index.php/procurement">		
+                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.18.X Pre-Purchase Material Risk Assessment Form">
+                        <h5><span>OHS-F-4.18.X PRE-PURCHASE MATERIAL RISK ASSESSMENT</span></h5>
+                    </div>				
+            </a>
+		</div>				
+    </div>
+		
+		<div class="col-lg-7">
+		<?php if(isset($product_list)) { ?>		
 			<div>		
 				<?php foreach ($product_list as $list) { ?>
 					<div class="card my-4">
@@ -124,15 +79,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="<?php echo base_url(); ?>index.php/procurementpage/save_edit" class="col-md-3"><button class="btn btn-primary button_right">Save</button></a>
 				<?php echo form_close(); ?>
 			<?php } ?>
-                
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+		</div>
+	</div>					
+	</div>
 
+	</div>
+		
     </div>
-    <!-- /#wrapper -->
-
-
+	<br/>
 </body>
-
 </html>
