@@ -1,50 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Safety Work Procedure Form</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        #first-table{
-            background-color: #95a5a6;
-            text-align: center;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tbheader1{
-            background-color:  #95a5a6 ;
-        }
-        
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
+
     
     <?php
     
@@ -60,9 +14,6 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-        <hr>
         <div class="row">
             
             <div class="col-md-10">
@@ -331,23 +282,23 @@ if(!$this->session->userdata('isLogin')){
                    
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
+                    </div>
+            
+                </div>
+        
             </div>
             
             <div class="col-md-2">
-                <div class="btn-group-vertical btn-sample">
-                    <a href="#top" class="btn btn-success">Top</a>
-                    <a href="#section_1" class="btn btn-success">Section 1</a>
-                    <a href="#section_2" class="btn btn-success">Section 2</a>
-                    <a href="#section_3" class="btn btn-success">Section 3</a>
-                    <a href="#section_4" class="btn btn-success">Section 4</a>
-                    <a href="#section_5" class="btn btn-success">Section 5</a>
-                </div>   
-            </div>
-        </div>
-        
-        
-    </div>
+                    <div class="btn-group-vertical btn-sample">
+                        <a href="#top" class="btn btn-success">Top</a>
+                        <a href="#section_1" class="btn btn-success">Section 1</a>
+                        <a href="#section_2" class="btn btn-success">Section 2</a>
+                        <a href="#section_3" class="btn btn-success">Section 3</a>
+                        <a href="#section_4" class="btn btn-success">Section 4</a>
+                        <a href="#section_5" class="btn btn-success">Section 5</a>
+                    </div>   
+                </div>
+            
+            
 	</div>
-	</div>
-</body>
-</html>
+	

@@ -1,64 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Application for Biosafety Clearance for use of exempt dealings</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        .blackborder{
-            border-color: black;
-        }
-        
-        .approve_section{
-            display: none;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tblTitle2{
-            background-color: #808080;
-            color: white;
-            text-align: center;
-        }
-        
-        .centering{
-            text-align: center;
-        }
-        
-        .reddata{
-            background-color: red;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-        
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
-    
+ 
     <?php
     
     if(isset($load)){
@@ -90,10 +30,6 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
-        
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-            <hr>
         <div class="row">
             
             <div class="col-md-10">
@@ -519,6 +455,4 @@ if(!$this->session->userdata('isLogin')){
         </div>
         
         
-    </div>
-</body>
-</html>
+    

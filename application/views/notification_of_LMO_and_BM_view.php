@@ -1,59 +1,3 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Notification of LMO and Biohazardous Materials</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        #first-table{
-            background-color: #95a5a6;
-            text-align: center;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .dark_background{
-            background-color: black;
-            color: white;
-        }
-        
-        .tbheader1{
-            background-color:  #95a5a6 ;
-        }
-        
-        .right-side{
-            text-align: right;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
-    
     <?php
     
     if(isset($load)){
@@ -68,9 +12,6 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-        <hr>
         <div class="row">
             
             <div class="col-md-10">
@@ -501,6 +442,3 @@ if(!$this->session->userdata('isLogin')){
         </div>
         
         
-    </div>
-</body>
-</html>

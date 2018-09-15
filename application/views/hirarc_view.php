@@ -1,68 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-	<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Hazard Identification, Risk Assesment, Risk Control (HIRARC) Form</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        .approve_section{
-            display: none;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tblTitle2{
-            background-color: #808080;
-            color: white;
-            text-align: center;
-        }
-        
-        .greendata{
-            background-color: lawngreen;
-        }
-        
-        .reddata{
-            background-color: red;
-        }
-        
-        .yellowdata{
-            background-color: yellow;
-        }
-        
-        .colspace{
-            width: 50px;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
-    
-    <?php
+ <?php
     
     if(isset($load)){
         foreach($retrieved as $item){
@@ -94,12 +30,7 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
-	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-	<hr>
-        <div class="row">
-            
-            
+        <div class="row">   
             <div class="col-md-10">
                <?php if(isset($editload)) { echo form_open('hirarc/update_form'); } else { echo form_open('hirarc/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
@@ -509,6 +440,3 @@ if(!$this->session->userdata('isLogin')){
         </div>
         
         
-    </div>
-</body>
-</html>

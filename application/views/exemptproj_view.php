@@ -8,7 +8,7 @@ if(!$this->session->userdata('isLogin')){
 <html>
 <head>
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - New Application: Biohazardous Materials Project.</title>
+    <title>Biosafety and Biosecurity Online System - New Application: Exempt Dealing Project.</title>
     
     <style>
         body {
@@ -29,6 +29,10 @@ if(!$this->session->userdata('isLogin')){
             background-color: black;
             color: white;
             text-align: center;
+        }
+        
+        .blackborder{
+            border-color: black;
         }
         
         .approve_section{
@@ -81,15 +85,15 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item active"><a href="#biohazardtab" class="nav-link" data-toggle="tab">Biohazard Material Form</a></li>
-                    <li class="nav-item"><a href="#hirarctab" class="nav-link" data-toggle="tab">OHS-F-4.5.X HIRARC FORM</a></li>
+                    <li class="nav-item active"><a href="#exempttab" class="nav-link" data-toggle="tab">Exempt Dealings Form</a></li>
+                    <li class="nav-item"><a href="#hirarctab" class="nav-link" data-toggle="tab">HIRARC Form</a></li>
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="biohazardtab">
+                    <div class="tab-pane fade in active" id="exempttab">
                         <br/>
-                        <?php include 'biohazard_view.php' ?>
+                        <?php include 'exempt_view.php' ?>
                     </div>
                     <div class="tab-pane fade" id="hirarctab">
                         <br/>
