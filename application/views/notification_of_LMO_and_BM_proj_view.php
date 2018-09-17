@@ -63,7 +63,7 @@ if(!$this->session->userdata('isLogin')){
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="notif_LMO_BM_tab">
+                    <div class="tab-pane active" id="notif_LMO_BM_tab">
                         <br/>
                         <?php include 'notification_of_LMO_and_BM_view.php' ?>
                     </div>

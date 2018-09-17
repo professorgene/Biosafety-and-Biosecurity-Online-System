@@ -86,7 +86,7 @@ if(!$this->session->userdata('isLogin')){
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="procurementtab">
+                    <div class="tab-pane active" id="procurementtab">
                         <br/>
                         <?php include 'procurement_view.php' ?>
                     </div>

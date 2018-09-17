@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="col-lg-5" >
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM">		
+            <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj">		
                     <div class="option1 card col-md-9 hover1" title="SSBC_002 Notification of LMO and Biohazardous Material">
                         <h5><span>NOTIFICATION OF LMO AND BIOHAZARDOUS MATERIAL FORM</span></h5>
                     </div>				

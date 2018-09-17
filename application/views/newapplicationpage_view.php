@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="row" >
 	<div class="col-lg-5" >
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/livingmodifiedorganismpage">		
+            <a href="<?php echo base_url(); ?>index.php/lmoproj">		
                     <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form Page">
                         <h5><span>LIVING MODIFIED ORGANISM (LMO)</span></h5>		
                     </div>				
@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/exemptdealingpage">		
+            <a href="<?php echo base_url(); ?>index.php/exemptproj">		
                     <div class="option1 card col-md-9 hover1" title="Exempt Dealing Form Page">
                         <h5><span>EXEMPT DEALING</span></h5>		
                     </div>				
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">		
+            <a href="<?php echo base_url(); ?>index.php/biohazardproj">		
                     <div class="option1 card col-md-9 hover1" title="Biohazardous Material Form Page">
                         <h5><span>BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				

@@ -71,7 +71,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index">Biohazardous Materia<br> <br> </a>
+                            <a href="<?php echo base_url(); ?>index.php/biohazard_approval/index">Biohazardous Material<br> <br> </a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

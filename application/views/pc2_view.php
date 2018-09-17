@@ -1,69 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    
-    <title>Biosafety and Biosecurity Online System - PC1 Form</title>
-    
-    <style>
-        body {
-            padding-top: 60px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-            padding-top: 0px;
-        }
-        
-        .approve_section{
-            display: none;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tblTitle2{
-            background-color: #808080;
-            color: white;
-            text-align: center;
-        }
-        
-        .centering{
-            text-align: center;
-        }
-        
-        
-        .reddata{
-            background-color: red;
-        }
-        
-        
-        .colspace{
-            width: 50px;
-        }
-        
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-        
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
-    
+
     <?php
     
     if(isset($load)){
@@ -95,12 +30,7 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
-        <br/>
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-        <hr>
         <div class="row">
-            
             
             <div class="col-md-10">
                <?php if(isset($editload)) { echo form_open('pc2/update_form'); } else { echo form_open('pc2/index'); } ?>
@@ -795,7 +725,3 @@ if(!$this->session->userdata('isLogin')){
             </div>
         </div>
         
-        
-    </div>
-</body>
-</html>

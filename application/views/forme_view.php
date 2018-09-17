@@ -1,100 +1,4 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-        <title>Biosafety and Biosecurity Online System - Form E</title>
-    
-        <style>
-            body {
-                padding-top: 82px;
-            }
-            
-            .file-input-wrapper {
-                height: 30px;
-                margin: 2px;
-                overflow: hidden;
-                position: relative;
-                width: 118px;
-                background-color: #fff;
-                cursor: pointer;
-            }
-            .file-input-wrapper > input[type="file"] {
-                font-size: 40px;
-                position: absolute;
-                top: 0;
-                right: 0;
-                opacity: 0;
-                cursor: pointer;
-            }
-            .file-input-wrapper > .btn-file-input {
-                background-color: #494949;
-                border-radius: 4px;
-                color: #fff;
-                display: inline-block;
-                height: 34px;
-                margin: 0 0 0 -1px;
-                padding-left: 0;
-                width: 121px;
-                cursor: pointer;
-            }
-            .file-input-wrapper:hover > .btn-file-input {
-                //background-color: #494949;
-            }
-
-            .btn-sample{
-                position: fixed;
-                margin-left: 60px;
-            }
-
-
-            .tblTitle{
-                background-color: black;
-                color: white;
-                text-align: center;
-            }
-
-            .tblTitle2{
-                background-color: #808080;
-                color: white;
-                text-align: center;
-            }
-
-            .centering{
-                text-align: center;
-            }
-            
-            .tbheader1{
-            background-color:  #95a5a6 ;
-            }
-            
-            .tbheader2{
-                background-color: palegreen;
-                text-align: center;
-            }
-            
-            .bluerow{
-                background-color: aquamarine;
-            }
-            .sectiontarget::before {
-                  content:"";
-                  display:block;
-                  height:60px; /* fixed header height*/
-                  margin:-60px 0 0; /* negative fixed header height */
-                }           
-            
-        </style>
-    </head>
-    <body>
-        
-        <?php include_once 'template/navbar.php' ?>
-        
-        <?php
     
     
     if(isset($load)){
@@ -192,9 +96,7 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
         
-        <div class="container">
-            <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-            <hr>
+            
             <div class="row">
                 
                 <div class="col-md-11">
@@ -1570,8 +1472,6 @@ if(!$this->session->userdata('isLogin')){
                 
             </div>    
                 
-                
-        </div>
         
         
         <script>
@@ -1582,6 +1482,3 @@ if(!$this->session->userdata('isLogin')){
             })(jQuery)
         </script>
         
-
-    </body>
-</html>

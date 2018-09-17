@@ -8,7 +8,7 @@ if(!$this->session->userdata('isLogin')){
 <html>
 <head>
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - New Application: Biohazardous Materials Project.</title>
+    <title>Biosafety and Biosecurity Online System - New Application: Living Modified Organisms Project.</title>
     
     <style>
         body {
@@ -19,6 +19,42 @@ if(!$this->session->userdata('isLogin')){
             position: fixed;
             margin-left: 60px;
         }
+        
+        .file-input-wrapper {
+                height: 30px;
+                margin: 2px;
+                overflow: hidden;
+                position: relative;
+                width: 118px;
+                background-color: #fff;
+                cursor: pointer;
+            }
+        
+            .file-input-wrapper > input[type="file"] {
+                font-size: 40px;
+                position: absolute;
+                top: 0;
+                right: 0;
+                opacity: 0;
+                cursor: pointer;
+            }
+        
+            .file-input-wrapper > .btn-file-input {
+                background-color: #494949;
+                border-radius: 4px;
+                color: #fff;
+                display: inline-block;
+                height: 34px;
+                margin: 0 0 0 -1px;
+                padding-left: 0;
+                width: 121px;
+                cursor: pointer;
+            }
+            
+            .file-input-wrapper:hover > .btn-file-input {
+                //background-color: #494949;
+            }
+
         
         #first-table{
             background-color: #95a5a6;
@@ -45,9 +81,18 @@ if(!$this->session->userdata('isLogin')){
             background-color:  #95a5a6 ;
         }
         
+        .tbheader2{
+                background-color: palegreen;
+                text-align: center;
+            }
+        
         .centering{
             text-align: center;
         }
+        
+        .bluerow{
+                background-color: aquamarine;
+            }
         
         .greendata{
             background-color: lawngreen;
@@ -81,20 +126,40 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item active"><a href="#biohazardtab" class="nav-link" data-toggle="tab">Biohazard Material Form</a></li>
+                    <li class="nav-item active"><a href="#annex2tab" class="nav-link" data-toggle="tab">Annex 2 Form</a></li>
+                    <li class="nav-item active"><a href="#formetab" class="nav-link" data-toggle="tab">Form E</a></li>
+                    <li class="nav-item active"><a href="#pc1tab" class="nav-link" data-toggle="tab">PC1 Form</a></li>
+                    <li class="nav-item active"><a href="#pc2tab" class="nav-link" data-toggle="tab">PC2 Form</a></li>
                     <li class="nav-item"><a href="#hirarctab" class="nav-link" data-toggle="tab">OHS-F-4.5.X HIRARC FORM</a></li>
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane active" id="biohazardtab">
+                    <div class="tab-pane active" id="annex2tab">
                         <br/>
-                        <?php include 'biohazard_view.php' ?>
+                        <?php include 'annex2_view.php' ?>
                     </div>
+                    
+                    <div class="tab-pane fade" id="formetab">
+                        <br/>
+                        <?php include 'forme_view.php' ?>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="pc1tab">
+                        <br/>
+                        <?php include 'pc1_view.php' ?>
+                    </div>
+                    
+                    <div class="tab-pane fade" id="pc2tab">
+                        <br/>
+                        <?php include 'pc2_view.php' ?>
+                    </div>
+                    
                     <div class="tab-pane fade" id="hirarctab">
                         <br/>
                         <?php include 'hirarc_view.php' ?>
                     </div>
+                    
                     <div class="tab-pane fade" id="swptab">
                         <br/>
                         <?php include 'swp_view.php' ?>

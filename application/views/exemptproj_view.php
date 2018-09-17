@@ -91,7 +91,7 @@ if(!$this->session->userdata('isLogin')){
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane fade in active" id="exempttab">
+                    <div class="tab-pane active" id="exempttab">
                         <br/>
                         <?php include 'exempt_view.php' ?>
                     </div>
