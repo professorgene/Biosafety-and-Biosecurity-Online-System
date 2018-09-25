@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 03, 2018 at 01:16 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Sep 25, 2018 at 02:33 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `fyp_b`
+-- Database: `biosafety_and_biosecurity_online_system`
 --
 
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
@@ -40,6 +40,13 @@ CREATE TABLE `accounts` (
   `account_approved` int(1) UNSIGNED NOT NULL DEFAULT '0',
   `account_date` timestamp NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `accounts`
+--
+
+INSERT INTO `accounts` (`account_id`, `account_email`, `account_fullname`, `account_password`, `account_type`, `account_approved`, `account_date`) VALUES
+(1, '100061722@students.swinburne.edu.my', 'Eugene Chiang', 'lagoon', 4, 1, '2018-04-09 21:44:22');
 
 -- --------------------------------------------------------
 
@@ -1157,6 +1164,29 @@ CREATE TABLE `pc2` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `project`
+--
+
+CREATE TABLE `project` (
+  `project_id` int(10) UNSIGNED NOT NULL,
+  `project_name` varchar(200) DEFAULT NULL,
+  `project_desc` varchar(500) DEFAULT NULL,
+  `project_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `account_id` int(10) UNSIGNED NOT NULL,
+  `project_approval` int(1) UNSIGNED DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `project`
+--
+
+INSERT INTO `project` (`project_id`, `project_name`, `project_desc`, `project_date`, `account_id`, `project_approval`) VALUES
+(1, 'James\' Bacterium Project', 'Highly sophisticated project about weird bacterium found in tap water.', '2018-09-24 15:34:36', 1, 0),
+(2, 'Cedric\'s Flamebugs', 'The end is coming', '2018-09-24 15:38:34', 1, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `storage`
 --
 
@@ -1386,6 +1416,13 @@ ALTER TABLE `pc2`
   ADD KEY `approver_id` (`approver_id`);
 
 --
+-- Indexes for table `project`
+--
+ALTER TABLE `project`
+  ADD PRIMARY KEY (`project_id`),
+  ADD KEY `account_id` (`account_id`);
+
+--
 -- Indexes for table `storage`
 --
 ALTER TABLE `storage`
@@ -1407,7 +1444,7 @@ ALTER TABLE `swp`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `annex2`
@@ -1524,6 +1561,12 @@ ALTER TABLE `pc2`
   MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `project`
+--
+ALTER TABLE `project`
+  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
@@ -1534,6 +1577,16 @@ ALTER TABLE `storage`
 --
 ALTER TABLE `swp`
   MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `project`
+--
+ALTER TABLE `project`
+  ADD CONSTRAINT `account_id` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
