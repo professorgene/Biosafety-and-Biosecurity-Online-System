@@ -8,11 +8,13 @@ class project_model extends CI_Model
         parent::__construct();
     }
     
+    # New Project
     function insert_new_proj($data)
     {
 		return $this->db->insert('project', $data);
 	}
     
+    # Search by ID
     function get_proj_id($id)
     {
         $this->db->where('project_id', $id);
@@ -20,6 +22,7 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    # Search by User ID
     function get_proj_by_user_id($id)
     {
         $this->db->where('account_id', $id);
@@ -27,9 +30,27 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    # All non approved projects
+    function get_NA_proj() 
+    {
+        $this->db->where('project_approval', 0);
+        $query = $this->db->select('*')->from('project')->get();
+		return $query->result();
+    }
+    
+    # All approved projects
+    function get_A_proj() 
+    {
+        $this->db->where('project_approval', 1);
+        $query = $this->db->select('*')->from('project')->get();
+		return $query->result();
+    }
+    
+    # All projects
     function get_all_proj() 
     {
         $this->db->where('project_approval', 0);
+        $this->db->or_where('project_approval', 1);
         $query = $this->db->select('*')->from('project')->get();
 		return $query->result();
     }

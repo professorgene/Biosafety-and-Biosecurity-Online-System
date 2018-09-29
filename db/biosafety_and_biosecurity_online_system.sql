@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2018 at 02:33 PM
+-- Generation Time: Sep 29, 2018 at 04:46 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -360,6 +360,27 @@ CREATE TABLE `biohazardousmaterial` (
   `officer_name` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
   `editable` int(1) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `educational`
+--
+
+CREATE TABLE `educational` (
+  `quiz_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int(10) UNSIGNED NOT NULL,
+  `quiz_name` varchar(100) DEFAULT NULL,
+  `quiz_desc` varchar(500) DEFAULT NULL,
+  `quiz_fullmark` int(2) UNSIGNED DEFAULT NULL,
+  `quiz_question` varchar(1500) DEFAULT NULL,
+  `quiz_ans_a` varchar(1500) DEFAULT NULL,
+  `quiz_ans_b` varchar(1500) DEFAULT NULL,
+  `quiz_ans_c` varchar(1500) DEFAULT NULL,
+  `quiz_ans_d` varchar(1500) DEFAULT NULL,
+  `quiz_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `quiz_approval` int(1) UNSIGNED DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1322,6 +1343,13 @@ ALTER TABLE `biohazardousmaterial`
   ADD KEY `approver_id` (`approver_id`);
 
 --
+-- Indexes for table `educational`
+--
+ALTER TABLE `educational`
+  ADD PRIMARY KEY (`quiz_id`),
+  ADD KEY `account_id` (`account_id`);
+
+--
 -- Indexes for table `exemptdealing`
 --
 ALTER TABLE `exemptdealing`
@@ -1489,6 +1517,12 @@ ALTER TABLE `biohazardousmaterial`
   MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `educational`
+--
+ALTER TABLE `educational`
+  MODIFY `quiz_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `exemptdealing`
 --
 ALTER TABLE `exemptdealing`
@@ -1581,6 +1615,12 @@ ALTER TABLE `swp`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `educational`
+--
+ALTER TABLE `educational`
+  ADD CONSTRAINT `educational_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
 
 --
 -- Constraints for table `project`
