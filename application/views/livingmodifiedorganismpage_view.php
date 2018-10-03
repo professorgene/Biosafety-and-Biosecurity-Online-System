@@ -37,53 +37,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/annex2">		
-                    <div class="option1 card col-md-9 hover1" title="Annex 2 IBC Assessment of Project Proposal Involving Modern Biotechnology Activities">
-                        <h5><span>ANNEX 2</span></h5>		
-                    </div>				
-            </a>
-		</div>		
-		
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/forme">		
-                    <div class="option1 card col-md-9 hover1" title="NBB/N/CU/15/FORM E">
-                        <h5><span>FORM E</span></h5>		
-                    </div>				
-            </a>
-		</div>
-        
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/pc1">		
-                    <div class="option1 card col-md-9 hover1" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 1 (PC1)">
-                        <h5><span>SBC - APPLICATION FOR NLRDS SUITABLE FOR PC1</span></h5>	
-                    </div>				
-            </a>
-		</div>
-        
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/pc2">		
-                    <div class="option1 card col-md-9 hover1" title="Application for Notifiable Low Risk Dealings (NLRDs) suitable for Physical Containment level 2 (PC2)">
-                        <h5><span>SBC - APPLICATION FOR NLRDS SUITABLE FOR PC2</span></h5>	
-                    </div>				
-            </a>
-		</div>
-        
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/hirarc?type=1">		
-                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.5.X HIRARC Form - Hazard Identification, Risk Assessment, Risk Control (HIRARC)">
-                        <h5><span>OHS-F-4.5.X HIRARC FORM</span></h5>	
-                    </div>				
-            </a>
-		</div>
-        
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/swp?type=1">		
-                    <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
-                        <h5><span>SAFE WORK PROCEDURE</span></h5>	
-                    </div>				
-            </a>
-		</div>
+        <?php echo form_open('livingmodifiedorganismpage/index'); ?>
+                            <br/>
+                            <legend>New Project</legend>
+                            <br/>
+                            <div class="form-group">
+                                <label for="fullname">Project Name:</label>
+                                <input class="form-control" id="projname" name="project_name" placeholder="Enter project name here." type="text" value="<?php echo set_value('project_name'); ?>" />
+                                <span class="text-danger"><?php echo form_error('project_name'); ?></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email_add">Project Description:</label>
+                                <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here." value="<?php echo set_value('project_desc'); ?>"></textarea>
+                                <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
+                            </div>
+                            <br/>
+                            <div class="form-group text-center">
+                                <span class="col-md-1"></span>
+                                <button name="submit" type="submit" class="btn btn-success col-md-4">Create</button>
+                                <span class="col-md-2"></span>
+                                <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+                                <span class="col-md-1"></span>
+                            </div>
+                        <?php echo form_close(); ?>
         <br/>
     </div>
 		

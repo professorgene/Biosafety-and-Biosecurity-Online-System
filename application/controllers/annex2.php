@@ -24,31 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             
-            $this->form_validation->set_rules('applicant_name', 'Name', 'required|callback_fullname_check');
-            $this->form_validation->set_rules('institutional_address', 'Institutionl Address', 'required');
-            $this->form_validation->set_rules('collaborating_partners', 'Collaborating Partners', 'required');
-            $this->form_validation->set_rules('project_title', 'Project Title', 'required');
-            $this->form_validation->set_rules('project_objective_methodology', 'Objective Methodology', 'required');
-            $this->form_validation->set_rules('biological_system_parent_organisms', 'Parent Organisms', 'required');
-            $this->form_validation->set_rules('biological_system_donor_organisms', 'Donor Organisms', 'required');
-            $this->form_validation->set_rules('biological_system_modified_traits', 'Modified Traits', 'required');
-            $this->form_validation->set_rules('premises', 'Premise', 'required');
-            $this->form_validation->set_rules('period', 'Period', 'required');
-            $this->form_validation->set_rules('risk_assessment_and_management', 'Risk assessment', 'required');
-            $this->form_validation->set_rules('emergency_response_plan', 'Emergency Response Plan', 'required');
-            $this->form_validation->set_rules('IBC_recommendation', 'Recommendation', 'required');
-            $this->form_validation->set_rules('PI_experience_and_expertise', 'Experience & Expertise', 'required');
-            $this->form_validation->set_rules('PI_training', 'Training', 'required');
-            $this->form_validation->set_rules('PI_health', 'Health', 'required');
-            $this->form_validation->set_rules('PI_other', 'Other', 'required');
-            $this->form_validation->set_rules('personnel_involved[0]', 'Personnel Involved', 'required|callback_fullname_check');
-            $this->form_validation->set_rules('personnel_designation[0]', 'Personnel Designation', 'required|alpha_numeric_spaces');
-            //$this->form_validation->set_rules('IBC_name', 'IBC name', 'required');
-            //$this->form_validation->set_rules('IBC_date', 'IBC date', 'required');
-            
-            
-            
-            if ($this->form_validation->run() == FALSE){
+            if (!isset($this->input->post('submit'))){
                 
                 $this->load->template('annex2_view', $data);
                 

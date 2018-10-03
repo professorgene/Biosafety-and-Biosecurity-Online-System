@@ -149,10 +149,10 @@ if(!$this->session->userdata('isLogin')){
             <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/newproject"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/projectselect"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/newproject">New Project</a>
+                            <a href="<?php echo base_url(); ?>index.php/projectselect">New Project</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>

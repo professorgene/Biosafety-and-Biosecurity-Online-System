@@ -19,8 +19,7 @@
             
             <div class="col-md-10">
                 
-                <?php if(isset($editload)) { echo form_open('annex2/update_form'); } else { echo form_open('annex2/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+                
                 
                     <div>
                         <br/>
@@ -251,13 +250,12 @@
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'annex2_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex2/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
                        <?php } ?>
                        <span class="col-md-5"></span>
                    </div>
                     
-                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+
                 
                 
             </div>

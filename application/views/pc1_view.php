@@ -33,8 +33,7 @@
         <div class="row">
      <div class="col-md-10">
          
-               <?php if(isset($editload)) { echo form_open('pc1/update_form'); } else { echo form_open('pc1/index'); } ?>
-               <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+               
          
          <?php if(isset($error)){echo $error;} ?>
          
@@ -74,11 +73,11 @@
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><input type="text" name="project_title" class="form-control" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>"></td> 
+                              <td colspan="2"><input type="text" name="pc1_project_title" class="form-control" value="<?php if(isset($load)){echo set_value('pc1_project_title', $item->project_title);}else{echo set_value('pc1_project_title');} ?>"></td> 
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_title'); ?></span>
+                <span class="text-danger"><?php echo form_error('pc1_project_title'); ?></span>
          </div>
                    <table class="table table-bordered">
                        <thead>
@@ -536,11 +535,10 @@
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'pc1_update' value = 'Update' onclick="location.href='<?php echo site_url().'/pc1/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
                        <?php } ?>
                    </div>
-               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+               
             </div>
             
             <div class="col-md-2">

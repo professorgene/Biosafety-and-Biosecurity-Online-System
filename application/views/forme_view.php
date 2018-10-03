@@ -100,8 +100,7 @@
             <div class="row">
                 
                 <div class="col-md-11">
-                    <?php if(isset($editload)) { echo form_open('forme/update_form'); } else { echo form_open('forme/index'); } ?>
-                    <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+                    
                     
                     
                     <div>
@@ -129,8 +128,8 @@
                         <div><p>Please refer to the Explanatory Notes of NBB/N/CU/15/FORM E before filling up this form</p></div>
                         
                         <div class="form-group">
-                            <label class="control-label" for="project_title"><h6><strong>PROJECT TITLE:</strong></h6></label>
-                            <input type="text" class="form-control col-md-5" name="project_title" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>" >
+                            <label class="control-label" for="forme_project_title"><h6><strong>PROJECT TITLE:</strong></h6></label>
+                            <input type="text" class="form-control col-md-5" name="forme_project_title" value="<?php if(isset($load)){echo set_value('forme_project_title', $item->project_title);}else{echo set_value('forme_project_title');} ?>" >
                         </div>
                         
                         <br>
@@ -394,7 +393,7 @@
                                 <td>5</td>
                                 <td>Date of the IBC Assesment:</td>
                                 <td>
-                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="IBC_date" value="<?php if(isset($load)){echo set_value('IBC_date', $item->IBC_date);}else{echo set_value('IBC_date');} ?>"  >
+                                    <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="forme_IBC_date" value="<?php if(isset($load)){echo set_value('forme_IBC_date', $item->IBC_date);}else{echo set_value('forme_IBC_date');} ?>"  >
                                 </td>
                             </tr>
                             <tr>
@@ -1450,11 +1449,10 @@
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'forme_update' value = 'Update' onclick="location.href='<?php echo site_url().'/forme/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
                        <?php } ?>
                 </div>
-                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+                
                 </div>
                 
                  <div class="col-md-1">

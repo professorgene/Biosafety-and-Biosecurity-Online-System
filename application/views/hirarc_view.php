@@ -32,8 +32,7 @@
     
         <div class="row">   
             <div class="col-md-10">
-               <?php if(isset($editload)) { echo form_open('hirarc/update_form'); } else { echo form_open('hirarc/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+               
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -423,11 +422,10 @@
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'hirarc_update' value = 'Update' onclick="location.href='<?php echo site_url().'/hirarc/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
                        <?php } ?>
                    </div>
-               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+               
             </div>
             
             <div class="col-md-2">
