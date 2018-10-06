@@ -22,6 +22,14 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    # Search by name
+    function get_proj_name($name)
+    {
+        $this->db->where('project_name', $name);
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     # Search by User ID
     function get_proj_by_user_id($id)
     {

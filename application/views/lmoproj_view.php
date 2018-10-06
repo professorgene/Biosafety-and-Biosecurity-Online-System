@@ -117,6 +117,7 @@ if(!$this->session->userdata('isLogin')){
           margin:-60px 0 0; /* negative fixed header height */
         }
     </style> 
+    
 </head>    
 <body>
     <?php include_once 'template/navbar.php' ?>
@@ -169,6 +170,8 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
+                
+                
                 
             </div>
         </div>

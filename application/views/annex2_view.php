@@ -24,6 +24,7 @@
                     <div>
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
+                        
                     </div>
 
 
@@ -251,7 +252,9 @@
                        <button type="submit" name = 'annex2_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex2/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
                        <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
+                       <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
+                       
                        <span class="col-md-5"></span>
                    </div>
                     

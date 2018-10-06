@@ -1446,11 +1446,14 @@
                 </div>
                     
                     <div style="text-align: center">
+                        
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'forme_update' value = 'Update' onclick="location.href='<?php echo site_url().'/forme/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
                        <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
+                    
                 </div>
                 
                 </div>

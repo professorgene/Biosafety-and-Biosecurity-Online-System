@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 29, 2018 at 04:46 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Oct 06, 2018 at 03:02 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity_online_system`
 --
-
-CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
-USE biosafety_and_biosecurity_online_system;
 
 -- --------------------------------------------------------
 
@@ -46,7 +43,8 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`account_id`, `account_email`, `account_fullname`, `account_password`, `account_type`, `account_approved`, `account_date`) VALUES
-(1, '100061722@students.swinburne.edu.my', 'Eugene Chiang', 'lagoon', 4, 1, '2018-04-09 21:44:22');
+(1, '100061722@students.swinburne.edu.my', 'Eugene Chiang', 'lagoon', 4, 1, '2018-04-09 21:44:22'),
+(2, '100072290@students.swinburne.edu.my', 'Si Kim Yeung', '123456', 1, 1, '2018-10-05 13:41:29');
 
 -- --------------------------------------------------------
 
@@ -59,6 +57,7 @@ CREATE TABLE `annex2` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '1',
+  `project_name` varchar(250) NOT NULL,
   `general_info_edit` int(1) DEFAULT '0',
   `applicant_name` varchar(100) DEFAULT NULL,
   `institutional_address` varchar(250) DEFAULT NULL,
@@ -86,8 +85,17 @@ CREATE TABLE `annex2` (
   `IBC_name` varchar(100) DEFAULT NULL,
   `IBC_date` date DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annex2`
+--
+
+INSERT INTO `annex2` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_name`, `general_info_edit`, `applicant_name`, `institutional_address`, `collaborating_partners`, `project_title`, `exp_param_edit`, `project_objective_methodology`, `biological_system_parent_organisms`, `biological_system_donor_organisms`, `biological_system_modified_traits`, `premises`, `period`, `risk_assessment_and_management`, `emergency_response_plan`, `IBC_recommendation`, `PI_details_edit`, `PI_experience_and_expertise`, `PI_training`, `PI_health`, `PI_other`, `personnel_involved_list_edit`, `personnel_involved`, `personnel_designation`, `IBC_approved`, `IBC_name`, `IBC_date`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, NULL, 1, 'New Save Test', 0, 'Save 2', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'saved'),
+(2, 2, NULL, 1, 'Test Submit', 0, '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -100,6 +108,7 @@ CREATE TABLE `annex3` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '2',
+  `status` varchar(100) NOT NULL DEFAULT 'pending',
   `reference_no` varchar(10) DEFAULT NULL,
   `annex3_header_edit` int(1) DEFAULT '0',
   `organization` varchar(250) DEFAULT NULL,
@@ -454,6 +463,7 @@ CREATE TABLE `forme` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '8',
+  `project_name` varchar(250) NOT NULL,
   `forme_project_title_edit` int(1) DEFAULT '0',
   `project_title` varchar(100) DEFAULT NULL,
   `forme_notif_list_edit` int(1) DEFAULT '0',
@@ -593,7 +603,8 @@ CREATE TABLE `forme` (
   `forme_partG_edit` int(1) DEFAULT '0',
   `reference_description` varchar(500) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -661,6 +672,7 @@ CREATE TABLE `hirarc` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(2) DEFAULT '10',
+  `project_name` varchar(250) NOT NULL,
   `hirarc_sec1_edit` int(1) DEFAULT '0',
   `company_name` varchar(200) DEFAULT NULL,
   `date` date DEFAULT NULL,
@@ -685,7 +697,8 @@ CREATE TABLE `hirarc` (
   `HIRARC_PIC` varchar(500) DEFAULT NULL,
   `application_type` int(1) DEFAULT '0',
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -917,6 +930,15 @@ CREATE TABLE `notification` (
   `notification_read` int(1) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `notification`
+--
+
+INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`, `notification_title`, `notification_description`, `notification_date`, `notification_read`) VALUES
+(1, NULL, 4, 'New Registration', 'The following user has requested for an account: Si Kim Yeung', '2018-10-05 21:41:29', 0),
+(2, NULL, 4, 'New Annex 2 Application', 'The following user has submitted a new application form: Si Kim Yeung', '2018-10-06 20:41:14', 0),
+(3, NULL, 4, 'New Annex 2 Application', 'The following user has submitted a new application form: Si Kim Yeung', '2018-10-06 20:57:20', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1037,6 +1059,7 @@ CREATE TABLE `pc1` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(2) DEFAULT '15',
+  `project_name` varchar(250) NOT NULL,
   `date_received` datetime DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `pc1_sec1_edit` int(1) DEFAULT '0',
@@ -1095,7 +1118,8 @@ CREATE TABLE `pc1` (
   `officer_name` varchar(100) DEFAULT NULL,
   `laboratory_manager` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1109,6 +1133,7 @@ CREATE TABLE `pc2` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(2) DEFAULT '16',
+  `project_name` varchar(250) NOT NULL,
   `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `pc2_sec1_edit` int(1) DEFAULT '0',
@@ -1179,7 +1204,8 @@ CREATE TABLE `pc2` (
   `officer_name` varchar(100) DEFAULT NULL,
   `laboratory_manager` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1203,7 +1229,12 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` (`project_id`, `project_name`, `project_desc`, `project_date`, `account_id`, `project_approval`) VALUES
 (1, 'James\' Bacterium Project', 'Highly sophisticated project about weird bacterium found in tap water.', '2018-09-24 15:34:36', 1, 0),
-(2, 'Cedric\'s Flamebugs', 'The end is coming', '2018-09-24 15:38:34', 1, 0);
+(2, 'Cedric\'s Flamebugs', 'The end is coming', '2018-09-24 15:38:34', 1, 0),
+(3, 'Test Insert', 'asfcsacs', '2018-10-05 14:51:06', 2, 0),
+(4, 'Test Project name', 'ascvsv try again', '2018-10-05 14:52:48', 2, 0),
+(5, 'New Save Test', 'Test if status is saved with', '2018-10-06 12:39:00', 2, 0),
+(6, 'New Save Test', 'Test status save', '2018-10-06 12:40:17', 2, 0),
+(7, 'Test Submit', 'test submit status', '2018-10-06 12:56:38', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -1237,6 +1268,7 @@ CREATE TABLE `swp` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(2) DEFAULT '17',
+  `project_name` varchar(250) NOT NULL,
   `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `swp_sec1_edit` int(1) DEFAULT '0',
@@ -1274,7 +1306,8 @@ CREATE TABLE `swp` (
   `SWP_reviewed_by_remarks` varchar(300) DEFAULT NULL,
   `application_type` int(1) DEFAULT '0',
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1472,13 +1505,13 @@ ALTER TABLE `swp`
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `account_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `annex2`
 --
 ALTER TABLE `annex2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `annex3`
@@ -1532,7 +1565,7 @@ ALTER TABLE `exemptdealing`
 -- AUTO_INCREMENT for table `forme`
 --
 ALTER TABLE `forme`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `formf`
@@ -1544,7 +1577,7 @@ ALTER TABLE `formf`
 -- AUTO_INCREMENT for table `hirarc`
 --
 ALTER TABLE `hirarc`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `incidentaccidentreport`
@@ -1568,7 +1601,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -1586,19 +1619,19 @@ ALTER TABLE `notificationlmobiohazardousmaterial`
 -- AUTO_INCREMENT for table `pc1`
 --
 ALTER TABLE `pc1`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pc2`
 --
 ALTER TABLE `pc2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `storage`
@@ -1610,7 +1643,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT for table `swp`
 --
 ALTER TABLE `swp`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
