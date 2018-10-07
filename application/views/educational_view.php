@@ -65,13 +65,13 @@ if(!$this->session->userdata('isLogin')){
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Title</th>
-                        <th>Description</th>
+                        <th colspan="3">Title</th>
+                        <th colspan="7">Description</th>
                         <th>Score</th>
                         <th></th>
                     </tr>
                 </thead>
-                <tbody id="inventory">
+                <tbody id="quiz">
                 <?php $i=0; foreach($quiz as $row): ?>
                     <tr class="searchable">
                         <td class="text-center"><?php echo $i = $i+1 ?></td>
@@ -86,7 +86,7 @@ if(!$this->session->userdata('isLogin')){
                                     }
                                 }
                             ?></td>
-                        <td><i class="fa fa-bars btn btn-info" onclick="start_quiz(<?php echo $row->quiz_id; ?>)" title="Begin Quiz"></i></td>
+                        <td><i class="fa fa-play btn btn-info" onclick="start_quiz(<?php echo $row->quiz_id; ?>)" title="Begin Quiz"></i></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -97,14 +97,14 @@ if(!$this->session->userdata('isLogin')){
             $(document).ready(function(){
                 $("#searchbar").on("keyup", function() {
                     var value = $(this).val().toLowerCase();
-                    $("#storage.searchable").filter(function() {
+                    $("#quiz .searchable").filter(function() {
                         $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                     });
                 });
             });
             
             function start_quiz(i){
-                window.location = "<?php echo base_url(); ?>index.php/educational/edit/" + i;
+                window.location = "<?php echo base_url(); ?>index.php/educational/start_quiz/" + i;
             }
         </script>
         
