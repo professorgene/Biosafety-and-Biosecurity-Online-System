@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 06, 2018 at 03:02 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Oct 07, 2018 at 11:28 AM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,9 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity_online_system`
 --
+
+CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
+USE biosafety_and_biosecurity_online_system;
 
 -- --------------------------------------------------------
 
@@ -391,6 +394,13 @@ CREATE TABLE `educational` (
   `quiz_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `quiz_approval` int(1) UNSIGNED DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `educational`
+--
+
+INSERT INTO `educational` (`quiz_id`, `account_id`, `quiz_name`, `quiz_desc`, `quiz_fullmark`, `quiz_question`, `quiz_ans_a`, `quiz_ans_b`, `quiz_ans_c`, `quiz_ans_d`, `quiz_date`, `quiz_approval`) VALUES
+(1, 1, 'Hello World!', 'Programmed to work and not to feel', 3, 'a:3:{i:0;s:32:\"Not even sure if this is real...\";i:1;s:26:\"What is the answer of 2+2?\";i:2;s:31:\"What is the weather like today?\";}', 'a:3:{i:0;s:2:\"ho\";i:1;s:1:\"3\";i:2;s:6:\"Cloudy\";}', 'a:3:{i:0;s:2:\"he\";i:1;s:1:\"4\";i:2;s:5:\"Sunny\";}', 'a:3:{i:0;s:2:\"ha\";i:1;s:1:\"5\";i:2;s:5:\"Rainy\";}', 'a:3:{i:0;s:2:\"hu\";i:1;s:1:\"6\";i:2;s:5:\"Snowy\";}', '2018-10-07 09:19:13', 1);
 
 -- --------------------------------------------------------
 
@@ -785,6 +795,19 @@ CREATE TABLE `inventory` (
   `keeper_name` varchar(100) NOT NULL,
   `remarks` varchar(500) DEFAULT NULL,
   `approval` int(1) UNSIGNED DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `marks`
+--
+
+CREATE TABLE `marks` (
+  `mark_id` int(10) UNSIGNED NOT NULL,
+  `quiz_id` int(10) UNSIGNED NOT NULL,
+  `account_id` int(10) UNSIGNED NOT NULL,
+  `mark` int(2) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -1430,6 +1453,14 @@ ALTER TABLE `inventory`
   ADD KEY `account_id` (`account_id`);
 
 --
+-- Indexes for table `marks`
+--
+ALTER TABLE `marks`
+  ADD PRIMARY KEY (`mark_id`),
+  ADD KEY `quiz_id` (`quiz_id`),
+  ADD KEY `account_id` (`account_id`);
+
+--
 -- Indexes for table `materialriskassessment`
 --
 ALTER TABLE `materialriskassessment`
@@ -1553,7 +1584,7 @@ ALTER TABLE `biohazardousmaterial`
 -- AUTO_INCREMENT for table `educational`
 --
 ALTER TABLE `educational`
-  MODIFY `quiz_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `quiz_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `exemptdealing`
@@ -1590,6 +1621,12 @@ ALTER TABLE `incidentaccidentreport`
 --
 ALTER TABLE `inventory`
   MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `marks`
+--
+ALTER TABLE `marks`
+  MODIFY `mark_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `materialriskassessment`
@@ -1654,6 +1691,13 @@ ALTER TABLE `swp`
 --
 ALTER TABLE `educational`
   ADD CONSTRAINT `educational_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
+
+--
+-- Constraints for table `marks`
+--
+ALTER TABLE `marks`
+  ADD CONSTRAINT `marks_ibfk_1` FOREIGN KEY (`quiz_id`) REFERENCES `educational` (`quiz_id`),
+  ADD CONSTRAINT `marks_ibfk_2` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
 
 --
 -- Constraints for table `project`
