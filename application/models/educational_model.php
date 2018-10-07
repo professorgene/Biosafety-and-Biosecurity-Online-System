@@ -38,6 +38,11 @@ class educational_model extends CI_Model
         $this->db->update('educational', $data);
     }
     
+    # Records mark
+    function insert_marks($data){
+        return $this->db->insert('marks', $data);
+    }
+    
     # Retrieves ALL marks by user id
     function get_all_marks($acc_id) {
         $this->db->where('account_id', $acc_id);

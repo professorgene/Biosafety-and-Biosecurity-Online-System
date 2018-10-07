@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 07, 2018 at 11:28 AM
+-- Generation Time: Oct 07, 2018 at 05:53 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -391,6 +391,7 @@ CREATE TABLE `educational` (
   `quiz_ans_b` varchar(1500) DEFAULT NULL,
   `quiz_ans_c` varchar(1500) DEFAULT NULL,
   `quiz_ans_d` varchar(1500) DEFAULT NULL,
+  `quiz_answer` varchar(1500) DEFAULT NULL,
   `quiz_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `quiz_approval` int(1) UNSIGNED DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -399,8 +400,9 @@ CREATE TABLE `educational` (
 -- Dumping data for table `educational`
 --
 
-INSERT INTO `educational` (`quiz_id`, `account_id`, `quiz_name`, `quiz_desc`, `quiz_fullmark`, `quiz_question`, `quiz_ans_a`, `quiz_ans_b`, `quiz_ans_c`, `quiz_ans_d`, `quiz_date`, `quiz_approval`) VALUES
-(1, 1, 'Hello World!', 'Programmed to work and not to feel', 3, 'a:3:{i:0;s:32:\"Not even sure if this is real...\";i:1;s:26:\"What is the answer of 2+2?\";i:2;s:31:\"What is the weather like today?\";}', 'a:3:{i:0;s:2:\"ho\";i:1;s:1:\"3\";i:2;s:6:\"Cloudy\";}', 'a:3:{i:0;s:2:\"he\";i:1;s:1:\"4\";i:2;s:5:\"Sunny\";}', 'a:3:{i:0;s:2:\"ha\";i:1;s:1:\"5\";i:2;s:5:\"Rainy\";}', 'a:3:{i:0;s:2:\"hu\";i:1;s:1:\"6\";i:2;s:5:\"Snowy\";}', '2018-10-07 09:19:13', 1);
+INSERT INTO `educational` (`quiz_id`, `account_id`, `quiz_name`, `quiz_desc`, `quiz_fullmark`, `quiz_question`, `quiz_ans_a`, `quiz_ans_b`, `quiz_ans_c`, `quiz_ans_d`, `quiz_answer`, `quiz_date`, `quiz_approval`) VALUES
+(1, 1, 'Hello World!', 'Programmed to work and not feel...', 2, 'a:2:{i:0;s:34:\"Don\'t know whether this is real...\";i:1;s:26:\"Although it sounds like...\";}', 'a:2:{i:0;s:12:\"Hello World!\";i:1;s:14:\"Bits and bytes\";}', 'a:2:{i:0;s:3:\"C++\";i:1;s:20:\"Woah\r\n\r\nHello there.\";}', 'a:2:{i:0;s:2:\"C#\";i:1;s:35:\"What is the game called Backgammon?\";}', 'a:2:{i:0;s:5:\"Basic\";i:1;s:24:\"I believe that munchkins\";}', 'a:2:{i:0;s:1:\"1\";i:1;s:1:\"4\";}', '2018-10-07 14:25:15', 1),
+(2, 1, 'Very Important Biological Questions', 'This description is brought to you by Skillshare. An online platform that', 3, 'a:3:{i:0;s:5:\"water\";i:1;s:6:\"purple\";i:2;s:6:\"orange\";}', 'a:3:{i:0;s:1:\"a\";i:1;s:1:\"1\";i:2;s:1:\"f\";}', 'a:3:{i:0;s:1:\"b\";i:1;s:1:\"2\";i:2;s:2:\"ff\";}', 'a:3:{i:0;s:1:\"c\";i:1;s:1:\"3\";i:2;s:3:\"fff\";}', 'a:3:{i:0;s:1:\"d\";i:1;s:1:\"4\";i:2;s:4:\"ffff\";}', 'a:3:{i:0;s:1:\"2\";i:1;s:1:\"1\";i:2;s:1:\"3\";}', '2018-10-07 14:26:22', 1);
 
 -- --------------------------------------------------------
 
@@ -1584,7 +1586,7 @@ ALTER TABLE `biohazardousmaterial`
 -- AUTO_INCREMENT for table `educational`
 --
 ALTER TABLE `educational`
-  MODIFY `quiz_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `quiz_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `exemptdealing`
@@ -1596,7 +1598,7 @@ ALTER TABLE `exemptdealing`
 -- AUTO_INCREMENT for table `forme`
 --
 ALTER TABLE `forme`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `formf`
@@ -1608,7 +1610,7 @@ ALTER TABLE `formf`
 -- AUTO_INCREMENT for table `hirarc`
 --
 ALTER TABLE `hirarc`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `incidentaccidentreport`
@@ -1656,13 +1658,13 @@ ALTER TABLE `notificationlmobiohazardousmaterial`
 -- AUTO_INCREMENT for table `pc1`
 --
 ALTER TABLE `pc1`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `pc2`
 --
 ALTER TABLE `pc2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `project`
@@ -1680,7 +1682,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT for table `swp`
 --
 ALTER TABLE `swp`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

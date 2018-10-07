@@ -64,7 +64,7 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <div class="form-group">
                     <label for="quiz_desc">Quiz Description:</label>
-                    <input class="form-control" id="quiz_desc" name="quiz_desc" placeholder="Enter description here." type="text" />
+                    <textarea class="form-control" id="quiz_desc" name="quiz_desc" placeholder="Enter description here."></textarea>
                     <span class="text-danger"><?php echo form_error('quiz_desc'); ?></span>
                 </div>
                 
@@ -83,9 +83,10 @@ if(!$this->session->userdata('isLogin')){
                         <option value="10">10</option>
                     </select>
                 </div>
-
+                <p class="text-center">Please choose the correct answer for each question using the dropdown menu!</p>
                 <div class="row" id="allquestions"></div>
-                
+                <!-- <div id="submission"></div> -->
+                <br/>
                 <div class="form-group text-center">
                     <span class="col-md-2"></span>
                     <button name="submit" type="submit" class="btn btn-success col-md-3">Submit</button>
@@ -104,7 +105,8 @@ if(!$this->session->userdata('isLogin')){
     
     <script>
         function genQues() {
-            document.getElementById("allquestions").innerHTML = "";
+            document.getElementById("allquestions").innerHTML = '';
+            /* document.getElementById("submission").innerHTML = ''; */
             for (var i=0; i < document.getElementById("quiz_fullmark").value; i++) {  
                 document.getElementById("allquestions").innerHTML += 
                     '<fieldset class="col-md-6">' +
@@ -128,8 +130,26 @@ if(!$this->session->userdata('isLogin')){
                             '<label>Option 4:</label>' +
                             '<textarea class="form-control" name="optD[]" placeholder="Enter the answer here." required></textarea>' +
                         '</div>' +
+                        '<label>Correct Answer:</label>' +
+                        '<select class="form-control" name="true[]" required>' +
+                            '<option value="1">Option 1</option>' +
+                            '<option value="2">Option 2</option>' +
+                            '<option value="3">Option 3</option>' +
+                            '<option value="4">Option 4</option>' +
+                        '</select>' +
                     '</fieldset>';
             }
+            /*
+            document.getElementById("submission").innerHTML +=
+                '<br/>' +
+                '<div class="form-group text-center">' +
+                    '<span class="col-md-2"></span>' +
+                    '<button name="submit" type="submit" class="btn btn-success col-md-3">Submit</button>' +
+                    '<span class="col-md-2"></span>' +
+                    '<button name="cancel" onclick="window.location.reload()" class="btn col-md-3">Reset</button>' +
+                    '<span class="col-md-2"></span>' +
+                '</div>';
+            */
             /*
             for (var i=0; i < document.getElementById("quiz_fullmark").value; i++) {  
                 document.getElementById("allquestions").innerHTML += 
