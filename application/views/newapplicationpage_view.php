@@ -46,7 +46,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/exemptproj">		
+            <a href="<?php echo base_url(); ?>index.php/exemptdealingpage">		
                     <div class="option1 card col-md-9 hover1" title="Exempt Dealing Form Page">
                         <h5><span>EXEMPT DEALING</span></h5>		
                     </div>				
@@ -54,7 +54,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/biohazardproj">		
+            <a href="<?php echo base_url(); ?>index.php/biohazardous_materialpage">		
                     <div class="option1 card col-md-9 hover1" title="Biohazardous Material Form Page">
                         <h5><span>BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				

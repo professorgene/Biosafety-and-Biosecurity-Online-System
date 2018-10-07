@@ -27,11 +27,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $saveStatus = "saved";
             $submitStatus = "submitted";
             
-            if (!isset($save)){
+            if (!isset($save) && !isset($submit)){
                 
                 $this->load->template('lmoproj_view', $data);
                 
-            }else{
+            }elseif(isset($save)){
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
@@ -460,13 +460,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                  
                 
-            }
-            
-            if (!isset($submit)){
-                
-                $this->load->template('lmoproj_view', $data);
-                
-            }else{
+            }elseif(isset($submit)){
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
@@ -897,6 +891,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 
             }
+            
         }
         
     }

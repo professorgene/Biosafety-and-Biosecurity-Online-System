@@ -33,8 +33,6 @@
         <div class="row">
             
             <div class="col-md-10">
-               <?php if(isset($editload)) { echo form_open('exempt/update_form'); } else { echo form_open('exempt/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                 <div>
                         <br/>
@@ -431,11 +429,10 @@
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'exempt_update' value = 'Update' onclick="location.href='<?php echo site_url().'/exempt/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
+                       <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                 </div>
-               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
             </div>
             
             <div class="col-md-2">
