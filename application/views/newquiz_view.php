@@ -54,6 +54,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-md-10 bg-white">
                 <?php echo form_open('educational/new_quiz'); ?>
+                <br/>
                 <legend>New Quiz</legend>
                 <br/>
                 <div class="form-group">

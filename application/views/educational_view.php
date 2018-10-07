@@ -64,29 +64,32 @@ if(!$this->session->userdata('isLogin')){
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th></th>
+                        <th colspan="1"></th>
                         <th colspan="3">Title</th>
-                        <th colspan="7">Description</th>
-                        <th>Score</th>
-                        <th></th>
+                        <th colspan="6">Description</th>
+                        <th class="text-right" colspan="1">Score</th>
+                        <th colspan="1"></th>
                     </tr>
                 </thead>
                 <tbody id="quiz">
                 <?php $i=0; foreach($quiz as $row): ?>
                     <tr class="searchable">
-                        <td class="text-center"><?php echo $i = $i+1 ?></td>
+                        <td class="text-center" colspan="1"><?php echo $i = $i+1 ?></td>
                         <td colspan="3"><?php echo $row->quiz_name; ?></td>
-                        <td colspan="7"><?php echo $row->quiz_desc; ?></td>
-                        <td><?php 
+                        <td colspan="6"><?php echo $row->quiz_desc; ?></td>
+                        <td class="text-right" colspan="1"><?php 
                                 if(isset($mark)){
+                                    $words = "";
                                     foreach($mark as $row2) {
                                         if($row->quiz_id == $row2->quiz_id){
-                                            echo $row2->mark . " / " . $row->quiz_fullmark;
+                                            $words = $row2->mark;
                                         }
                                     }
+                                    $words = $words . " / " . $row->quiz_fullmark;
+                                    echo $words;
                                 }
                             ?></td>
-                        <td><i class="fa fa-play btn btn-info" onclick="start_quiz(<?php echo $row->quiz_id; ?>)" title="Begin Quiz"></i></td>
+                        <td class="text-center" colspan="1"><i class="fa fa-play btn btn-info" onclick="start_quiz(<?php echo $row->quiz_id; ?>)" title="Begin Quiz"></i></td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
