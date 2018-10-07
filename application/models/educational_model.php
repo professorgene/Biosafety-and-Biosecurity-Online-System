@@ -37,5 +37,20 @@ class educational_model extends CI_Model
         $this->db->where('quiz_id', $id);
         $this->db->update('educational', $data);
     }
+    
+    # Retrieves ALL marks by user id
+    function get_all_marks($acc_id) {
+        $this->db->where('account_id', $acc_id);
+        $query = $this->db->get('marks');
+		return $query->result();
+    }
+    
+    # Retrieves marks by ID
+    function get_marks_by_id($quiz_id, $acc_id) {
+        $this->db->where('quiz_id', $quiz_id);
+        $this->db->where('account_id', $acc_id);
+        $query = $this->db->get('marks');
+		return $query->result();
+    }
 }
 ?>
