@@ -35,7 +35,9 @@ class educational_model extends CI_Model
     function delete_quiz($id) {
         $data = array('quiz_approval' => 0);
         $this->db->where('quiz_id', $id);
-        $this->db->update('educational', $data);
+        if($this->db->update('educational', $data)){
+            return true;
+        }
     }
     
     # Records mark

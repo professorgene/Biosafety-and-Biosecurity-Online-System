@@ -89,7 +89,12 @@ if(!$this->session->userdata('isLogin')){
                                     echo $words;
                                 }
                             ?></td>
-                        <td class="text-center" colspan="1"><i class="fa fa-play btn btn-info" onclick="start_quiz(<?php echo $row->quiz_id; ?>)" title="Begin Quiz"></i></td>
+                        <td class="text-center" colspan="1">
+                            <i class="fa fa-play btn btn-info" onclick="start_quiz(<?php echo $row->quiz_id; ?>)" title="Begin Quiz"></i>
+                            <?php if($this->session->userdata('account_type') == 4) { ?>
+                            <i class="fa fa-times btn btn-danger" onclick="delete_quiz(<?php echo $row->quiz_id; ?>)" title="Delete Quiz"></i>
+                            <?php } ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -108,6 +113,13 @@ if(!$this->session->userdata('isLogin')){
             
             function start_quiz(i){
                 window.location = "<?php echo base_url(); ?>index.php/educational/start_quiz/" + i;
+            }
+            
+            function delete_quiz(i){
+                var j = confirm("You are about to delete this quiz. Are you sure?");
+                if (j) {
+                    window.location = "<?php echo base_url(); ?>index.php/educational/delete_quiz/" + i;
+                }
             }
         </script>
         

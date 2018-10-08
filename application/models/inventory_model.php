@@ -57,28 +57,33 @@ class inventory_model extends CI_Model
     function update_inventory($id, $data)
     {
         $this->db->where('inventory_id', $id);
-        $this->db->update('inventory', $data);
-		return true;
+        if($this->db->update('inventory', $data)){
+            return true;
+        }
 	}
     
     function update_storage($id, $data)
     {   
         $this->db->where('storage_id', $id);
-        $this->db->update('storage', $data);
-		return true;
+        if($this->db->update('storage', $data)){
+            return true;
+        }
 	}
     
     function delete_item($id, $type) {
         if ($type == 1) {
             $data = array('approval' => 2);
             $this->db->where('inventory_id', $id);
-            $this->db->update('inventory', $data);
+            if($this->db->update('inventory', $data)){
+                return true;
+            }
         } elseif ($type == 2) {
             $data = array('approval' => 2);
             $this->db->where('storage_id', $id);
-            $this->db->update('storage', $data);
+            if($this->db->update('storage', $data)){
+                return true;
+            }
         }
-        return true;
     }
 }
 ?>

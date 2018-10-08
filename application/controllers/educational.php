@@ -20,6 +20,20 @@ class educational extends CI_Controller {
         $this->load->template('educational_view', $data);
     }
     
+    public function delete_quiz() {
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        
+        $id = $this->uri->segment(3);
+        
+        if( $this->educational_model->delete_quiz($id) ){
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the selected quiz!</div>');
+            redirect('educational/index');
+        } else {
+            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+            redirect('educational/index');
+        }
+    }
+    
     public function new_quiz() {
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
