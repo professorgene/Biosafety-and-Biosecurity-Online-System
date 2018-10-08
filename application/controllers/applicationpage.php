@@ -13,8 +13,8 @@ class applicationpage extends CI_Controller {
 
 		//breadcrum
 		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->push('New Project','/projectselect', true);
 		$this->breadcrumbs->push('Application', true);
-		
     }
 		
 		public function index(){
