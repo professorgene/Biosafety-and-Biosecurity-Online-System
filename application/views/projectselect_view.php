@@ -47,8 +47,10 @@ if(!$this->session->userdata('isLogin')){
 			</div>
         </h2>
 			<br>
-        
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+		<hr>
         <div class="row">
+		
             <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">

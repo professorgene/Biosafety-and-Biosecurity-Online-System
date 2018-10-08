@@ -14,6 +14,11 @@ class educational extends CI_Controller {
     }
 	
 	public function index() {
+		
+		//breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('Educational Activities', true);
+			
         $data['quiz'] = $this->educational_model->get_all_quiz();
         $data['mark'] = $this->educational_model->get_all_marks($this->session->userdata('account_id'));
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
