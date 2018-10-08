@@ -30,12 +30,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <!-- Page Heading -->
         <br>
-
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
-
+			
+<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
+	
         <div class="row">
             <a href="<?php echo base_url(); ?>index.php/lmo61page">		
                     <div class="option1 card col-md-9 hover1" title="Living Modified Organism (LMO) Form">
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport?type=4">		
+            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj">		
                     <div class="option1 card col-md-9 hover1" title="OHS-F-4.20.X Incident Accident Report Form">
                         <h5><span>EXEMPT DEALING OR BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				

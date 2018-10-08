@@ -88,19 +88,16 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-12">
 			<br>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item active"><a href="#annex3tab" class="nav-link" data-toggle="tab">Exempt Dealings Form</a></li>
-                    <li class="nav-item"><a href="#ohstab" class="nav-link" data-toggle="tab">HIRARC Form</a></li>
+                    <li class="nav-item active"><a href="#formf" class="nav-link" data-toggle="tab">Form F</a></li>
+                    
                 </ul>
                 
                 <div class="tab-content">
-                    <div class="tab-pane active" id="annex3tab">
+                    <div class="tab-pane active" id="formf">
                         <br/>
-                        <?php include 'annex3_view.php' ?>
+                        <?php include 'formf_view.php' ?>
                     </div>
-                    <div class="tab-pane fade" id="ohstab">
-                        <br/>
-                        <?php include 'incidentaccidentreport_view.php' ?>
-                    </div>
+                    
                     
                 </div>
                 

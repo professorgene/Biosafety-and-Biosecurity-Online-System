@@ -11,9 +11,7 @@ if(!$this->session->userdata('isLogin')){
     <title>Biosafety and Biosecurity Online System - Annual/Final Report for use of Biohazardous materials Form</title>
     
     <style>
-        body {
-            padding-top: 60px;
-        }
+
         
         .btn-sample{
             position: fixed;
@@ -67,9 +65,6 @@ if(!$this->session->userdata('isLogin')){
     
     <div class="container">
         <br/>
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
-	
-		<hr>
         <div class="row">  
             
             <div class="col-md-10">

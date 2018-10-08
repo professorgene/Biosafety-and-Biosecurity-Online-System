@@ -80,8 +80,7 @@ if(!$this->session->userdata('isLogin')){
     ?>
     
     <div class="container">
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-        <hr>
+
         <div class="row">
             
             <div class="col-md-10">

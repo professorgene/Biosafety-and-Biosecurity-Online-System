@@ -110,10 +110,10 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/annualfinalreportpage"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/annualorfinalreportproj"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/annualfinalreportpage">Annual or Final Report <br> <br></a>
+                            <a href="<?php echo base_url(); ?>index.php/annualorfinalreportproj">Annual or Final Report <br> <br></a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
