@@ -140,7 +140,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
         <?php if($this->session->userdata('account_type') == 5 ){ ?>
-        
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
@@ -168,7 +167,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
         <?php if($this->session->userdata('account_type') == 6 ){ ?>
-        
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
@@ -194,6 +192,13 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
         </div>
         <?php } ?>
+        
+        <hr/>
+        <div class="row">
+            <h3 class="my-4">Statistics</h3>
+            
+        </div>
     </div>
+    
 </body>
 </html>
