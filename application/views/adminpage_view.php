@@ -12,6 +12,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 <head>
     <title>Swinburne Biosafety and Biosecurity Online System - Admin Panel</title>
     
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/simple-donut.css') ?>">
+    <script src="<?php echo base_url('assets\js\simple-donut-jquery.js') ?>"></script>
+
     <style>
         body {
             padding-top: 54px;
@@ -194,11 +197,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
         <hr/>
+        
+        <h3 class="my-4">Statistics</h3>
+        <br/>
         <div class="row">
-            <h3 class="my-4">Statistics</h3>
-            
+            <div class="group1">
+                <div id="projecttotal" class="donut-size">
+                    <div class="pie-wrapper">
+                        <span class="label">
+                            <span class="num">0</span><span class="smaller">%</span>
+                        </span>
+                        <div class="pie">
+                            <div class="left-side half-circle"></div>
+                            <div class="right-side half-circle"></div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                </div>
+                <br/>
+                <p class="text-center">Project Total</p>
+            </div>
         </div>
     </div>
     
+    <br/>
+    
+    <script>
+        updateDonutChart('#projecttotal', 37, true);
+    </script>
 </body>
 </html>
