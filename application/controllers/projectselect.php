@@ -13,7 +13,10 @@ class projectselect extends CI_Controller {
 	
 	public function index()
 	{
-        
+        //breadcrumb
+            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->push('New Project', true);
+			
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
     
         $this->load->template('projectselect_view', $data);

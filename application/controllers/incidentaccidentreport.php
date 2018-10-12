@@ -18,32 +18,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['hirarctype']= $this->input->get('type');
             
-            if ($data['hirarctype']= $this->input->get('type') ==1) {
-                //breadcrumb page 1
+           
             $this->breadcrumbs->unshift('Home', '/');	
             $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
             $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
             $this->breadcrumbs->push('MINOR BIOLOGICAL INCIDENT OR ACCIDENT',true);
-            }else if ($data['hirarctype']= $this->input->get('type') ==2){
-                //breadcrumb page 2
-            $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
-            $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
-            $this->breadcrumbs->push('Major Biological Incident or Accident','majorincidentaccidentreportingpage',true);
-            $this->breadcrumbs->push('OHS-F-4.20.X',true);
-
-            }else if ($data['hirarctype']= $this->input->get('type') ==3){
-                //breadcrumb page 3
-            $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
-            $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
-            $this->breadcrumbs->push('Occupational disease or exposure','occupationaldiseaseexposurepage',true);
-            $this->breadcrumbs->push('OHS-F-4.20.X',true);
-            }else{
-                //breadcrumb page 4
-            $this->breadcrumbs->unshift('Home', '/');	
-		    $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage' ,true);
-            $this->breadcrumbs->push('OHS-F-4.20.X',true);
+            
             }
             
             $this->form_validation->set_rules('victim_name', 'Victim name', 'required|callback_fullname_check');

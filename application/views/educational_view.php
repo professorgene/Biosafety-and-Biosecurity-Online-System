@@ -38,6 +38,7 @@ if(!$this->session->userdata('isLogin')){
     
     <!-- Page Content -->
     <div class="container">
+	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
         <hr/>
         <div class="text-center row">
             <?php if($this->session->userdata('account_type') == 4) { ?>

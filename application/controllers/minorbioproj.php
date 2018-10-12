@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-    class majorincidentaccidentreportingpageproj extends CI_Controller{
+    class minorbioproj extends CI_Controller{
         
     function __construct()
     {
@@ -13,14 +13,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         //breadcrum
 		$this->breadcrumbs->unshift('Home', '/');	
 		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
-        $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
-        $this->breadcrumbs->push('Major Biological Incident or Accident','lmo61page',true);
+        $this->breadcrumbs->push('Living Modified Organism (LMO)','/lmo61page',true);
+		$this->breadcrumbs->push('Minor Biological Incident or Accident (LMO)',true);
         
     }
 		
 		public function index(){
 			 $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
-            $this->load->template('majorincidentaccidentreportingpageproj_view',$data);
+            $this->load->template('minorbioproj_view',$data);
         }
         
     }

@@ -13,10 +13,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->model('formf_model');
 			$this->load->model('notification_model');
             
-            //breadcrum
-            $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('Exporting of Biological Material','exportingbiologicalmaterialpage', true);
-            $this->breadcrumbs->push('Form F', true);
         }
         
         public function index()

@@ -36,7 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<div class="col-lg-5" >
         
 		<div class="row">
-            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport?type=1">		
+            <a href="<?php echo base_url(); ?>index.php/minorbioproj">		
                     <div class="option1 card col-md-9 hover1" title="New Application">
                         <h5><span>MINOR BIOLOGICAL INCIDENT OR ACCIDENT</span></h5>
                     </div>				
@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
     
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpage">		
+            <a href="<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj">		
                     <div class="option1 card col-md-9 hover1" title="Modification of Approved Project">
                         <h5><span>MAJOR BIOLOGICAL INCIDENT OR ACCIDENT</span></h5>				
                     </div>				
@@ -55,7 +55,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepage">		
+            <a href="<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj">		
                 
                     <div class="option1 card col-md-9 hover1" title="Extension/Termination of Approved Project">
                         <h5><span>OCCUPATIONAL DISEASE OR EXPOSURE</span></h5>						

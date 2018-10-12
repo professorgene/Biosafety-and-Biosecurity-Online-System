@@ -13,8 +13,9 @@ class livingmodifiedorganismpage extends CI_Controller {
         
         //breadcrum
 		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->push('New Project','/projectselect', true);
 		$this->breadcrumbs->push('Application','/applicationpage', true);
-        $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+		$this->breadcrumbs->push('New Application','/newapplicationpage', true);
         $this->breadcrumbs->push('Living Modified Organism', true);
     }
 		

@@ -12,6 +12,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 <head>
     <title>Swinburne Biosafety and Biosecurity Online System - Admin Panel</title>
     
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/simple-donut.css') ?>">
+    <script src="<?php echo base_url('assets\js\simple-donut-jquery.js') ?>"></script>
+
     <style>
         body {
             padding-top: 54px;
@@ -45,7 +48,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 ) {  ?>
         <div class="row">
             <?php if($this->session->userdata('account_type') == 4) {  ?>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/accountapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -57,7 +60,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 </div>
             </div>
             <?php }  ?>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/newapplication"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Application for Biosafety2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -69,7 +72,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 </div>
             </div>
             <?php if($this->session->userdata('account_type') == 4 ) {  ?>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -80,7 +83,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -92,7 +95,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 </div>
             </div>
             <?php }  ?>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/exportingrequest"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Exporting of Biological Material2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -103,7 +106,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -114,7 +117,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -125,7 +128,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/editrequest_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History2.jpg') ?>" alt=""></a>
                     <div class="card-body">
@@ -140,9 +143,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
         <?php if($this->session->userdata('account_type') == 5 ){ ?>
-        
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -153,7 +155,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History2.jpg') ?>" alt=""></a>
                     <div class="card-body">
@@ -168,9 +170,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
         <?php if($this->session->userdata('account_type') == 6 ){ ?>
-        
         <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/procurementapproval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Procurement of Biological Material2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -181,7 +182,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Notification of LMO2.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
@@ -194,6 +195,35 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
         </div>
         <?php } ?>
+        
+        <hr/>
+        
+        <h3 class="my-4">Statistics</h3>
+        <br/>
+        <div class="row">
+            <div class="group1">
+                <div id="projecttotal" class="donut-size">
+                    <div class="pie-wrapper">
+                        <span class="label">
+                            <span class="num">0</span><span class="smaller">%</span>
+                        </span>
+                        <div class="pie">
+                            <div class="left-side half-circle"></div>
+                            <div class="right-side half-circle"></div>
+                        </div>
+                        <div class="shadow"></div>
+                    </div>
+                </div>
+                <br/>
+                <p class="text-center">Project Total</p>
+            </div>
+        </div>
     </div>
+    
+    <br/>
+    
+    <script>
+        updateDonutChart('#projecttotal', 37, true);
+    </script>
 </body>
 </html>
