@@ -8,6 +8,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         parent::__construct();
         
         $this->load->database();
+        $this->load->model('project_model');
         $this->load->model('notification_model');
         $this->load->model('annex2_model');
         $this->load->model('forme_model');
@@ -23,9 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $save = $this->input->post('saveButton');
             $submit = $this->input->post('submitButton');
-            $proj_name = $this->session->userdata("projectName");
+            $proj_id = $this->session->userdata("projectId");
             $saveStatus = "saved";
             $submitStatus = "submitted";
+            $projectSave = 'saved';
+            $projectSubmit = 'submitted';
             
             if (!isset($save) && !isset($submit)){
                 
@@ -115,11 +118,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar69 = implode(',',$this->input->post('HIRARC_control_measure'));
                 $ar70 = implode(',',$this->input->post('HIRARC_PIC'));
                 
-                
                 $annex2Data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'applicant_name' => $this->input->post('applicant_name'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'institutional_address' => $this->input->post('institutional_address'),
                     'collaborating_partners' => $this->input->post('collaborating_partners'),
                     'project_title' => $this->input->post('project_title'),
@@ -143,14 +145,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'status' => $saveStatus
                     //End Of Annex 2 Submission
                     
-                    
                 );
                 
                 //Form E Submission
                 $formeData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_title' => $this->input->post('forme_project_title'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'checklist_form' => $this->input->post('checklist_form'),
                     'checklist_coverletter' => $this->input->post('checklist_coverletter'),
                     'checklist_IBC' => $this->input->post('checklist_IBC'),
@@ -273,7 +274,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //PC1 Form Submission
                 $pc1Data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'date_received ' => $this->input->post('date_received '),
                     'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'project_title' => $this->input->post('pc1_project_title'),
@@ -322,7 +323,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //PC2 Form Submission
                 $pc2Data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'date_received ' => $this->input->post('pc2_date_received '),
                     'SBC_reference_no' => $this->input->post('pc2_SBC_reference_no'),
                     'project_title' => $this->input->post('pc2_project_title'),
@@ -383,7 +384,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $hirarcData = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'company_name' => $this->input->post('company_name'),
                     'date' => $this->input->post('date'),
                     'process_location' => $this->input->post('process_location'),
@@ -409,7 +410,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $swpData = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'SWP_prepared_by' => $this->input->post('SWP_prepared_by'),
                     'SWP_staff_student_no' => $this->input->post('SWP_staff_student_no'),
                     'SWP_designation' => $this->input->post('SWP_designation'),
@@ -443,13 +444,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 );
                 
                 
-                if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData))
+                
+                if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSave))
                 {
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
                     redirect('home/index');
                     
-                    $this->session->unset_userdata('projectName');
+                    $this->session->unset_userdata('projectId');
                     
                         
                 } else {
@@ -548,7 +550,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $annex2Data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'applicant_name' => $this->input->post('applicant_name'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'institutional_address' => $this->input->post('institutional_address'),
                     'collaborating_partners' => $this->input->post('collaborating_partners'),
                     'project_title' => $this->input->post('project_title'),
@@ -579,7 +581,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $formeData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_title' => $this->input->post('forme_project_title'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'checklist_form' => $this->input->post('checklist_form'),
                     'checklist_coverletter' => $this->input->post('checklist_coverletter'),
                     'checklist_IBC' => $this->input->post('checklist_IBC'),
@@ -702,7 +704,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //PC1 Form Submission
                 $pc1Data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'date_received ' => $this->input->post('date_received '),
                     'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'project_title' => $this->input->post('pc1_project_title'),
@@ -751,7 +753,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 //PC2 Form Submission
                 $pc2Data = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'date_received ' => $this->input->post('pc2_date_received '),
                     'SBC_reference_no' => $this->input->post('pc2_SBC_reference_no'),
                     'project_title' => $this->input->post('pc2_project_title'),
@@ -812,7 +814,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $hirarcData = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'company_name' => $this->input->post('company_name'),
                     'date' => $this->input->post('date'),
                     'process_location' => $this->input->post('process_location'),
@@ -838,7 +840,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 $swpData = array(
                     'account_id' => $this->session->userdata('account_id'),
-                    'project_name' => $proj_name,
+                    'project_id' => $proj_id,
                     'SWP_prepared_by' => $this->input->post('SWP_prepared_by'),
                     'SWP_staff_student_no' => $this->input->post('SWP_staff_student_no'),
                     'SWP_designation' => $this->input->post('SWP_designation'),
@@ -872,7 +874,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 );
                 
                 
-                if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData))
+                if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
                     
                     $this->notification_model->insert_new_notification(null, 4, "New Annex 2 Application", "The following user has submitted a new application form: " . $this->session->userdata('account_name'));
@@ -880,7 +882,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
                     redirect('home/index');
                     
-                    $this->session->unset_userdata('projectName');
+                    $this->session->unset_userdata('projectId');
                     
                         
                 } else {

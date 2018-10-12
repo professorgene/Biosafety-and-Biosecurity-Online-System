@@ -56,16 +56,18 @@ if(!$this->session->userdata('isLogin')){
                 <thead>
                     <tr>
                         <th></th>
-                        <th>Application Type</th>
+                        <th>Project Name</th>
+                        <th>Project Description</th>
                         <th>Approval Progress</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="inventory">
-                    <?php $i=0; foreach(/*array_reverse($past)*/ $past as $row): ?>
+                    <?php $i=0; foreach($past as $row): ?>
                     <tr class="searchable">
                         <td class="text-center"><?php echo $i = $i + 1; ?></td>
-                        <td><?php echo $row['type']; ?></td>
+                        <td><?php echo $row['name']; ?></td>
+                        <td><?php echo $row['project_desc']; ?></td>
                         <td class="text-center"><?php 
                             if($row['approval'] != 4 || $row['approval'] == null){
                                 echo "Awaiting Approval";
@@ -75,9 +77,9 @@ if(!$this->session->userdata('isLogin')){
                             ?>
                         </td>
                         <td class="text-center">
-                            <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['application_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>')" title="Details"></i>
                             
-                            <i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['application_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>
+                            <!--<i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>-->
             
                             <i class="fa fa-clock btn btn-primary" onclick="extend_application()" title="Extend"></i>
                             <i class="fa fa-times btn btn-danger" onclick="terminate_application()" title="Terminate"></i>

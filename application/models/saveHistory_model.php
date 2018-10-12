@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class history_model extends CI_Model
+class saveHistory_model extends CI_Model
 {
 	function __construct()
     {
@@ -31,7 +31,7 @@ class history_model extends CI_Model
 	{
         $result = [];
         
-        $i = $this->project_model->get_sub_proj_by_user_id($id);
+        $i = $this->project_model->get_save_proj_by_user_id($id);
         if(count((array)$i) > 0){
             foreach ($i as $row) {
                 $data = [

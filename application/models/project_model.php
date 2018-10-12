@@ -26,6 +26,7 @@ class project_model extends CI_Model
     function get_proj_name($name)
     {
         $this->db->where('project_name', $name);
+        //$this->db->where('account_id', $id);
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -34,6 +35,24 @@ class project_model extends CI_Model
     function get_proj_by_user_id($id)
     {
         $this->db->where('account_id', $id);
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    # Search submitted form by user id
+    function get_sub_proj_by_user_id($id)
+    {   
+        $this->db->where('account_id', $id);
+        $this->db->where('project_status', 'submitted');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    # Search saved form by user id
+    function get_save_proj_by_user_id($id)
+    {   
+        $this->db->where('account_id', $id);
+        $this->db->where('project_status', 'saved');
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -70,6 +89,15 @@ class project_model extends CI_Model
             $this->db->where('project_id', $id);
             $this->db->update('project', array('project_name' => $project_name, 'project_desc' => $project_desc));
         }
+        return true;
+    }
+    
+    function update_proj_status($id, $status)
+    {
+        $data = array('project_status' => $status);
+        $this->db->where('project_id', $id);
+        $this->db->update('project', $data);
+        
         return true;
     }
     

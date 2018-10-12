@@ -124,6 +124,17 @@ if(!$this->session->userdata('isLogin')){
     
     
     <div class="container">
+
+        <?php 
+        foreach($session as $info)
+        {
+            $id = $info->project_id;
+        } 
+          
+          $this->session->set_userdata("projectId", $id);
+        
+        ?>
+    
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">

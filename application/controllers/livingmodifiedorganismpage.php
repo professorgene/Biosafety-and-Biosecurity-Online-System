@@ -36,14 +36,13 @@ class livingmodifiedorganismpage extends CI_Controller {
                 );
             
                 if($this->project_model->insert_new_proj($data)){
-                    #$this->notification_model->insert_new_notification(null, 4, "New Registration", "The following user has requested for an account: " . $this->input->post('account_fullname'));
-                    #$this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully created a new project!<br/>You may now return to the homepage.</div>');
-                    #$this->email_model->send_email( $this->input->post('account_email'), "New Registration Details", "<p>Dear ". $this->input->post('account_fullname') .", <br/><br/>You have successfully requested for an account. Please wait between 1-3 working days before logging in again.</p>");
-                     
-                    $this->session->set_userdata('projectName', $data['project_name']);
                     
                     
-                    redirect('lmoproj/index');
+                    $name = $this->input->post('project_name');
+                     $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+                    $data['session'] = $this->project_model->get_proj_name($name);
+                                    
+                    $this->load->template('lmoproj_view', $data);
                 } else {
                     $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
                     redirect('livingmodifiedorganismpage/index');

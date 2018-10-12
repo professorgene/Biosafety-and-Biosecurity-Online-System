@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class history extends CI_Controller {
+class saveHistory extends CI_Controller {
     
     function __construct()
     {
@@ -10,7 +10,7 @@ class history extends CI_Controller {
         $this->load->database();
         $this->load->model('notification_model');
         $this->load->model('project_model');
-        $this->load->model('history_model');
+        $this->load->model('saveHistory_model');
         $this->load->model('email_model');
 		//breadcrumb
 		$this->breadcrumbs->unshift('Home', '/');	
@@ -41,10 +41,10 @@ class history extends CI_Controller {
         
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
-        $data['past'] = $this->history_model->get_all_project_by_id($this->session->userdata('account_id'));
+        $data['past'] = $this->saveHistory_model->get_all_project_by_id($this->session->userdata('account_id'));
         #$data['total'] = count((array)$data['past']);
         
-        $this->load->template('history_view', $data);
+        $this->load->template('saveHistory_view', $data);
 	}
     
     public function edit_application($id, $type, $editable)
