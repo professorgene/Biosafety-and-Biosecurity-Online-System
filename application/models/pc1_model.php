@@ -62,6 +62,13 @@ class pc1_model extends CI_Model
         $query = $this->db->get('pc1');
 		return $query->result();
 	}
+    
+    function get_form_by_project_id($id)
+    {
+        $this->db->where('project_id', $id);
+        $query = $this->db->get('pc1');
+        return $query->result();
+    }
 	
 	function insert_new_applicant_data($data)
     {
@@ -72,6 +79,14 @@ class pc1_model extends CI_Model
     {
         $this->db->set('application_approved', 'NULL', FALSE);
         $this->db->where('application_id', $id);
+		$this->db->update('pc1', $data);
+        return true;
+	}
+    
+    function update_saved_data($id, $data)
+    {
+        
+        $this->db->where('project_id', $id);
 		$this->db->update('pc1', $data);
         return true;
 	}

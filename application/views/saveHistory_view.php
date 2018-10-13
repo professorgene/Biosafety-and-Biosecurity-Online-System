@@ -77,7 +77,7 @@ if(!$this->session->userdata('isLogin')){
                             ?>
                         </td>
                         <td class="text-center">
-                            <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>')" title="Details"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>)" title="Details"></i>
                             
                             <!--<i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>-->
             
@@ -100,7 +100,8 @@ if(!$this->session->userdata('isLogin')){
         </script>
 
         <script>
-            function view_application(i, j){
+            function view_application(i){
+                window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
             }
 
         </script>

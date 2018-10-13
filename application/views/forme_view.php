@@ -2,7 +2,7 @@
     
     
     if(isset($load)){
-        foreach($retrieved as $item){
+        foreach($retrieved2 as $item){
             
             $new1 = $item->project_team_name;
             $new2 = $item->project_team_address;
@@ -50,11 +50,11 @@
             $b = explode(",", $new2);
             $c = explode(",", $new3);
             $d = explode(",", $new4);
-            $e = explode(",", $new5);
+            $ee = explode(",", $new5);
             $f = explode(",", $new6);
             $g = explode(",", $new7);
             $h = explode(",", $new8);
-            $i = explode(",", $new9);
+            $ii = explode(",", $new9);
             $j = explode(",", $new10);
             $k = explode(",", $new11);
             $l = explode(",", $new12);
@@ -636,7 +636,7 @@
                                             
                                             <input type="email" class="form-control" name="project_team_email_address[0]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[0]', $d[0]);}else{echo set_value('project_team_email_address[0]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification[0]" value="<?php if(isset($load)){echo set_value('project_team_qualification[0]', $e[0]);}else{echo set_value('project_team_qualification[0]');} ?>" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[0]" value="<?php if(isset($load)){echo set_value('project_team_qualification[0]', $ee[0]);}else{echo set_value('project_team_qualification[0]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="project_team_designation[0]" value="<?php if(isset($load)){echo set_value('project_team_designation[0]', $f[0]);}else{echo set_value('project_team_designation[0]');} ?>"></td>
                                     </tr>
@@ -649,7 +649,7 @@
                                             
                                             <input type="email" class="form-control" name="project_team_email_address[1]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[1]', $d[1]);}else{echo set_value('project_team_email_address[1]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification[1]" value="<?php if(isset($load)){echo set_value('project_team_qualification[1]', $e[1]);}else{echo set_value('project_team_qualification[1]');} ?>" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[1]" value="<?php if(isset($load)){echo set_value('project_team_qualification[1]', $ee[1]);}else{echo set_value('project_team_qualification[1]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="project_team_designation[1]" value="<?php if(isset($load)){echo set_value('project_team_designation[1]', $f[1]);}else{echo set_value('project_team_designation[1]');} ?>"></td>
                                     </tr>
@@ -662,7 +662,7 @@
                                             
                                             <input type="email" class="form-control" name="project_team_email_address[2]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[2]', $d[2]);}else{echo set_value('project_team_email_address[2]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification[2]" value="<?php if(isset($load)){echo set_value('project_team_qualification[2]', $e[2]);}else{echo set_value('project_team_qualification[2]');} ?>" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[2]" value="<?php if(isset($load)){echo set_value('project_team_qualification[2]', $ee[2]);}else{echo set_value('project_team_qualification[2]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="project_team_designation[2]" value="<?php if(isset($load)){echo set_value('project_team_designation[2]', $f[2]);}else{echo set_value('project_team_designation[2]');} ?>"></td>
                                     </tr>
@@ -675,7 +675,7 @@
                                             
                                             <input type="email" class="form-control" name="project_team_email_address[3]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[3]', $d[3]);}else{echo set_value('project_team_email_address[3]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification[3]" value="<?php if(isset($load)){echo set_value('project_team_qualification[3]', $e[3]);}else{echo set_value('project_team_qualification[3]');} ?>" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[3]" value="<?php if(isset($load)){echo set_value('project_team_qualification[3]', $ee[3]);}else{echo set_value('project_team_qualification[3]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="project_team_designation[3]" value="<?php if(isset($load)){echo set_value('project_team_designation[3]', $f[3]);}else{echo set_value('project_team_designation[3]');} ?>"></td>
                                     </tr>
@@ -688,7 +688,7 @@
                                             
                                             <input type="email" class="form-control" name="project_team_email_address[4]" placeholder="email" value="<?php if(isset($load)){echo set_value('project_team_email_address[4]', $d[4]);}else{echo set_value('project_team_email_address[4]');} ?>" >
                                         </td>
-                                        <td><input type="text" class="form-control" name="project_team_qualification[4]" value="<?php if(isset($load)){echo set_value('project_team_qualification[4]', $e[4]);}else{echo set_value('project_team_qualification[4]');} ?>" ></td>
+                                        <td><input type="text" class="form-control" name="project_team_qualification[4]" value="<?php if(isset($load)){echo set_value('project_team_qualification[4]', $ee[4]);}else{echo set_value('project_team_qualification[4]');} ?>" ></td>
                                         
                                         <td><input type="text" class="form-control" name="project_team_designation[4]" value="<?php if(isset($load)){echo set_value('project_team_designation[4]', $f[4]);}else{echo set_value('project_team_designation[4]');} ?>"></td>
                                     </tr>
@@ -776,7 +776,7 @@
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_name_donor[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_donor[0]', $h[0]);}else{echo set_value('LMO_desc_name_donor[0]');} ?>"></td>
                                         
-                                        <td><input type="text" class="form-control" name="LMO_desc_method[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[0]', $i[0]);}else{echo set_value('LMO_desc_method[0]');} ?>"></td>
+                                        <td><input type="text" class="form-control" name="LMO_desc_method[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[0]', $ii[0]);}else{echo set_value('LMO_desc_method[0]');} ?>"></td>
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_class[0]" value="<?php if(isset($load)){echo set_value('LMO_desc_class[0]', $j[0]);}else{echo set_value('LMO_desc_class[0]');} ?>" ></td>
                                         
@@ -792,7 +792,7 @@
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_name_donor[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_donor[1]', $h[1]);}else{echo set_value('LMO_desc_name_donor[1]');} ?>"></td>
                                         
-                                        <td><input type="text" class="form-control" name="LMO_desc_method[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[1]', $i[1]);}else{echo set_value('LMO_desc_method[1]');} ?>"></td>
+                                        <td><input type="text" class="form-control" name="LMO_desc_method[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[1]', $ii[1]);}else{echo set_value('LMO_desc_method[1]');} ?>"></td>
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_class[1]" value="<?php if(isset($load)){echo set_value('LMO_desc_class[1]', $j[1]);}else{echo set_value('LMO_desc_class[1]');} ?>" ></td>
                                         
@@ -808,7 +808,7 @@
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_name_donor[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_name_donor[2]', $h[2]);}else{echo set_value('LMO_desc_name_donor[2]');} ?>"></td>
                                         
-                                        <td><input type="text" class="form-control" name="LMO_desc_method[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[2]', $i[2]);}else{echo set_value('LMO_desc_method[2]');} ?>"></td>
+                                        <td><input type="text" class="form-control" name="LMO_desc_method[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_method[2]', $ii[2]);}else{echo set_value('LMO_desc_method[2]');} ?>"></td>
                                         
                                         <td><input type="text" class="form-control" name="LMO_desc_class[2]" value="<?php if(isset($load)){echo set_value('LMO_desc_class[2]', $j[2]);}else{echo set_value('LMO_desc_class[2]');} ?>" ></td>
                                         

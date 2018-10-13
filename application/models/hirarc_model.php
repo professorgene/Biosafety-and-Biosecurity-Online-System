@@ -167,6 +167,13 @@ class hirarc_model extends CI_Model
 		return $query->result();
 	}
     
+    function get_form_by_project_id($id)
+    {
+        $this->db->where('project_id', $id);
+        $query = $this->db->get('hirarc');
+        return $query->result();
+    }
+    
 	# Insert New Account
 	function insert_new_applicant_data($data)
     {
@@ -177,6 +184,14 @@ class hirarc_model extends CI_Model
     {
         $this->db->set('application_approved', 'NULL', FALSE);
         $this->db->where('application_id', $id);
+		$this->db->update('hirarc', $data);
+        return true;
+	}
+    
+    function update_saved_data($id, $data)
+    {
+        
+        $this->db->where('project_id', $id);
 		$this->db->update('hirarc', $data);
         return true;
 	}

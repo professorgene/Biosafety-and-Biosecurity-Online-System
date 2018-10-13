@@ -2,7 +2,7 @@
     <?php
     
     if(isset($load)){
-        foreach($retrieved as $item){
+        foreach($retrieved6 as $swp){
             
         }
         
@@ -46,35 +46,35 @@
                            <tbody>
                                <tr>
                                    <th class="tbheader1">1.01 SWP Prepared by:</th>
-                                   <td><input type="text" name="SWP_prepared_by" class="form-control" value="<?php if(isset($load)){echo set_value('SWP_prepared_by', $item->SWP_prepared_by);}else{echo set_value('SWP_prepared_by');} ?>"></td>
+                                   <td><input type="text" name="SWP_prepared_by" class="form-control" value="<?php if(isset($load)){echo set_value('SWP_prepared_by', $swp->SWP_prepared_by);}else{echo set_value('SWP_prepared_by');} ?>"></td>
                                    
                                    
                                    <th class="tbheader1">1.02 Staff/Student No.:</th>
-                                   <td><input type="text" name="SWP_staff_student_no" class="form-control" value="<?php if(isset($load)){echo set_value('SWP_staff_student_no', $item->SWP_staff_student_no);}else{echo set_value('SWP_staff_student_no');} ?>"></td>
+                                   <td><input type="text" name="SWP_staff_student_no" class="form-control" value="<?php if(isset($load)){echo set_value('SWP_staff_student_no', $swp->SWP_staff_student_no);}else{echo set_value('SWP_staff_student_no');} ?>"></td>
                                    
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.03 Designation:</th>
-                                   <td><input type="text" class="form-control" name="SWP_designation" value="<?php if(isset($load)){echo set_value('SWP_designation', $item->SWP_designation);}else{echo set_value('SWP_designation');} ?>"></td>
+                                   <td><input type="text" class="form-control" name="SWP_designation" value="<?php if(isset($load)){echo set_value('SWP_designation', $swp->SWP_designation);}else{echo set_value('SWP_designation');} ?>"></td>
                                    
                                    
                                    <th class="tbheader1">1.04 Faculty/unit:</th>
-                                   <td><input type="text" class="form-control" name="SWP_faculty" value="<?php if(isset($load)){echo set_value('SWP_faculty', $item->SWP_faculty);}else{echo set_value('SWP_faculty');} ?>"></td>
+                                   <td><input type="text" class="form-control" name="SWP_faculty" value="<?php if(isset($load)){echo set_value('SWP_faculty', $swp->SWP_faculty);}else{echo set_value('SWP_faculty');} ?>"></td>
                                    
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.05 Unit Code/Unit Title (if teaching):</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_unit_title" value="<?php if(isset($load)){echo set_value('SWP_unit_title', $item->SWP_unit_title);}else{echo set_value('SWP_unit_title');} ?>"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="SWP_unit_title" value="<?php if(isset($load)){echo set_value('SWP_unit_title', $swp->SWP_unit_title);}else{echo set_value('SWP_unit_title');} ?>"></td>
                                    
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.06 Project Title (if research):</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_project_title" value="<?php if(isset($load)){echo set_value('SWP_project_title', $item->SWP_project_title);}else{echo set_value('SWP_project_title');} ?>"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="SWP_project_title" value="<?php if(isset($load)){echo set_value('SWP_project_title', $swp->SWP_project_title);}else{echo set_value('SWP_project_title');} ?>"></td>
                                    
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.07 Location: </th>
-                                   <td colspan="4"><input type="text" class="form-control" name="SWP_location" value="<?php if(isset($load)){echo set_value('SWP_location', $item->SWP_location);}else{echo set_value('SWP_location');} ?>"></td>
+                                   <td colspan="4"><input type="text" class="form-control" name="SWP_location" value="<?php if(isset($load)){echo set_value('SWP_location', $swp->SWP_location);}else{echo set_value('SWP_location');} ?>"></td>
                                    
                                </tr>
                                
@@ -103,13 +103,13 @@
                                <th class="tbheader1">Brief Description of the Activity</th>
                            </tr>
                            <tr>
-                               <td><textarea rows="3" name="SWP_description" class="form-control"><?php if(isset($load)){echo set_value('SWP_description', $item->SWP_description);}else{echo set_value('SWP_description');} ?></textarea></td>
+                               <td><textarea rows="3" name="SWP_description" class="form-control"><?php if(isset($load)){echo set_value('SWP_description', $swp->SWP_description);}else{echo set_value('SWP_description');} ?></textarea></td>
                            </tr>
                            <tr>
                                <th class="tbheader1">A. Pre-operational</th>
                            </tr>
                            <tr>
-                               <td><textarea class="form-control" rows="40" name="SWP_preoperational" placeholder="E.g. Proper lab attire; proper personal protective equipment; hand hygiene; understand the equipment SOPs etc."><?php if(isset($load)){echo set_value('SWP_preoperational', $item->SWP_preoperational);}else{echo set_value('SWP_preoperational');} ?></textarea></td>
+                               <td><textarea class="form-control" rows="40" name="SWP_preoperational" placeholder="E.g. Proper lab attire; proper personal protective equipment; hand hygiene; understand the equipment SOPs etc."><?php if(isset($load)){echo set_value('SWP_preoperational', $swp->SWP_preoperational);}else{echo set_value('SWP_preoperational');} ?></textarea></td>
                                
                            </tr>
                            
@@ -117,7 +117,7 @@
                                <th class="tbheader1">B. Operational</th>
                            </tr>
                            <tr>
-                               <td><textarea class="form-control" name="SWP_operational" rows="45" placeholder="E.g. Proper handling of the specimens/samples; samples processing in BSC; imaging of the specimens using microscopes; analyzing samples using plate reader; emergency response to biological spills or accident etc." value=""><?php if(isset($load)){echo set_value('SWP_operational', $item->SWP_operational);}else{echo set_value('SWP_operational');} ?></textarea></td>
+                               <td><textarea class="form-control" name="SWP_operational" rows="45" placeholder="E.g. Proper handling of the specimens/samples; samples processing in BSC; imaging of the specimens using microscopes; analyzing samples using plate reader; emergency response to biological spills or accident etc." value=""><?php if(isset($load)){echo set_value('SWP_operational', $swp->SWP_operational);}else{echo set_value('SWP_operational');} ?></textarea></td>
                            </tr>
                            
                            <tr>
@@ -125,7 +125,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <textarea class="form-control" name="SWP_postoperational" rows="45" placeholder="E.g. Proper labelling, storage and transportation of the specimens/samples; decontamination and disposal of the specimens/samples (solid/liquid waste); cleaning of the workspaces and equipment etc."><?php if(isset($load)){echo set_value('SWP_postoperational', $item->SWP_postoperational);}else{echo set_value('SWP_postoperational');} ?></textarea>
+                                   <textarea class="form-control" name="SWP_postoperational" rows="45" placeholder="E.g. Proper labelling, storage and transportation of the specimens/samples; decontamination and disposal of the specimens/samples (solid/liquid waste); cleaning of the workspaces and equipment etc."><?php if(isset($load)){echo set_value('SWP_postoperational', $swp->SWP_postoperational);}else{echo set_value('SWP_postoperational');} ?></textarea>
                                </td>
                            </tr>
                            
@@ -134,7 +134,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <textarea class="form-control" name="SWP_risk" rows="5" ><?php if(isset($load)){echo set_value('SWP_risk', $item->SWP_risk);}else{echo set_value('SWP_risk');} ?></textarea>
+                                   <textarea class="form-control" name="SWP_risk" rows="5" ><?php if(isset($load)){echo set_value('SWP_risk', $swp->SWP_risk);}else{echo set_value('SWP_risk');} ?></textarea>
                                </td>
                            </tr>
                            
@@ -143,7 +143,7 @@
                            </tr>
                            <tr>
                                <td>
-                                   <textarea class="form-control" name="SWP_control" rows="5"><?php if(isset($load)){echo set_value('SWP_control', $item->SWP_control);}else{echo set_value('SWP_control');} ?></textarea>
+                                   <textarea class="form-control" name="SWP_control" rows="5"><?php if(isset($load)){echo set_value('SWP_control', $swp->SWP_control);}else{echo set_value('SWP_control');} ?></textarea>
                                </td>
                            </tr>
                        </tbody>
@@ -171,9 +171,9 @@
                                </td>
                            </tr>
                            <tr>
-                               <td><input type="text" name="SWP_declaration_name" class="form-control" placeholder="Name & Signature:" value="<?php if(isset($load)){echo set_value('SWP_declaration_name', $item->SWP_declaration_name);}else{echo set_value('SWP_declaration_name');} ?>"></td>
+                               <td><input type="text" name="SWP_declaration_name" class="form-control" placeholder="Name & Signature:" value="<?php if(isset($load)){echo set_value('SWP_declaration_name', $swp->SWP_declaration_name);}else{echo set_value('SWP_declaration_name');} ?>"></td>
                                
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_declaration_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_declaration_date', $item->SWP_declaration_date);}else{echo set_value('SWP_declaration_date');} ?>"></td>
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_declaration_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_declaration_date', $swp->SWP_declaration_date);}else{echo set_value('SWP_declaration_date');} ?>"></td>
                            </tr>
                        </tbody>
                    </table>
@@ -194,14 +194,14 @@
                                <td>Verified By (Project Investigator):</td>
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" name="SWP_signature_prepared_by" placeholder="Signature:" value="<?php if(isset($load)){echo set_value('SWP_signature_prepared_by', $item->SWP_signature_prepared_by);}else{echo set_value('SWP_signature_prepared_by');} ?>"></td>
+                               <td><input type="text" class="form-control" name="SWP_signature_prepared_by" placeholder="Signature:" value="<?php if(isset($load)){echo set_value('SWP_signature_prepared_by', $swp->SWP_signature_prepared_by);}else{echo set_value('SWP_signature_prepared_by');} ?>"></td>
                                
-                               <td><input type="text" class="form-control" name="SWP_signature_PI" placeholder="Signature:" value="<?php if(isset($load)){echo set_value('SWP_signature_PI', $item->SWP_signature_PI);}else{echo set_value('SWP_signature_PI');} ?>"></td>
+                               <td><input type="text" class="form-control" name="SWP_signature_PI" placeholder="Signature:" value="<?php if(isset($load)){echo set_value('SWP_signature_PI', $swp->SWP_signature_PI);}else{echo set_value('SWP_signature_PI');} ?>"></td>
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_signature_prepared_by_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_signature_prepared_by_date', $item->SWP_signature_prepared_by_date);}else{echo set_value('SWP_signature_prepared_by_date');} ?>"></td>
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_signature_prepared_by_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_signature_prepared_by_date', $swp->SWP_signature_prepared_by_date);}else{echo set_value('SWP_signature_prepared_by_date');} ?>"></td>
                                
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_signature_PI_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_signature_PI_date', $item->SWP_signature_PI_date);}else{echo set_value('SWP_signature_PI_date');} ?>"></td>
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_signature_PI_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_signature_PI_date', $swp->SWP_signature_PI_date);}else{echo set_value('SWP_signature_PI_date');} ?>"></td>
                            </tr>
                        </tbody>
                    </table>
@@ -230,35 +230,35 @@
                                    
                                    <p>If yes, by who and when?</p>
                                    
-                                   <input type="text" class="form-control" name="SWP_lab_trainer" value="<?php if(isset($load)){echo set_value('SWP_lab_trainer', $item->SWP_lab_trainer);}else{echo set_value('SWP_lab_trainer');} ?>">
+                                   <input type="text" class="form-control" name="SWP_lab_trainer" value="<?php if(isset($load)){echo set_value('SWP_lab_trainer', $swp->SWP_lab_trainer);}else{echo set_value('SWP_lab_trainer');} ?>">
                                </td>
                            </tr>
                            <tr>
                                <td>
                                 <div class="checkbox">
                                      <label><input type="radio" name="SWP_approval_by" value="1">Approved By:</label>
-                                    <input type="text" class="form-control" name="SWP_approved_by" value="<?php if(isset($load)){echo set_value('SWP_approved_by', $item->SWP_approved_by);}else{echo set_value('SWP_approved_by');} ?>">
+                                    <input type="text" class="form-control" name="SWP_approved_by" value="<?php if(isset($load)){echo set_value('SWP_approved_by', $swp->SWP_approved_by);}else{echo set_value('SWP_approved_by');} ?>">
                                 </div>
                                 <div class="checkbox">
                                      <label><input type="radio" name="SWP_approval_by" value="0">Declined By:</label>
-                                    <input type="text" class="form-control" name="SWP_declined_by" value="<?php if(isset($load)){echo set_value('SWP_declined_by', $item->SWP_declined_by);}else{echo set_value('SWP_declined_by');} ?>">
+                                    <input type="text" class="form-control" name="SWP_declined_by" value="<?php if(isset($load)){echo set_value('SWP_declined_by', $swp->SWP_declined_by);}else{echo set_value('SWP_declined_by');} ?>">
                                 </div>
                                </td>
                                <td style="width:450px">
-                                   <input type="text" class="form-control" name="SWP_reviewed_by" placeholder="Reviewed by:" value="<?php if(isset($load)){echo set_value('SWP_reviewed_by', $item->SWP_reviewed_by);}else{echo set_value('SWP_reviewed_by');} ?>">
+                                   <input type="text" class="form-control" name="SWP_reviewed_by" placeholder="Reviewed by:" value="<?php if(isset($load)){echo set_value('SWP_reviewed_by', $swp->SWP_reviewed_by);}else{echo set_value('SWP_reviewed_by');} ?>">
                                </td>
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_approve_decline_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_approve_decline_date', $item->SWP_approve_decline_date);}else{echo set_value('SWP_approve_decline_date');} ?>"></td>
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_approve_decline_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_approve_decline_date', $swp->SWP_approve_decline_date);}else{echo set_value('SWP_approve_decline_date');} ?>"></td>
                                
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_reviewed_by_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_reviewed_by_date', $item->SWP_reviewed_by_date);}else{echo set_value('SWP_reviewed_by_date');} ?>"></td>
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="SWP_reviewed_by_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('SWP_reviewed_by_date', $swp->SWP_reviewed_by_date);}else{echo set_value('SWP_reviewed_by_date');} ?>"></td>
                            </tr>
                            <tr>
                                <td>
-                                   <input type="text" class="form-control" name="SWP_approve_decline_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('SWP_approve_decline_remarks', $item->SWP_approve_decline_remarks);}else{echo set_value('SWP_approve_decline_remarks');} ?>">
+                                   <input type="text" class="form-control" name="SWP_approve_decline_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('SWP_approve_decline_remarks', $swp->SWP_approve_decline_remarks);}else{echo set_value('SWP_approve_decline_remarks');} ?>">
                                </td>
                                <td>
-                                   <input type="text" class="form-control" name="SWP_reviewed_by_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('SWP_reviewed_by_remarks', $item->SWP_reviewed_by_remarks);}else{echo set_value('SWP_reviewed_by_remarks');} ?>">
+                                   <input type="text" class="form-control" name="SWP_reviewed_by_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('SWP_reviewed_by_remarks', $swp->SWP_reviewed_by_remarks);}else{echo set_value('SWP_reviewed_by_remarks');} ?>">
                                </td>
                            </tr>
                        </tbody>

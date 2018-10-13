@@ -47,6 +47,27 @@ class saveHistory extends CI_Controller {
         $this->load->template('saveHistory_view', $data);
 	}
     
+    /*public function continue($id){
+        
+        $id = $this->uri->segment(3);
+        
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        
+        $data['load'] = "true";
+        $data['saveload'] = "true";
+        $data['appID'] = $id;
+        
+        $data['retrieved'] = $this->annex2_model->get_form_by_project_id($id);
+        $data['retrieved2'] = $this->forme_model->get_form_by_project_id($id);
+        $data['retrieved3'] = $this->hirarc_model->get_form_by_project_id($id);
+        $data['retrieved4'] = $this->pc1_model->get_form_by_project_id($id);
+        $data['retrieved5'] = $this->pc2_model->get_form_by_project_id($id);
+        $data['retrieved6'] = $this->swp_model->get_form_by_project_id($id);
+        
+        $this->load->template('lmoproj_view', $data);
+        
+    }*/
+    
     public function edit_application($id, $type, $editable)
     {
         

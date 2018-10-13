@@ -126,12 +126,17 @@ if(!$this->session->userdata('isLogin')){
     <div class="container">
 
         <?php 
-        foreach($session as $info)
+        if(isset($session))
         {
-            $id = $info->project_id;
-        } 
+            
+            foreach($session as $info)
+            {
+                $id = $info->project_id;
+            } 
           
-          $this->session->set_userdata("projectId", $id);
+            $this->session->set_userdata("projectId", $id);
+            
+        }
         
         ?>
     
@@ -146,7 +151,7 @@ if(!$this->session->userdata('isLogin')){
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>
                 
-                <?php if(isset($editload)) { echo form_open('lmoproj/update_form'); } else { echo form_open('lmoproj/index'); } ?>
+                <?php if(isset($editload)) { echo form_open('lmoproj/update_form'); } elseif(isset($saveload)) {echo form_open('lmoproj/continue');} else { echo form_open('lmoproj/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 <div class="tab-content">
                     <div class="tab-pane active" id="annex2tab">
