@@ -9,13 +9,14 @@ class adminpage extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+        $this->load->model('statistic_model');
     }
     
 	public function index()
 	{
         
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
-        
+        $data['count'] = $this->statistic_model->get_all_project();
         $this->load->template('adminpage_view', $data);
 	}
 }
