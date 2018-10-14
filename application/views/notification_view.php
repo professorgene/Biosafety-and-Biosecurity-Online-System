@@ -36,15 +36,10 @@ if(!$this->session->userdata('isLogin')){
         <h5>Notifications</h5>
         <hr/>
         <div class="text-center row">
-            <?php if($this->session->userdata('account_type') == 4) { ?>
-                <a href="<?php echo base_url(); ?>index.php/notification/index" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
-                <a href="<?php echo base_url(); ?>index.php/notification/registration" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Registrations</button></a>
-                <a href="<?php echo base_url(); ?>index.php/notification/application" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Applications</button></a>
-            <?php } else { ?>
-                <span class="col-md-4"></span>
-                <a href="<?php echo base_url(); ?>index.php/notification/index" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
-                <span class="col-md-4"></span>
-            <?php } ?>
+                <a href="<?php echo base_url(); ?>index.php/notification/index" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
+                <a href="<?php echo base_url(); ?>index.php/notification/registration" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Registrations</button></a>
+                <a href="<?php echo base_url(); ?>index.php/notification/application" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Applications</button></a>
+                <a href="<?php echo base_url(); ?>index.php/notification/approval" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Approvals</button></a>
         </div>
         <hr/>
         <?php 
