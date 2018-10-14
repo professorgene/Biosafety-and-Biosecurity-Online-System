@@ -284,87 +284,10 @@ class hirarc_model extends CI_Model
     
     
     
-    //Approval Methods For Annual Final Report Category Forms Only
-    /*function update_approval($id, $type, $approver_id)
-    {
-        if ($type == 0) {
-            
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        } elseif ($type == 1) {
-            $data = array('application_approved' => 1, 'approver_id' => $approver_id);
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        }
-        return true;
-    }
-    
-    function update_approval_BSO($id, $type, $approver_id)
-    {
-        if ($type == 0) {
-            
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        } elseif ($type == 1) {
-            $data = array('application_approved' => 4, 'approver_id' => $approver_id);
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        }
-        return true;
-    }
-    
-    function update_approval_SSBC($id, $type, $approver_id)
-    {
-        if ($type == 0) {
-            
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        } elseif ($type == 1) {
-            $data = array('application_approved' => 2, 'approver_id' => $approver_id);
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        }
-        return true;
-    }
-    
-    function update_approval_Chair($id, $type, $approver_id)
-    {
-        if ($type == 0) {
-            
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        } elseif ($type == 1) {
-            $data = array('application_approved' => 3, 'approver_id' => $approver_id);
-            $this->db->where('account_id', $id);
-            $this->db->update('hirarc', $data);
-        }
-        return true;
-    }
-    
-    function proceed_ammend($id, $type, $approver_id)
-    {
-        if ($type == 0) {
-            
-            $data = array('application_approved' => 5, 'approver_id' => $approver_id );
-            $this->db->where('account_id', $id);
-            $this->db->update('annualfinalreport', $data);
-        } elseif ($type == 1) {
-            $data = array('application_approved' => 0, 'approver_id' => $approver_id);
-            $this->db->where('account_id', $id);
-            $this->db->update('annualfinalreport', $data);
-        }
-        return true;
-    }
-    //End Of Methods For Annual Final Report Categories*/
-    
     function edit_request($id){
         
         $data = array('editable' => 1);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
         $this->db->update('hirarc', $data);
         
         return true;
@@ -377,12 +300,12 @@ class hirarc_model extends CI_Model
             
             $data = array('editable' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('hirarc', $data);
         }
         return true;

@@ -38,35 +38,37 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>
         
-        <!-- Biohazard Materials Forms -->
+        <!-- All Project Forms -->
         <!-- IF current user is BSO, then show all edit request that have not been approved -->
         <?php if($this->session->userdata('account_type') == 4) { ?>
         
-        <?php if(isset($all_annex2)) { ?>
+        <?php if(isset($all_lmo_project)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Annex 2 Forms
+                        <th colspan="7">
+                            Application For Living Modified Orgnanism
                         </th>
                     </tr>
                     <tr>
                         <th></th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_annex2 as $row): ?>
+                <?php $i=0; foreach($all_lmo_project as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -80,18 +82,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex2/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        <!--
+                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="view_application(<?php echo $row->project_id; ?>, '<?php echo $row->project_type; ?>')" class="btn btn-primary">Load</button></td>
+                        
                         <td class="text-center">
-                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
+                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
-                        </td>
-                        -->
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -1084,6 +1080,14 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <!-- Request Approval and Reject Function for annex 2 -->
     <script>
+        function view_application(i, j){
+                //check what type of project is it then go to project controller
+                if(j == "app_lmo"){
+                    window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
+                } 
+            }
+        
+        
         function approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve/" + i + "/" + k;
         }

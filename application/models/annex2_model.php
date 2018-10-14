@@ -75,7 +75,7 @@ class annex2_model extends CI_Model
     function update_applicant_data($id, $data)
     {
         $this->db->set('application_approved', 'NULL', FALSE);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
 		$this->db->update('annex2', $data);
         return true;
 	}
@@ -164,7 +164,7 @@ class annex2_model extends CI_Model
     function edit_request($id){
         
         $data = array('editable' => 1);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
         $this->db->update('annex2', $data);
         
         return true;
@@ -177,12 +177,12 @@ class annex2_model extends CI_Model
             
             $data = array('editable' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex2', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex2', $data);
         }
         return true;

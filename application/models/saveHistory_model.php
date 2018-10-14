@@ -38,7 +38,9 @@ class saveHistory_model extends CI_Model
                     'project_id' => $row->project_id,
                     'project_desc' => $row->project_desc,
                     'approval' => $row->project_approval,
-                    'name' => $row->project_name
+                    'name' => $row->project_name,
+                    'editable' => $row->project_editable,
+                    'type' => $row->project_type
                 ];
                 array_push($result, $data);
             }
