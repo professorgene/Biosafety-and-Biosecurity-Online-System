@@ -162,7 +162,7 @@ class pc1_model extends CI_Model
     function edit_request($id){
         
         $data = array('editable' => 1);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
         $this->db->update('pc1', $data);
         
         return true;
@@ -175,12 +175,12 @@ class pc1_model extends CI_Model
             
             $data = array('editable' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('pc1', $data);
         }
         return true;

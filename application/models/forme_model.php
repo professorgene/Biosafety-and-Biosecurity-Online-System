@@ -78,7 +78,7 @@ class forme_model extends CI_Model
     function update_applicant_data($id, $data)
     {
         $this->db->set('application_approved', 'NULL', FALSE);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
 		$this->db->update('forme', $data);
         return true;
 	}
@@ -164,25 +164,25 @@ class forme_model extends CI_Model
     function edit_request($id){
         
         $data = array('editable' => 1);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
         $this->db->update('forme', $data);
         
         return true;
             
     }
     
-    function update_editable($id, $type, $approver_id)
+    function update_editable($id, $type, $approver_id, $appid)
     {
         if ($type == 0) {
             
             $data = array('editable' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('forme', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('forme', $data);
         }
         return true;

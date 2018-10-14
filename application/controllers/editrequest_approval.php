@@ -30,6 +30,7 @@ class editrequest_approval extends CI_Controller {
         $this->load->model('pc2_model');
         $this->load->model('procurement_model');
         $this->load->model('swp_model');
+        $this->load->model('project_model');
 		
 		//breadcrum
 		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
@@ -41,7 +42,8 @@ class editrequest_approval extends CI_Controller {
         
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
-        $data['all_annex2'] = $this->annex2_model->get_all_edit_request();
+        $data['all_lmo_project'] = $this->project_model->get_all_lmo_edit_request();
+        /*$data['all_annex2'] = $this->annex2_model->get_all_edit_request();
         $data['all_annex3'] = $this->annex3_model->get_all_edit_request();
         $data['all_annex4'] = $this->annex4_model->get_all_edit_request();
         $data['all_annex5'] = $this->annex5_model->get_all_edit_request();
@@ -57,7 +59,7 @@ class editrequest_approval extends CI_Controller {
         $data['all_pc1'] = $this->pc1_model->get_all_edit_request();
         $data['all_pc2'] = $this->pc2_model->get_all_edit_request();
         $data['all_procurement'] = $this->procurement_model->get_all_edit_request();
-        $data['all_swp'] = $this->swp_model->get_all_edit_request();
+        $data['all_swp'] = $this->swp_model->get_all_edit_request();*/
         
         
         $this->load->template('editrequest_approval_view', $data);
@@ -69,11 +71,18 @@ class editrequest_approval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
+        $type = 
         $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->update_editable($id, 1, $approver_id, $appid);
+        $this->forme_model->update_editable($id, 1, $approver_id, $appid);
+        $this->hirarc_model->update_editable($id, 1, $approver_id, $appid);
+        $this->pc1_model->update_editable($id, 1, $approver_id, $appid);
+        $this->pc2_model->update_editable($id, 1, $approver_id, $appid);
+        $this->swp_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 2 Form Approved", "<p>Your Request For Editing An Annex 2 Form Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For New Application For LMO Project Approved", "<p>Your Request For Editing An Application For LMO Project Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -86,8 +95,14 @@ class editrequest_approval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $result = $this->account_model->get_account_by_id($id);
         $this->annex2_model->update_editable($id, 0, $approver_id, $appid);
+        $this->forme_model->update_editable($id, 0, $approver_id, $appid);
+        $this->hirarc_model->update_editable($id, 0, $approver_id, $appid);
+        $this->pc1_model->update_editable($id, 0, $approver_id, $appid);
+        $this->pc2_model->update_editable($id, 0, $approver_id, $appid);
+        $this->swp_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 2 Form Rejected", "<p>Your Request For Editing An Annex 2 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For New Application For LMO Project Rejected", "<p>Your Request For Editing An Application For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
