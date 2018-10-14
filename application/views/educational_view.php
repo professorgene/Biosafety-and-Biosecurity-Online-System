@@ -42,7 +42,7 @@ if(!$this->session->userdata('isLogin')){
         <hr/>
         <div class="text-center row">
             <?php if($this->session->userdata('account_type') == 4) { ?>
-                <a href="<?php echo base_url(); ?>index.php/educational/new_quiz" class="col-md-12"><button class="btn btn-info button_right">New Quiz</button></a>
+                <a href="<?php echo base_url(); ?>index.php/educational/new_quiz" class="col-md-12"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">New Quiz</button></a>
             <?php } ?>
         </div>
         <br/>

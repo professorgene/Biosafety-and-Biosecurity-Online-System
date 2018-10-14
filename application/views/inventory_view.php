@@ -33,10 +33,10 @@ if(!$this->session->userdata('isLogin')){
 	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 	<hr>
         <div class="text-center row">
-            <a href="<?php echo base_url(); ?>index.php/inventory/index" class="col-md-3"><button class="btn btn-info button_right">Inventory Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/index2" class="col-md-3"><button class="btn btn-info button_right">Storage Database</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory" class="col-md-3"><button class="btn btn-info button_right">New Inventory Application</button></a>
-            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage" class="col-md-3"><button class="btn btn-info button_right">New Storage Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Inventory Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/index2" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Storage Database</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Inventory Application</button></a>
+            <a href="<?php echo base_url(); ?>index.php/inventory/new_storage" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Storage Application</button></a>
         </div>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">

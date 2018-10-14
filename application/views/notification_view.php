@@ -24,6 +24,7 @@ if(!$this->session->userdata('isLogin')){
             padding-left: 12px;
             padding-right: 12px;
         }
+        
     </style>
 </head>
 <body>
@@ -33,6 +34,19 @@ if(!$this->session->userdata('isLogin')){
     <!-- Page Content -->
     <div class="container">
         <h5>Notifications</h5>
+        <hr/>
+        <div class="text-center row">
+            <?php if($this->session->userdata('account_type') == 4) { ?>
+                <a href="<?php echo base_url(); ?>index.php/notification/index" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
+                <a href="<?php echo base_url(); ?>index.php/notification/registration" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Registrations</button></a>
+                <a href="<?php echo base_url(); ?>index.php/notification/application" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Applications</button></a>
+            <?php } else { ?>
+                <span class="col-md-4"></span>
+                <a href="<?php echo base_url(); ?>index.php/notification/index" class="col-md-4"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
+                <span class="col-md-4"></span>
+            <?php } ?>
+        </div>
+        <hr/>
         <?php 
             if(count($notification) >= 1) { 
                 foreach ($notification as $row):

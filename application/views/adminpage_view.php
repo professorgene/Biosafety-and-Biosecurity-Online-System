@@ -202,66 +202,79 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <br/>
         <div class="row">
             <div class="col-md-3">
-                <div class="row">
+                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
                     <div class="col-md-12"><br/></div>
                     <div class="col-md-12"><h2 class="text-center"><?php echo $newprojecttotal ?></h2></div>
                     <div class="col-md-12"><br/></div>
                     <div class="col-md-12"><p class="text-center">Recently Submitted Projects</p></div>
                 </div>
-                <div class="row">
+                <br/>
+                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><h2 class="text-center"><?php echo $newuserstotal ?></h2></div>
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><p class="text-center">Monthly New BBOS Users</p></div>
+                </div>
+                <br/>
+                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
                     <div class="col-md-12"><br/></div>
                     <div class="col-md-12"><h2 class="text-center"><?php echo $existinguserstotal ?></h2></div>
                     <div class="col-md-12"><br/></div>
                     <div class="col-md-12"><p class="text-center">Total BBOS Users</p></div>
                 </div>
             </div>
-            <div class="col-md-3">
-                <div id="newusers" class="donut-size">
-                    <div class="pie-wrapper">
-                        <span class="label">
-                            <span class="num">0</span>
-                        </span>
-                        <div class="pie">
-                            <div class="left-side half-circle"></div>
-                            <div class="right-side half-circle"></div>
+            <div class="row col-md-9">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="newusers" class="donut-size">
+                        <div class="pie-wrapper">
+                            <span class="label">
+                                <span class="num">0</span>
+                            </span>
+                            <div class="pie">
+                                <div class="left-side half-circle"></div>
+                                <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
                         </div>
-                        <div class="shadow"></div>
                     </div>
+                    <br/>
+                    <p class="text-center">Pending User Account Approvals</p>
                 </div>
-                <br/>
-                <p class="text-center">Active User Applications</p>
-            </div>
-            <div class="col-md-3">
-                <div id="blank" class="donut-size">
-                    <div class="pie-wrapper">
-                        <span class="label">
-                            <span class="num">0</span><span class="smaller">%</span>
-                        </span>
-                        <div class="pie">
-                            <div class="left-side half-circle"></div>
-                            <div class="right-side half-circle"></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="blank" class="donut-size">
+                        <div class="pie-wrapper">
+                            <span class="label">
+                                <span class="num">0</span><span class="smaller">%</span>
+                            </span>
+                            <div class="pie">
+                                <div class="left-side half-circle"></div>
+                                <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
                         </div>
-                        <div class="shadow"></div>
                     </div>
+                    <br/>
+                    <p class="text-center">Placeholder</p>
                 </div>
-                <br/>
-                <p class="text-center">Placeholder</p>
-            </div>
-            <div class="col-md-3">
-                <div id="blank" class="donut-size">
-                    <div class="pie-wrapper">
-                        <span class="label">
-                            <span class="num">0</span><span class="smaller">%</span>
-                        </span>
-                        <div class="pie">
-                            <div class="left-side half-circle"></div>
-                            <div class="right-side half-circle"></div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="blank" class="donut-size">
+                        <div class="pie-wrapper">
+                            <span class="label">
+                                <span class="num">0</span><span class="smaller">%</span>
+                            </span>
+                            <div class="pie">
+                                <div class="left-side half-circle"></div>
+                                <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
                         </div>
-                        <div class="shadow"></div>
                     </div>
+                    <br/>
+                    <p class="text-center">Placeholder</p>
                 </div>
-                <br/>
-                <p class="text-center">Placeholder</p>
             </div>
         </div>
     </div>
@@ -270,7 +283,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <script>
         // Automatically loads data into Statistic Panel. Use Pie for comparison, Donut for standalone
-        updatePieChart('#newusers', <?php echo $newuserstotal ?>, <?php echo $existinguserstotal ?>);
+        updatePieChart('#newusers', <?php echo $newuserstotal ?>, <?php echo $approveduserstotal ?>);
     </script>
 </body>
 </html>

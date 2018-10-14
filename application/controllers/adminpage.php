@@ -19,6 +19,7 @@ class adminpage extends CI_Controller {
         
         $newprojecttotal = $this->statistic_model->get_all_new_projects();
         $newuserstotal = $this->statistic_model->get_all_new_users();
+        $approveduserstotal = $this->statistic_model->get_all_new_approved_users();
         $existinguserstotal = $this->statistic_model->get_all_existing_users();
         
         # New project total
@@ -41,6 +42,16 @@ class adminpage extends CI_Controller {
             $data['newuserstotal'] = $i;
         } else {
             $data['newuserstotal'] = 0;
+        }
+        # New approved users total
+        $i = 0;
+        foreach ($approveduserstotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['approveduserstotal'] = $i;
+        } else {
+            $data['approveduserstotal'] = 0;
         }
         
         # Existing users total
