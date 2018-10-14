@@ -201,27 +201,25 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <h3 class="my-4">Statistics</h3>
         <br/>
         <div class="row">
-            <div class="group col-md-3">
-                <div id="projecttotal" class="donut-size">
-                    <div class="pie-wrapper">
-                        <span class="label">
-                            <span class="num">0</span><span class="smaller">%</span>
-                        </span>
-                        <div class="pie">
-                            <div class="left-side half-circle"></div>
-                            <div class="right-side half-circle"></div>
-                        </div>
-                        <div class="shadow"></div>
-                    </div>
+            <div class="col-md-3">
+                <div class="row">
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><h2 class="text-center"><?php echo $newprojecttotal ?></h2></div>
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><p class="text-center">Recently Submitted Projects</p></div>
                 </div>
-                <br/>
-                <p class="text-center">Project Total</p>
+                <div class="row">
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><h2 class="text-center"><?php echo $existinguserstotal ?></h2></div>
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><p class="text-center">Total BBOS Users</p></div>
+                </div>
             </div>
-            <div class="group col-md-3">
-                <div id="projecttotal" class="donut-size">
+            <div class="col-md-3">
+                <div id="newusers" class="donut-size">
                     <div class="pie-wrapper">
                         <span class="label">
-                            <span class="num">0</span><span class="smaller">%</span>
+                            <span class="num">0</span>
                         </span>
                         <div class="pie">
                             <div class="left-side half-circle"></div>
@@ -231,10 +229,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
                 <br/>
-                <p class="text-center">Project Total</p>
+                <p class="text-center">Active User Applications</p>
             </div>
-            <div class="group col-md-3">
-                <div id="projecttotal" class="donut-size">
+            <div class="col-md-3">
+                <div id="blank" class="donut-size">
                     <div class="pie-wrapper">
                         <span class="label">
                             <span class="num">0</span><span class="smaller">%</span>
@@ -247,10 +245,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
                 <br/>
-                <p class="text-center">Project Total</p>
+                <p class="text-center">Placeholder</p>
             </div>
-            <div class="group col-md-3">
-                <div id="projecttotal" class="donut-size">
+            <div class="col-md-3">
+                <div id="blank" class="donut-size">
                     <div class="pie-wrapper">
                         <span class="label">
                             <span class="num">0</span><span class="smaller">%</span>
@@ -263,7 +261,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
                 <br/>
-                <p class="text-center">Project Total</p>
+                <p class="text-center">Placeholder</p>
             </div>
         </div>
     </div>
@@ -271,14 +269,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <br/>
     
     <script>
-        <?php
-            $i = 0;
-            foreach($count as $row){
-                 $i++;
-            }
-        ?>
-        // Automatically loads data into Statistic Panel
-        updateDonutChart('#projecttotal', <?php echo $i ?>, true);
+        // Automatically loads data into Statistic Panel. Use Pie for comparison, Donut for standalone
+        updatePieChart('#newusers', <?php echo $newuserstotal ?>, <?php echo $existinguserstotal ?>);
     </script>
 </body>
 </html>
