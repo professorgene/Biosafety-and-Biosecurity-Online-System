@@ -12,7 +12,7 @@ if(!$this->session->userdata('isLogin')){
     
     <style>
         body {
-            padding-top: 82px;
+            padding-top: 54px;
         }
         
         .btn-sample{
@@ -79,15 +79,22 @@ if(!$this->session->userdata('isLogin')){
     
     
     <div class="container">
+        <br>
+
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>		
+
+		<hr>
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
+
                     <li class="nav-item active"><a href="#procurementtab" class="nav-link" data-toggle="tab">Pre-Purchase Material Risk Assessment Form</a></li>
                 </ul>
                 
                 <div class="tab-content">
+
                     <div class="tab-pane active" id="procurementtab">
-                        <br/>
+
                         <?php include 'procurement_view.php' ?>
                     </div>
                 </div>
