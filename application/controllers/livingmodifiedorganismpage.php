@@ -39,7 +39,7 @@ class livingmodifiedorganismpage extends CI_Controller {
             
                 if($this->project_model->insert_new_proj($data)){
                     
-                    
+                    //if data succesfully submitted, retrieve the row that has the same name as the one just submitted
                     $name = $this->input->post('project_name');
                      $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
                     $data['session'] = $this->project_model->get_proj_name($name);

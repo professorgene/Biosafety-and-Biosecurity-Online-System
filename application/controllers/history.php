@@ -86,7 +86,35 @@ class history extends CI_Controller {
                 $this->swp_model->edit_request($id);
                 $this->project_model->edit_request($id);
             
-                $this->notification_model->insert_new_notification(null, 4, "Annex 2 Application Modification Request", "The following user has requested to edit an Annex 2 form: " . $this->session->userdata('account_name'));
+                $this->notification_model->insert_new_notification(null, 4, "Application for Living Modified Organisms Modification Request", "The following user has requested to edit an Application for Living Modified Organisms: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="app_bio"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->biohazard_model->get_form_by_project_id($id);
+            $data['retrieved3'] = $this->hirarc_model->get_form_by_project_id($id);
+            $data['retrieved6'] = $this->swp_model->get_form_by_project_id($id);
+
+            $this->load->template('biohazardproj_view', $data);
+            }
+            else
+            {
+            
+                $this->biohazard_model->edit_request($id);
+                $this->hirarc_model->edit_request($id);
+                $this->swp_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Application for Biohazardous Materials Modification Request", "The following user has requested to edit an Application for Biohazardous Materials: " . $this->session->userdata('account_name'));
                 redirect('history/index');
             }
             

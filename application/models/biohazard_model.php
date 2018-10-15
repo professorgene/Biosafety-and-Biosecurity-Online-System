@@ -169,7 +169,7 @@ class biohazard_model extends CI_Model
             
     }
     
-    function update_editable($id, $type, $approver_id)
+    function update_editable($id, $type, $approver_id, $appid)
     {
         if ($type == 0) {
             

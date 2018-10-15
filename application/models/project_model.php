@@ -25,6 +25,8 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    
+    
     function get_all_bio_edit_request() 
     {
         $this->db->select('*');
