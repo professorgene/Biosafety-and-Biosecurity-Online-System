@@ -109,7 +109,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
                         <th>Project Name</th>
@@ -159,32 +159,34 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <?php } ?>
         
-        <!-- Annex 4 Forms -->
-        <?php if(isset($all_annex4)) { ?>
+        <!-- Exempt Dealings Projects -->
+        <?php if(isset($all_exempt_project)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Annex 4 Forms
+                        <th colspan="7">
+                            Application For Exempt Dealings
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_annex4 as $row): ?>
+                <?php $i=0; foreach($all_exempt_project as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -198,18 +200,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'annex4_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex4/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        <!--
+                        <td><button type="button" name = 'exempt_load' value = 'Load' onclick="view_application(<?php echo $row->project_id; ?>, '<?php echo $row->project_type; ?>')" class="btn btn-primary">Load</button></td>
+                        
                         <td class="text-center">
-                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
+                            <button class="btn btn-success" onclick="approve_exempt(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
-                        </td>
-                        -->
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_annex4(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_annex4(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject_exempt(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -1086,10 +1082,14 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 //check what type of project is it then go to project controller
                 if(j == "app_lmo"){
                     window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
+                    
                 } else if(j == "app_bio"){
                     window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_project?id=" + i;
-                }
+                    
+                } else if(j == "app_exempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_project?id=" + i;
             }
+        }
         
         
         function approve(i,k){
@@ -1114,14 +1114,14 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             }
         }
         
-        function approve_annex4(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_annex4/" + i + "/" + k;
+        function approve_exempt(i,k){
+            window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_exempt/" + i + "/" + k;
         }
         
-        function reject_annex4(i,k){
+        function reject_exempt(i,k){
             var j = prompt("Reason for Rejecting:", "Does not meet requirements");
             if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/reject_annex4/" + i + "/" + k + "/" + btoa(j);
+                window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/reject_exempt/" + i + "/" + k + "/" + btoa(j);
             }
         }
         

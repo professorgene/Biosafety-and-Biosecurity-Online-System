@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2018 at 08:45 AM
+-- Generation Time: Oct 15, 2018 at 12:35 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -23,9 +23,9 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
 USE biosafety_and_biosecurity_online_system;
+
 --
 -- Table structure for table `accounts`
 --
@@ -386,7 +386,7 @@ CREATE TABLE `biohazardousmaterial` (
 
 INSERT INTO `biohazardousmaterial` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `biohazard_sec_1_edit`, `project_title`, `biohazard_sec_2_edit`, `project_supervisor_name`, `project_supervisor_department`, `project_supervisor_email_address`, `biohazard_sec_3_edit`, `project_alt_person`, `project_alt_department`, `project_alt_email`, `biohazard_sec_4_edit`, `project_personnel_name`, `project_personnel_role`, `biohazard_sec_5_edit`, `proposed_work_known`, `proposed_work_may`, `proposed_work_unknown`, `proposed_work_isolation`, `proposed_work_risk`, `proposed_work_sensitive`, `proposed_work_other`, `biohazard_sec_6_edit`, `project_summary`, `biohazard_sec_7_edit`, `project_activity`, `biohazard_sec_8_edit`, `project_SOP`, `project_SOP_title`, `project_SOP_risk_title`, `biohazard_sec_9_edit`, `project_facilities_building`, `project_facilities_room`, `biohazard_sec_10_edit`, `officer_notified`, `officer_name`, `application_approved`, `editable`, `status`) VALUES
 (2, 2, NULL, 6, 33, NULL, NULL, 0, 'Biohazardous Test Save updated saved', 0, '', '', '', 0, '', NULL, '', 0, ',,,', ',,,', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, NULL, ',,', ',,', 0, ',', ',', 0, NULL, NULL, NULL, 0, 'saved'),
-(3, 2, 6, 6, 34, NULL, NULL, 0, 'Biohazardous Submit', 0, '', '', '', 0, '', NULL, '', 0, ',,,', ',,,', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, NULL, ',,', ',,', 0, ',', ',', 0, NULL, NULL, 4, 0, 'submitted');
+(3, 2, 3, 6, 34, NULL, NULL, 0, 'Biohazardous Submit update', 0, '', '', '', 0, '', NULL, '', 0, ',,,', ',,,', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, NULL, ',,', ',,', 0, ',', ',', 0, NULL, NULL, NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -479,6 +479,14 @@ CREATE TABLE `exemptdealing` (
   `editable` int(1) DEFAULT '0',
   `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `exemptdealing`
+--
+
+INSERT INTO `exemptdealing` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `exempt_sec_1_edit`, `project_title`, `exempt_sec_2_edit`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `exempt_sec_3_edit`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `exempt_sec_4_edit`, `exemption_type_2`, `exemption_type_3`, `exemption_type_3A`, `exemption_type_4`, `exemption_type_5`, `exempt_sec_5_edit`, `project_summary`, `exempt_sec_6_edit`, `project_hazard`, `exempt_sec_7_edit`, `project_SOP`, `exempt_sec_8_edit`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `exempt_sec_9_edit`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `editable`, `status`) VALUES
+(2, 2, NULL, 7, 36, NULL, '', 0, 'Exempt save test change', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'saved'),
+(3, 2, 3, 7, 37, NULL, '', 0, 'Submit exempt project edited', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -747,7 +755,9 @@ INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `form_type`
 (2, 2, 5, 10, 29, 0, 'Submit Project', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
 (3, 2, NULL, 10, 30, 0, 'safcsscf', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
 (5, 2, NULL, 10, 33, 0, 'Biohazardous Test Save updated saved', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
-(6, 2, 3, 10, 34, 0, 'Biohazardous Submit', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, 1, 0, 'submitted');
+(6, 2, 3, 10, 34, 0, 'Biohazardous Submit update', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
+(8, 2, NULL, 10, 36, 0, 'exempt save test change', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
+(9, 2, 3, 10, 37, 0, 'Submit exempt project edited', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1011,10 +1021,15 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (6, NULL, 4, 'New Annex 2 Application', 'The following user has submitted a new application form: Si Kim Yeung', '2018-10-14 14:15:59', 1),
 (7, NULL, 2, 'New Application For LMO Approved', 'BSO has approved an application for LMO', '2018-10-14 17:30:23', 1),
 (8, NULL, 3, 'Annex 2 Application Approved', 'SSBC Chair has approved an Annex 2 Application that requires additional input', '2018-10-14 19:01:13', 1),
-(9, NULL, 2, 'Annex 2 Application Approved', 'SSBC members have approved an Annex 2 Application.', '2018-10-14 19:11:15', 0),
+(9, NULL, 2, 'Annex 2 Application Approved', 'SSBC members have approved an Annex 2 Application.', '2018-10-14 19:11:15', 1),
 (10, NULL, 4, 'Annex 2 Application Modification Request', 'The following user has requested to edit an Annex 2 form: Si Kim Yeung', '2018-10-14 19:52:30', 0),
-(11, NULL, 2, 'New Application For Biohazardous Materials Approved', 'BSO has approved a Biohazard Materials Form ', '2018-10-15 13:51:59', 0),
-(12, NULL, 2, 'New Application For Biohazardous Materials Approved', 'BSO has approved a Biohazard Materials Form ', '2018-10-15 14:09:49', 0);
+(11, NULL, 2, 'New Application For Biohazardous Materials Approved', 'BSO has approved a Biohazard Materials Form ', '2018-10-15 13:51:59', 1),
+(12, NULL, 2, 'New Application For Biohazardous Materials Approved', 'BSO has approved a Biohazard Materials Form ', '2018-10-15 14:09:49', 1),
+(13, NULL, 4, 'Application for Biohazardous Materials Modification Request', 'The following user has requested to edit an Application for Biohazardous Materials: Si Kim Yeung', '2018-10-15 15:40:18', 0),
+(14, NULL, 2, 'New Application For Exempt Dealing Approved', 'BSO has approved an Exempt Dealing Application ', '2018-10-15 18:05:01', 1),
+(15, NULL, 3, 'New Application For Exempt Dealing Approved', 'SSBC Chair has approved an Application For Exempt Dealing that requires additional input.', '2018-10-15 18:06:07', 0),
+(16, NULL, 2, 'New Application For Exempt Dealing Approved', 'SSBC Member has approved an Application For Exempt Dealing', '2018-10-15 18:06:36', 1),
+(17, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-15 18:19:16', 0);
 
 -- --------------------------------------------------------
 
@@ -1317,7 +1332,7 @@ CREATE TABLE `project` (
   `project_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `project_type` varchar(20) DEFAULT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
-  `project_approval` int(1) UNSIGNED DEFAULT '0',
+  `project_approval` int(1) UNSIGNED NOT NULL DEFAULT '0',
   `project_status` varchar(15) DEFAULT NULL,
   `project_editable` int(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -1328,10 +1343,12 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` (`project_id`, `approver_id`, `project_name`, `project_desc`, `project_date`, `project_type`, `account_id`, `project_approval`, `project_status`, `project_editable`) VALUES
 (28, NULL, 'Test save project', 'save the project status', '2018-10-12 12:33:41', 'app_lmo', 2, 0, 'saved', 0),
-(29, 5, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, NULL, 'submitted', 0),
+(29, 5, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, 0, 'submitted', 0),
 (30, NULL, 'New Type Porject', 'asascassabfebdfb ', '2018-10-14 06:15:21', 'app_lmo', 2, 0, 'submitted', 0),
 (33, NULL, 'Biohazard Test Save Project', 'Test if biohazard project can be saved', '2018-10-14 15:35:29', 'app_bio', 2, 0, 'saved', 0),
-(34, 6, 'Biohazard submit', 'Biohazardous submit function', '2018-10-14 15:37:44', 'app_bio', 2, 4, 'submitted', 0);
+(34, 3, 'Biohazard submit', 'Biohazardous submit function', '2018-10-14 15:37:44', 'app_bio', 2, 0, 'submitted', 0),
+(36, NULL, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0),
+(37, 3, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0);
 
 -- --------------------------------------------------------
 
@@ -1416,7 +1433,9 @@ INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `form_type`, `
 (2, 2, 3, 17, 29, NULL, NULL, 0, 'Submit Project', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
 (3, 2, 3, 17, 30, NULL, NULL, 0, 'sdcscsdcv', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
 (5, 2, 3, 17, 33, NULL, NULL, 0, 'Biohazardous Test Save updated saved', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
-(6, 2, 6, 17, 34, NULL, NULL, 0, 'Biohazardous Submit', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted');
+(6, 2, 3, 17, 34, NULL, NULL, 0, 'Biohazardous Submit', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted'),
+(8, 2, NULL, 17, 36, NULL, NULL, 0, 'exempt save test change', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
+(9, 2, 3, 17, 37, NULL, NULL, 0, 'Submit exempt project edited', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'submitted');
 
 --
 -- Indexes for dumped tables
@@ -1678,7 +1697,7 @@ ALTER TABLE `educational`
 -- AUTO_INCREMENT for table `exemptdealing`
 --
 ALTER TABLE `exemptdealing`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `forme`
@@ -1696,7 +1715,7 @@ ALTER TABLE `formf`
 -- AUTO_INCREMENT for table `hirarc`
 --
 ALTER TABLE `hirarc`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `incidentaccidentreport`
@@ -1726,7 +1745,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -1756,7 +1775,7 @@ ALTER TABLE `pc2`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `storage`
@@ -1768,7 +1787,7 @@ ALTER TABLE `storage`
 -- AUTO_INCREMENT for table `swp`
 --
 ALTER TABLE `swp`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- Constraints for dumped tables

@@ -44,6 +44,7 @@ class editrequest_approval extends CI_Controller {
         
         $data['all_lmo_project'] = $this->project_model->get_all_lmo_edit_request();
         $data['all_bio_project'] = $this->project_model->get_all_bio_edit_request();
+        $data['all_exempt_project'] = $this->project_model->get_all_exempt_edit_request();
         
         /*$data['all_annex2'] = $this->annex2_model->get_all_edit_request();
         $data['all_annex3'] = $this->annex3_model->get_all_edit_request();
@@ -143,30 +144,36 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    //Methods For Approving And Rejecting Annex 4 Requests
-    public function approve_annex4($id, $appid)
+    //Methods For Approving And Rejecting exempt dealing application
+    public function approve_exempt($id, $appid)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $result = $this->account_model->get_account_by_id($id);
-        $this->annex4_model->update_editable($id, 1, $approver_id, $appid);
+        $this->exempt_model->update_editable($id, 1, $approver_id, $appid);
+        $this->hirarc_model->update_editable($id, 1, $approver_id, $appid);
+        $this->swp_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 4 Form Approved", "<p>Your Request For Editing An Annex 4 Form Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Application for Exempt Dealing Approved", "<p>Your Request For Editing An Application for Exempt Dealing Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
     
-    public function reject_annex4($id, $appid)
+    public function reject_exempt($id, $appid)
     {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
         $result = $this->account_model->get_account_by_id($id);
-        $this->annex4_model->update_editable($id, 0, $approver_id, $appid);
+        $this->exempt_model->update_editable($id, 0, $approver_id, $appid);
+        $this->hirarc_model->update_editable($id, 0, $approver_id, $appid);
+        $this->swp_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annex 4 Form Rejected", "<p>Your Request For Editing An Annex 4 Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Application for Exempt Dealing", "<p>Your Request For Editing An AApplication for Exempt Dealing Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }
@@ -255,33 +262,7 @@ class editrequest_approval extends CI_Controller {
         redirect('editrequest_approval/index');
     }
     
-    //Methods For Approving And Rejecting Exempt Dealing form Requests
-    public function approve_exempt($id, $appid)
-    {
-        $approver_id = $this->session->userdata('account_id');
-        $id = $this->uri->segment(3);
-        $appid = $this->uri->segment(4);
-        $result = $this->account_model->get_account_by_id($id);
-        $this->exempt_model->update_editable($id, 1, $approver_id, $appid);
-        
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Exempt Dealing Application Form Approved", "<p>Your Request For Editing An Exempt Dealing Application Form Has Been Approved. </p>");
-        
-        redirect('editrequest_approval/index');
-    }
-    
-    public function reject_exempt($id, $appid)
-    {
-        $approver_id = ' ';
-        $id = $this->uri->segment(3);
-        $appid = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(5));
-        $result = $this->account_model->get_account_by_id($id);
-        $this->exempt_model->update_editable($id, 0, $approver_id, $appid);
-        
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Exempt Dealing Application Form Rejected", "<p>Your Request For Editing An Exempt Dealing Application Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
-        
-        redirect('editrequest_approval/index');
-    }
+
     
     //Methods For Approving And Rejecting Form E Requests
     public function approve_forme($id, $appid)

@@ -79,7 +79,7 @@ if(!$this->session->userdata('isLogin')){
                         <td class="text-center">
                             <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
                             
-                            <!--<i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>-->
+                            <!--<i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/saveHistory/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>-->
             
                         </td>
                     </tr>
@@ -106,6 +106,9 @@ if(!$this->session->userdata('isLogin')){
                     
                 }else if(j == "app_bio"){
                     window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "app_exempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_saved_project?id=" + i;
                 }
                 
             }

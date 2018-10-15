@@ -118,6 +118,34 @@ class history extends CI_Controller {
                 redirect('history/index');
             }
             
+        }elseif($type =="app_exempt"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->exempt_model->get_form_by_project_id($id);
+            $data['retrieved3'] = $this->hirarc_model->get_form_by_project_id($id);
+            $data['retrieved6'] = $this->swp_model->get_form_by_project_id($id);
+
+            $this->load->template('exemptproj_view', $data);
+            }
+            else
+            {
+            
+                $this->exempt_model->edit_request($id);
+                $this->hirarc_model->edit_request($id);
+                $this->swp_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Application for Exempt Dealings Modification Request", "The following user has requested to edit an Application for Exempt Dealings: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
         }
         
             

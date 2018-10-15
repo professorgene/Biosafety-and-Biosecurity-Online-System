@@ -109,7 +109,10 @@ if(!$this->session->userdata('isLogin')){
                     
                 }else if(j == "app_bio"){
                     window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_project?id=" + i;
-                } 
+                    
+                }else if(j == "app_exempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_project?id=" + i;
+                }  
             }
 
             function edit_application(i, j, k){

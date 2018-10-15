@@ -34,15 +34,19 @@ class exemptdealingpage extends CI_Controller {
                 $data = array(
                     'project_name' => $this->input->post('project_name'),
                     'project_desc' => $this->input->post('project_desc'),
+                    'project_type' => 'app_exempt',
                     'account_id' => $this->session->userdata('account_id')
                 );
             
                 if($this->project_model->insert_new_proj($data)){
                      
-                    $this->session->set_userdata('projectName', $data['project_name']);
+                    $name = $this->input->post('project_name');
+                    $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+                    $data['session'] = $this->project_model->get_proj_name($name);
                     
-                    redirect('exemptproj/index');
+                    $this->load->template('exemptproj_view', $data);
                 } else {
+                    
                     $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
                     redirect('exemptproj/index');
                 }

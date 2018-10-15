@@ -211,7 +211,7 @@ class swp_model extends CI_Model
         return true;
     }
     
-    function update_approval($id, $type, $approver_id)
+    function update_approval($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
             
@@ -245,7 +245,7 @@ class swp_model extends CI_Model
         return true;
     }
     
-    function update_approval_SSBC($id, $type, $approver_id)
+    function update_approval_SSBC($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
             

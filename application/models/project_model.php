@@ -25,8 +25,6 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
-    
-    
     function get_all_bio_edit_request() 
     {
         $this->db->select('*');
@@ -34,6 +32,17 @@ class project_model extends CI_Model
         $this->db->join('accounts', 'project.account_id = accounts.account_id');
         $this->db->where('project.project_editable', 1);
         $this->db->where('project.project_type', 'app_bio');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_exempt_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_editable', 1);
+        $this->db->where('project.project_type', 'app_exempt');
         $query = $this->db->get();
 		return $query->result();
     }
@@ -118,7 +127,7 @@ class project_model extends CI_Model
     
     function update_applicant_data($id, $editable)
     {
-        $this->db->set('project_approval', 'NULL', FALSE);
+        $this->db->set('project_approval', 0);
         $this->db->set('project_editable', $editable);
         $this->db->where('project_id', $id);
 		$this->db->update('project', $data);
@@ -223,6 +232,44 @@ class project_model extends CI_Model
         $this->db->where('project.project_approval', 2);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'app_bio');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    //Retrieve all projects of type new application: LMO
+    function get_all_sub_exempt() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 0);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'app_exempt');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_sub_exempt2() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 1);
+        $this->db->or_where('project.project_approval', 3);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'app_exempt');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_sub_exempt3() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 2);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'app_exempt');
         $query = $this->db->get();
 		return $query->result();
     }
