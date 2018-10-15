@@ -59,6 +59,14 @@ class accountapproval extends CI_Controller {
             redirect('accountapproval/index');
         }
     }
+    
+    public function edit()
+	{
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        $data['all_accounts'] = $this->account_model->get_all_approved_account($this->session->userdata('account_id'));
+        
+        $this->load->template('accountedit_view', $data);
+	}
 }
 
 ?>

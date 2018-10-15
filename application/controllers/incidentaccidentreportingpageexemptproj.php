@@ -10,7 +10,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->database();
         $this->load->model('notification_model');
 		
-            $this->breadcrumbs->unshift('Home', '/');	
+            $this->breadcrumbs->unshift('Home', '/');
+			$this->breadcrumbs->push('New Project','/projectselect', true);			
 		    $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage' ,true);
             $this->breadcrumbs->push('OHS-F-4.20.X',true);
         

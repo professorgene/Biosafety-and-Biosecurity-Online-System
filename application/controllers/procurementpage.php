@@ -11,7 +11,8 @@ class procurementpage extends CI_Controller {
         $this->load->model('notification_model');
         
         //breadcrum
-		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('New Project','/projectselect', true);		
 		$this->breadcrumbs->push('Procurement of Biological Material', true);
     }
 		

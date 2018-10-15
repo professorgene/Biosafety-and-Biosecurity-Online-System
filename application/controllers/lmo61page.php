@@ -12,7 +12,8 @@ class lmo61page extends CI_Controller {
 		$this->load->model('announcement_model');
 
 		//breadcrum
-		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('New Project','/projectselect', true);	
 		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
         $this->breadcrumbs->push('Living Modified Organism (LMO)',true);
 		

@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class history extends CI_Controller {
+class historyproj extends CI_Controller {
     
     function __construct()
     {
@@ -14,9 +14,7 @@ class history extends CI_Controller {
         $this->load->model('email_model');
 		//breadcrumb
 		$this->breadcrumbs->unshift('Home', '/');
-        $this->breadcrumbs->push('New Project','/projectselect', true);
-		$this->breadcrumbs->push('Application','/applicationpage', true);		
-        $this->breadcrumbs->push('Modification of Approved Project', true);
+        $this->breadcrumbs->push('History', true);
         
         //Form Models
         $this->load->model('annex2_model');

@@ -12,7 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->load->model('announcement_model');
         
         //breadcrum
-		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('New Project','/projectselect', true);	
 		$this->breadcrumbs->push('Exporting of Biological Material', true);
     }
 		

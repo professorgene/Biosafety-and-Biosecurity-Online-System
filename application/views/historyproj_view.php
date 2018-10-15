@@ -12,7 +12,7 @@ if(!$this->session->userdata('isLogin')){
     
     <style>
         body {
-            padding-top: 54px;
+            padding-top: 82px;
         }
         
         .btn-sample{
@@ -20,8 +20,9 @@ if(!$this->session->userdata('isLogin')){
             margin-left: 60px;
         }
         
-        .approve_section{
-            display: none;
+        #first-table{
+            background-color: #95a5a6;
+            text-align: center;
         }
         
         .tblTitle{
@@ -30,15 +31,26 @@ if(!$this->session->userdata('isLogin')){
             text-align: center;
         }
         
+        .blackborder{
+            border-color: black;
+        }
+        
+        .approve_section{
+            display: none;
+        }
+        
         .tblTitle2{
             background-color: #808080;
             color: white;
             text-align: center;
         }
         
-         .dark_background{
-            background-color: black;
-            color: white;
+        .tbheader1{
+            background-color:  #95a5a6 ;
+        }
+        
+        .centering{
+            text-align: center;
         }
         
         .greendata{
@@ -53,51 +65,36 @@ if(!$this->session->userdata('isLogin')){
             background-color: yellow;
         }
         
-        .grey-text{
-            color: gainsboro;
-        }
-        
-        .tbheader1{
-            background-color:  #95a5a6 ;
-        }
-        
         .colspace{
             width: 50px;
         }
+        
         .sectiontarget::before {
           content:"";
           display:block;
           height:60px; /* fixed header height*/
           margin:-60px 0 0; /* negative fixed header height */
         }
-        
-        
-    </style>
+    </style> 
 </head>    
 <body>
     <?php include_once 'template/navbar.php' ?>
     
     
     <div class="container">
-        <br>
-
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>		
-
-		<hr>
+	 
         <div class="row">
+		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
             <div class="col-md-12">
-                <ul class="nav nav-tabs">
+			<br>
 
-                    <li class="nav-item active"><a href="#procurementtab" class="nav-link" data-toggle="tab">Pre-Purchase Material Risk Assessment Form</a></li>
-                </ul>
                 
-                <div class="tab-content">
 
-                    <div class="tab-pane active" id="procurementtab">
-
-                        <?php include 'procurement_view.php' ?>
+                    <div class="tab-pane active" id="history">
+                        <br/>
+                        <?php include 'history_view.php' ?>
                     </div>
-                </div>
+
                 
             </div>
         </div>
