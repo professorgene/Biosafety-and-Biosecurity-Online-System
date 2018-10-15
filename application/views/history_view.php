@@ -112,6 +112,10 @@ if(!$this->session->userdata('isLogin')){
                     
                 }else if(j == "app_exempt"){
                     window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_project?id=" + i;
+                    
+                }else if(j == "procurement"){
+                    window.location = "<?php echo base_url(); ?>index.php/procurementproj/load_project?id=" + i;
+                    
                 }  
             }
 

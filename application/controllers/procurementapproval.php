@@ -9,6 +9,7 @@ class procurementapproval extends CI_Controller {
         
         $this->load->database();
         $this->load->model('notification_model');
+        $this->load->model('project_model');
         $this->load->model('account_model');
         $this->load->model('procurement_model');
         $this->load->model('email_model');
@@ -22,7 +23,8 @@ class procurementapproval extends CI_Controller {
 	{
         
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
-        $data['all_procurement'] = $this->procurement_model->get_all_form();
+        
+        $data['all_procurement_proj'] = $this->project_model->get_all_sub_procurement();
         
         $this->load->template('procurementapproval_view', $data);
 	}
@@ -34,6 +36,7 @@ class procurementapproval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $result = $this->account_model->get_account_by_id($id);
         $this->procurement_model->update_approval($id, 1, $approver_id, $appID);
+        $this->project_model->procurement_update_approval($id, 1, $approver_id, $appID);
         
         //Send email to Applicant requesting them to print out assessment sheets, QSF, and Pathogen data safety sheet. Tell them they can proceed to Notification of LMO and Biohazardous materials when the items arrived
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Approved", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Approved. You are required to print out the assessment, and attach it together with QSF and Pathogen Safety Data Sheet, which are to be approved by BSO, RCO director, Faculty manager and or/etc. Furthermore, once the items have arrived, you may proceed with filling out a Notification of LMO and Biohazardous Materials form. </p>");
@@ -49,6 +52,7 @@ class procurementapproval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $result = $this->account_model->get_account_by_id($id);
         $this->procurement_model->update_approval($id, 0, $approver_id, $appID);
+        $this->project_model->procurement_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to Applicant telling them their form has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Rejected", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");

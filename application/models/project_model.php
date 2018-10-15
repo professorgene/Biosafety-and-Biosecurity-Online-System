@@ -47,6 +47,17 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_procurement_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_editable', 1);
+        $this->db->where('project.project_type', 'procurement');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     # Search by ID
     function get_proj_id($id)
     {
@@ -274,12 +285,41 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_sub_procurement() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 0);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'procurement');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     
     function update_approval($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
             
             $data = array('project_approval' => 5);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        } elseif ($type == 1) {
+            $data = array('project_approval' => 1, 'approver_id' => $approver_id);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        }
+        return true;
+    }
+    
+    function procurement_update_approval($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('project_approval' => 3);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);

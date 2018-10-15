@@ -34,12 +34,26 @@ class procurement_model extends CI_Model
         $query = $this->db->get('materialriskassessment');
 		return $query->result();
 	}
+    
+    function get_form_by_project_id($id)
+    {
+        $this->db->where('project_id', $id);
+        $query = $this->db->get('materialriskassessment');
+        return $query->result();
+    }
 	
     function get_form_by_account_id($id)
 	{
 		$this->db->where('account_id', $id);
         $query = $this->db->get('materialriskassessment');
 		return $query->result();
+	}
+    
+    function update_saved_data($id, $data)
+    {
+        $this->db->where('project_id', $id);
+		$this->db->update('materialriskassessment', $data);
+        return true;
 	}
 	
 	function insert_new_applicant_data($data)
@@ -50,22 +64,24 @@ class procurement_model extends CI_Model
     function update_applicant_data($id, $data)
     {
         $this->db->set('application_approved', 'NULL', FALSE);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
 		$this->db->update('materialriskassessment', $data);
         return true;
 	}
     
     
-    function update_approval($id, $type, $approver_id)
+    function update_approval($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
             
             $data = array('application_approved' => 3);
             $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
             $this->db->update('materialriskassessment', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 1, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
             $this->db->update('materialriskassessment', $data);
         }
         return true;
@@ -87,12 +103,12 @@ class procurement_model extends CI_Model
             
             $data = array('editable' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('materialriskassessment', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('materialriskassessment', $data);
         }
         return true;
