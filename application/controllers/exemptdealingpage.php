@@ -13,7 +13,8 @@ class exemptdealingpage extends CI_Controller {
         $this->load->model('project_model');
         
          //breadcrum
-		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('New Project','/projectselect', true);		
 		$this->breadcrumbs->push('Application','/applicationpage', true);
         $this->breadcrumbs->push('New Application','/newapplicationpage', true);
         $this->breadcrumbs->push('Exempt Dealing', true);
