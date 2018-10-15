@@ -13,7 +13,9 @@ class history extends CI_Controller {
         $this->load->model('history_model');
         $this->load->model('email_model');
 		//breadcrumb
-		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->unshift('Home', '/');
+        $this->breadcrumbs->push('New Project','/projectselect', true);
+		$this->breadcrumbs->push('Application','/applicationpage', true);		
         $this->breadcrumbs->push('Modification of Approved Project', true);
         
         //Form Models
