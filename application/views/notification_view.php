@@ -36,10 +36,18 @@ if(!$this->session->userdata('isLogin')){
         <h5>Notifications</h5>
         <hr/>
         <div class="text-center row">
-                <a href="<?php echo base_url(); ?>index.php/notification/index" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
-                <a href="<?php echo base_url(); ?>index.php/notification/registration" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Registrations</button></a>
-                <a href="<?php echo base_url(); ?>index.php/notification/application" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Applications</button></a>
-                <a href="<?php echo base_url(); ?>index.php/notification/approval" class="col-md-3"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Approvals</button></a>
+            <div class="col-md-3">
+                <a href="<?php echo base_url(); ?>index.php/notification/index"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">All</button></a>
+            </div>
+            <div class="col-md-3">
+                <a href="<?php echo base_url(); ?>index.php/notification/registration"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Registrations</button></a>
+            </div>
+            <div class="col-md-3">
+                <a href="<?php echo base_url(); ?>index.php/notification/application"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Applications</button></a>
+            </div>
+            <div class="col-md-3">
+                <a href="<?php echo base_url(); ?>index.php/notification/approval"><button class="btn btn-info button_right" style="display:inline-block;width:200px;">Approvals</button></a>
+            </div>
         </div>
         <hr/>
         <?php 

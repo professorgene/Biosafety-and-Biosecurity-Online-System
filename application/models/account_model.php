@@ -48,6 +48,14 @@ class account_model extends CI_Model
         $query = $this->db->select('*')->from('accounts')->get();
 		return $query->result();
     }
+    
+    function get_all_approved_account($id) 
+    {
+        $this->db->where('account_approved', 1);
+        $this->db->not_like('account_id', $id);
+        $query = $this->db->select('*')->from('accounts')->get();
+		return $query->result();
+    }
 	
 	# Insert New Account
 	function insert_new_account($data)
