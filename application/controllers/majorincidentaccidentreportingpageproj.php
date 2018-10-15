@@ -11,7 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->model('notification_model');
 		
         //breadcrum
-		$this->breadcrumbs->unshift('Home', '/');	
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('New Project','/projectselect', true);		
 		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
         $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
         $this->breadcrumbs->push('Major Biological Incident or Accident','lmo61page',true);
