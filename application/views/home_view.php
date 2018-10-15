@@ -160,10 +160,10 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/history"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/historyproj"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
-                            <a href="<?php echo base_url(); ?>index.php/history">Submitted &amp; Approved Projects</a>
+                            <a href="<?php echo base_url(); ?>index.php/historyproj">Submitted &amp; Approved Projects</a>
                         </h6>
                         <p class="card-text"></p>
                     </div>
