@@ -97,12 +97,12 @@ class pc1_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 1, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         }
         return true;
@@ -114,12 +114,12 @@ class pc1_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         }
         return true;
@@ -131,12 +131,12 @@ class pc1_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         }
         return true;
@@ -148,12 +148,12 @@ class pc1_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 4, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('pc1', $data);
         }
         return true;

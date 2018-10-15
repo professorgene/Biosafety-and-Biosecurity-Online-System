@@ -106,6 +106,9 @@ if(!$this->session->userdata('isLogin')){
                 //check what type of project is it then go to project controller
                 if(j == "app_lmo"){
                     window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
+                    
+                }else if(j == "app_bio"){
+                    window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_project?id=" + i;
                 } 
             }
 

@@ -76,6 +76,21 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php 
+        if(isset($session))
+        {
+            
+            foreach($session as $info)
+            {
+                $id = $info->project_id;
+            } 
+          
+            $this->session->set_userdata("projectId", $id);
+            
+        }
+        
+        ?>
+    
     
     <div class="container">
         <div class="row">
@@ -86,7 +101,7 @@ if(!$this->session->userdata('isLogin')){
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>
                 
-                <?php if(isset($editload)) { echo form_open('biohazardproj/update_form'); } else { echo form_open('biohazardproj/index'); } ?>
+                <?php if(isset($editload)) { echo form_open('biohazardproj/update_form'); } elseif(isset($saveload)) {echo form_open('biohazardproj/continue');} else { echo form_open('biohazardproj/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 <div class="tab-content">
                     <div class="tab-pane active" id="biohazardtab">

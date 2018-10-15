@@ -33,7 +33,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <div class="container">
 	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
         <hr>
-        <h5>Biohazard Material Form Approvals</h5>
+        <h5>Application for Biohazardous Materials Project Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>
@@ -41,31 +41,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- Biohazard Materials Forms -->
         <!-- IF current user is BSO, then show applications that have not been approved -->
         <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_bm)) { ?>
+        <?php if(isset($all_bm_proj)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Biohazard Material 
+                        <th colspan="7">
+                            New Application For Biohazardous Materials Project
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
-                        <th></th>
+                        <th>View Form</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_bm as $row): ?>
+                <?php $i=0; foreach($all_bm_proj as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -79,12 +81,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazard/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazardproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -97,31 +99,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <!-- IF current user is SSBC Chair, then show applications that were approved by BSO/SSBC members -->
         <?php if($this->session->userdata('account_type') == 2) { ?>
-        <?php if(isset($all_bm_Chair)) { ?>
+        <?php if(isset($all_bm_proj_Chair)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Biohazard Material 
+                        <th colspan="7">
+                            New Application For Biohazardous Materials Project
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
-                        <th></th>
+                        <th>View Form</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_bm_Chair as $row): ?>
+                <?php $i=0; foreach($all_bm_proj_Chair as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -135,24 +139,24 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazard/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazardproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
-                        <?php if($row->application_approved == 1 ) { ?>
+                        <?php if($row->project_approval == 1 ) { ?>
                         <td id="biohazard_issue" class="text-center">
-                                <button class="btn btn-success" onclick="Chair_approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="There's issue">Yes</button>
+                                <button class="btn btn-success" onclick="Chair_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="There's issue">Yes</button>
                                 <hr>
                                 <button class="btn btn-danger" onclick="biohazard_show()" title="No Issue">No</button>
                         </td>
                         <td id="biohazard_Chair" style="display:none;" class="text-center">
-                            <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
-                        <?php }elseif($row->application_approved == 3 ){ ?>
+                        <?php }elseif($row->project_approval == 3 ){ ?>
                         <td  class="text-center">
-                            <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                         <?php } ?>
                     </tr>
@@ -166,31 +170,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <!-- IF current user is SSBC Members, then show applications that Chair thinks has major issues. -->
         <?php if($this->session->userdata('account_type') == 3) { ?>
-        <?php if(isset($all_bm_SSBC)) { ?>
+        <?php if(isset($all_bm_proj_SSBC)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Biohazard Material 
+                        <th colspan="7">
+                            New Application For Biohazardous Materials Project
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
-                        <th></th>
+                        <th>View Form</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_bm_SSBC as $row): ?>
+                <?php $i=0; foreach($all_bm_proj_SSBC as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -204,12 +210,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazard/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazardproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -221,399 +227,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         <!-- End Of Biohazard Material Form -->
         
-        <!-- HIRARC Form  -->
-        <!-- IF current user is BSO, then show applications that have not been approved -->
-        <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_hirarc)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            HIRARC 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_hirarc as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC Chair, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
-        <?php if(isset($all_hirarc_Chair)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="7">
-                            HIRARC 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                    <?php $i=0; foreach($all_hirarc_Chair as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'forme_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        
-                        <?php if($row->application_approved == 1){ ?>
-                        <td id="hirarc3_issue" class="text-center">
-                            <button class="btn btn-success" onclick="Chair_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="There's issue">Yes</button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="hirarc3_show()" title="No Issue">No</button>
-                        </td>
-                        
-            
-                        <td id="hirarc3_proceed" style="display:none;" class="text-center">
-                            <button class="btn btn-success" onclick="final_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="final_reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                        <?php }elseif($row->application_approved == 3){ ?>
-                        <td id="hirarc_proceed" class="text-center">
-                            <button class="btn btn-success" onclick="final_approve_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="final_reject_hirarc(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                        <?php } ?>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC members, then show applications that SSBC Chair thinks has major issue -->
-        <?php if($this->session->userdata('account_type') == 3) { ?>
-        <?php if(isset($all_hirarc_SSBC)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            HIRARC 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_hirarc_SSBC as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'hirarc_load' value = 'Load' onclick="location.href='<?php echo site_url().'/hirarc/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_hirarc2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_hirarc2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        <!-- End Of HIRARC Form -->
-        
-        <!-- SWP Form  -->
-        <!-- IF current user is BSO, then show applications that have not been approved -->
-        <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_swp)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            SWP 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_swp as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-            
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC Chair, then show applications that BSO or SSBC members approved -->
-        <?php if($this->session->userdata('account_type') == 2) { ?>
-        <?php if(isset($all_swp_Chair)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            SWP 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_swp_Chair as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-            
-                        <?php if($row->application_approved == 1){ ?>
-                        <td id="swp3_issue" class="text-center">
-                            <button class="btn btn-success" onclick="Chair_approve_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="There's issue">Yes</button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="swp3_show()" title="No Issue">No</button>
-                        </td>
-                        
-            
-                        <td id="swp3_proceed" style="display:none;" class="text-center">
-                            <button class="btn btn-success" onclick="final_approve_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="final_reject_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                        <?php }elseif($row->application_approved == 3){ ?>
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="final_approve_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="final_reject_swp(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                        <?php } ?>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC Members, then show applications that SSBC Chair thinks has mjor issues -->
-        <?php if($this->session->userdata('account_type') == 3) { ?>
-        <?php if(isset($all_swp_SSBC)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            SWP 
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_swp_SSBC as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'swp_load' value = 'Load' onclick="location.href='<?php echo site_url().'/swp/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve_swp_2(<?php echo $row->account_id;?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject_swp_2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        <!-- End Of SWP Form -->
         
         <br/>
     </div>

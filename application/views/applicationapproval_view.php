@@ -33,7 +33,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <div class="container">
 		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
         <hr>
-        <h5>Application Approvals</h5>
+        <h5>Application for LMO Project Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>

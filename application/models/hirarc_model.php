@@ -183,7 +183,7 @@ class hirarc_model extends CI_Model
     function update_applicant_data($id, $data)
     {
         $this->db->set('application_approved', 'NULL', FALSE);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
 		$this->db->update('hirarc', $data);
         return true;
 	}
@@ -203,12 +203,12 @@ class hirarc_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 1, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         }
         return true;
@@ -220,12 +220,12 @@ class hirarc_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         }
         return true;
@@ -237,12 +237,12 @@ class hirarc_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         }
         return true;
@@ -254,12 +254,12 @@ class hirarc_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         }
         return true;
@@ -271,12 +271,12 @@ class hirarc_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 4, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('hirarc', $data);
         }
         return true;

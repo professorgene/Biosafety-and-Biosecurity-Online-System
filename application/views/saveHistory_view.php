@@ -103,6 +103,9 @@ if(!$this->session->userdata('isLogin')){
             function view_application(i, j){
                 if(j == "app_lmo"){
                     window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "app_bio"){
+                    window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_saved_project?id=" + i;
                 }
                 
             }

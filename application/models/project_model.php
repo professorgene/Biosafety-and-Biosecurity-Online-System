@@ -25,6 +25,17 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_bio_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_editable', 1);
+        $this->db->where('project.project_type', 'app_bio');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     # Search by ID
     function get_proj_id($id)
     {
@@ -172,6 +183,44 @@ class project_model extends CI_Model
         $this->db->where('project.project_approval', 2);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'app_lmo');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    //Retrieve all projects of type new application: Biohazardous Materials
+    function get_all_sub_bio() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 0);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'app_bio');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_sub_bio2() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 1);
+        $this->db->or_where('project.project_approval', 3);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'app_bio');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_sub_bio3() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 2);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'app_bio');
         $query = $this->db->get();
 		return $query->result();
     }
