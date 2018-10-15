@@ -130,7 +130,10 @@ if($this->session->userdata('account_type') != 4){
     
     <script>
         function approve(i){
-            window.location = "<?php echo base_url(); ?>index.php/accountapproval/approve/" + i;
+            var k = confirm("Are you sure?");
+            if (k){
+                window.location = "<?php echo base_url(); ?>index.php/accountapproval/approve/" + i;
+            }
         }
         
         function reject(i){
