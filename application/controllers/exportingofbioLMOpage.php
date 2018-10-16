@@ -1,41 +1,41 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class annualfinalreportpage extends CI_Controller {
-	
-	
+class exportingofbioLMOpage extends CI_Controller {
+
 	function __construct()
     {
         parent::__construct();
         
         $this->load->database();
         $this->load->model('notification_model');
-		$this->load->model('announcement_model');
+        $this->load->model('announcement_model');
         $this->load->model('project_model');
         
-        //breadcrum
-		$this->breadcrumbs->unshift('Home', '/');
-		$this->breadcrumbs->push('New Project','/projectselect', true);		
-		$this->breadcrumbs->push('Annual or Final Report', true);
+			//breadcrum
+            $this->breadcrumbs->unshift('Home', '/');
+			$this->breadcrumbs->push('New Project','/projectselect', true);	
+            $this->breadcrumbs->push('Exporting of Biological Material','exportingbiologicalmaterialpage', true);
+            $this->breadcrumbs->push('Form F', true);
     }
 		
 		public function index(){
 			$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
-            	        
-			//savesubmited form
+    
+            
 			$this->form_validation->set_rules('project_name', 'Project Name', 'required');
             $this->form_validation->set_rules('project_desc', 'Project Description', 'required');
-			
-			# Submit form
+        
+            # Submit form
             if($this->form_validation->run() == FALSE){
                 # validation fails
                 $data['product_list'] = $this->announcement_model->list_product()->result();
-                $this->load->template('annualfinalreportpage_view', $data);
+                $this->load->template('exportingofbioLMOpage_view', $data);
             } else {
                 $data = array(
                     'project_name' => $this->input->post('project_name'),
                     'project_desc' => $this->input->post('project_desc'),
-                    'project_type' => 'anuualfinalreport',
+                    'project_type' => 'exportingofbioLMO',
                     'account_id' => $this->session->userdata('account_id')
                 );
             
@@ -46,15 +46,14 @@ class annualfinalreportpage extends CI_Controller {
                      $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
                     $data['session'] = $this->project_model->get_proj_name($name);
                                     
-                    $this->load->template('annualorfinalreportproj_view', $data);
+                    $this->load->template('exportingofbioLMOproj_view', $data);
                 } else {
                     $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                    redirect('annualfinalreport/index');
+                    redirect('formf/index');
                 }
             }
-		}
-
-		//announcement module
+        }
+		
 		public function add()
 		{
 			$this->load->template('product_form');
@@ -69,7 +68,7 @@ class annualfinalreportpage extends CI_Controller {
 				);
 			$this->load->model('announcement_model');
 			$this->announcement_model->save($array_item);
-			redirect('annualfinalreportpage');
+			redirect('exportingofbioLMOpage');
 		}
 		public function save_edit()
 		{
@@ -82,13 +81,13 @@ class annualfinalreportpage extends CI_Controller {
 				);
 			$this->load->model('announcement_model');
 			$this->announcement_model->update($id,$array_item);
-			redirect('annualfinalreportpage');
+			redirect('exportingofbioLMOpage');
 		}
 		public function edit(){
 			$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
 			$this->load->model('announcement_model');
 			$data['list_product'] = $this->announcement_model->list_product()->row_array();
-			$this->load->template('annualfinalreportpage_view',$data);
+			$this->load->template('exportingofbioLMOpage_view',$data);
 		}
 }
 ?>

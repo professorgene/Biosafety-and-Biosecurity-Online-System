@@ -141,7 +141,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['disabled'] = "true";           
             $id = $this->input->get('id');           
             $data['appID'] = $id;           
-            $data['retrieved'] = $this->procurement_model->get_form_by_project_id($id);        
+            $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);        
             $this->load->template('annualorfinalreportproj_view', $data);
         }
 		
