@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <html lang="en">
 <head>
     <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Swinburne Biosafety and Biosecurity Online System - Exempt Dealing Page</title>
+    <title>Swinburne Biosafety and Biosecurity Online System - Annual or Final Report Page</title>
     
     <style>
         body {
@@ -36,31 +36,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/annualfinalreport">		
-                    <div class="option1 card col-md-9 hover1" title="SBC - Annual or Final Report for use of Biohazardous Materials">
-                        <h5><span>SBC - ANNUAL OR FINAL REPORT FOR USE OF BIOHAZARDOUS MATERIALS</span></h5>		
-                    </div>				
-            </a>
-		</div>
-        
-        <!--
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/hirarc?type=4">		
-                    <div class="option1 card col-md-9 hover1" title="Hazard Identification, Risk Assessment, Risk Control (HIRARC) Form">
-                        <h5><span>OHS-F-4.5.X HIRARC FORM</span></h5>		
-                    </div>				
-            </a>
-		</div>
-        
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/swp?type=4">		
-                    <div class="option1 card col-md-9 hover1" title="SSBC_001 Safe Work Procedure (SWP)">
-                        <h5><span>SSBC SAFE WORK PROCEDURE</span></h5>		
-                    </div>				
-            </a>
-		</div>				
-		-->
+        <?php echo form_open('annualfinalreportpage/index'); ?>
+                            <br/>
+                            <legend>New Project</legend>
+                            <br/>
+                            <div class="form-group">
+                                <label for="fullname">Project Name:</label>
+                                <input class="form-control" id="projname" name="project_name" placeholder="Enter project name here." type="text" value="<?php echo set_value('project_name'); ?>" />
+                                <span class="text-danger"><?php echo form_error('project_name'); ?></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email_add">Project Description:</label>
+                                <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here." value="<?php echo set_value('project_desc'); ?>"></textarea>
+                                <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
+                            </div>
+                            <br/>
+                            <div class="form-group text-center">
+                                <span class="col-md-1"></span>
+                                <button name="submit" type="submit" class="btn btn-success col-md-4">Create</button>
+                                <span class="col-md-2"></span>
+                                <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+                                <span class="col-md-1"></span>
+                            </div>
+                        <?php echo form_close(); ?>
+        <br/>
     </div>
 		
 		<div class="col-lg-7">

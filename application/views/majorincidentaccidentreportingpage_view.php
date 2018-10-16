@@ -34,23 +34,33 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
 		<hr>
 	<div class="row" >
-	<div class="col-lg-5" >
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/annex3">		
-                    <div class="option1 card col-md-9 hover1" title="Annex 3 Incident Reporting Form">
-                        <h5><span>ANNEX 3 INCIDENT REPORTING</span></h5>		
-                    </div>				
-            </a>
-		</div>
-        
-        <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/incidentaccidentreport?type=2">		
-                    <div class="option1 card col-md-9 hover1" title="OHS-F-4.20.X Incident Accident Report Form_V3">
-                        <h5><span>OHS-F-4.20.X INCIDENT ACCIDENT REPORT</span></h5>		
-                    </div>				
-            </a>
-		</div>
-        <br/>	
+		<div class="col-lg-5" >
+        <?php echo form_open('majorincidentaccidentreportingpage/index'); ?>
+        <br/>
+        <legend>New Project</legend>
+        <br/>
+        <div class="form-group">
+            <label for="fullname">Project Name:</label>
+            <input class="form-control" id="projname" name="project_name" placeholder="Enter project name here." type="text" value="<?php echo set_value('project_name'); ?>" />
+            <span class="text-danger"><?php echo form_error('project_name'); ?></span>
+        </div>
+
+        <div class="form-group">
+            <label for="email_add">Project Description:</label>
+            <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here." value="<?php echo set_value('project_desc'); ?>"></textarea>
+            <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
+        </div>
+        <br/>
+        <div class="form-group text-center">
+            <span class="col-md-1"></span>
+            <button name="submit" type="submit" class="btn btn-success col-md-4">Create</button>
+            <span class="col-md-2"></span>
+            <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+            <span class="col-md-1"></span>
+        </div>
+        <?php echo form_close(); ?>
+        				
+		
 		</div>
 		
 		<div class="col-lg-7">
