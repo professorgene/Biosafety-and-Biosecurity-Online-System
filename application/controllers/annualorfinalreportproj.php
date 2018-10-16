@@ -164,7 +164,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    }elseif(isset($update)){
                 $data = array(
 					 'account_id' => $this->session->userdata('account_id'),
-                     'project_id' => $proj_id,
+                     'project_id' => $appID,
 					 'account_id' => $this->session->userdata('account_id'),
                      'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                      'project_approval_date' => $this->input->post('project_approval_date'),

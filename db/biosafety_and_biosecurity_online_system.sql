@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2018 at 04:35 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Oct 16, 2018 at 12:00 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -25,7 +25,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
 USE biosafety_and_biosecurity_online_system;
-
 --
 -- Table structure for table `accounts`
 --
@@ -274,6 +273,13 @@ CREATE TABLE `announcement` (
   `announcement_date` datetime NOT NULL,
   `announcement_page` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `announcement`
+--
+
+INSERT INTO `announcement` (`announcement_id`, `account_id`, `announcement_description`, `announcement_date`, `announcement_page`) VALUES
+(2, 1, '', '0000-00-00 00:00:00', '');
 
 -- --------------------------------------------------------
 
@@ -999,8 +1005,8 @@ CREATE TABLE `materialriskassessment` (
 --
 
 INSERT INTO `materialriskassessment` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `material_sec1_edit`, `Sec1_chemical`, `Sec1_biological_material`, `Sec1_equipment`, `Sec1_doc_id`, `Sec1_review_date`, `material_sec2A1_edit`, `Sec2A_name`, `Sec2A_manufacturer`, `Sec2A_hazardous`, `Sec2A_statement`, `Sec2A_waste`, `Sec2A_waste_type_corrosive`, `Sec2A_waste_type_ignitable`, `Sec2A_waste_type_reactive`, `Sec2A_waste_type_toxic`, `Sec2A_waste_type_infectious`, `material_sec2A2_edit`, `Sec2A2_permit`, `Sec2A2_permit_type`, `Sec2A2_MSDS`, `Sec2A2_exposure_inhalation`, `Sec2A2_exposure_skin`, `Sec2A2_exposure_ingestion`, `Sec2A2_exposure_injection`, `Sec2A2_exposure_others`, `Sec2A2_exposure_description`, `Sec2A2_storage`, `Sec2A2_waste_requirement`, `Sec2A2_risk_control_training`, `Sec2A2_risk_control_inspection`, `Sec2A2_risk_control_SOP`, `Sec2A2_risk_control_PPE`, `Sec2A2_risk_control_engineering`, `Sec2A2_emergency_first_aid_kit`, `Sec2A2_emergency_shower`, `Sec2A2_emergency_eyewash`, `Sec2A2_emergency_neutralizing`, `Sec2A2_emergency_spill`, `Sec2A2_emergency_restrict`, `material_sec2A3_edit`, `Sec2A3_storage_inhalation`, `Sec2A3_storage_skin`, `Sec2A3_storage_ingestion`, `Sec2A3_storage_injection`, `Sec2A3_storage_others`, `Sec2A3_storage_description`, `Sec2A3_storage_control`, `Sec2A3_handling_inhalation`, `Sec2A3_handling_skin`, `Sec2A3_handling_ingestion`, `Sec2A3_handling_injection`, `Sec2A3_handling_others`, `Sec2A3_handling_description`, `Sec2A3_handling_control`, `Sec2A3_spill_inhalation`, `Sec2A3_spill_skin`, `Sec2A3_spill_ingestion`, `Sec2A3_spill_injection`, `Sec2A3_spill_others`, `Sec2A3_spill_description`, `Sec2A3_spill_control`, `Sec2A3_disposal_inhalation`, `Sec2A3_disposal_skin`, `Sec2A3_disposal_ingestion`, `Sec2A3_disposal_injection`, `Sec2A3_disposal_others`, `Sec2A3_disposal_description`, `Sec2A3_disposal_control`, `material_sec2B1_edit`, `Sec2B1_equipment_name`, `Sec2B1_activity_type`, `Sec2B1_activity_location`, `material_sec2B2_edit`, `Sec2B2_machinery_description`, `Sec2B2_checklist_crushing`, `Sec2B2_checklist_shearing`, `Sec2B2_checklist_drawing`, `Sec2B2_checklist_cutting`, `Sec2B2_checklist_entangle`, `Sec2B2_checklist_impact`, `Sec2B2_checklist_abrasion`, `Sec2B2_checklist_stabbing`, `Sec2B2_checklist_puncture`, `Sec2B2_checklist_ejection`, `Sec2B2_checklist_temperature`, `Sec2B2_checklist_electrical`, `Sec2B2_checklist_noise`, `Sec2B2_checklist_vibration`, `Sec2B2_checklist_dust`, `Sec2B2_checklist_pressure`, `Sec2B2_checklist_waste`, `Sec2B2_checklist_fumes`, `Sec2B2_checklist_chemical`, `Sec2B2_checklist_allergens`, `Sec2B2_exposure`, `Sec2B2_users`, `Sec2B2_control_measures`, `Sec2B2_procedural_behavioural`, `Sec2B2_overall_assessment_risk_level`, `Sec2B2_risk_reduction_action`, `Sec2B2_risk_reduction_by_who`, `Sec2B2_risk_reduction_by_when`, `Sec2B2_risk_reduction_action_completed`, `Sec2B2_overall_assessment_risk_level_after`, `material_sec3_edit`, `Sec3_requestor`, `Sec3_requestor_date`, `Sec3_supervisor`, `Sec3_supervisor_date`, `Sec3_LO`, `Sec3_LO_date`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, NULL, 12, 41, 0, NULL, NULL, NULL, '', '0000-00-00', 0, 'Save Procurement', '', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', 0, ' ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, 0, 'saved'),
-(2, 2, 5, 12, 42, 0, NULL, NULL, NULL, '', '0000-00-00', 0, 'New material submitted', '', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', 0, ' ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', 1, 0, 'submitted');
+(4, 2, NULL, 12, 43, 0, NULL, NULL, NULL, '123123', '0000-00-00', 0, 'xvbcnnvb', 'cvbv', 0, '', 0, NULL, NULL, NULL, NULL, NULL, 0, 0, 'xvbn', 0, NULL, NULL, NULL, NULL, NULL, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', 'xcvbn', 0, '   ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, 0, 'saved'),
+(5, 2, NULL, 12, 54, 0, NULL, NULL, NULL, 'test 2 ian', '0000-00-00', 0, '', '', 0, '', 0, NULL, NULL, NULL, NULL, NULL, 0, 0, '', 0, NULL, NULL, NULL, NULL, NULL, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', 0, '  ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, 0, 'saved');
 
 -- --------------------------------------------------------
 
@@ -1360,7 +1366,9 @@ INSERT INTO `project` (`project_id`, `approver_id`, `project_name`, `project_des
 (36, NULL, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0),
 (37, 3, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0),
 (41, NULL, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'saved', 0),
-(42, 5, 'Procurement submit', 'ascacascasc', '2018-10-15 12:38:21', 'procurement', 2, 1, 'submitted', 0);
+(42, 5, 'Procurement submit', 'ascacascasc', '2018-10-15 12:38:21', 'procurement', 2, 1, 'submitted', 0),
+(43, NULL, 'dfgd', 'dfgdf', '2018-10-16 06:16:39', 'procurement', 2, 0, 'saved', 0),
+(54, NULL, 'ian final report', 'test final report', '2018-10-16 07:10:44', 'procurement', 2, 0, 'saved', 0);
 
 -- --------------------------------------------------------
 
@@ -1435,19 +1443,6 @@ CREATE TABLE `swp` (
   `editable` int(1) DEFAULT '0',
   `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `swp`
---
-
-INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `swp_sec1_edit`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `swp_sec2_edit`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `swp_sec3_edit`, `SWP_declaration_name`, `SWP_declaration_date`, `swp_sec4_edit`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_type`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, 3, 17, 28, NULL, NULL, 0, 'save project update', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
-(2, 2, 3, 17, 29, NULL, NULL, 0, 'Submit Project', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
-(3, 2, 3, 17, 30, NULL, NULL, 0, 'sdcscsdcv', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
-(5, 2, 3, 17, 33, NULL, NULL, 0, 'Biohazardous Test Save updated saved', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
-(6, 2, 3, 17, 34, NULL, NULL, 0, 'Biohazardous Submit', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted'),
-(8, 2, NULL, 17, 36, NULL, NULL, 0, 'exempt save test change', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
-(9, 2, 3, 17, 37, NULL, NULL, 0, 'Submit exempt project edited', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'submitted');
 
 --
 -- Indexes for dumped tables
@@ -1686,7 +1681,7 @@ ALTER TABLE `annex5`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `annualfinalreport`
@@ -1752,7 +1747,7 @@ ALTER TABLE `marks`
 -- AUTO_INCREMENT for table `materialriskassessment`
 --
 ALTER TABLE `materialriskassessment`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `notification`
@@ -1788,7 +1783,7 @@ ALTER TABLE `pc2`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
 
 --
 -- AUTO_INCREMENT for table `storage`
