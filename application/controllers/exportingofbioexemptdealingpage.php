@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class exportingofbioLMOpage extends CI_Controller {
+class exportingofbioexemptdealingpage extends CI_Controller {
 
 	function __construct()
     {
@@ -14,9 +14,9 @@ class exportingofbioLMOpage extends CI_Controller {
         
 			//breadcrum
             $this->breadcrumbs->unshift('Home', '/');
-			$this->breadcrumbs->push('New Project','/projectselect', true);	
+			$this->breadcrumbs->push('New Project','/projectselect', true);				
             $this->breadcrumbs->push('Exporting of Biological Material','exportingbiologicalmaterialpage', true);
-            $this->breadcrumbs->push('Form F', true);
+            $this->breadcrumbs->push('SSBC Notification of LMO and Biohazardous Material', true);
     }
 		
 		public function index(){
@@ -30,12 +30,12 @@ class exportingofbioLMOpage extends CI_Controller {
             if($this->form_validation->run() == FALSE){
                 # validation fails
                 $data['product_list'] = $this->announcement_model->list_product()->result();
-                $this->load->template('exportingofbioLMOpage_view', $data);
+                $this->load->template('exportingofbioexemptdealingpage_view', $data);
             } else {
                 $data = array(
                     'project_name' => $this->input->post('project_name'),
                     'project_desc' => $this->input->post('project_desc'),
-                    'project_type' => 'exportingofbioLMO',
+                    'project_type' => 'exportingofbioexemptdealing',
                     'account_id' => $this->session->userdata('account_id')
                 );
             
@@ -46,10 +46,10 @@ class exportingofbioLMOpage extends CI_Controller {
                      $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
                     $data['session'] = $this->project_model->get_proj_name($name);
                                     
-                    $this->load->template('exportingofbioLMOproj_view', $data);
+                    $this->load->template('exportingofbioexemptdealingproj_view', $data);
                 } else {
                     $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                    redirect('formf/index');
+                    redirect('notification_of_exporting_biological_material/index');
                 }
             }
         }
@@ -68,7 +68,7 @@ class exportingofbioLMOpage extends CI_Controller {
 				);
 			$this->load->model('announcement_model');
 			$this->announcement_model->save($array_item);
-			redirect('exportingofbioLMOpage');
+			redirect('exportingofbioexemptdealingpage');
 		}
 		public function save_edit()
 		{
@@ -81,13 +81,13 @@ class exportingofbioLMOpage extends CI_Controller {
 				);
 			$this->load->model('announcement_model');
 			$this->announcement_model->update($id,$array_item);
-			redirect('exportingofbioLMOpage');
+			redirect('exportingofbioexemptdealingpage');
 		}
 		public function edit(){
 			$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
 			$this->load->model('announcement_model');
 			$data['list_product'] = $this->announcement_model->list_product()->row_array();
-			$this->load->template('exportingofbioLMOpage_view',$data);
+			$this->load->template('exportingofbioexemptdealingpage_view',$data);
 		}
 }
 ?>

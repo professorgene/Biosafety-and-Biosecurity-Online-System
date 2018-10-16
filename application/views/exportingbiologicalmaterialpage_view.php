@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
         
         <div class="row">
-            <a href="<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj">		
+            <a href="<?php echo base_url(); ?>index.php/exportingofbioexemptdealingpage">		
                     <div class="option1 card col-md-9 hover1" title="Exempt Dealing or Biohazardous Material Form">
                         <h5><span>EXEMPT DEALING OR BIOHAZARDOUS MATERIAL</span></h5>		
                     </div>				
