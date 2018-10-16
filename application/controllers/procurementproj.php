@@ -444,7 +444,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec3_supervisor_date' => $this->input->post('Sec3_supervisor_date'),
                     'Sec3_LO' => $this->input->post('Sec3_LO'),
                     'Sec3_LO_date' => $this->input->post('Sec3_LO_date'),
-                    'status' => $saveStatus,
+                    'status' => $submitStatus,
                     'editable' => $editableValue
                     
                 );

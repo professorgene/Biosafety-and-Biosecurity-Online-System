@@ -68,7 +68,8 @@ if(!$this->session->userdata('isLogin')){
                         <td class="text-center"><?php echo $i = $i + 1; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['project_desc']; ?></td>
-                        <td class="text-center"><?php 
+                        <td class="text-center">
+                            <?php 
                             if($row['approval'] != 4 || $row['approval'] == null){
                                 echo "Awaiting Approval";
                             } else {
@@ -115,6 +116,9 @@ if(!$this->session->userdata('isLogin')){
                     
                 }else if(j == "procurement"){
                     window.location = "<?php echo base_url(); ?>index.php/procurementproj/load_project?id=" + i;
+                    
+                }else if(j == "notifLMOBM"){
+                    window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_project?id=" + i;
                     
                 }  
             }

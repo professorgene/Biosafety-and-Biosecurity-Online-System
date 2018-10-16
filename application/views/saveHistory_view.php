@@ -112,6 +112,9 @@ if(!$this->session->userdata('isLogin')){
                     
                 }else if(j == "procurement"){
                     window.location = "<?php echo base_url(); ?>index.php/procurementproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "notifLMOBM"){
+                    window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_saved_project?id=" + i;
                 }
                 
             }

@@ -46,6 +46,7 @@ class editrequest_approval extends CI_Controller {
         $data['all_bio_project'] = $this->project_model->get_all_bio_edit_request();
         $data['all_exempt_project'] = $this->project_model->get_all_exempt_edit_request();
         $data['all_procurement_project'] = $this->project_model->get_all_procurement_edit_request();
+        $data['all_notif_LMO_project'] = $this->project_model->get_all_notif_LMO_edit_request();
         
         /*$data['all_annex2'] = $this->annex2_model->get_all_edit_request();
         $data['all_annex3'] = $this->annex3_model->get_all_edit_request();
@@ -207,6 +208,36 @@ class editrequest_approval extends CI_Controller {
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
         $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Project Rejected", "<p>Your Request For Editing Pre-purchase Material Risk Assessment Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting notification of LMO and BM project requests
+    public function approve_notif_LMO($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->notification_of_LMO_and_BM_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Project Approved", "<p>Your Request For Editing A Pre-purchase Material Risk Assessment Project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_notif_LMO($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->notification_of_LMO_and_BM_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and BM Project Rejected", "<p>Your Request For Editing Notification of LMO and BM Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }

@@ -270,6 +270,61 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <?php } ?>
         
+        <?php if(isset($all_notif_LMO_project)) { ?>
+        
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="7">
+                            Notification of LMO and Biohazardous Material Projects
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>No</th>
+                        <th>Account Email</th>
+                        <th>Full Name</th>
+                        <th>Project Name</th>
+                        <th>Account Type</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="account">
+                <?php $i=0; foreach($all_notif_LMO_project as $row): ?>
+                    <tr class="searchable">
+                        <td><?php echo $i = $i+1 ?></td>
+                        <td><?php echo $row->account_email; ?></td>
+                        <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
+                        <td><?php 
+                                        if($row->account_type == 1) {
+                                            echo "Applicant / PI";
+                                        } elseif($row->account_type == 2) {
+                                            echo "SSBC Chair / SSBC Members";
+                                        } elseif($row->account_type == 3) {
+                                            echo "Students / Postgraduates";
+                                        } elseif($row->account_type == 4) {
+                                            echo "BSO";
+                                        } elseif($row->account_type == 5) {
+                                            echo "HSO / Lab Officer";
+                                        }
+                            ?></td>
+                        <td><button type="button" name = 'notif_lmo_load' value = 'Load' onclick="view_application(<?php echo $row->project_id; ?>, '<?php echo $row->project_type; ?>')" class="btn btn-primary">Load</button></td>
+                        
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve_notif_LMO(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <hr/>
+                            <button class="btn btn-danger" onclick="reject_notif_LMO(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                        </td>
+                    </tr>
+                <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        
+        <?php } ?>
+        
         
         
         
@@ -299,17 +354,18 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 if(j == "app_lmo"){
                     window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
                     
-                } else if(j == "app_bio"){
+                }else if(j == "app_bio"){
                     window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_project?id=" + i;
                     
-                } else if(j == "app_exempt"){
+                }else if(j == "app_exempt"){
                     window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_project?id=" + i;
                     
-                } else if(j == "procurement"){
+                }else if(j == "procurement"){
                     window.location = "<?php echo base_url(); ?>index.php/procurementproj/load_project?id=" + i;
                     
-                }
-                    
+                }else if(j == "notifLMOBM"){
+                    window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_project?id=" + i;
+                }      
         }
         
         
@@ -355,6 +411,19 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             if (j != null) {
                 window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/reject_procurement/" + i + "/" + k + "/" + btoa(j);
             }
+        }
+            
+        function approve_notif_LMO(i,k){
+            window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/approve_notif_LMO/" + i + "/" + k;
+        }
+        
+        function reject_notif_LMO(i,k){
+            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
+            if (j != null) {
+                window.location = "<?php echo base_url(); ?>index.php/editrequest_approval/reject_notif_LMO/" + i + "/" + k + "/" + btoa(j);
+            }
+            
+            
         }
         
         

@@ -58,6 +58,17 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_notif_LMO_edit_request() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_editable', 1);
+        $this->db->where('project.project_type', 'notifLMOBM');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
     # Search by ID
     function get_proj_id($id)
     {
@@ -293,6 +304,18 @@ class project_model extends CI_Model
         $this->db->where('project.project_approval', 0);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'procurement');
+        $query = $this->db->get();
+		return $query->result();
+    }
+    
+    function get_all_sub_notification_of_LMO_and_BM() 
+    {
+        $this->db->select('*');
+        $this->db->from('project');
+        $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->where('project.project_approval', 0);
+        $this->db->where('project.project_status', 'submitted');
+        $this->db->where('project.project_type', 'notifLMOBM');
         $query = $this->db->get();
 		return $query->result();
     }

@@ -54,6 +54,21 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php 
+    if(isset($session))
+    {
+            
+        foreach($session as $info)
+        {
+            $id = $info->project_id;
+        } 
+          
+        $this->session->set_userdata("projectId", $id);
+            
+    }
+        
+    ?>
+    
     
     <div class="container">
         <br>
@@ -67,12 +82,16 @@ if(!$this->session->userdata('isLogin')){
                     <li class="nav-item active"><a href="#notif_LMO_BM_tab" class="nav-link" data-toggle="tab">Notification of LMO and Biohazardous Materials</a></li>
                 </ul>
                 
+                <?php if(isset($editload)) { echo form_open('notification_of_LMO_and_BM_proj/update_form'); } elseif(isset($saveload)) {echo form_open('notification_of_LMO_and_BM_proj/continue');} else { echo form_open('notification_of_LMO_and_BM_proj/index'); } ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 <div class="tab-content">
                     <div class="tab-pane active" id="notif_LMO_BM_tab">
                         <br/>
                         <?php include 'notification_of_LMO_and_BM_view.php' ?>
                     </div>
                 </div>
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
+               <?php echo form_close(); ?>
                 
             </div>
         </div>

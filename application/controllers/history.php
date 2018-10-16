@@ -171,6 +171,31 @@ class history extends CI_Controller {
                 redirect('history/index');
             }
             
+        }elseif($type =="notifLMOBM"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->notification_of_LMO_and_BM_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('notification_of_LMO_and_BM_proj_view', $data);
+            }
+            else
+            {
+            
+                $this->notification_of_LMO_and_BM_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Application for Exempt Dealings Modification Request", "The following user has requested to edit an Application for Exempt Dealings: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
         }
         
             
