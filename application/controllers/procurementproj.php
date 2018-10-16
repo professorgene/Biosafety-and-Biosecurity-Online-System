@@ -11,7 +11,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->model('notification_model');
         $this->load->model('procurement_model');
         $this->load->model('project_model');
-                //breadcrum
+		
+        //breadcrum
 		$this->breadcrumbs->unshift('Home', '/');
 		$this->breadcrumbs->push('New Project','/projectselect', true);		
 		$this->breadcrumbs->push('Procurement of Biological Material','/procurementpage', true);
@@ -333,7 +334,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if (!isset($update)){
                 
-                $this->load->template('biohazardproj_view', $data);
+                $this->load->template('procurementproj_view', $data);
                 
             }elseif(isset($update)){
                 $data = array(
