@@ -50,7 +50,7 @@ class annex3_model extends CI_Model
 
     function get_form_by_id($id)
 	{
-		$this->db->where('application_id', $id);
+		$this->db->where('project_id', $id);
         $query = $this->db->get('annex3');
 		return $query->result();
 	}
@@ -62,6 +62,20 @@ class annex3_model extends CI_Model
 		return $query->result();
 	}
     
+    function get_form_by_project_id($id)
+    {
+        $this->db->where('project_id', $id);
+        $query = $this->db->get('annex3');
+        return $query->result();
+    }
+    
+    function update_saved_data($id, $data)
+    {
+        $this->db->where('project_id', $id);
+		$this->db->update('annex3', $data);
+        return true;
+	}
+    
     
 	function insert_new_applicant_data($data)
     {
@@ -71,7 +85,7 @@ class annex3_model extends CI_Model
     function update_applicant_data($id, $data)
     {
         $this->db->set('application_approved', 'NULL', FALSE);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
 		$this->db->update('annex3', $data);
         return true;
 	}
@@ -82,12 +96,12 @@ class annex3_model extends CI_Model
             
             $data = array('application_approved' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex3', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 1, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex3', $data);
         }
         return true;
@@ -99,12 +113,12 @@ class annex3_model extends CI_Model
             
             $data = array('application_approved' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex3', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex3', $data);
         }
         return true;
@@ -130,7 +144,7 @@ class annex3_model extends CI_Model
     function edit_request($id){
         
         $data = array('editable' => 1);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
         $this->db->update('annex3', $data);
         
         return true;
@@ -143,12 +157,12 @@ class annex3_model extends CI_Model
             
             $data = array('editable' => 3);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex3', $data);
         } elseif ($type == 1) {
             $data = array('editable' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appid);
+            $this->db->where('project_id', $appid);
             $this->db->update('annex3', $data);
         }
         return true;

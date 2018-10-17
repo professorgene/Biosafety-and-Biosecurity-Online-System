@@ -1,49 +1,9 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Annex 4</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        .approve_section{
-            display: none;
-        }
-        	        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
+
     
     <?php
     
     if(isset($load)){
-        foreach($retrieved as $item){
+        foreach($retrieved2 as $item){
             
         }
         
@@ -54,7 +14,7 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
+    
       	
 
 
@@ -63,8 +23,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             
             <div class="col-md-9">
-               <?php if(isset($editload)) { echo form_open('annex4/update_form'); } else { echo form_open('annex4/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+               
                 
                    <div class="text-muted">
                        <h5>Guidelines for Institutional Biosafety Committees:<br>
@@ -388,13 +347,13 @@ if(!$this->session->userdata('isLogin')){
 				   
 				   <div style="text-align: center">
                        <?php if(isset($editload)){ ?>
-                       <button type="submit" name = 'annex4_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex4/update_form';?>'" class="btn btn-primary">Update</button>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/annex4/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
+                       <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                    </div>
-                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+                
             </div>
             
             <div class="col-md-2">
@@ -407,6 +366,4 @@ if(!$this->session->userdata('isLogin')){
         </div>
         
         
-    </div>
-</body>
-</html>
+    

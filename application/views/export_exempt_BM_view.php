@@ -44,31 +44,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         </div>
         
         <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_export)) { ?>
+        <?php if(isset($all_export_proj)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Notification of Exporting Biological Materials Form
+                        <th colspan="7">
+                            Notification of Exporting Biological Materials Project
                         </th>
                     </tr>
                     <tr>
                         <th></th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th></th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_export as $row): ?>
+                <?php $i=0; foreach($all_export_proj as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -82,7 +84,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'procurement_load' value = 'Load' onclick="location.href='<?php echo site_url().'/notification_of_exporting_biological_material/load_form?id='.$row->account_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/exportingofbioexemptdealingproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -91,9 +93,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         </td>
                         -->
                         <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
+                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>

@@ -1,50 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Incident Accident Report Form</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        #first-table{
-            background-color: #95a5a6;
-            text-align: center;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tbheader1{
-            background-color:  #95a5a6 ;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-    </style>
-</head>    
-<body>
-    <?php include_once 'template/navbar.php' ?>
-    
+  
     <?php
     
     if(isset($load)){
@@ -66,14 +20,13 @@ if(!$this->session->userdata('isLogin')){
     
     ?>
     
-    <div class="container">
+    
      
 
         <div class="row">
             
             <div class="col-md-10">
-               <?php if(isset($editload)) { echo form_open('incidentaccidentreport/update_form'); } else { echo form_open('incidentaccidentreport/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+               
                    <div>
                        <h5>OHS-F-4.20.X INCIDENT ACCIDENT REPORT</h5>	
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
@@ -387,13 +340,13 @@ if(!$this->session->userdata('isLogin')){
                 
                    <div style="text-align: center">
                        <?php if(isset($editload)){ ?>
-                       <button type="submit" name = 'incident_update' value = 'Update' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/update_form';?>'" class="btn btn-primary">Update</button>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                    </div>
-                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+                
             </div>
             
             <div class="col-md-2">
@@ -406,6 +359,4 @@ if(!$this->session->userdata('isLogin')){
                 </div>   
             </div>
         </div>               
-    </div>
-</body>
-</html>
+    

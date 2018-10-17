@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2018 at 12:00 PM
--- Server version: 10.1.35-MariaDB
--- PHP Version: 7.2.9
+-- Generation Time: Oct 17, 2018 at 03:32 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -114,7 +114,8 @@ CREATE TABLE `annex3` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '2',
-  `status` varchar(100) NOT NULL DEFAULT 'pending',
+  `project_id` int(10) UNSIGNED NOT NULL,
+  `status` varchar(100) DEFAULT NULL,
   `reference_no` varchar(10) DEFAULT NULL,
   `annex3_header_edit` int(1) DEFAULT '0',
   `organization` varchar(250) DEFAULT NULL,
@@ -164,6 +165,14 @@ CREATE TABLE `annex3` (
   `editable` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `annex3`
+--
+
+INSERT INTO `annex3` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `status`, `reference_no`, `annex3_header_edit`, `organization`, `faculty`, `laboratory`, `date`, `annex3_sec_1_edit`, `PI_name`, `PI_telephone_number`, `PI_reported_date`, `PI_reported_time`, `annex3_sec_2_edit`, `incident_description`, `incident_cause_checklist_faulty_equipment`, `incident_cause_checklist_no_equipment`, `incident_cause_checklist_storage`, `incident_cause_checklist_weather`, `incident_cause_checklist_assistance`, `incident_cause_checklist_electrical`, `incident_cause_checklist_carelessness`, `incident_cause_checklist_terrain`, `incident_cause_checklist_workspace`, `incident_cause_checklist_training`, `incident_cause_checklist_poor_access`, `incident_cause_checklist_unknown`, `incident_cause_checklist_maintenance_staff`, `incident_cause_checklist_supervision`, `incident_cause_checklist_method`, `incident_cause_checklist_none`, `incident_cause_checklist_none_description`, `incident_LMO_rDNA_release`, `incident_LMO_rDNA_response`, `incident_contribution`, `incident_personal_factors`, `incident_corrective_actions`, `incident_responsible`, `signature_PI_edit`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `editable`) VALUES
+(1, 2, NULL, 2, 59, 'saved', '', 0, 'major save changed', '', '', '0000-00-00', 0, '', 0, '0000-00-00', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', '', '', '', '', 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, 0),
+(2, 2, 5, 2, 60, 'submitted', '', 0, 'major submit updated', '', '', '0000-00-00', 0, '', 0, '0000-00-00', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, '', '', '', '', '', 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -175,6 +184,7 @@ CREATE TABLE `annex4` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '3',
+  `project_id` int(10) UNSIGNED NOT NULL,
   `reference_no` varchar(10) DEFAULT NULL,
   `annex4_sec_1_edit` int(1) DEFAULT '0',
   `personnel_name` varchar(100) DEFAULT NULL,
@@ -211,8 +221,17 @@ CREATE TABLE `annex4` (
   `IBC_approval` int(1) DEFAULT NULL,
   `IBC_termination` int(1) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annex4`
+--
+
+INSERT INTO `annex4` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `reference_no`, `annex4_sec_1_edit`, `personnel_name`, `personnel_NRIC`, `personnel_age`, `personnel_race`, `personnel_telephone_number`, `personnel_office_number`, `personnel_ext_number`, `personnel_employment_job`, `personnel_employment_faculty`, `personnel_employment_status`, `personnel_employment_duration`, `annex4_sec_2_edit`, `exposure_location`, `exposure_date`, `exposure_time`, `exposure_diagnosis`, `exposure_treatment`, `exposure_medical_cert`, `exposure_medical_cert_duration`, `exposure_work_description`, `exposure_hazard_or_agent`, `exposure_duration`, `exposure_symptoms`, `exposure_symptoms_duration`, `signature_PI_edit`, `signature_PI_name`, `signature_PI_date`, `signature_BO_name`, `signature_BO_date`, `signature_IBC_name`, `signature_IBC_date`, `IBC_approval`, `IBC_termination`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, NULL, 3, 61, '', 0, 'Occupational save changed', 0, 0, '', 0, 0, 0, '', '', 0, '', 0, '', '0000-00-00', '', '', NULL, 0, '', '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, 0, 'saved'),
+(2, 2, 5, 3, 0, '', 0, 'submit diseaase report updated', 0, 0, '', 0, 0, 0, '', '', 0, '', 0, '', '0000-00-00', '', '', NULL, 0, '', '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, 1, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -274,13 +293,6 @@ CREATE TABLE `announcement` (
   `announcement_page` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `announcement`
---
-
-INSERT INTO `announcement` (`announcement_id`, `account_id`, `announcement_description`, `announcement_date`, `announcement_page`) VALUES
-(2, 1, '', '0000-00-00 00:00:00', '');
-
 -- --------------------------------------------------------
 
 --
@@ -292,6 +304,7 @@ CREATE TABLE `annualfinalreport` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '5',
+  `project_id` int(10) UNSIGNED NOT NULL,
   `date_received` date DEFAULT NULL,
   `annualfinalreport_header_edit` int(1) DEFAULT '0',
   `SBC_reference_no` varchar(10) DEFAULT NULL,
@@ -329,8 +342,17 @@ CREATE TABLE `annualfinalreport` (
   `project_sign_off_chief_investigator_name` varchar(100) DEFAULT NULL,
   `project_sign_off_BO_name` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `annualfinalreport`
+--
+
+INSERT INTO `annualfinalreport` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `annualfinalreport_header_edit`, `SBC_reference_no`, `project_approval_date`, `project_report_date`, `report_type`, `annualfinalreport_sec_1_edit`, `project_title`, `annualfinalreport_sec_2_edit`, `chief_investigator`, `annualfinalreport_sec_3_edit`, `personnel_extra`, `personnel_extra_title`, `personnel_extra_name`, `personnel_extra_qualifications`, `personnel_extra_department`, `personnel_extra_campus`, `personnel_extra_postal_address`, `personnel_extra_telephone`, `personnel_extra_fax`, `personnel_extra_email_address`, `annualfinalreport_sec_4_edit`, `project_summary`, `annualfinalreport_sec_5_edit`, `project_outline`, `annualfinalreport_sec_6_edit`, `project_incidents`, `annualfinalreport_sec_7_edit`, `project_SOP`, `annualfinalreport_sec_8_edit`, `project_facility_changes`, `project_facility_building_number`, `project_facility_room_number`, `project_facility_description`, `project_sign_off_chief_investigator_name`, `project_sign_off_BO_name`, `application_approved`, `editable`, `status`) VALUES
+(2, 2, NULL, 5, 47, NULL, 0, '', '0000-00-00', '0000-00-00', NULL, 0, 'save annual report change again', 0, '', 0, 0, '', '', '', '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, NULL, '', '', NULL, '', '', NULL, 0, 'saved'),
+(3, 2, 6, 5, 48, NULL, 0, '', '0000-00-00', '0000-00-00', NULL, 0, 'Test submit annual updated', 0, '', 0, 0, '', '', '', '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, NULL, '', '', NULL, '', '', NULL, 1, 'saved');
 
 -- --------------------------------------------------------
 
@@ -492,7 +514,7 @@ CREATE TABLE `exemptdealing` (
 
 INSERT INTO `exemptdealing` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `exempt_sec_1_edit`, `project_title`, `exempt_sec_2_edit`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `exempt_sec_3_edit`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `exempt_sec_4_edit`, `exemption_type_2`, `exemption_type_3`, `exemption_type_3A`, `exemption_type_4`, `exemption_type_5`, `exempt_sec_5_edit`, `project_summary`, `exempt_sec_6_edit`, `project_hazard`, `exempt_sec_7_edit`, `project_SOP`, `exempt_sec_8_edit`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `exempt_sec_9_edit`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `editable`, `status`) VALUES
 (2, 2, NULL, 7, 36, NULL, '', 0, 'Exempt save test change', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'saved'),
-(3, 2, 3, 7, 37, NULL, '', 0, 'Submit exempt project edited', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'submitted');
+(3, 2, 3, 7, 37, NULL, '', 0, 'Submit exempt project edited', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 1, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -669,6 +691,7 @@ CREATE TABLE `formf` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '9',
+  `project_id` int(10) UNSIGNED NOT NULL,
   `NBB_reference_no` varchar(10) DEFAULT NULL,
   `formf_notif_list_edit` int(1) DEFAULT '0',
   `notification_checklist_form_completed` int(1) DEFAULT NULL,
@@ -709,8 +732,17 @@ CREATE TABLE `formf` (
   `representative_name` varchar(100) DEFAULT NULL,
   `representative_stamp` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `formf`
+--
+
+INSERT INTO `formf` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `NBB_reference_no`, `formf_notif_list_edit`, `notification_checklist_form_completed`, `notification_checklist_CBI`, `notification_checklist_submitted`, `formf_part1_edit`, `exporter_organization`, `exporter_name`, `exporter_position`, `exporter_telephone_office`, `exporter_telephone_mobile`, `exporter_fax`, `exporter_email_address`, `exporter_postal_address`, `formf_part2_edit`, `LMO_description`, `LMO_type`, `LMO_type_description`, `LMO_identification`, `LMO_scientific_name`, `LMO_trait`, `LMO_intended_usage`, `LMO_export_form`, `LMO_export_mode`, `LMO_export_mode_description`, `LMO_point_of_exit`, `LMO_methods`, `formf_part3_edit`, `import_country_name`, `import_evidence`, `formf_part4_edit`, `export_import_CBI`, `formf_part5_edit`, `applicant_signature_date`, `applicant_name`, `applicant_stamp`, `representative_signature_date`, `representative_name`, `representative_stamp`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, NULL, 9, 50, NULL, 0, 1, NULL, 1, 0, 'Test save form f changed', '', '', '', '', '', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', 0, '', '', 0, '', 0, '0000-00-00', 'Si Kim Yeung', '', '0000-00-00', '', '', NULL, 0, 'saved'),
+(2, 2, 6, 9, 51, NULL, 0, 1, 1, 1, 0, 'Submit Form F updated', '', '', '', '', '', '', '', 0, '', NULL, '', '', '', '', '', '', NULL, '', '', '', 0, '', '', 0, '', 0, '0000-00-00', 'Si Kim Yeung', '', '0000-00-00', '', '', NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -763,7 +795,7 @@ INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `form_type`
 (5, 2, NULL, 10, 33, 0, 'Biohazardous Test Save updated saved', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
 (6, 2, 3, 10, 34, 0, 'Biohazardous Submit update', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
 (8, 2, NULL, 10, 36, 0, 'exempt save test change', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
-(9, 2, 3, 10, 37, 0, 'Submit exempt project edited', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted');
+(9, 2, 3, 10, 37, 0, 'Submit exempt project edited', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 1, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -776,19 +808,20 @@ CREATE TABLE `incidentaccidentreport` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(2) DEFAULT '11',
+  `project_id` int(10) UNSIGNED NOT NULL,
   `incident_sec1_edit` int(1) DEFAULT '0',
-  `victim_name` varchar(100) NOT NULL,
-  `victim_gender` int(1) NOT NULL,
-  `victim_age` int(2) NOT NULL,
-  `victim_citizenship` varchar(100) NOT NULL,
-  `victim_employment_designation` varchar(100) NOT NULL,
-  `victim_faculty` varchar(100) NOT NULL,
+  `victim_name` varchar(100) DEFAULT NULL,
+  `victim_gender` int(1) DEFAULT NULL,
+  `victim_age` int(2) DEFAULT NULL,
+  `victim_citizenship` varchar(100) DEFAULT NULL,
+  `victim_employment_designation` varchar(100) DEFAULT NULL,
+  `victim_faculty` varchar(100) DEFAULT NULL,
   `doc_id` varchar(10) DEFAULT NULL,
   `review_date` date DEFAULT NULL,
   `incident_sec2_edit` int(1) DEFAULT '0',
   `incident_date` date DEFAULT NULL,
-  `incident_time` varchar(25) NOT NULL,
-  `incident_location` varchar(100) NOT NULL,
+  `incident_time` varchar(25) DEFAULT NULL,
+  `incident_location` varchar(100) DEFAULT NULL,
   `incident_type1` int(1) DEFAULT NULL,
   `incident_type2` int(1) DEFAULT NULL,
   `incident_type3` int(1) DEFAULT NULL,
@@ -799,8 +832,8 @@ CREATE TABLE `incidentaccidentreport` (
   `incident_type8` int(1) DEFAULT NULL,
   `incident_type9` int(1) DEFAULT NULL,
   `incident_type_description` varchar(500) DEFAULT NULL,
-  `incident_injury` int(1) NOT NULL,
-  `incident_physician_or_hospital` int(1) NOT NULL,
+  `incident_injury` int(1) DEFAULT NULL,
+  `incident_physician_or_hospital` int(1) DEFAULT NULL,
   `incident_details` varchar(500) DEFAULT NULL,
   `incident_actions` varchar(500) DEFAULT NULL,
   `incident_sec3_edit` int(1) DEFAULT '0',
@@ -808,21 +841,36 @@ CREATE TABLE `incidentaccidentreport` (
   `reporter_designation` varchar(100) DEFAULT NULL,
   `reporter_date` date DEFAULT NULL,
   `incident_sec4_edit` int(1) DEFAULT '0',
-  `investigation_victim` int(1) NOT NULL,
-  `investigation_victim_age` varchar(100) NOT NULL,
-  `investigation_victim_citizenship` varchar(100) NOT NULL,
-  `investigation_victim_job_description` varchar(500) NOT NULL,
-  `investigation_findings` varchar(500) NOT NULL,
-  `investigation_preventive_no` varchar(500) NOT NULL,
-  `investigation_preventive_action` varchar(500) NOT NULL,
-  `investigation_preventive_by_whom` varchar(500) NOT NULL,
-  `investigation_preventive_timeline` varchar(500) NOT NULL,
+  `investigation_victim` int(1) DEFAULT NULL,
+  `investigation_victim_age` varchar(100) DEFAULT NULL,
+  `investigation_victim_citizenship` varchar(100) DEFAULT NULL,
+  `investigation_victim_job_description` varchar(500) DEFAULT NULL,
+  `investigation_findings` varchar(500) DEFAULT NULL,
+  `investigation_preventive_no` varchar(500) DEFAULT NULL,
+  `investigation_preventive_action` varchar(500) DEFAULT NULL,
+  `investigation_preventive_by_whom` varchar(500) DEFAULT NULL,
+  `investigation_preventive_timeline` varchar(500) DEFAULT NULL,
   `investigated_by` varchar(100) DEFAULT NULL,
   `reviewed_by` varchar(100) DEFAULT NULL,
   `application_type` int(1) DEFAULT '0',
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `incidentaccidentreport`
+--
+
+INSERT INTO `incidentaccidentreport` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `incident_sec1_edit`, `victim_name`, `victim_gender`, `victim_age`, `victim_citizenship`, `victim_employment_designation`, `victim_faculty`, `doc_id`, `review_date`, `incident_sec2_edit`, `incident_date`, `incident_time`, `incident_location`, `incident_type1`, `incident_type2`, `incident_type3`, `incident_type4`, `incident_type5`, `incident_type6`, `incident_type7`, `incident_type8`, `incident_type9`, `incident_type_description`, `incident_injury`, `incident_physician_or_hospital`, `incident_details`, `incident_actions`, `incident_sec3_edit`, `reporter_name`, `reporter_designation`, `reporter_date`, `incident_sec4_edit`, `investigation_victim`, `investigation_victim_age`, `investigation_victim_citizenship`, `investigation_victim_job_description`, `investigation_findings`, `investigation_preventive_no`, `investigation_preventive_action`, `investigation_preventive_by_whom`, `investigation_preventive_timeline`, `investigated_by`, `reviewed_by`, `application_type`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, NULL, 11, 55, 0, 'Test save changed', 0, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'saved'),
+(2, 2, 3, 11, 56, 0, 'submit test for incident exempt', 0, 0, '', 'updated', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'submitted'),
+(3, 2, NULL, 11, 57, 0, 'minor save change', 0, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'saved'),
+(4, 2, 3, 11, 58, 0, 'minor submit test updated', 0, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'submitted'),
+(5, 2, NULL, 11, 59, 0, 'major save', 0, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'saved'),
+(6, 2, 3, 11, 60, 0, 'major submit', 1, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'submitted'),
+(7, 2, NULL, 11, 61, 0, 'fafaf changed', 0, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'saved'),
+(8, 2, 3, 11, 62, 0, 'submit disease report updated', 0, 0, '', '', '', NULL, '0000-00-00', 0, '0000-00-00', '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 0, 0, '', '', 0, '', '', '0000-00-00', 0, 0, '', '', '', '', ',,,,,', ',,,,,', ',,,,,', ',,,,,', '', '', 0, NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1005,8 +1053,8 @@ CREATE TABLE `materialriskassessment` (
 --
 
 INSERT INTO `materialriskassessment` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `material_sec1_edit`, `Sec1_chemical`, `Sec1_biological_material`, `Sec1_equipment`, `Sec1_doc_id`, `Sec1_review_date`, `material_sec2A1_edit`, `Sec2A_name`, `Sec2A_manufacturer`, `Sec2A_hazardous`, `Sec2A_statement`, `Sec2A_waste`, `Sec2A_waste_type_corrosive`, `Sec2A_waste_type_ignitable`, `Sec2A_waste_type_reactive`, `Sec2A_waste_type_toxic`, `Sec2A_waste_type_infectious`, `material_sec2A2_edit`, `Sec2A2_permit`, `Sec2A2_permit_type`, `Sec2A2_MSDS`, `Sec2A2_exposure_inhalation`, `Sec2A2_exposure_skin`, `Sec2A2_exposure_ingestion`, `Sec2A2_exposure_injection`, `Sec2A2_exposure_others`, `Sec2A2_exposure_description`, `Sec2A2_storage`, `Sec2A2_waste_requirement`, `Sec2A2_risk_control_training`, `Sec2A2_risk_control_inspection`, `Sec2A2_risk_control_SOP`, `Sec2A2_risk_control_PPE`, `Sec2A2_risk_control_engineering`, `Sec2A2_emergency_first_aid_kit`, `Sec2A2_emergency_shower`, `Sec2A2_emergency_eyewash`, `Sec2A2_emergency_neutralizing`, `Sec2A2_emergency_spill`, `Sec2A2_emergency_restrict`, `material_sec2A3_edit`, `Sec2A3_storage_inhalation`, `Sec2A3_storage_skin`, `Sec2A3_storage_ingestion`, `Sec2A3_storage_injection`, `Sec2A3_storage_others`, `Sec2A3_storage_description`, `Sec2A3_storage_control`, `Sec2A3_handling_inhalation`, `Sec2A3_handling_skin`, `Sec2A3_handling_ingestion`, `Sec2A3_handling_injection`, `Sec2A3_handling_others`, `Sec2A3_handling_description`, `Sec2A3_handling_control`, `Sec2A3_spill_inhalation`, `Sec2A3_spill_skin`, `Sec2A3_spill_ingestion`, `Sec2A3_spill_injection`, `Sec2A3_spill_others`, `Sec2A3_spill_description`, `Sec2A3_spill_control`, `Sec2A3_disposal_inhalation`, `Sec2A3_disposal_skin`, `Sec2A3_disposal_ingestion`, `Sec2A3_disposal_injection`, `Sec2A3_disposal_others`, `Sec2A3_disposal_description`, `Sec2A3_disposal_control`, `material_sec2B1_edit`, `Sec2B1_equipment_name`, `Sec2B1_activity_type`, `Sec2B1_activity_location`, `material_sec2B2_edit`, `Sec2B2_machinery_description`, `Sec2B2_checklist_crushing`, `Sec2B2_checklist_shearing`, `Sec2B2_checklist_drawing`, `Sec2B2_checklist_cutting`, `Sec2B2_checklist_entangle`, `Sec2B2_checklist_impact`, `Sec2B2_checklist_abrasion`, `Sec2B2_checklist_stabbing`, `Sec2B2_checklist_puncture`, `Sec2B2_checklist_ejection`, `Sec2B2_checklist_temperature`, `Sec2B2_checklist_electrical`, `Sec2B2_checklist_noise`, `Sec2B2_checklist_vibration`, `Sec2B2_checklist_dust`, `Sec2B2_checklist_pressure`, `Sec2B2_checklist_waste`, `Sec2B2_checklist_fumes`, `Sec2B2_checklist_chemical`, `Sec2B2_checklist_allergens`, `Sec2B2_exposure`, `Sec2B2_users`, `Sec2B2_control_measures`, `Sec2B2_procedural_behavioural`, `Sec2B2_overall_assessment_risk_level`, `Sec2B2_risk_reduction_action`, `Sec2B2_risk_reduction_by_who`, `Sec2B2_risk_reduction_by_when`, `Sec2B2_risk_reduction_action_completed`, `Sec2B2_overall_assessment_risk_level_after`, `material_sec3_edit`, `Sec3_requestor`, `Sec3_requestor_date`, `Sec3_supervisor`, `Sec3_supervisor_date`, `Sec3_LO`, `Sec3_LO_date`, `application_approved`, `editable`, `status`) VALUES
-(4, 2, NULL, 12, 43, 0, NULL, NULL, NULL, '123123', '0000-00-00', 0, 'xvbcnnvb', 'cvbv', 0, '', 0, NULL, NULL, NULL, NULL, NULL, 0, 0, 'xvbn', 0, NULL, NULL, NULL, NULL, NULL, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', 'xcvbn', 0, '   ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, 0, 'saved'),
-(5, 2, NULL, 12, 54, 0, NULL, NULL, NULL, 'test 2 ian', '0000-00-00', 0, '', '', 0, '', 0, NULL, NULL, NULL, NULL, NULL, 0, 0, '', 0, NULL, NULL, NULL, NULL, NULL, '', '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', 0, '  ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, 0, 'saved');
+(1, 2, NULL, 12, 41, 0, NULL, NULL, NULL, '', '0000-00-00', 0, 'Save Procurement', '', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', 0, ' ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', NULL, 0, 'saved'),
+(2, 2, 3, 12, 42, 0, NULL, NULL, NULL, '', '0000-00-00', 0, 'New material submitted', '', NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, '', NULL, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', NULL, NULL, NULL, NULL, NULL, '', '', 0, ' ', '', '', 0, '', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', '', '', '', NULL, '', '', '', '', NULL, 0, '', '0000-00-00', '', '0000-00-00', '', '0000-00-00', 1, 2, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1038,14 +1086,40 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (7, NULL, 2, 'New Application For LMO Approved', 'BSO has approved an application for LMO', '2018-10-14 17:30:23', 1),
 (8, NULL, 3, 'Annex 2 Application Approved', 'SSBC Chair has approved an Annex 2 Application that requires additional input', '2018-10-14 19:01:13', 1),
 (9, NULL, 2, 'Annex 2 Application Approved', 'SSBC members have approved an Annex 2 Application.', '2018-10-14 19:11:15', 1),
-(10, NULL, 4, 'Annex 2 Application Modification Request', 'The following user has requested to edit an Annex 2 form: Si Kim Yeung', '2018-10-14 19:52:30', 0),
+(10, NULL, 4, 'Annex 2 Application Modification Request', 'The following user has requested to edit an Annex 2 form: Si Kim Yeung', '2018-10-14 19:52:30', 1),
 (11, NULL, 2, 'New Application For Biohazardous Materials Approved', 'BSO has approved a Biohazard Materials Form ', '2018-10-15 13:51:59', 1),
 (12, NULL, 2, 'New Application For Biohazardous Materials Approved', 'BSO has approved a Biohazard Materials Form ', '2018-10-15 14:09:49', 1),
-(13, NULL, 4, 'Application for Biohazardous Materials Modification Request', 'The following user has requested to edit an Application for Biohazardous Materials: Si Kim Yeung', '2018-10-15 15:40:18', 0),
+(13, NULL, 4, 'Application for Biohazardous Materials Modification Request', 'The following user has requested to edit an Application for Biohazardous Materials: Si Kim Yeung', '2018-10-15 15:40:18', 1),
 (14, NULL, 2, 'New Application For Exempt Dealing Approved', 'BSO has approved an Exempt Dealing Application ', '2018-10-15 18:05:01', 1),
 (15, NULL, 3, 'New Application For Exempt Dealing Approved', 'SSBC Chair has approved an Application For Exempt Dealing that requires additional input.', '2018-10-15 18:06:07', 0),
 (16, NULL, 2, 'New Application For Exempt Dealing Approved', 'SSBC Member has approved an Application For Exempt Dealing', '2018-10-15 18:06:36', 1),
-(17, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-15 18:19:16', 0);
+(17, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-15 18:19:16', 1),
+(18, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-15 22:50:02', 1),
+(19, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-16 15:39:42', 1),
+(20, NULL, 3, 'Annual Final Report Form Application Approved', 'BSO has approved an Annual Final Report Form Application that requires additional input. ', '2018-10-16 22:13:59', 0),
+(21, NULL, 2, 'Annual Final Report Form Application Approved', 'SSBC Members have approved an Annual Final Report Form Application. ', '2018-10-16 22:15:44', 0),
+(22, NULL, 4, 'Annual or Final Report Modification Request', 'The following user has requested to edit an Annual or Final Report: Si Kim Yeung', '2018-10-16 22:21:29', 1),
+(23, NULL, 4, 'Notification of LMO and BM Modification Request', 'The following user has requested to edit an Application for Notification of LMO and BM: Si Kim Yeung', '2018-10-16 22:35:31', 1),
+(24, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-16 22:35:34', 1),
+(25, NULL, 4, 'Application for Exempt Dealings Modification Request', 'The following user has requested to edit an Application for Exempt Dealings: Si Kim Yeung', '2018-10-16 22:36:16', 1),
+(26, NULL, 3, 'Notification For Exporting LMO Form Approved', 'BSO has approved a Notification For Exporting LMO Form Application', '2018-10-16 23:14:32', 0),
+(27, NULL, 2, 'Notification For Exporting LMO Form Approved', 'SSBC Member has approved a Notification For Exporting LMO Form Application', '2018-10-16 23:16:19', 0),
+(28, NULL, 4, 'Annual or Final Report Modification Request', 'The following user has requested to edit an Annual or Final Report: Si Kim Yeung', '2018-10-16 23:22:56', 0),
+(29, NULL, 4, 'Annual or Final Report Modification Request', 'The following user has requested to edit an Annual or Final Report: Si Kim Yeung', '2018-10-16 23:29:44', 0),
+(30, NULL, 4, 'Annual or Final Report Modification Request', 'The following user has requested to edit an Annual or Final Report: Si Kim Yeung', '2018-10-17 00:33:03', 0),
+(31, NULL, 5, 'Minor Biological Incident/Accident Report Form Approved', 'BSO has approved a Minor Biological Incident/Accident Form.', '2018-10-17 01:48:11', 1),
+(32, NULL, 5, 'Minor Biological Incident/Accident Report Form Approved', 'BSO has approved a Minor Biological Incident/Accident Form.', '2018-10-17 01:49:32', 1),
+(33, NULL, 5, 'Minor Biological Incident/Accident Report Form Approved', 'BSO has approved a Minor Biological Incident/Accident Form.', '2018-10-17 01:50:05', 1),
+(34, NULL, 5, 'Minor Biological Incident/Accident Report Form Approved', 'BSO has approved a Minor Biological Incident/Accident Form.', '2018-10-17 01:50:07', 1),
+(35, NULL, 4, 'Annual or Final Report Modification Request', 'The following user has requested to edit an Annual or Final Report: Si Kim Yeung', '2018-10-17 01:59:12', 0),
+(36, NULL, 5, 'Minor Biological Incident/Accident Report Form Approved', 'BSO has approved a Minor Biological Incident/Accident Form.', '2018-10-17 02:34:48', 1),
+(37, NULL, 4, 'Minor Incident Accident Report Modification Request', 'The following user has requested to edit a Minor Incident Accident Report: Si Kim Yeung', '2018-10-17 02:37:54', 0),
+(38, NULL, 3, 'Major Biological Incident/Accident Report Form Approved', 'BSO has approved a Major Biological Incident/Accident Form.', '2018-10-17 03:36:28', 0),
+(39, NULL, 5, 'Major Biological Incident/Accident Report Form Approved', 'BSO has approved a Major Biological Incident/Accident Form.', '2018-10-17 03:36:28', 1),
+(40, NULL, 4, 'Major Incident Accident Report Modification Request', 'The following user has requested to edit a Major Incident Accident Report: Si Kim Yeung', '2018-10-17 03:39:58', 0),
+(41, NULL, 3, 'Occupational Disease or Exposure Project Approved', 'BSO has approved a Occupational Disease or Exposure Project.', '2018-10-17 09:10:56', 0),
+(42, NULL, 5, 'Occupational Disease or Exposure Project Approved', 'BSO has approved a Occupational Disease or Exposure Project.', '2018-10-17 09:10:56', 1),
+(43, NULL, 4, 'Major Incident Accident Report Modification Request', 'The following user has requested to edit a Major Incident Accident Report: Si Kim Yeung', '2018-10-17 09:15:38', 0);
 
 -- --------------------------------------------------------
 
@@ -1058,6 +1132,7 @@ CREATE TABLE `notificationexportingbiologicalmaterial` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '13',
+  `project_id` int(10) UNSIGNED NOT NULL,
   `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `notificationexport_sec1_edit` int(1) DEFAULT '0',
@@ -1101,8 +1176,17 @@ CREATE TABLE `notificationexportingbiologicalmaterial` (
   `delivered_date` date DEFAULT NULL,
   `incident_accident_report` varchar(500) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notificationexportingbiologicalmaterial`
+--
+
+INSERT INTO `notificationexportingbiologicalmaterial` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `notificationexport_sec1_edit`, `personnel_name`, `personnel_staff_student_no`, `personnel_designation`, `personnel_faculty`, `personnel_project_title`, `personnel_reference_no`, `notificationexport_sec2_edit`, `LMO_list`, `LMO_name`, `LMO_risk_level`, `LMO_category`, `LMO_quantity`, `LMO_volume`, `biological_list`, `biological_name`, `biological_risk_level`, `biological_category`, `biological_quantity`, `biological_volume`, `notificationexport_sec3_edit`, `importing_country`, `importing_institude`, `importing_person_in_charge`, `importing_person_in_charge_telephone_no`, `notificationexport_sec4_edit`, `declaration_name`, `declaration_date`, `notificationexport_sec5_edit`, `signature_verified_by`, `signature_verified_date`, `notification_approved_by`, `notification_declined_by`, `notification_approve_decline_date`, `notification_approve_decline_remarks`, `notification_reviewed_by`, `notification_reviewed_by_date`, `notification_reviewed_by_remarks`, `delivered_date`, `incident_accident_report`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, NULL, 13, 52, NULL, NULL, 0, 'New export exempt save changed', 0, '', '', '', '', 0, NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', 0, '', '', '', 0, 0, '', '0000-00-00', 0, '', '0000-00-00', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', '0000-00-00', '', NULL, 0, 'saved'),
+(2, 2, 3, 13, 53, NULL, NULL, 0, 'Submit export exempt test', 0, 'updated here', '', '', '', 0, NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', ',,,,,', 0, '', '', '', 0, 0, '', '0000-00-00', 0, '', '0000-00-00', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', '0000-00-00', '', NULL, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1115,6 +1199,7 @@ CREATE TABLE `notificationlmobiohazardousmaterial` (
   `account_id` int(10) UNSIGNED NOT NULL,
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `form_type` int(1) DEFAULT '14',
+  `project_id` int(10) UNSIGNED NOT NULL,
   `date_received` date DEFAULT NULL,
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `notificationlmo_sec1_edit` int(1) DEFAULT '0',
@@ -1153,8 +1238,17 @@ CREATE TABLE `notificationlmobiohazardousmaterial` (
   `notification_reviewed_by_date` date DEFAULT NULL,
   `notification_reviewed_by_remarks` varchar(300) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
-  `editable` int(1) DEFAULT '0'
+  `editable` int(1) DEFAULT '0',
+  `status` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `notificationlmobiohazardousmaterial`
+--
+
+INSERT INTO `notificationlmobiohazardousmaterial` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `notificationlmo_sec1_edit`, `personnel_name`, `personnel_staff_student_no`, `personnel_designation`, `personnel_faculty`, `personnel_unit_code`, `personnel_project_title`, `personnel_reference_no`, `personnel_storage`, `personnel_keeper_name`, `notificationlmo_sec2_edit`, `LMO_list`, `LMO_name`, `LMO_risk_level`, `LMO_quantity`, `LMO_volume`, `biohazard_list`, `biohazard_name`, `biohazard_risk_level`, `biohazard_quantity`, `biohazard_volume`, `notificationlmo_sec3_edit`, `declaration_name`, `declaration_date`, `signature_verified_by`, `signature_verified_date`, `notification_approved_by`, `notification_declined_by`, `notification_approver`, `notification_decliner`, `notification_approve_decline_date`, `notification_approve_decline_remarks`, `notification_reviewed_by`, `notification_reviewed_by_date`, `notification_reviewed_by_remarks`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, NULL, 14, 43, NULL, NULL, 0, 'NotificationLMOandBM save updated', 0, '', '', '', '', NULL, '', '', 0, NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', 0, '', '0000-00-00', '', '0000-00-00', NULL, NULL, '', '', '0000-00-00', '', '', '0000-00-00', '', NULL, 0, 'saved'),
+(2, 2, 3, 14, 44, NULL, NULL, 0, '', 0, '', '', 'Test if can submit updated', '', NULL, '', '', 0, NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', 0, '', '0000-00-00', '', '0000-00-00', NULL, NULL, '', '', '0000-00-00', '', '', '0000-00-00', '', NULL, 1, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1366,9 +1460,23 @@ INSERT INTO `project` (`project_id`, `approver_id`, `project_name`, `project_des
 (36, NULL, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0),
 (37, 3, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0),
 (41, NULL, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'saved', 0),
-(42, 5, 'Procurement submit', 'ascacascasc', '2018-10-15 12:38:21', 'procurement', 2, 1, 'submitted', 0),
-(43, NULL, 'dfgd', 'dfgdf', '2018-10-16 06:16:39', 'procurement', 2, 0, 'saved', 0),
-(54, NULL, 'ian final report', 'test final report', '2018-10-16 07:10:44', 'procurement', 2, 0, 'saved', 0);
+(42, 3, 'Procurement submit', 'ascacascasc', '2018-10-15 12:38:21', 'procurement', 2, 1, 'submitted', 0),
+(43, NULL, 'Notifcation of LMO and BM save', 'Test save function for notification of LMO and BM', '2018-10-16 06:16:56', 'notifLMOBM', 2, 0, 'saved', 0),
+(44, 3, 'New Submit For Notification of LMO and BM', 'test submit', '2018-10-16 07:19:54', 'notifLMOBM', 2, 0, 'submitted', 0),
+(47, NULL, 'annual save', 'test save', '2018-10-16 13:24:16', 'anuualfinalreport', 2, 0, 'saved', 0),
+(48, 3, 'Test submit anual', 'acscac', '2018-10-16 13:32:34', 'anuualfinalreport', 2, 0, 'submitted', 0),
+(50, NULL, 'Form F test save', 'ksjdvmsdmv', '2018-10-16 14:48:20', 'exportLMO', 2, 0, 'saved', 0),
+(51, 3, 'Test Form F submit', 'Sajinasc', '2018-10-16 14:51:43', 'exportLMO', 2, 0, 'submitted', 0),
+(52, NULL, 'Test save export exempt', 'advdvdx', '2018-10-16 15:59:05', 'exportExempt', 2, 0, 'saved', 0),
+(53, 3, 'Test export exempt submit', 'vsdvsdv', '2018-10-16 16:04:54', 'exportExempt', 2, 0, 'submitted', 0),
+(55, NULL, 'Test exempt incident save', 'scscsdcd', '2018-10-16 17:17:35', 'incidentExempt', 2, 0, 'saved', 0),
+(56, 3, 'Exempt incident submit', 'sdgvdsvgd', '2018-10-16 17:20:49', 'incidentExempt', 2, 0, 'submitted', 0),
+(57, NULL, 'New minor save', 'asdcfsc', '2018-10-16 18:22:43', 'minorbio', 2, 0, 'saved', 0),
+(58, 3, 'minor submit', 'bfgftrjt6jngf', '2018-10-16 18:24:45', 'minorbio', 2, 0, 'submitted', 0),
+(59, NULL, 'major save', 'dksmvsv', '2018-10-16 19:07:48', 'majorbio', 2, 0, 'saved', 0),
+(60, 3, 'major submit', 'sfascf', '2018-10-16 19:12:50', 'majorbio', 2, 0, 'submitted', 0),
+(61, NULL, 'occupational disease save', 'wndfnmvswd', '2018-10-16 19:58:09', 'occupational', 2, 0, 'saved', 0),
+(62, 3, 'disease submit', 'scscc', '2018-10-16 19:59:26', 'occupational', 2, 0, 'submitted', 0);
 
 -- --------------------------------------------------------
 
@@ -1445,6 +1553,19 @@ CREATE TABLE `swp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
+-- Dumping data for table `swp`
+--
+
+INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `swp_sec1_edit`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `swp_sec2_edit`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `swp_sec3_edit`, `SWP_declaration_name`, `SWP_declaration_date`, `swp_sec4_edit`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_type`, `application_approved`, `editable`, `status`) VALUES
+(1, 2, 3, 17, 28, NULL, NULL, 0, 'save project update', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
+(2, 2, 3, 17, 29, NULL, NULL, 0, 'Submit Project', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
+(3, 2, 3, 17, 30, NULL, NULL, 0, 'sdcscsdcv', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
+(5, 2, 3, 17, 33, NULL, NULL, 0, 'Biohazardous Test Save updated saved', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
+(6, 2, 3, 17, 34, NULL, NULL, 0, 'Biohazardous Submit', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted'),
+(8, 2, NULL, 17, 36, NULL, NULL, 0, 'exempt save test change', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
+(9, 2, 3, 17, 37, NULL, NULL, 0, 'Submit exempt project edited', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 1, 'submitted');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -1469,7 +1590,8 @@ ALTER TABLE `annex2`
 ALTER TABLE `annex3`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `account_id` (`account_id`),
-  ADD KEY `approver_id` (`approver_id`);
+  ADD KEY `approver_id` (`approver_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indexes for table `annex4`
@@ -1500,7 +1622,8 @@ ALTER TABLE `announcement`
 ALTER TABLE `annualfinalreport`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `account_id` (`account_id`),
-  ADD KEY `approver_id` (`approver_id`);
+  ADD KEY `approver_id` (`approver_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indexes for table `biohazardousmaterial`
@@ -1540,7 +1663,8 @@ ALTER TABLE `forme`
 ALTER TABLE `formf`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `account_id` (`account_id`),
-  ADD KEY `approver_id` (`approver_id`);
+  ADD KEY `approver_id` (`approver_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indexes for table `hirarc`
@@ -1556,7 +1680,8 @@ ALTER TABLE `hirarc`
 ALTER TABLE `incidentaccidentreport`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `account_id` (`account_id`),
-  ADD KEY `approver_id` (`approver_id`);
+  ADD KEY `approver_id` (`approver_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indexes for table `inventory`
@@ -1595,7 +1720,8 @@ ALTER TABLE `notification`
 ALTER TABLE `notificationexportingbiologicalmaterial`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `account_id` (`account_id`),
-  ADD KEY `approver_id` (`approver_id`);
+  ADD KEY `approver_id` (`approver_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indexes for table `notificationlmobiohazardousmaterial`
@@ -1603,7 +1729,8 @@ ALTER TABLE `notificationexportingbiologicalmaterial`
 ALTER TABLE `notificationlmobiohazardousmaterial`
   ADD PRIMARY KEY (`application_id`),
   ADD KEY `account_id` (`account_id`),
-  ADD KEY `approver_id` (`approver_id`);
+  ADD KEY `approver_id` (`approver_id`),
+  ADD KEY `project_id` (`project_id`);
 
 --
 -- Indexes for table `pc1`
@@ -1663,13 +1790,13 @@ ALTER TABLE `annex2`
 -- AUTO_INCREMENT for table `annex3`
 --
 ALTER TABLE `annex3`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `annex4`
 --
 ALTER TABLE `annex4`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `annex5`
@@ -1681,13 +1808,13 @@ ALTER TABLE `annex5`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `annualfinalreport`
 --
 ALTER TABLE `annualfinalreport`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `biohazardousmaterial`
@@ -1717,7 +1844,7 @@ ALTER TABLE `forme`
 -- AUTO_INCREMENT for table `formf`
 --
 ALTER TABLE `formf`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hirarc`
@@ -1729,7 +1856,7 @@ ALTER TABLE `hirarc`
 -- AUTO_INCREMENT for table `incidentaccidentreport`
 --
 ALTER TABLE `incidentaccidentreport`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `inventory`
@@ -1747,25 +1874,25 @@ ALTER TABLE `marks`
 -- AUTO_INCREMENT for table `materialriskassessment`
 --
 ALTER TABLE `materialriskassessment`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
 --
 ALTER TABLE `notificationexportingbiologicalmaterial`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `notificationlmobiohazardousmaterial`
 --
 ALTER TABLE `notificationlmobiohazardousmaterial`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pc1`
@@ -1783,7 +1910,7 @@ ALTER TABLE `pc2`
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=95;
+  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=63;
 
 --
 -- AUTO_INCREMENT for table `storage`
@@ -1808,6 +1935,18 @@ ALTER TABLE `annex2`
   ADD CONSTRAINT `annex2_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
 
 --
+-- Constraints for table `annex3`
+--
+ALTER TABLE `annex3`
+  ADD CONSTRAINT `annex3_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
+
+--
+-- Constraints for table `annualfinalreport`
+--
+ALTER TABLE `annualfinalreport`
+  ADD CONSTRAINT `annualfinalreport_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
+
+--
 -- Constraints for table `biohazardousmaterial`
 --
 ALTER TABLE `biohazardousmaterial`
@@ -1818,6 +1957,18 @@ ALTER TABLE `biohazardousmaterial`
 --
 ALTER TABLE `educational`
   ADD CONSTRAINT `educational_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`);
+
+--
+-- Constraints for table `formf`
+--
+ALTER TABLE `formf`
+  ADD CONSTRAINT `formf_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
+
+--
+-- Constraints for table `incidentaccidentreport`
+--
+ALTER TABLE `incidentaccidentreport`
+  ADD CONSTRAINT `incidentaccidentreport_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
 
 --
 -- Constraints for table `marks`
@@ -1831,6 +1982,18 @@ ALTER TABLE `marks`
 --
 ALTER TABLE `materialriskassessment`
   ADD CONSTRAINT `materialriskassessment_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
+
+--
+-- Constraints for table `notificationexportingbiologicalmaterial`
+--
+ALTER TABLE `notificationexportingbiologicalmaterial`
+  ADD CONSTRAINT `notificationexportingbiologicalmaterial_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
+
+--
+-- Constraints for table `notificationlmobiohazardousmaterial`
+--
+ALTER TABLE `notificationlmobiohazardousmaterial`
+  ADD CONSTRAINT `notificationlmobiohazardousmaterial_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
 
 --
 -- Constraints for table `project`

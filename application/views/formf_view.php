@@ -55,8 +55,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             
             <div class="col-md-9">
-              <?php if(isset($editload)) { echo form_open('formf/update_form'); } else { echo form_open('formf/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+              
                     <div>
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>

@@ -1,48 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-if(!$this->session->userdata('isLogin')){
-    redirect('landing/index');
-}
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Biosafety and Biosecurity Online System - Notification of Exporting Biological Material Form</title>
-    
-    <style>
-        body {
-            padding-top: 82px;
-        }
-        
-        .btn-sample{
-            position: fixed;
-            margin-left: 60px;
-        }
-        
-        #first-table{
-            background-color: #95a5a6;
-            text-align: center;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .tbheader1{
-            background-color:  #95a5a6 ;
-        }
-        .sectiontarget::before {
-          content:"";
-          display:block;
-          height:60px; /* fixed header height*/
-          margin:-60px 0 0; /* negative fixed header height */
-        }
-    </style>
-</head>    
-<body>
+
     <?php include_once 'template/navbar.php' ?>
     <?php
     
@@ -84,8 +40,7 @@ if(!$this->session->userdata('isLogin')){
         <div class="row">
             
             <div class="col-md-10">
-               <?php if(isset($editload)) { echo form_open('notification_of_exporting_biological_material/update_form'); } else { echo form_open('notification_of_exporting_biological_material/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+               
                    <div>
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -492,8 +447,7 @@ if(!$this->session->userdata('isLogin')){
                         <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                    </div>
-               <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
-               <?php echo form_close(); ?>
+               
             </div>
             
             <div class="col-md-2">
@@ -510,5 +464,3 @@ if(!$this->session->userdata('isLogin')){
             </div>
         </div>               
     </div>
-</body>
-</html>

@@ -18,6 +18,7 @@ class annualfinalreport_model extends CI_Model
 		return $query->result();
     }
     
+    #annual1
     function get_all_form() 
     {
         $this->db->select('*');
@@ -43,7 +44,8 @@ class annualfinalreport_model extends CI_Model
         return true;
 	}
 	
-    function get_all_form2() 
+    #annual2
+    function get_all_sub_annual2() 
     {
         $this->db->select('*');
         $this->db->from('annualfinalreport');
@@ -53,6 +55,7 @@ class annualfinalreport_model extends CI_Model
 		return $query->result();
     }
     
+    #annual3
     function get_all_form3() 
     {
         $this->db->select('*');
@@ -96,12 +99,12 @@ class annualfinalreport_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 0, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         }
         return true;
@@ -130,12 +133,12 @@ class annualfinalreport_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         }
         return true;
@@ -147,12 +150,12 @@ class annualfinalreport_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 2, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         }
         return true;
@@ -164,12 +167,12 @@ class annualfinalreport_model extends CI_Model
             
             $data = array('application_approved' => 5);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         } elseif ($type == 1) {
             $data = array('application_approved' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
-            $this->db->where('application_id', $appID);
+            $this->db->where('project_id', $appID);
             $this->db->update('annualfinalreport', $data);
         }
         return true;
@@ -178,7 +181,7 @@ class annualfinalreport_model extends CI_Model
     function edit_request($id){
         
         $data = array('editable' => 1);
-        $this->db->where('application_id', $id);
+        $this->db->where('project_id', $id);
         $this->db->update('annualfinalreport', $data);
         
         return true;

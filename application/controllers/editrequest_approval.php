@@ -47,24 +47,14 @@ class editrequest_approval extends CI_Controller {
         $data['all_exempt_project'] = $this->project_model->get_all_exempt_edit_request();
         $data['all_procurement_project'] = $this->project_model->get_all_procurement_edit_request();
         $data['all_notif_LMO_project'] = $this->project_model->get_all_notif_LMO_edit_request();
-        
-        /*$data['all_annex2'] = $this->annex2_model->get_all_edit_request();
-        $data['all_annex3'] = $this->annex3_model->get_all_edit_request();
-        $data['all_annex4'] = $this->annex4_model->get_all_edit_request();
-        $data['all_annex5'] = $this->annex5_model->get_all_edit_request();
-        $data['all_annual'] = $this->annualfinalreport_model->get_all_edit_request();
-        $data['all_biohazard'] = $this->biohazard_model->get_all_edit_request();
-        $data['all_exempt'] = $this->exempt_model->get_all_edit_request();
-        $data['all_forme'] = $this->forme_model->get_all_edit_request();
-        $data['all_formf'] = $this->formf_model->get_all_edit_request();
-        $data['all_hirarc'] = $this->hirarc_model->get_all_edit_request();
-        $data['all_incident'] = $this->incidentaccidentreport_model->get_all_edit_request();
-        $data['all_notif_export'] = $this->notification_of_exporting_biological_material_model->get_all_edit_request();
-        $data['all_notif_LMO'] = $this->notification_of_LMO_and_BM_model->get_all_edit_request();
-        $data['all_pc1'] = $this->pc1_model->get_all_edit_request();
-        $data['all_pc2'] = $this->pc2_model->get_all_edit_request();
-        $data['all_procurement'] = $this->procurement_model->get_all_edit_request();
-        $data['all_swp'] = $this->swp_model->get_all_edit_request();*/
+        $data['all_annual_project'] = $this->project_model->get_all_annual_edit_request();
+        $data['all_annual_project'] = $this->project_model->get_all_annual_edit_request();
+        $data['all_export_LMO_project'] = $this->project_model->get_all_export_LMO_edit_request();
+        $data['all_export_Exempt_project'] = $this->project_model->get_all_export_exempt_edit_request();
+        $data['all_incident_Exempt_project'] = $this->project_model->get_all_incident_exempt_edit_request();
+        $data['all_minor_incident'] = $this->project_model->get_all_minor_edit_request();
+        $data['all_major_incident'] = $this->project_model->get_all_major_edit_request();
+        $data['all_occupational_incident'] = $this->project_model->get_all_occupational_edit_request();
         
         
         $this->load->template('editrequest_approval_view', $data);
@@ -222,7 +212,7 @@ class editrequest_approval extends CI_Controller {
         $this->notification_of_LMO_and_BM_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Project Approved", "<p>Your Request For Editing A Pre-purchase Material Risk Assessment Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and BM Project Approved", "<p>Your Request For Editing A Notification of LMO and BM Project Has Been Approved. </p>");
         
         redirect('editrequest_approval/index');
     }
@@ -238,6 +228,214 @@ class editrequest_approval extends CI_Controller {
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
         $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and BM Project Rejected", "<p>Your Request For Editing Notification of LMO and BM Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    //Methods For Approving And Rejecting annual project requests
+    public function approve_annual($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_annual($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->annualfinalreport_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function approve_export_LMO($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->formf_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_export_LMO($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->formf_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function approve_export_Exempt($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->notification_of_exporting_biological_material_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_export_Exempt($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->notification_of_exporting_biological_material_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function approve_incident_Exempt($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Incident Accident Report For Exempt Dealings or Biohazardous Material Project Approved", "<p>Your Request For Editing A Incident Accident Report For Exempt Dealings or Biohazardous Material project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_incident_Exempt($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function approve_minor($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Minor Incident Accident Report For LMO Project Approved", "<p>Your Request For Editing A Minor Incident Accident Report For LMO Project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_minor($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Minor Incident Accident Report For LMO Project Rejected", "<p>Your Request For Editing Minor Incident Accident Report For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function approve_major($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
+        $this->annex3_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Major Incident Accident Report For LMO Project Approved", "<p>Your Request For Editing A Major Incident Accident Report For LMO project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_major($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
+        $this->annex3_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Major Incident Accident Report For LMO Project Rejected", "<p>Your Request For Editing Major Incident Accident Report For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function approve_occupational($id, $appid)
+    {
+        $approver_id = $this->session->userdata('account_id');
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
+        $this->annex4_model->update_editable($id, 1, $approver_id, $appid);
+        $this->project_model->update_editable($id, 1, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Occupational Disease or Exposure Project Approved", "<p>Your Request For Editing A Occupational Disease or Exposure Project Has Been Approved. </p>");
+        
+        redirect('editrequest_approval/index');
+    }
+    
+    public function reject_occupational($id, $appid)
+    {
+        $approver_id = ' ';
+        $id = $this->uri->segment(3);
+        $appid = $this->uri->segment(4);
+        $msg = base64_decode($this->uri->segment(5));
+        $result = $this->account_model->get_account_by_id($id);
+        $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
+        $this->annex4_model->update_editable($id, 0, $approver_id, $appid);
+        $this->project_model->update_editable($id, 0, $approver_id, $appid);
+        
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Occupational Disease or Exposure Project Rejected", "<p>Your Request For Editing MOccupational Disease or Exposure Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('editrequest_approval/index');
     }

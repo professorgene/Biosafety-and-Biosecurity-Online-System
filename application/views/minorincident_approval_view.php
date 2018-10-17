@@ -29,7 +29,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <h5>Minor Biological Incident or Accident Form Approvals</h5>
+        <h5>Minor Biological Incident or Accident Project Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <div class="row">
@@ -52,16 +52,17 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Incident Accident Report Form
+                        <th colspan="7">
+                            Minor Incident Accident Report Project
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
-                        <th></th>
+                        <th>View</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -71,6 +72,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -84,18 +86,13 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'procurement_load' value = 'Load' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        <!--
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/minorbioproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        
+                        
                         <td class="text-center">
-                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
+                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
-                        </td>
-                        -->
-                        <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
-                            <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -114,16 +111,17 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Incident Accident Report Forms
+                        <th colspan="7">
+                            Minor Incident Accident Report Project
                         </th>
                     </tr>
                     <tr>
-                        <th></th>
+                        <th>No</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
-                        <th></th>
+                        <th>View</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -133,6 +131,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / PI";
@@ -146,12 +145,12 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/minorbioproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -182,7 +181,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
             window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/approve/" + i + "/" + k;
         }
         
-        function reject(i){
+        function reject(i,k){
             var j = prompt("Reason for Rejecting:", "Did not meet requirement");
             if (j != null) {
                 window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/reject/" + i + "/" + k + "/" + btoa(j);
@@ -191,11 +190,11 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
     </script>
     
     <script>
-        function approve2(i){
+        function approve2(i,k){
             window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/approve2/" + i + "/" + k;
         }
         
-        function reject2(i){
+        function reject2(i,k){
             var j = prompt("Reason for Rejecting:", "Did not meet requirement");
             if (j != null) {
                 window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/reject2/" + i + "/" + k + "/" + btoa(j);

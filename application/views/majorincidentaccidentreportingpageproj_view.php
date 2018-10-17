@@ -11,6 +11,7 @@ if(!$this->session->userdata('isLogin')){
     <title>Biosafety and Biosecurity Online System - New Application: Exempt Dealing Project.</title>
     
     <style>
+        
         body {
             padding-top: 82px;
         }
@@ -20,27 +21,17 @@ if(!$this->session->userdata('isLogin')){
             margin-left: 60px;
         }
         
-        #first-table{
-            background-color: #95a5a6;
-            text-align: center;
-        }
-        
-        .tblTitle{
-            background-color: black;
-            color: white;
-            text-align: center;
-        }
-        
-        .blackborder{
-            border-color: black;
-        }
-        
         .approve_section{
             display: none;
         }
         
-        .tblTitle2{
-            background-color: #808080;
+        #first-table{
+            background-color: #95a5a6;
+            text-align: center;
+        }
+        	        
+        .tblTitle{
+            background-color: black;
             color: white;
             text-align: center;
         }
@@ -49,36 +40,31 @@ if(!$this->session->userdata('isLogin')){
             background-color:  #95a5a6 ;
         }
         
-        .centering{
-            text-align: center;
-        }
-        
-        .greendata{
-            background-color: lawngreen;
-        }
-        
-        .reddata{
-            background-color: red;
-        }
-        
-        .yellowdata{
-            background-color: yellow;
-        }
-        
-        .colspace{
-            width: 50px;
-        }
-        
         .sectiontarget::before {
           content:"";
           display:block;
           height:60px; /* fixed header height*/
           margin:-60px 0 0; /* negative fixed header height */
         }
-    </style> 
+    </style>
 </head>    
 <body>
     <?php include_once 'template/navbar.php' ?>
+    
+    <?php 
+        if(isset($session))
+        {
+            
+            foreach($session as $info)
+            {
+                $id = $info->project_id;
+            } 
+          
+            $this->session->set_userdata("projectId", $id);
+            
+        }
+        
+        ?>
     
     
     <div class="container">
@@ -88,9 +74,12 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-12">
 			<br>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item active"><a href="#annex3tab" class="nav-link" data-toggle="tab">Exempt Dealings Form</a></li>
-                    <li class="nav-item"><a href="#ohstab" class="nav-link" data-toggle="tab">HIRARC Form</a></li>
+                    <li class="nav-item active"><a href="#annex3tab" class="nav-link" data-toggle="tab">Annex 3 Form</a></li>
+                    <li class="nav-item"><a href="#ohstab" class="nav-link" data-toggle="tab">Incident Accident Report Form</a></li>
                 </ul>
+                
+                <?php if(isset($editload)) { echo form_open('majorincidentaccidentreportingpageproj/update_form'); } elseif(isset($saveload)) {echo form_open('majorincidentaccidentreportingpageproj/continue');} else { echo form_open('majorincidentaccidentreportingpageproj/index'); } ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 
                 <div class="tab-content">
                     <div class="tab-pane active" id="annex3tab">
@@ -103,6 +92,9 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                     
                 </div>
+                
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
+                <?php echo form_close(); ?>
                 
             </div>
         </div>

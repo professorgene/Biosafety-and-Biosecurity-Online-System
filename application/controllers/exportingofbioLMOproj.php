@@ -140,6 +140,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                    redirect('exportingofbioLMOproj/index');
     
                 }
+            }
+        }
 				
 		//load project in disabled state
         public function load_project(){

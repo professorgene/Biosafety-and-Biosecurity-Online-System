@@ -47,31 +47,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         </div>
         
         <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_formf)) { ?>
+        <?php if(isset($all_formf_proj)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Form F
+                        <th colspan="7">
+                            Notification of Exporting LMO
                         </th>
                     </tr>
                     <tr>
                         <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_formf as $row): ?>
+                <?php $i=0; foreach($all_formf_proj as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / Project Investigator";
@@ -89,12 +91,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'formf_load' value = 'Load' onclick="location.href='<?php echo site_url().'/formf/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/exportingofbioLMOproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
+                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -108,31 +110,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <!-- IF current user is SSBC Members, then show applications that were approved by BSO -->
         <?php if($this->session->userdata('account_type') == 3) { ?>
-        <?php if(isset($all_formf_SSBC)) { ?>
+        <?php if(isset($all_formf_SSBC_proj)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Form F
+                        <th colspan="7">
+                            Notification of Exporting LMO
                         </th>
                     </tr>
                     <tr>
                         <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_formf_SSBC as $row): ?>
+                <?php $i=0; foreach($all_formf_SSBC_proj as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / Project Investigator";
@@ -150,12 +154,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'formf_load' value = 'Load' onclick="location.href='<?php echo site_url().'/formf/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/exportingofbioLMOproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
+                            <i class="btn btn-success fa fa-check" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -168,31 +172,33 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <!-- IF current user is SSBC Chair, then show applications that were approved by SSBC Members -->
         <?php if($this->session->userdata('account_type') == 2) { ?>
-        <?php if(isset($all_formf_Chair)) { ?>
+        <?php if(isset($all_formf_Chair_proj)) { ?>
         
         <div class="table-responsive">
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Form F
+                        <th colspan="7">
+                            Notification of Exporting LMO
                         </th>
                     </tr>
                     <tr>
                         <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
-                <?php $i=0; foreach($all_formf_Chair as $row): ?>
+                <?php $i=0; foreach($all_formf_Chair_proj as $row): ?>
                     <tr class="searchable">
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / Project Investigator";
@@ -210,12 +216,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'formf_load' value = 'Load' onclick="location.href='<?php echo site_url().'/formf/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/exportingofbioLMOproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
+                            <i class="btn btn-success fa fa-check" onclick="approve3(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject3(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>

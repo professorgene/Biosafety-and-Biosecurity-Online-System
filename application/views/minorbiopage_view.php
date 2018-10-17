@@ -3,7 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Exempt Dealing Page</title>
     
     <style>
@@ -23,6 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 
 <body>
+    <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
 
@@ -30,13 +30,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="container">
         <!-- Page Heading -->
         <br>
-
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
-
+  
+    <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
-        <?php echo form_open('occupationaldiseaseexposurepage/index'); ?>
+        <?php echo form_open('minorbiopage/index'); ?>
                             <br/>
                             <legend>New Project</legend>
                             <br/>
@@ -60,11 +60,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                                 <span class="col-md-1"></span>
                             </div>
                         <?php echo form_close(); ?>
-        <br/>	
-		</div>
+        <br/>
+    </div>
 		
+		<div class="col-lg-7">
+		
+		</div>
 	</div>					
 	</div>
-<br/>
+
+	<br/>
 </body>
 </html>

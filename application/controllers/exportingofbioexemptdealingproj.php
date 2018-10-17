@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
         $this->load->database();
         $this->load->model('notification_model');
-		$this->load->model('procurement_model');
+		$this->load->model('notification_of_exporting_biological_material_model');
         $this->load->model('project_model');
 		
 			//breadcrum
@@ -163,7 +163,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
-                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks')
+                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
 					'status' => $submitStatus
 				);	
 
@@ -273,7 +273,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
-                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks')
+                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
 					'status' => $submitStatus,
                     'editable' => $editableValue
 				);	
@@ -381,7 +381,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
-                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks')
+                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
 					'status' => $saveStatus
 				);
 				
@@ -454,7 +454,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
-                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks')
+                    'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
 					'status' => $submitStatus
 				);		
 

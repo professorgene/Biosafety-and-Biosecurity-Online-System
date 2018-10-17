@@ -11,7 +11,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 <html lang="en">
 <head>
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Swinburne Biosafety and Biosecurity Online System - Minor Biological Incident or Accident Approval</title>
+    <title>Swinburne Biosafety and Biosecurity Online System - Major Biological Incident or Accident Approval</title>
     
     <style>
         body {
@@ -55,14 +55,15 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Incident Accident Report Form
+                        <th colspan="7">
+                            Major Incident Accident Report Form
                         </th>
                     </tr>
                     <tr>
                         <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
                         <th></th>
@@ -74,6 +75,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / Project Investigator";
@@ -91,18 +93,18 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'procurement_load' value = 'Load' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/majorincidentaccidentreportingpageproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
-                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
+                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->project_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
                             <hr/>
-                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
+                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->project_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
                         </td>
                         -->
                         <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
+                            <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
                             <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?> )" title="Reject"></i>
+                            <i class="btn btn-danger fa fa-times" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?> )" title="Reject"></i>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -121,14 +123,15 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Incident Accident Report Forms
+                        <th colspan="7">
+                            Major Incident Accident Report Form
                         </th>
                     </tr>
                     <tr>
                         <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
                         <th></th>
@@ -140,6 +143,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / Project Investigator";
@@ -157,12 +161,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/majorincidentaccidentreportingpageproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -181,14 +185,15 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             <table class="table table-hover table-bordered">
                 <thead>
                     <tr>
-                        <th colspan="6">
-                            Incident Accident Report Forms
+                        <th colspan="7">
+                            Major Incident Accident Report Form
                         </th>
                     </tr>
                     <tr>
                         <th>No.</th>
                         <th>Account Email</th>
                         <th>Full Name</th>
+                        <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
                         <th></th>
@@ -200,6 +205,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
+                        <td><?php echo $row->project_name; ?></td>
                         <td><?php 
                                         if($row->account_type == 1) {
                                             echo "Applicant / Project Investigator";
@@ -217,12 +223,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/majorincidentaccidentreportingpageproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -235,193 +241,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- End Of Incident Accident Report -->
         
         
-        <!-- Annex 3 Forms -->
-        <!-- IF current user is BSO, then show applications that have not been approved -->
-        <?php if($this->session->userdata('account_type') == 4) { ?>
-        <?php if(isset($all_annex3)) { ?>
         
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            Annex 3 Form
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_annex3 as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'annex3_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex3/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        <!--
-                        <td class="text-center">
-                            <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
-                            <hr/>
-                            <a class="btn btn-danger" href="<?php echo base_url(); ?>index.php/accountapproval/reject/<?php echo $row->account_id; ?>" title="Reject"><i class="fa fa-times"></i></a>
-                        </td>
-                        -->
-                        <td class="text-center">
-                            <i class="btn btn-success fa fa-check" onclick="approve_annex3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"></i>
-                            <hr/>
-                            <i class="btn btn-danger fa fa-times" onclick="reject_annex3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"></i>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is SSBC, then show applications that were approved by BSO -->
-        <?php if($this->session->userdata('account_type') == 3) { ?>
-        <?php if(isset($all_annex3_SSBC)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            Annex 3 Forms
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_annex3_SSBC as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'annex3_load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex3/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve2_annex3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject2_annex3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        
-        <!-- IF current user is HSO, then show applications that were approved by BSO but not SSBC -->
-        <?php if($this->session->userdata('account_type') == 5) { ?>
-        <?php if(isset($all_annex3_SSBC)) { ?>
-        
-        <div class="table-responsive">
-            <table class="table table-hover table-bordered">
-                <thead>
-                    <tr>
-                        <th colspan="6">
-                            Annex 3 Forms
-                        </th>
-                    </tr>
-                    <tr>
-                        <th>No.</th>
-                        <th>Account Email</th>
-                        <th>Full Name</th>
-                        <th>Account Type</th>
-                        <th>View Form</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody id="account">
-                <?php $i=0; foreach($all_annex3_SSBC as $row): ?>
-                    <tr class="searchable">
-                        <td><?php echo $i = $i+1 ?></td>
-                        <td><?php echo $row->account_email; ?></td>
-                        <td><?php echo $row->account_fullname; ?></td>
-                        <td><?php 
-                                        if($row->account_type == 1) {
-                                            echo "Applicant / Project Investigator";
-                                        } elseif($row->account_type == 2) {
-                                            echo "SSBC Chair";
-                                        } elseif($row->account_type == 3) {
-                                            echo "SSBC Members";
-                                        } elseif($row->account_type == 4) {
-                                            echo "Biosafety Officer";
-                                        } elseif($row->account_type == 5) {
-                                            echo "Health and Safety Officer";
-                                        } elseif($row->account_type == 6) {
-                                            echo "Lab Officer";
-                                        } elseif($row->account_type == 7) {
-                                            echo "Student & Postgraduate";
-                                        }
-                            ?></td>
-                        <td><button type="button" name = 'annex3load' value = 'Load' onclick="location.href='<?php echo site_url().'/annex3/load_form?id='.$row->application_id;?>'" class="btn btn-primary">Load</button></td>
-                        
-                        <td class="text-center">
-                            <button class="btn btn-success" onclick="approve3_annex3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject3_annex3(<?php echo $row->account_id; ?>, <?php echo $row->application_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-            </table>
-        </div>
-        
-        <?php } ?>
-        <?php } ?>
-        <!-- End Of Annex 3 -->
         
         <br/>
     </div>
@@ -463,56 +283,5 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         }
     </script>
     
-    <script>
-        function approve3(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/approve3/" + i + "/" + k;
-        }
-        
-        function reject3(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/reject3/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve_annex3(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/approve_annex3/" + i + "/" + k;
-        }
-        
-        function reject_annex3(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/reject_annex3/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve2_annex3(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/approve2_annex3/" + i + "/" + k;
-        }
-        
-        function reject2_annex3(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/reject2_annex3/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve3_annex3(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/approve3_annex3/" + i + "/" + k;
-        }
-        
-        function reject3_annex3(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/majorincident_approval/reject3_annex3/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
 </body>
 </html>

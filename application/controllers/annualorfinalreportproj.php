@@ -69,7 +69,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 );
 				
 				
-				if($this->annualfinalreport_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
+				if($this->annualfinalreport_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSave)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
                     redirect('home/index');
@@ -141,7 +141,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['disabled'] = "true";           
             $id = $this->input->get('id');           
             $data['appID'] = $id;           
-            $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);        
+            $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);   
+            
             $this->load->template('annualorfinalreportproj_view', $data);
         }
 		
@@ -196,7 +197,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					 'editable' => $editableValue
 				);
 	
-				 if($this->annualfinalreport_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
+				 if($this->annualfinalreport_model->update_applicant_data($appID, $data) && $this->project_model->update_applicant_data($appID, $editableValue)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
                     redirect('home/index');
@@ -220,9 +221,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['saveload'] = "true";
             $id = $this->input->get('id');
             $data['appID'] = $id;
+             
+            $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);
 
             $this->load->template('annualorfinalreportproj_view', $data);
         }
+        
 		
 		 public function continue(){
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
@@ -240,8 +244,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->template('annualorfinalreportproj_view', $data);
                 
             }elseif(isset($save)){
-		
-				 }elseif(isset($save)){
                 
                 $data = array(
 					 'account_id' => $this->session->userdata('account_id'),
@@ -276,7 +278,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      'status' => $saveStatus
 				);
 				
-				if($this->annualfinalreport_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
+				if($this->annualfinalreport_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSave)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
                     redirect('home/index');
@@ -325,7 +327,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                      'status' => $submitStatus
 				);
 		
-				if($this->annualfinalreport_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
+				if($this->annualfinalreport_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
                     redirect('home/index');

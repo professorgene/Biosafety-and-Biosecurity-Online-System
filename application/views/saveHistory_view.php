@@ -115,6 +115,28 @@ if(!$this->session->userdata('isLogin')){
                     
                 }else if(j == "notifLMOBM"){
                     window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_saved_project?id=" + i;
+                    
+                }else if(j == "anuualfinalreport"){
+                    window.location = "<?php echo base_url(); ?>index.php/annualorfinalreportproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "exportLMO"){
+                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioLMOproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "exportExempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "incidentExempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "minorbio"){
+                    window.location = "<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "majorbio"){
+                    window.location = "<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/load_saved_project?id=" + i;
+                    
+                }else if(j == "occupational"){
+                    window.location = "<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/load_saved_project?id=" + i;
+                    
                 }
                 
             }

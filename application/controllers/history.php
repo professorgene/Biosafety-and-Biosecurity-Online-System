@@ -159,7 +159,7 @@ class history extends CI_Controller {
             $data['retrieved'] = $this->procurement_model->get_form_by_project_id($id);
             
 
-            $this->load->template('exemptproj_view', $data);
+            $this->load->template('procurementproj_view', $data);
             }
             else
             {
@@ -167,7 +167,7 @@ class history extends CI_Controller {
                 $this->procurement_model->edit_request($id);
                 $this->project_model->edit_request($id);
             
-                $this->notification_model->insert_new_notification(null, 4, "Application for Exempt Dealings Modification Request", "The following user has requested to edit an Application for Exempt Dealings: " . $this->session->userdata('account_name'));
+                $this->notification_model->insert_new_notification(null, 4, "Application for Procurement of Biohazardous Materials Modification Request", "The following user has requested to edit an Application for Procurement of Biohazardous Materials: " . $this->session->userdata('account_name'));
                 redirect('history/index');
             }
             
@@ -192,7 +192,186 @@ class history extends CI_Controller {
                 $this->notification_of_LMO_and_BM_model->edit_request($id);
                 $this->project_model->edit_request($id);
             
-                $this->notification_model->insert_new_notification(null, 4, "Application for Exempt Dealings Modification Request", "The following user has requested to edit an Application for Exempt Dealings: " . $this->session->userdata('account_name'));
+                $this->notification_model->insert_new_notification(null, 4, "Notification of LMO and BM Modification Request", "The following user has requested to edit an Application for Notification of LMO and BM: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="anuualfinalreport"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('annualorfinalreportproj_view', $data);
+            }
+            else
+            {
+            
+                $this->annualfinalreport_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="exportLMO"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->formf_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('exportingofbioLMOproj_view', $data);
+            }
+            else
+            {
+            
+                $this->formf_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="exportExempt"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->notification_of_exporting_biological_material_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('exportingofbioexemptdealingproj_view', $data);
+            }
+            else
+            {
+            
+                $this->notification_of_exporting_biological_material_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="incidentExempt"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('incidentaccidentreportingpageexemptproj_view', $data);
+            }
+            else
+            {
+            
+                $this->incidentaccidentreport_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Incident Accident Report for exempt dealing or biohazardous materials Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="minorbio"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('minorbioproj_view', $data);
+            }
+            else
+            {
+            
+                $this->incidentaccidentreport_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Minor Incident Accident Report Modification Request", "The following user has requested to edit a Minor Incident Accident Report: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="majorbio"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_project_id($id);
+            $data['retrieved2'] = $this->annex3_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('majorincidentaccidentreportingpageproj_view', $data);
+            }
+            else
+            {
+            
+                $this->incidentaccidentreport_model->edit_request($id);
+                $this->annex3_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Major Incident Accident Report Modification Request", "The following user has requested to edit a Major Incident Accident Report: " . $this->session->userdata('account_name'));
+                redirect('history/index');
+            }
+            
+        }elseif($type =="occupational"){
+            
+            if($editable == 2){
+            
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $data['load'] = "true";
+            $data['editload'] = "true";
+            $data['appID'] = $id;
+
+            $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_project_id($id);
+            $data['retrieved2'] = $this->annex4_model->get_form_by_project_id($id);
+            
+
+            $this->load->template('occupationaldiseaseexposurepageproj_view', $data);
+            }
+            else
+            {
+            
+                $this->incidentaccidentreport_model->edit_request($id);
+                $this->annex4_model->edit_request($id);
+                $this->project_model->edit_request($id);
+            
+                $this->notification_model->insert_new_notification(null, 4, "Major Incident Accident Report Modification Request", "The following user has requested to edit a Major Incident Accident Report: " . $this->session->userdata('account_name'));
                 redirect('history/index');
             }
             

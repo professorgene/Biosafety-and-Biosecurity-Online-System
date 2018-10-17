@@ -80,6 +80,20 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <?php include_once 'template/navbar.php' ?>
     
+    <?php 
+        if(isset($session))
+        {
+            
+            foreach($session as $info)
+            {
+                $id = $info->project_id;
+            } 
+          
+            $this->session->set_userdata("projectId", $id);
+            
+        }
+        
+        ?>
     
     <div class="container">
 	 
@@ -92,6 +106,8 @@ if(!$this->session->userdata('isLogin')){
                     
                 </ul>
                 
+                <?php if(isset($editload)) { echo form_open('exportingofbioLMOproj/update_form'); } elseif(isset($saveload)) {echo form_open('exportingofbioLMOproj/continue');} else { echo form_open('exportingofbioLMOproj/index'); } ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 <div class="tab-content">
                     <div class="tab-pane active" id="formf">
                         <br/>
@@ -100,6 +116,8 @@ if(!$this->session->userdata('isLogin')){
                     
                     
                 </div>
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
+                <?php echo form_close(); ?>
                 
             </div>
         </div>

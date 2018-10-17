@@ -35,7 +35,7 @@ class exportingofbioLMOpage extends CI_Controller {
                 $data = array(
                     'project_name' => $this->input->post('project_name'),
                     'project_desc' => $this->input->post('project_desc'),
-                    'project_type' => 'exportingofbioLMO',
+                    'project_type' => 'exportLMO',
                     'account_id' => $this->session->userdata('account_id')
                 );
             
