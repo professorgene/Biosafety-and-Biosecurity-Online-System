@@ -65,37 +65,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <br/>
 		</div>
 		<div class="col-lg-7">
-		<?php if(isset($product_list)) { ?>		
+		<h5 class="card-header">Announcements</h5>
+		
+		<?php if(isset($announcement_list)) { ?>		
 			<div>		
-				<?php foreach ($product_list as $list) { ?>
+				<?php foreach ($announcement_list as $list) { ?>
 					<div class="card my-4">
-						<h5 class="card-header">Announcements</h5>
+						
 						<div class="card-body">
-						<?php echo $list->announcement_description ?> 
+						
+						<?php echo $list->announcement_description; ?> 
 						</div>
 					</div>	
 				<?php } ?>
 			</div>
 				<?php if($this->session->userdata('account_type') == 4) {?>
-				<a href="<?php echo base_url(); ?>index.php/applicationpage/edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>	
-				<?php }else{ ?>
+					
+					<a href="<?php echo base_url(); ?>index.php/editannouncement/edit/<?php echo $list->announcement_id; ?>" class="btn btn-success"> <span class="glyphicon glyphicon-edit"></span> Edit</a>	
+				
+				<?php }
+				
+					else{ ?>
 				 
 				 <?php } ?>
-			<?php } else { ?>
-				
-				 <?php echo form_open('applicationpage/save_edit') ?>
-				 <?php echo form_hidden('announcement_id',$list_product['announcement_id']) ?>
-
-			<div class="card my-4">
-								<h5 class="card-header">Announcements Edit</h5>
-								<div class="card-body">
-								<?php echo form_textarea('announcement_description',$list_product['announcement_description'],array('placeholder'=>'Note','style'=>'width:100%')) ?>  
-								</div>
-			</div>	
-
-				<a href="<?php echo base_url(); ?>index.php/applicationpage/save_edit" class="col-md-3"><button class="btn btn-primary button_right">Save</button></a>	 
-				<?php echo form_close(); ?>
-			<?php } ?>
+			<?php }  ?>
 		</div>
 
 	</div>
