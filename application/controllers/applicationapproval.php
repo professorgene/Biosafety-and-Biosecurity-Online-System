@@ -52,7 +52,7 @@ class applicationapproval extends CI_Controller {
         $this->swp_model->update_approval($id, 1, $approver_id, $appid);
         $this->project_model->update_approval($id, 1, $approver_id, $appid);
         
-        $this->notification_model->insert_new_notification(null, 2, "New Application For LMO Approved", "BSO has approved an application for LMO");
+        $this->notification_model->insert_new_notification(null, 2, "New Project Application For LMO Approved", "BSO has approved an application for LMO");
         
         redirect('applicationapproval/index');
     }
@@ -72,7 +72,7 @@ class applicationapproval extends CI_Controller {
         $this->swp_model->update_approval($id, 0, $approver_id, $appid);
         $this->project_model->update_approval($id, 0, $approver_id, $appid);
             
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Application For LMO Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For LMO Rejected", "<p>Your New Project Application Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -91,7 +91,7 @@ class applicationapproval extends CI_Controller {
         $this->project_model->update_yes_issue($id, 1, $approver_id, $appID);
         
         //Notify All SSBC Members that SSBC Chair has approved a form but still requires their input
-        $this->notification_model->insert_new_notification(null, 3, "Annex 2 Application Approved", "SSBC Chair has approved an Annex 2 Application that requires additional input");
+        $this->notification_model->insert_new_notification(null, 3, "New Project Application for LMO Approved", "SSBC Chair has approved an application for an LMO project that requires additional input");
         
         redirect('applicationapproval/index');
     }
@@ -110,7 +110,7 @@ class applicationapproval extends CI_Controller {
         $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //Notify SSBC Chair that SSBC Members have reviewed and approved the form
-        $this->notification_model->insert_new_notification(null, 2, "Annex 2 Application Approved", "SSBC members have approved an Annex 2 Application.");
+        $this->notification_model->insert_new_notification(null, 2, "New Project Application for LMO Approved", "SSBC members have approved an application for an LMO project.");
             
         redirect('applicationapproval/index');
     }
@@ -131,7 +131,7 @@ class applicationapproval extends CI_Controller {
         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annex 2 Submission Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Rejected", "<p>Your New Project Application for LMO Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }
@@ -151,7 +151,7 @@ class applicationapproval extends CI_Controller {
         $this->project_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annex 2 Submission Approved", "<p>Your Annex 2 Form Submission Has Been Approved.</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Approved.</p>");
         
         redirect('applicationapproval/index');
     }
@@ -172,7 +172,7 @@ class applicationapproval extends CI_Controller {
         $this->project_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annex 2 Submission Rejected", "<p>Your Annex 2 Form Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         
         redirect('applicationapproval/index');

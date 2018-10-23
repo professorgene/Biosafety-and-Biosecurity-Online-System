@@ -52,6 +52,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
             </div>
             
+            <div class="form-group">
+                <label for="type">Project Duration:</label>
+                <select class="form-control" id="duration" name="project_duration" >
+                    <option value="1">1 Year</option>
+                    <option value="2">2 Year</option>
+                    <option value="3">5 Year</option>
+                </select>
+            </div>
+            
             <br/>
             
             <div class="form-group text-center">

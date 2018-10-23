@@ -45,7 +45,7 @@ class biohazard_approval extends CI_Controller {
         $this->swp_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 2, "New Application For Biohazardous Materials Approved", "BSO has approved a Biohazard Materials Form ");
+        $this->notification_model->insert_new_notification(null, 2, "New Project Application for Biohazard Material Approved", "BSO has approved a new project application for biohazard material ");
         
         redirect('biohazard_approval/index');
     }
@@ -63,7 +63,7 @@ class biohazard_approval extends CI_Controller {
         $this->project_model->update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Biohazard Material Application Submission Rejected", "<p>Your Application For Biohazardous Materials Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -79,7 +79,7 @@ class biohazard_approval extends CI_Controller {
         $this->project_model->update_yes_issue($id, 1, $approver_id, $appID);
         
         //Notify All SSBC Members that SSBC Chair has approved a form but still requires their input
-        $this->notification_model->insert_new_notification(null, 3, "Biohazard Materials Application Approved", "SSBC Chair has approved an Application For Biohazardous Materials that requires additional input");
+        $this->notification_model->insert_new_notification(null, 3, "New Project Application for Biohazard Material Approved", "SSBC Chair has approved a new project application for biohazard material that requires additional input");
         
         redirect('biohazard_approval/index');
     }
@@ -96,7 +96,7 @@ class biohazard_approval extends CI_Controller {
         
         
         //Notify SSBC Chair that SSBC Members have reviewed and approved the form
-        $this->notification_model->insert_new_notification(null, 2, "Biohazard Materials Application Approved", "SSBC members have approved an Application For Biohazardous Materials.");
+        $this->notification_model->insert_new_notification(null, 2, "Biohazard Materials Application Approved", "SSBC members have approved a new project application for biohazard material.");
         
         redirect('biohazard_approval/index');
     }
@@ -114,7 +114,7 @@ class biohazard_approval extends CI_Controller {
         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Biohazard Material Application Submission Rejected", "<p>Your Application For Biohazardous Materials Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }
@@ -131,7 +131,7 @@ class biohazard_approval extends CI_Controller {
         $this->project_model->final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Biohazard Material Application Submission Approved", "<p>Your Application For Biohazardous Materials Submission Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>New Project Application for Biohazard Material Submission Approved", "<p>Your New Project Application for Biohazard Material Submission Has Been Approved. </p>");
         
         redirect('biohazard_approval/index');
     }
@@ -150,7 +150,7 @@ class biohazard_approval extends CI_Controller {
         
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Biohazard Material Application Submission Rejected", "<p>Your Application For Biohazardous Materials Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('biohazard_approval/index');
     }

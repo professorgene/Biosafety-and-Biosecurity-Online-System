@@ -34,6 +34,7 @@ class livingmodifiedorganismpage extends CI_Controller {
                     'project_name' => $this->input->post('project_name'),
                     'project_desc' => $this->input->post('project_desc'),
                     'project_type' => 'app_lmo',
+                    'project_duration' => $this->input->post('project_duration'),
                     'account_id' => $this->session->userdata('account_id')
                 );
             

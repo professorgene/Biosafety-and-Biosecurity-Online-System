@@ -36,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_name' => $this->input->post('project_name'),
                     'project_desc' => $this->input->post('project_desc'),
                     'project_type' => 'occupational',
+                    'project_duration' => $this->input->post('project_duration'),
                     'account_id' => $this->session->userdata('account_id')
                 );
             

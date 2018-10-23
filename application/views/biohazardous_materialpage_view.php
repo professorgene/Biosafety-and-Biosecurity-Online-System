@@ -50,6 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here." value="<?php echo set_value('project_desc'); ?>"></textarea>
                 <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
             </div>
+            
+            <div class="form-group">
+                <label for="type">Project Duration:</label>
+                <select class="form-control" id="duration" name="project_duration" >
+                    <option value="1">1 Year</option>
+                    <option value="2">2 Year</option>
+                    <option value="3">5 Year</option>
+            </select>
+            </div>
             <br/>
             <div class="form-group text-center">
                 <span class="col-md-1"></span>

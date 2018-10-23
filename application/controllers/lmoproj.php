@@ -877,7 +877,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
                     
-                    $this->notification_model->insert_new_notification(null, 4, "New Annex 2 Application", "The following user has submitted a new application form: " . $this->session->userdata('account_name'));
+                    $this->notification_model->insert_new_notification(null, 4, "New Project Application For Living Modified Organism", "The following user has submitted a new application for a living modified organism project: " . $this->session->userdata('account_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
                     redirect('home/index');

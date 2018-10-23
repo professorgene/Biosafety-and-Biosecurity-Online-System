@@ -63,7 +63,7 @@ class incidentaccident_exempt extends CI_Controller {
         $this->project_model->incident_exempt_update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //Send email to victim or witnesses investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Project Submission Processed", "<p>Your Incident Accident Report Project Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
         redirect('incidentaccident_exempt/index');
     }

@@ -629,6 +629,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 1, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -663,6 +664,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 2, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -734,6 +736,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 3, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -751,6 +754,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 4, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -798,6 +802,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 1, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -832,6 +837,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 3, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -849,6 +855,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 1, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appid);
             $this->db->update('project', $data);
@@ -866,6 +873,7 @@ class project_model extends CI_Model
             $this->db->update('project', $data);
         } elseif ($type == 1) {
             $data = array('project_approval' => 2, 'approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appid);
             $this->db->update('project', $data);
