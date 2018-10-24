@@ -16,8 +16,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$this->breadcrumbs->unshift('Home', '/');	
 		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
         $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
-        $this->breadcrumbs->push('Occupational disease or exposure','lmo61page',true);
-        
+        $this->breadcrumbs->push('Occupational disease or exposure',true);
     }
 		
 		public function index(){

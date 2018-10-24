@@ -47,44 +47,9 @@ class applicationpage extends CI_Controller {
             );
             
             if($this->announcement_model->insert_new_announcement($data)){
-                $originPage = $this->input->post('ann_page');
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully created a new announcement!</div>');
-                
-                if($originPage == 'applicationpage'){
-                    redirect('applicationpage/index');
-                    
-                }elseif($originPage == 'procurementpage'){
-                    redirect('procurementpage/index');
-                    
-                }elseif($originPage == 'notifbio'){
-                    redirect('notificationbiohazardouspage/index');
-                    
-                }elseif($originPage == 'exportbiomaterial'){
-                    redirect('exportingbiologicalmaterialpage/index');
-                    
-                }elseif($originPage == 'exportBioLmo'){
-                    redirect('exportingofbioLMOpage/index');
-                    
-                }elseif($originPage == 'exportexempt'){
-                    redirect('exportingofbioexemptdealingpage/index');
-                    
-                }elseif($originPage == 'lmo61page'){
-                    redirect('lmo61page/index');
-                    
-                }elseif($originPage == 'minorbiopage'){
-                    redirect('minorbiopage/index');
-                    
-                }elseif($originPage == 'majorincident'){
-                    redirect('majorincidentaccidentreportingpage/index');
-                    
-                }elseif($originPage == 'occupation'){
-                    redirect('occupationaldiseaseexposurepage/index');
-                    
-                }elseif($originPage == 'annualfinal'){
-                    redirect('annualfinalreportpage/index');
-                    
-                }
-                
+                # change the value inside redirect( 'HERE' ) to call different announcement for different pages
+                redirect('applicationpage/index');
             } else {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
                 # change the value inside redirect( 'HERE' ) to call different announcement for different pages
