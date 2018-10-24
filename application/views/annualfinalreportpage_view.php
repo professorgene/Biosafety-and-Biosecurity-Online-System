@@ -74,7 +74,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div class="col-lg-7">
             <h3>Announcements
+                <?php if($this->session->userdata('account_type') == 4) { ?>
                 <i class="fa fa-plus btn btn-info float-right" onclick="new_announcement()" title="New Announcement"></i>
+                <?php } ?>
             </h3>
             <div class="row">
                 <div class="col-md-12 text-center">
@@ -87,7 +89,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             ?>
             <div class="card my-4">
                 <h5 class="card-header"><?php echo $row->announcement_title ?>
+                    <?php if($this->session->userdata('account_type') == 4) { ?>
                     <i class="fa fa-times btn btn-danger float-right" onclick="delete_announcement(<?php echo $row->announcement_id; ?>)" title="Remove Announcement"></i>
+                    <?php } ?>
                 </h5>
                 <div class="card-body">
                     <p><?php echo $row->announcement_desc ?></p>

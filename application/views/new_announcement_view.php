@@ -39,11 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <br/>
             <div class="form-group">
                 <label for="ann_title">Announcement Title:</label>
-                <input class="form-control" id="ann_title" name="ann_title" placeholder="Enter quiz name here." type="text" required/>
+                <input class="form-control" id="ann_title" name="ann_title" placeholder="Enter announcement title here." type="text" required/>
             </div>
             <div class="form-group">
                 <label for="ann_desc">Announcement Description:</label>
-                <textarea class="form-control" id="ann_desc" name="ann_desc" placeholder="Enter description here." required></textarea>
+                <textarea class="form-control" id="ann_desc" name="ann_desc" placeholder="Enter announcement description here." required></textarea>
             </div>
             <?php if(isset($page)){ ?>
             <input type="hidden" id="ann_page" name="ann_page" value="<?php echo $page ?>">
