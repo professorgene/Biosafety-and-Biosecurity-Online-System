@@ -7,41 +7,19 @@ class announcement_model extends CI_Model
     {
         parent::__construct();
     }
-    
-    function get_all_announcement($page) 
-    {
-        $this->db->where('announcement_page', $page);
-        $query = $this->db->select('*')->from('announcement')->get();
-		return $query->result();
-    }
 	
-	# Insert New Announcement
-	function insert_new_announcement($data)
-    {
-		return $this->db->insert('announcement', $data);
+    function list_product(){
+	$product = $this->db->query('select * from announcement');
+	return $product;
+	} 
+	function save($array)
+	{
+		$this->db->insert('announcement',$array);
 	}
-    
-    # Remove Announcement
-	function remove_announcement($id)
-    {
-		$this->db->where('announcement_id', $id);
-        $data = array('announcement_page' => 'deleted');
-        if ($this->db->update('announcement', $data)){
-            return true;
-        } else {
-            return false;
-        }
+	function update($id,$array_item)
+	{
+		$this->db->where('announcement_id',$id);
+		$this->db->update('announcement',$array_item);
 	}
-    
-    # Update Announcement
-    function update_announcement($id, $data)
-    {
-        $this->db->where('announcement_id', $id);
-        if ($this->db->update('announcement', $data)){
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
 ?>
