@@ -28,7 +28,7 @@ class minorbiopage extends CI_Controller {
             # Submit form
             if($this->form_validation->run() == FALSE){
                 # validation fails
-                
+                $data['product_list'] = $this->announcement_model->list_product()->result();
                 $this->load->template('minorbiopage_view', $data);
             } else {
                 $data = array(
