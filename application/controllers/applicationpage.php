@@ -26,7 +26,6 @@ class applicationpage extends CI_Controller {
         $this->load->template('applicationpage_view', $data);
     }
     
-    # reuse this function, do not create another new_announcement()!
     public function new_announcement() {
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         $page = $this->uri->segment(3);
@@ -37,6 +36,7 @@ class applicationpage extends CI_Controller {
         # Submit form
         if($this->form_validation->run() == FALSE){
             # validation fails
+            # change the value inside template( 'HERE' , $data) to call different announcement for different pages
             $this->load->template('new_announcement_view', $data);
         } else {
             $data = array(

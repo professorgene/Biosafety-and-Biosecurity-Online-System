@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </div>
 <br/>
 <script>
-    <?php # Change the index.php/application/new_announcement/ + "xxx" to in the javascript here to the corresponding page. ?>
+    <?php # Change the index.php/xxx/new_announcement/ + "xxx" to in the javascript here to the corresponding page. ?>
     function new_announcement(){
         window.location = "<?php echo base_url(); ?>index.php/applicationpage/new_announcement/" + "applicationpage";
     }
