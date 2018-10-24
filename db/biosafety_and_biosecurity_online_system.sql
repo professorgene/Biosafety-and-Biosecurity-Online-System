@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.7.9
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 23, 2018 at 12:17 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.8
+-- Generation Time: Oct 24, 2018 at 03:03 PM
+-- Server version: 10.1.31-MariaDB
+-- PHP Version: 7.2.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -289,10 +289,21 @@ CREATE TABLE `annex5` (
 CREATE TABLE `announcement` (
   `announcement_id` int(10) UNSIGNED NOT NULL,
   `account_id` int(10) UNSIGNED NOT NULL,
-  `announcement_description` varchar(1000) NOT NULL,
-  `announcement_date` datetime NOT NULL,
+  `announcement_title` varchar(250) NOT NULL,
+  `announcement_desc` varchar(1000) NOT NULL,
+  `announcement_date` datetime DEFAULT CURRENT_TIMESTAMP,
   `announcement_page` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `announcement`
+--
+
+INSERT INTO `announcement` (`announcement_id`, `account_id`, `announcement_title`, `announcement_desc`, `announcement_date`, `announcement_page`) VALUES
+(1, 1, 'Application Page Announcement 1', 'Hello! This is a sample message from the database to test out announce for application page!\r\n\r\nThis is very cool and interesting!\r\n\r\nPlease update this message latr', '2018-10-24 15:01:41', 'applicationpage'),
+(2, 1, 'Application Page Announcement 2', 'Testing for Two announcements instead!', '2018-10-24 15:16:35', 'applicationpage'),
+(3, 1, 'Deleted Announcement', 'This should not appear anywhere', '2018-10-24 15:16:35', 'deleted'),
+(4, 1, 'Test from Web Page', 'This message should appear in the\r\nfront page as well!', '2018-10-24 16:25:12', 'applicationpage');
 
 -- --------------------------------------------------------
 
@@ -1825,7 +1836,7 @@ ALTER TABLE `annex5`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `annualfinalreport`

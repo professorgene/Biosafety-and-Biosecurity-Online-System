@@ -84,13 +84,17 @@ class account_model extends CI_Model
             #$data = array('account_approved' => 0);
             $data = array('account_email' => 'denied', 'account_approved' => 2);
             $this->db->where('account_id', $id);
-            $this->db->update('accounts', $data);
+            if($this->db->update('accounts', $data)){
+                return true;
+            }
         } elseif ($type == 1) {
             $data = array('account_approved' => 1);
             $this->db->where('account_id', $id);
-            $this->db->update('accounts', $data);
+            if($this->db->update('accounts', $data)){
+                return true;
+            }
         }
-        return true;
+        return false;
     }
 }
 ?>

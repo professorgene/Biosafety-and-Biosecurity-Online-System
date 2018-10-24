@@ -73,41 +73,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>
 		
 		<div class="col-lg-7">
-		<?php if(isset($product_list)) { ?>		
-			<div>		
-				<?php foreach ($product_list as $list) { ?>
-					<div class="card my-4">
-						<h5 class="card-header">Announcements</h5>
-						<div class="card-body">
-						<?php echo $list->announcement_description ?> 
-						</div>
-					</div>	
-				<?php } ?>
-			</div>
-				<?php if($this->session->userdata('account_type') == 4) {?>
-				<a href="<?php echo base_url(); ?>index.php/exportingofbioexemptdealingpage/edit" class="col-md-3"><button class="btn btn-primary button_right">Edit</button></a>	
-				<?php }else{ ?>
-				 
-				 <?php } ?>
-			<?php } else { ?>
-				
-				 <?php echo form_open('exportingofbioexemptdealingpage/save_edit') ?>
-				 <?php echo form_hidden('announcement_id',$list_product['announcement_id']) ?>
-
-			<div class="card my-4">
-								<h5 class="card-header">Announcements Edit</h5>
-								<div class="card-body">
-								<?php echo form_textarea('announcement_description',$list_product['announcement_description'],array('placeholder'=>'Note','style'=>'width:100%')) ?>  
-								</div>
-			</div>	
-
-
-				<a href="<?php echo base_url(); ?>index.php/exportingofbioexemptdealingpage/save_edit" class="col-md-3"><button class="btn btn-primary button_right">Save</button></a>
-				<?php echo form_close(); ?>
-			<?php } ?>
+            <h3>Announcements
+                <i class="fa fa-plus btn btn-info float-right" onclick="new_announcement()" title="New Announcement"></i>
+            </h3>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <br/>
+                    <?php echo $this->session->flashdata('msg'); ?>
+                </div>
+            </div>
+            <?php if(isset($announcement)) {
+                    foreach($announcement as $row) {
+            ?>
+            <div class="card my-4">
+                <h5 class="card-header"><?php echo $row->announcement_title ?>
+                    <i class="fa fa-times btn btn-danger float-right" onclick="delete_announcement(<?php echo $row->announcement_id; ?>)" title="Remove Announcement"></i>
+                </h5>
+                <div class="card-body">
+                    <p><?php echo $row->announcement_desc ?></p>
+                </div>
+            </div>
+            <?php   }
+                } 
+            ?>
 		</div>
 	</div>					
 	</div>
 	<br/>
+    <script>
+        <?php # Change the index.php/application/new_announcement/ + "xxx" to in the javascript here to the corresponding page. ?>
+        function new_announcement(){
+            window.location = "<?php echo base_url(); ?>index.php/exportingofbioexemptdealingpage/new_announcement/" + "exportexempt";
+        }
+    
+        <?php # Change the index.php/xxx/delete_announcement to in the javascript here to the corresponding page. ?>
+        function delete_announcement(i){
+            var k = confirm("Are you sure?");
+            if (k){
+                window.location = "<?php echo base_url(); ?>index.php/exportingofbioexemptdealingpage/delete_announcement/" + i;
+            }
+        }
+    </script>
 </body>
 </html>
