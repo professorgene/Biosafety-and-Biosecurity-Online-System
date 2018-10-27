@@ -149,7 +149,7 @@
                                    <td>1</td>
                                    <td><input type="text" class="form-control" name="HIRARC_activity[0]" value="<?php if(isset($load)){echo set_value('HIRARC_activity[0]', $hi1[0]);}else{echo set_value('HIRARC_activity[0]');} ?>"></td>
                                    
-                                   <td><input type="text" class="form-control" name="HIRARC_hazard[0]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi[0]);}else{echo set_value('HIRARC_hazard[0]');} ?>"></td>
+                                   <td><input type="text" class="form-control" name="HIRARC_hazard[0]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi2[0]);}else{echo set_value('HIRARC_hazard[0]');} ?>"></td>
                                    
                                    <td><input type="text" class="form-control" name="HIRARC_effects[0]" value="<?php if(isset($load)){echo set_value('HIRARC_effects[0]', $hi3[0]);}else{echo set_value('HIRARC_effects[0]');} ?>"></td>
                                    
@@ -169,7 +169,7 @@
                                    <td>2</td>
                                    <td><input type="text" class="form-control" name="HIRARC_activity[1]" value="<?php if(isset($load)){echo set_value('HIRARC_activity[1]', $hi1[1]);}else{echo set_value('HIRARC_activity[1]');} ?>"></td>
                                    
-                                   <td><input type="text" class="form-control" name="HIRARC_hazard[1]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[1]', $hi2[1]);}else{echo set_value('HIRARC_hazard[1]');} ?>"></td>
+                                   <td><input type="text" class="form-control" name="HIRARC_hazard[1]" value="<?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi2[1]);}else{echo set_value('HIRARC_hazard[1]');} ?>"></td>
                                    
                                    <td><input type="text" class="form-control" name="HIRARC_effects[1]" value="<?php if(isset($load)){echo set_value('HIRARC_effects[1]', $hi3[1]);}else{echo set_value('HIRARC_effects[1]');} ?>"></td>
                                    

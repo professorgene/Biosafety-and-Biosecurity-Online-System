@@ -401,9 +401,9 @@
                                 <td>
                                     Does the IBC consider that the Principal Investigator and every other person authorized to be involved in the contained use of the LMO have adequate training and experience for this task?:</td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_adequate" <?php echo set_checkbox('IBC_adequate', '1'); ?> <?php if(isset($load)){if($item->IBC_adequate==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_adequate" <?php echo set_radio('IBC_adequate', '1', FALSE); ?> <?php if(isset($load)){if($item->IBC_adequate==1){echo "checked=checked";}}else{} ?> >Yes</label>
                                     
-                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_adequate" <?php echo set_checkbox('IBC_adequate', '0'); ?> <?php if(isset($load)){if($item->IBC_adequate==0){echo "checked=checked";}}else{} ?> >No</label>
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_adequate" <?php echo set_radio('IBC_adequate', '0', FALSE); ?> <?php if(isset($load)){if($item->IBC_adequate==0){echo "checked=checked";}} ?> >No</label>
                                 </td>
                             </tr>
                             <tr>
@@ -420,15 +420,15 @@
                                     </ol>
                                 </td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_activities" <?php echo set_checkbox('IBC_checklist_activities', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_activities==0){echo "checked=checked";}}else{} ?> />Yes</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_activities" <?php echo set_radio('IBC_checklist_activities', '1', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_activities==0){echo "checked=checked";}} ?> />Yes</label>
                                     
-                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_activities" <?php echo set_checkbox('IBC_checklist_activities', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_activities==0){echo "checked=checked";}}else{} ?> >No</label>
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_activities" <?php echo set_radio('IBC_checklist_activities', '0', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_activities==0){echo "checked=checked";}} ?> >No</label>
                                     
                                     <br>
                                     
-                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_description" <?php echo set_checkbox('IBC_checklist_description', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_description==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_description" <?php echo set_radio('IBC_checklist_description', '1', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_description==1){echo "checked=checked";}} ?> >Yes</label>
                                     
-                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_description" <?php echo set_checkbox('IBC_checklist_description', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_description==0){echo "checked=checked";}}else{} ?> >No</label>
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_description" <?php echo set_radio('IBC_checklist_description', '0', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_description==0){echo "checked=checked";}} ?> >No</label>
                                 </td>
                             </tr>
                             <tr>
@@ -439,15 +439,15 @@
                                     </ol>
                                 </td>
                                 <td>
-                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_emergency_response"> <?php echo set_checkbox('IBC_checklist_emergency_response', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_emergency_response==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_emergency_response"> <?php echo set_checkbox('IBC_checklist_emergency_response', '1', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_emergency_response==1){echo "checked=checked";}}else{} ?> Yes</label>
                                     
-                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_emergency_response" <?php echo set_checkbox('IBC_checklist_emergency_response', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_emergency_response==0){echo "checked=checked";}}else{} ?> >No</label>
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_emergency_response" <?php echo set_checkbox('IBC_checklist_emergency_response', '0', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_emergency_response==0){echo "checked=checked";}}else{} ?> >No</label>
                                     
                                     <br><br><br>
                                     
-                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_trained" <?php echo set_checkbox('IBC_checklist_trained', '1'); ?> <?php if(isset($load)){if($item->IBC_checklist_trained==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                    <label class="radio-inline"><input type="radio" value="1" name="IBC_checklist_trained" <?php echo set_checkbox('IBC_checklist_trained', '1', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_trained==1){echo "checked=checked";}}else{} ?> >Yes</label>
                                     
-                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_trained" <?php echo set_checkbox('IBC_checklist_trained', '0'); ?> <?php if(isset($load)){if($item->IBC_checklist_trained==0){echo "checked=checked";}}else{} ?>>No</label>
+                                    <label class="radio-inline"><input type="radio" value="0" name="IBC_checklist_trained" <?php echo set_checkbox('IBC_checklist_trained', '0', FALSE); ?> <?php if(isset($load)){if($item->IBC_checklist_trained==0){echo "checked=checked";}}else{} ?>>No</label>
                                 </td>
                             </tr>
                             <tr>
