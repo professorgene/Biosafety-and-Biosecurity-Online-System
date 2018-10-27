@@ -61,13 +61,13 @@ if(!$this->session->userdata('isLogin')){
 
                     <div class="form-group">
                         <label for="password">New Password:</label>
-                        <input class="form-control" id="password" name="account_password" placeholder="Enter your password here." type="password" />
+                        <input class="form-control" id="password" name="account_password" placeholder="Enter your new password here." type="password" />
                         <span class="text-danger"><?php echo form_error('account_password'); ?></span>
                     </div>
                 
                     <div class="form-group">
                         <label for="confirmpassword">Confirm New Password:</label>
-                        <input class="form-control" id="confirmpassword" name="account_confirmpassword" placeholder="Reenter your password here." type="password" />
+                        <input class="form-control" id="confirmpassword" name="account_confirmpassword" placeholder="Re-enter your new password here." type="password" />
                         <span class="text-danger"><?php echo form_error('account_confirmpassword'); ?></span>
                     </div>
 

@@ -34,7 +34,7 @@
                 </ul>
             </div>
         <?php } else { ?>
-            <a class="navbar-brand" title="Swinburne Biosafety and Biosecurity Online System Homepage" href="<?php echo base_url(); ?>index.php/landing/index">Swinburne BBOS</a>
+            <a class="navbar-brand" title="Swinburne Biosafety and Biosecurity Online System Login Page" href="<?php echo base_url(); ?>index.php/landing/index">Swinburne BBOS</a>
         <?php } ?>
     </div>
 </nav>

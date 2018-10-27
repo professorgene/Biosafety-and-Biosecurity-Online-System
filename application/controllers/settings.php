@@ -31,7 +31,7 @@ class settings extends CI_Controller {
 
             # checks for account credentials
             if($this->account_model->update_account($this->session->userdata('account_id'), $data)){
-                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully updated you email / password!</div>');
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully updated your password!</div>');
                 redirect('settings/index');
             } else {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
