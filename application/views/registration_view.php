@@ -53,8 +53,8 @@ if($this->session->userdata('isLogin')){
 
                         <div class="form-group">
                             <label for="email_add">Email Address:</label>
-                            <input class="form-control" id="email_add" name="account_email" placeholder="Enter your email address here." type="text" value="<?php echo set_value('account_email'); ?>" />
-                            <span class="text-danger"><?php echo form_error('account_email'); ?></span>
+                            <input class="form-control" id="email_add" name="account_email" placeholder="Enter your email address here." type="text" />
+                            <span class="text-danger"><?php echo form_error('account_email'); ?> <?php echo set_value('account_email'); ?></span>
                         </div>
 
                         <div class="form-group">
@@ -76,8 +76,8 @@ if($this->session->userdata('isLogin')){
                                 <option value="2">SSBC Chair</option>
                                 <option value="3">SSBC Member</option>
                                 <option value="4">Biosafety Officer</option>
-                                <option value="5">Health and Safety Officer</option>
-                                <option value="6">Lab Officer</option>
+                                <option value="5">Health and Safety Executive / Coordinator </option>
+                                <option value="6">Laboratory Officer</option>
                                 <option value="7">Student & Postgraduate</option>
                             </select>
                         </div>
