@@ -58,7 +58,7 @@ class home extends CI_Controller {
                         }
                     }
                 } elseif ($rows->project_duration == 5){
-                    if ($project_interval > 57024000 && $project_interval < 155520000){
+                    if ($project_interval > 150336000 && $project_interval < 155520000){
                         $reminder = $this->notification_model->get_reminders($this->session->userdata('account_id'),$rows->project_id);
                         if ($reminder != null && $reminder != "") {
                             $reminder_interval = $current_date - strtotime($reminder->notification_date);
