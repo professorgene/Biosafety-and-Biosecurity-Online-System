@@ -171,6 +171,15 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    # Search all approved project by User ID
+    function get_approved_proj_by_user_id($id)
+    {
+        $this->db->where('account_id', $id);
+        $this->db->where('project_approval', 1);
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     # Search submitted project by user id
     function get_sub_proj_by_user_id($id)
     {   

@@ -8,6 +8,14 @@ class notification_model extends CI_Model
         parent::__construct();
     }
 	
+    function get_reminders($id, $project_id) {
+        $this->db->where('account_id', $id);
+        $this->db->like('notification_title', "Reminder for Project " . $project_id);
+        $this->db->order_by("notification_id","desc");
+        $query = $this->db->get('notification');
+        return $query->row();
+    }
+    
 	function get_all_notification($id, $type)
 	{
         foreach ($type as $row) {
