@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $this->load->template('annualorfinalreportproj_view', $data);
         }
 		
-		 public function update_form(){
+        public function update_form(){
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             
@@ -214,7 +214,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		}
 		
-		 public function load_saved_project(){
+        public function load_saved_project(){
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $data['load'] = "true";
@@ -225,6 +225,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);
 
             $this->load->template('annualorfinalreportproj_view', $data);
+        }
+        
+        public function delete_saved_project(){
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $id = $this->input->get('id');
+            $status = "deleted";
+            
+            
+            if($this->project_model->update_proj_status($id, $status))
+            {
+                redirect('home/index');
+            }
+        
+            
         }
         
 		

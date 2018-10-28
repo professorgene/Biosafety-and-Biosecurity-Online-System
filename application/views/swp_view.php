@@ -23,18 +23,23 @@
                    
                    <br>
                    
-                   <table class="table table-bordered" id="first-table">
-                       <thead>
+                   <table class="table table-bordered">
+                       <thead class="tblTitle2">
                            <tr>
-                               <th>Date Received</th>
-                               <th>SSBC Reference Number</th>
+                               <th>DATE RECEIVED</th>
+                               <th>SBC REFERENCE NUMBER</th>
                            </tr>
                        </thead>
-                       <tbody>
-                           <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Date:"></td>
-                           <td><input type="text" name="SBC_reference_no" class="form-control"></td>
+                       <tbody class="tblTitle2">
+                           <tr>
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $pc1->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                               </td>
+                               <td>
+                                   <input type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('SBC_reference_no', $pc1->SBC_reference_no);}else{echo set_value('SBC_reference_no');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                               </td>
+                           </tr>
                        </tbody>
-                   </table>
+                </table>
                    
                 <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">

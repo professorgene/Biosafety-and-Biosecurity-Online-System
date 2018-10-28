@@ -284,7 +284,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_supervisor_department' => $this->input->post('project_supervisor_department'),
                     'project_supervisor_campus' => $this->input->post('project_supervisor_campus'),
                     'project_supervisor_postal_address' => $this->input->post('project_supervisor_postal_address'),
-                    'project_supervisor_telephone' => $this->input->post('project_supervisor_telephone'),
+                    'project_supervisor_telephone' => $this->input->post('pc1_project_supervisor_telephone'),
                     'project_supervisor_fax' => $this->input->post('project_supervisor_fax'),
                     'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
                     'project_add_title ' => $ar52,
@@ -1393,6 +1393,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['retrieved6'] = $this->swp_model->get_form_by_project_id($id);
         
             $this->load->template('lmoproj_view', $data);
+        }
+        
+        public function delete_saved_project(){
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $id = $this->input->get('id');
+            $status = "deleted";
+            
+            
+            if($this->project_model->update_proj_status($id, $status))
+            {
+                redirect('home/index');
+            }
+        
+            
         }
         
         //function for continuing working on saved projects

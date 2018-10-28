@@ -77,9 +77,10 @@ if(!$this->session->userdata('isLogin')){
                             ?>
                         </td>
                         <td class="text-center">
-                            <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
+                            <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="View"></i>
                             
-                            <!--<i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/saveHistory/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>-->
+                            <i class="fa fa-times btn btn-danger" onclick="delete_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="Remove Project"></i>
+                            
             
                         </td>
                     </tr>
@@ -129,13 +130,55 @@ if(!$this->session->userdata('isLogin')){
                     window.location = "<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj/load_saved_project?id=" + i;
                     
                 }else if(j == "minorbio"){
-                    window.location = "<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj/load_saved_project?id=" + i;
+                    window.location = "<?php echo base_url(); ?>index.php/minorbioproj/load_saved_project?id=" + i;
                     
                 }else if(j == "majorbio"){
                     window.location = "<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/load_saved_project?id=" + i;
                     
                 }else if(j == "occupational"){
                     window.location = "<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/load_saved_project?id=" + i;
+                    
+                }
+                
+            }
+            
+            
+            function delete_application(i, j){
+                if(j == "app_lmo"){
+                    window.location = "<?php echo base_url(); ?>index.php/lmoproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "app_bio"){
+                    window.location = "<?php echo base_url(); ?>index.php/biohazardproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "app_exempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/exemptproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "procurement"){
+                    window.location = "<?php echo base_url(); ?>index.php/procurementproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "notifLMOBM"){
+                    window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "anuualfinalreport"){
+                    window.location = "<?php echo base_url(); ?>index.php/annualorfinalreportproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "exportLMO"){
+                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioLMOproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "exportExempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "incidentExempt"){
+                    window.location = "<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "minorbio"){
+                    window.location = "<?php echo base_url(); ?>index.php/minorbioproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "majorbio"){
+                    window.location = "<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/delete_saved_project?id=" + i;
+                    
+                }else if(j == "occupational"){
+                    window.location = "<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/delete_saved_project?id=" + i;
                     
                 }
                 

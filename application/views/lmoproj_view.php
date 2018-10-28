@@ -144,9 +144,9 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
                     <li class="nav-item active"><a href="#annex2tab" class="nav-link" data-toggle="tab">Annex 2 Form</a></li>
-                    <li class="nav-item active"><a href="#formetab" class="nav-link" data-toggle="tab">Form E</a></li>
-                    <li class="nav-item active"><a href="#pc1tab" class="nav-link" data-toggle="tab">PC1 Form</a></li>
-                    <li class="nav-item active"><a href="#pc2tab" class="nav-link" data-toggle="tab">PC2 Form</a></li>
+                    <li class="nav-item "><a href="#formetab" class="nav-link" data-toggle="tab">Form E</a></li>
+                    <li class="nav-item "><a href="#pc1tab" class="nav-link" data-toggle="tab">PC1 Form</a></li>
+                    <li class="nav-item "><a href="#pc2tab" class="nav-link" data-toggle="tab">PC2 Form</a></li>
                     <li class="nav-item"><a href="#hirarctab" class="nav-link" data-toggle="tab">OHS-F-4.5.X HIRARC FORM</a></li>
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>

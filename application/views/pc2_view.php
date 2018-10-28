@@ -43,22 +43,22 @@
                    <br>
                    
                    <table class="table table-bordered">
-                       <thead class="tblTitle2">
-                           <tr>
-                               <th>DATE RECEIVED</th>
-                               <th>SBC REFERENCE NUMBER</th>
-                           </tr>
-                       </thead>
-                       <tbody class="tblTitle2">
-                           <tr>
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="pc2_date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $pc2->date_received);}else{echo set_value('pc2_date_received');} ?>">
-                               </td>
-                               <td>
-                                   <input type="text" class="form-control" name="pc2_SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('pc2_SBC_reference_no', $pc2->SBC_reference_no);}else{echo set_value('pc2_SBC_reference_no');} ?>">
-                               </td>
-                           </tr>
-                       </tbody>
-                   </table>
+            <thead class="tblTitle2">
+                <tr>
+                    <th>DATE RECEIVED</th>
+                    <th>SBC REFERENCE NUMBER</th>
+                </tr>
+            </thead>
+            <tbody class="tblTitle2">
+                <tr>
+                    <td><input class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $pc1->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                    </td>
+                    <td>
+                        <input type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('SBC_reference_no', $pc1->SBC_reference_no);}else{echo set_value('SBC_reference_no');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                    </td>
+                </tr>
+            </tbody>
+        </table>
                    
                 <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered" id="section_1">
@@ -669,11 +669,13 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="1" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '1'); ?> <?php if(isset($load)){if($pc2->officer_notified==1){echo "checked=checked";}}else{} ?>> Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="1" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '1', FALSE); ?> <?php if(isset($load)){if($pc2->officer_notified==1){echo set_radio('pc2_officer_notified', '1', TRUE);}} ?>> Yes</label>
                                                
-                                               <label class="radio-inline"><input type="radio" value="0" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '0'); ?> <?php if(isset($load)){if($pc2->officer_notified==0){echo "checked=checked";}}else{} ?>> No</label>
+                                               <label class="radio-inline"><input type="radio" value="0" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '0', FALSE); ?> <?php if(isset($load)){if($pc2->officer_notified==0){echo set_radio('pc2_officer_notified', '0', TRUE);}} ?>> No</label>
+                                               
 
                                            </td>
+                                           
                                        </tr>
                                    </table>
                                </td>

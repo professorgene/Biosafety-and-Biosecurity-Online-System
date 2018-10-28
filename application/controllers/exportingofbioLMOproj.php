@@ -248,6 +248,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         
             $this->load->template('exportingofbioLMOproj_view', $data);
         }
+        
+        public function delete_saved_project(){
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $id = $this->input->get('id');
+            $status = "deleted";
+            
+            
+            if($this->project_model->update_proj_status($id, $status))
+            {
+                redirect('home/index');
+            }
+        
+            
+        }
 		
 		 public function continue(){
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
