@@ -355,7 +355,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'dealing_type_g' => $this->input->post('dealing_type_g'),
                     'dealing_type_h' => $this->input->post('dealing_type_h'),
                     'dealing_type_i ' => $this->input->post('dealing_type_i'),
-                    'dealing_type_j ' => $this->input->post('dealing_type_j '),
+                    'dealing_type_j' => $this->input->post('dealing_type_j'),
                     'dealing_type_k' => $this->input->post('dealing_type_k'),
                     'dealing_type_l' => $this->input->post('dealing_type_l'),
                     'dealing_type_m' => $this->input->post('dealing_type_m'),
@@ -449,7 +449,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 {
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     $this->session->unset_userdata('projectId');
                     
@@ -457,7 +457,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('home/index');
+                   redirect('saveHistory/index');
   
                 }
                  
@@ -1746,8 +1746,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'dealing_type_f' => $this->input->post('dealing_type_f'),
                     'dealing_type_g' => $this->input->post('dealing_type_g'),
                     'dealing_type_h' => $this->input->post('dealing_type_h'),
-                    'dealing_type_i ' => $this->input->post('dealing_type_i'),
-                    'dealing_type_j ' => $this->input->post('dealing_type_j '),
+                    'dealing_type_i' => $this->input->post('dealing_type_i'),
+                    'dealing_type_j' => $this->input->post('dealing_type_j'),
                     'dealing_type_k' => $this->input->post('dealing_type_k'),
                     'dealing_type_l' => $this->input->post('dealing_type_l'),
                     'dealing_type_m' => $this->input->post('dealing_type_m'),
@@ -1840,8 +1840,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annex2_model->update_saved_data($proj_id, $annex2Data) && $this->forme_model->update_saved_data($proj_id, $formeData) && $this->pc1_model->update_saved_data($proj_id, $pc1Data) && $this->pc2_model->update_saved_data($proj_id, $pc2Data) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSave))
                 {
                     
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
-                    redirect('home/index');
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $annex2Data);
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -1849,7 +1849,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('home/index');
+                   redirect('saveHistory/index');
   
                 }
                  
@@ -2176,8 +2176,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'dealing_type_f' => $this->input->post('dealing_type_f'),
                     'dealing_type_g' => $this->input->post('dealing_type_g'),
                     'dealing_type_h' => $this->input->post('dealing_type_h'),
-                    'dealing_type_i ' => $this->input->post('dealing_type_i'),
-                    'dealing_type_j ' => $this->input->post('dealing_type_j '),
+                    'dealing_type_i' => $this->input->post('dealing_type_i'),
+                    'dealing_type_j' => $this->input->post('dealing_type_j'),
                     'dealing_type_k' => $this->input->post('dealing_type_k'),
                     'dealing_type_l' => $this->input->post('dealing_type_l'),
                     'dealing_type_m' => $this->input->post('dealing_type_m'),
@@ -2269,10 +2269,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annex2_model->update_saved_data($proj_id, $annex2Data) && $this->forme_model->update_saved_data($proj_id, $formeData) && $this->pc1_model->update_saved_data($proj_id, $pc1Data) && $this->pc2_model->update_saved_data($proj_id, $pc2Data) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
                     
-                    $this->notification_model->insert_new_notification(null, 4, "New Annex 2 Application", "The following user has submitted a new application form: " . $this->session->userdata('account_name'));
+                    $this->notification_model->insert_new_notification(null, 4, "New Project Application for LMO", "The following user has submitted a new project application for LMO: " . $this->session->userdata('account_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -2280,7 +2280,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('home/index');
+                   redirect('saveHistory/index');
                     
                 }
                 

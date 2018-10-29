@@ -70,11 +70,12 @@
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><input type="text" name="pc2_project_title" class="form-control" value="<?php if(isset($load)){echo set_value('pc2_project_title', $pc2->project_title);}else{echo set_value('pc2_project_title');} ?>"></td> 
+                              <td colspan="2"><textarea name="pc2_project_title" class="form-control"><?php if(isset($load)){echo set_value('pc2_project_title', $pc2->project_title);}else{echo set_value('pc2_project_title');} ?></textarea></td> 
                            </tr>
                        </tbody>
                    </table>
-                   <span class="text-danger"><?php echo form_error('pc2_project_title'); ?></span>
+                   
+                    
                 </div>
                    <table class="table table-bordered">
                        <thead>
@@ -91,27 +92,57 @@
                                           <td colspan="3">Project Supervisor (must be a Swinburne staff member)</td> 
                                        </tr>
                                        <tr>
-                                           <td width="80">Title: <input type="text" class="form-control" name="pc2_project_supervisor_title" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_title', $pc2->project_supervisor_title);}else{echo set_value('pc2_project_supervisor_title');} ?>"></td>
+                                           <td width="80">
+                                               Title: <textarea class="form-control" name="pc2_project_supervisor_title"><?php if(isset($load)){echo set_value('pc2_project_supervisor_title', $pc2->project_supervisor_title);}else{echo set_value('pc2_project_supervisor_title');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Name: <input type="text" class="form-control" name="pc2_project_supervisor_name" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_name', $pc2->project_supervisor_name);}else{echo set_value('pc2_project_supervisor_name');} ?>"></td>
+                                           <td>
+                                               Name: <textarea class="form-control" name="pc2_project_supervisor_name"><?php if(isset($load)){echo set_value('pc2_project_supervisor_name', $pc2->project_supervisor_name);}else{echo set_value('pc2_project_supervisor_name');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Current qualifications (please include all): <input type="text" class="form-control" name="pc2_project_supervisor_qualification" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_qualification', $pc2->project_supervisor_qualification);}else{echo set_value('pc2_project_supervisor_qualification');} ?>"></td>
+                                           <td>
+                                               Current qualifications (please include all): <textarea class="form-control" name="pc2_project_supervisor_qualification"><?php if(isset($load)){echo set_value('pc2_project_supervisor_qualification', $pc2->project_supervisor_qualification);}else{echo set_value('pc2_project_supervisor_qualification');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <input type="text" class="form-control" name="pc2_project_supervisor_department" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_department', $pc2->project_supervisor_department);}else{echo set_value('pc2_project_supervisor_department');} ?>" ></td>
+                                           <td colspan="2">
+                                               Department: <textarea class="form-control" name="pc2_project_supervisor_department"><?php if(isset($load)){echo set_value('pc2_project_supervisor_department', $pc2->project_supervisor_department);}else{echo set_value('pc2_project_supervisor_department');} ?></textarea>
+                                           </td>
                                            
-                                           <td colspan="1">Campus: <input type="text" class="form-control" name="pc2_project_supervisor_campus" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_campus', $pc2->project_supervisor_campus);}else{echo set_value('pc2_project_supervisor_campus');} ?>" ></td>
+                                           <td colspan="1">
+                                               Campus: <textarea class="form-control" name="pc2_project_supervisor_campus"><?php if(isset($load)){echo set_value('pc2_project_supervisor_campus', $pc2->project_supervisor_campus);}else{echo set_value('pc2_project_supervisor_campus');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="pc2_project_supervisor_postal_address" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_postal_address', $pc2->project_supervisor_postal_address);}else{echo set_value('pc2_project_supervisor_postal_address');} ?>"></td>
+                                           <td colspan="3">
+                                               Full postal address (including internal mail details): <textarea class="form-control" name="pc2_project_supervisor_postal_address"><?php if(isset($load)){echo set_value('pc2_project_supervisor_postal_address', $pc2->project_supervisor_postal_address);}else{echo set_value('pc2_project_supervisor_postal_address');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="text" class="form-control" name="pc2_project_supervisor_telephone" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_telephone', $pc2->pc2_project_supervisor_telephone);}else{echo set_value('pc2_project_supervisor_telephone');} ?>" ></td>
+                                           <td colspan="2">
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_supervisor_telephone" class="col-sm-4">Phone:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_supervisor_telephone" rows="1"><?php if(isset($load)){echo set_value('pc2_project_supervisor_telephone', $pc2->pc2_project_supervisor_telephone);}else{echo set_value('pc2_project_supervisor_telephone');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
                                            
-                                           <td>Fax: <input type="text" class="form-control" name="pc2_project_supervisor_fax" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_fax', $pc2->project_supervisor_fax);}else{echo set_value('pc2_project_supervisor_fax');} ?>"></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_supervisor_fax" class="col-sm-4">Fax:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_supervisor_fax" rows="1"><?php if(isset($load)){echo set_value('pc2_project_supervisor_fax', $pc2->project_supervisor_fax);}else{echo set_value('pc2_project_supervisor_fax');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
+                                           
+                                           
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="pc2_project_supervisor_email_address" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_email_address', $pc2->project_supervisor_email_address);}else{echo set_value('pc2_project_supervisor_email_address');} ?>"></td>
+                                           <td colspan="3">
+                                               Email (MUST be staff email address): <textarea class="form-control" name="pc2_project_supervisor_email_address"><?php if(isset($load)){echo set_value('pc2_project_supervisor_email_address', $pc2->project_supervisor_email_address);}else{echo set_value('pc2_project_supervisor_email_address');} ?></textarea>
+                                           </td>
                                        </tr>
                                    </table>
                                </td>
@@ -124,7 +155,7 @@
                        <thead>
                            <tr>
                                <th width="10px" class="reddata" id="section_3">3</th>
-                               <th colspan="2">Additional people to be included in correspondence regarding this dealing<br>(e.g. Research Assistants, Biosafety Officer, Facility Managers)</th>
+                               <th colspan="2">Additional people to be included in correspondence regarding this dealing<br>(e.g. Research Assistants, Biosafety Officers, Facility Managers)</th>
                            </tr>
                        </thead>
                        <tbody>
@@ -132,29 +163,57 @@
                                <td colspan="2">
                                    <table class="table table-bordered">
                                        <tr>
-                                           <td width="80">Title: <input type="text" class="form-control" name="pc2_project_add_title[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_title[0]', $pc2i[0]);}else{echo set_value('pc2_project_add_title[0]');} ?>"></td>
+                                           <td width="80">
+                                               Title: <textarea class="form-control" name="pc2_project_add_title[0]"><?php if(isset($load)){echo set_value('pc2_project_add_title[0]', $pc2i[0]);}else{echo set_value('pc2_project_add_title[0]');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Name: <input type="text" class="form-control" name="pc2_project_add_name[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_name[0]', $pc2a[0]);}else{echo set_value('pc2_project_add_name[0]');} ?>"></td>
+                                           <td>
+                                               Name: <textarea class="form-control" name="pc2_project_add_name[0]"><?php if(isset($load)){echo set_value('pc2_project_add_name[0]', $pc2a[0]);}else{echo set_value('pc2_project_add_name[0]');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Current qualifications (please include all): 
-                                               <input type="text" class="form-control" name="pc2_project_add_qualification[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_qualification[0]', $pc2b[0]);}else{echo set_value('pc2_project_add_qualification[0]');} ?>">
+                                           <td>
+                                               Current qualifications (please include all): 
+                                               <textarea class="form-control" name="pc2_project_add_qualification[0]"><?php if(isset($load)){echo set_value('pc2_project_add_qualification[0]', $pc2b[0]);}else{echo set_value('pc2_project_add_qualification[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <input type="text" class="form-control" name="pc2_project_add_department[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_department[0]', $pc2c[0]);}else{echo set_value('pc2_project_add_department[0]');} ?>"></td>
+                                           <td colspan="2">
+                                               Department: <textarea class="form-control" name="pc2_project_add_department[0]"><?php if(isset($load)){echo set_value('pc2_project_add_department[0]', $pc2c[0]);}else{echo set_value('pc2_project_add_department[0]');} ?></textarea>
+                                           </td>
                                            
-                                           <td colspan="1">Campus: <input type="text" class="form-control" name="pc2_project_add_campus[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_campus[0]', $pc2d[0]);}else{echo set_value('pc2_project_add_campus[0]');} ?>"></td>
+                                           <td colspan="1">
+                                               Campus: <textarea class="form-control" name="pc2_project_add_campus[0]"><?php if(isset($load)){echo set_value('pc2_project_add_campus[0]', $pc2d[0]);}else{echo set_value('pc2_project_add_campus[0]');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="pc2_project_add_postal_address[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_postal_address[0]', $pc2e[0]);}else{echo set_value('pc2_project_add_postal_address[0]');} ?>"></td>
+                                           <td colspan="3">
+                                               Full postal address (including internal mail details): <textarea class="form-control" name="pc2_project_add_postal_address[0]"><?php if(isset($load)){echo set_value('pc2_project_add_postal_address[0]', $pc2e[0]);}else{echo set_value('pc2_project_add_postal_address[0]');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="text" class="form-control" name="pc2_project_add_telephone[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_telephone[0]', $pc2f[0]);}else{echo set_value('pc2_project_add_telephone[0]');} ?>"></td>
+                                           <td colspan="2">
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_add_telephone[0]" class="col-sm-4">Phone:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_add_telephone[0]" rows="1"><?php if(isset($load)){echo set_value('pc2_project_add_telephone[0]', $pc2f[0]);}else{echo set_value('pc2_project_add_telephone[0]');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
                                            
-                                           <td>Fax: <input type="text" class="form-control" name="pc2_project_add_fax[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_fax[0]', $pc2g[0]);}else{echo set_value('pc2_project_add_fax[0]');} ?>"></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_add_fax[0]" class="col-sm-4">Fax:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_add_fax[0]" rows="1"><?php if(isset($load)){echo set_value('pc2_project_add_fax[0]', $pc2g[0]);}else{echo set_value('pc2_project_add_fax[0]');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
+                                           
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="pc2_project_add_email_address[0]" value="<?php if(isset($load)){echo set_value('pc2_project_add_email_address[0]', $pc2h[0]);}else{echo set_value('pc2_project_add_email_address[0]');} ?>"></td>
+                                           <td colspan="3">
+                                               Email (MUST be staff email address): <textarea class="form-control" name="pc2_project_add_email_address[0]"><?php if(isset($load)){echo set_value('pc2_project_add_email_address[0]', $pc2h[0]);}else{echo set_value('pc2_project_add_email_address[0]');} ?></textarea>
+                                           </td>
                                        </tr>
                                    </table>
                                </td>
@@ -163,32 +222,60 @@
                    </table>
                    
                    <table class="table table-bordered">
-                       <tr>
-                                           <td width="80">Title: <input type="text" class="form-control" name="pc2_project_add_title[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_title[1]', $pc2i[1]);}else{echo set_value('pc2_project_add_title[1]');} ?>"></td>
+                                       <tr>
+                                           <td width="80">
+                                               Title: <textarea class="form-control" name="pc2_project_add_title[1]"><?php if(isset($load)){echo set_value('pc2_project_add_title[1]', $pc2i[1]);}else{echo set_value('pc2_project_add_title[1]');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Name: <input type="text" class="form-control" name="pc2_project_add_name[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_name[1]', $pc2a[1]);}else{echo set_value('pc2_project_add_name[1]');} ?>"></td>
+                                           <td>
+                                               Name: <textarea class="form-control" name="pc2_project_add_name[1]"><?php if(isset($load)){echo set_value('pc2_project_add_name[1]', $pc2a[1]);}else{echo set_value('pc2_project_add_name[1]');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Current qualifications (please include all): 
-                                               <input type="text" class="form-control" name="pc2_project_add_qualification[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_qualification[1]', $pc2b[1]);}else{echo set_value('pc2_project_add_qualification[1]');} ?>">
+                                           <td>
+                                               Current qualifications (please include all): 
+                                               <textarea class="form-control" name="pc2_project_add_qualification[1]"><?php if(isset($load)){echo set_value('pc2_project_add_qualification[1]', $pc2b[1]);}else{echo set_value('pc2_project_add_qualification[1]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <input type="text" class="form-control" name="pc2_project_add_department[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_department[1]', $pc2c[1]);}else{echo set_value('pc2_project_add_department[1]');} ?>"></td>
+                                           <td colspan="2">
+                                               Department: <textarea class="form-control" name="pc2_project_add_department[1]"><?php if(isset($load)){echo set_value('pc2_project_add_department[1]', $pc2c[1]);}else{echo set_value('pc2_project_add_department[1]');} ?></textarea>
+                                           </td>
                                            
-                                           <td colspan="1">Campus: <input type="text" class="form-control" name="pc2_project_add_campus[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_campus[1]', $pc2d[1]);}else{echo set_value('pc2_project_add_campus[1]');} ?>"></td>
+                                           <td colspan="1">
+                                               Campus: <textarea class="form-control" name="pc2_project_add_campus[1]"><?php if(isset($load)){echo set_value('pc2_project_add_campus[1]', $pc2d[1]);}else{echo set_value('pc2_project_add_campus[1]');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="pc2_project_add_postal_address[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_postal_address[1]', $pc2e[1]);}else{echo set_value('pc2_project_add_postal_address[1]');} ?>"></td>
+                                           <td colspan="3">
+                                               Full postal address (including internal mail details): <textarea class="form-control" name="pc2_project_add_postal_address[1]"><?php if(isset($load)){echo set_value('pc2_project_add_postal_address[1]', $pc2e[1]);}else{echo set_value('pc2_project_add_postal_address[1]');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="text" class="form-control" name="pc2_project_add_telephone[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_telephone[1]', $pc2f[1]);}else{echo set_value('pc2_project_add_telephone[1]');} ?>"></td>
+                                           <td colspan="2">
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_add_telephone[1]" class="col-sm-4">Phone:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_add_telephone[1]" rows="1"><?php if(isset($load)){echo set_value('pc2_project_add_telephone[1]', $pc2f[1]);}else{echo set_value('pc2_project_add_telephone[1]');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
                                            
-                                           <td>Fax: <input type="text" class="form-control" name="pc2_project_add_fax[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_fax[1]', $pc2g[1]);}else{echo set_value('pc2_project_add_fax[1]');} ?>"></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_add_fax[1]" class="col-sm-4">Fax:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_add_fax[1]" rows="1"><?php if(isset($load)){echo set_value('pc2_project_add_fax', $pc2g[1]);}else{echo set_value('pc2_project_add_fax[1]');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
+                                           
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Email (MUST be staff email address): <input type="email" class="form-control" name="pc2_project_add_email_address[1]" value="<?php if(isset($load)){echo set_value('pc2_project_add_email_address[1]', $pc2h[1]);}else{echo set_value('pc2_project_add_email_address[1]');} ?>"></td>
+                                           <td colspan="3">
+                                               Email (MUST be staff email address): <textarea class="form-control" name="pc2_project_add_email_address[1]"><?php if(isset($load)){echo set_value('pc2_project_add_email_address[1]', $pc2h[1]);}else{echo set_value('pc2_project_add_email_address[1]');} ?></textarea>
+                                           </td>
                                        </tr>
-                   </table>
+                                   </table>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -212,7 +299,7 @@
                                             (B) a genetically modified laboratory mouse;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             (C) a genetically modified laboratory rabbit;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             (D) a genetically modified laboratory rat;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            (E) a genetically modified Caenorhabditis elegans;
+                                            (E) a genetically modified <em>Caenorhabditis elegans</em>;
 
 
 
@@ -225,7 +312,7 @@
                                    </div>
                                </td>
                                <td>
-                                   (aa) A dealing involving a genetically modified laboratory guinea pig, a genetically modified mouse, a genetically   modified laboratory rabbit, a genetically modified laboratory rat, or a genetically modified Caenorhabditis elegans if:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   (aa) A dealing involving a genetically modified laboratory guinea pig, a genetically modified mouse, a genetically   modified laboratory rabbit, a genetically modified laboratory rat, or a genetically modified <em>Caenorhabditis elegans</em> if:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     (i) the genetic modification confers an advantage on the animal; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                     (ii) the animal is not capable of secreting or producing an infectious agent as a result of the genetic modification;
                                </td>
@@ -366,35 +453,36 @@
                            <tr>
                                <td>
                                    <div class="form-group">
-                                       <input type="checkbox" class="form-control" name="dealing_type_l" <?php echo set_checkbox('dealing_type_l', '1'); ?> <?php if(isset($load)){if($pc2->dealing_type_l==1){echo "checked=checked";}}else{} ?>>
+                                       <input type="checkbox" value="1" class="form-control" name="dealing_type_l" <?php echo set_checkbox('dealing_type_l', '1'); ?> <?php if(isset($load)){if($pc2->dealing_type_l==1){echo "checked=checked";}}else{} ?>>
                                    </div>
                                </td>
                                <td>
-                                   (l)  A dealing involving the introduction of a replication defective retroviral vector able to transduce human cells into a host mentioned in Part 2 of Schedule 2, if:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            (i) all viral genes have been removed from the retroviral vector so that it cannot replicate or assemble into a virion <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; without these functions being supplied in trans; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            (ii) viral genes needed for virion production in the packaging cell line are expressed from independent, unlinked loci <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with minimal sequence overlap with the vector to limit or prevent recombination; and
+                                   (l)  A dealing involving the introduction of a replication defective retroviral vector able to transduce human cells into a &nbsp;&nbsp;&nbsp;&nbsp;host mentioned in Part 2 of Schedule 2, if:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            (i) all viral genes have been removed from the retroviral vector so that it cannot replicate or assemble into a virion <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; without these functions being supplied <em>in trans</em>; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            (ii) viral genes needed for virion production in the packaging cell line are expressed from independent, unlinked loci <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with minimal sequence overlap with the vector to limit or prevent recombination; and<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                             (iii) either:<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            (A) the retroviral vector includes a deletion in the Long Terminal Repeat  sequence of DNA that prevents <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; transcription of genomic RNA following integration into the  host cell DNA; or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                            (B) the packaging cell line and packaging plasmids express only viral genes  gagpol, rev and an envelope protein <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gene, or a subset of these;
+                                            &nbsp;&nbsp;&nbsp;(A) the retroviral vector includes a deletion in the Long Terminal Repeat  sequence of DNA that prevents <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; transcription of genomic RNA following integration into the  host cell DNA; or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            &nbsp;&nbsp;&nbsp;(B) the packaging cell line and packaging plasmids express only viral genes  <em>gagpol</em>, rev and an envelope protein <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; gene, or a subset of these;
 
                                </td>
                            </tr>
                            <tr>
                                <td>
                                    <div class="form-group">
-                                       <input type="checkbox" class="form-control" name="dealing_type_m" <?php echo set_checkbox('dealing_type_m', '1'); ?> <?php if(isset($load)){if($pc2->dealing_type_m==1){echo "checked=checked";}}else{} ?>>
+                                       <input type="checkbox" value="1" class="form-control" name="dealing_type_m" <?php echo set_checkbox('dealing_type_m', '1'); ?> <?php if(isset($load)){if($pc2->dealing_type_m==1){echo "checked=checked";}}else{} ?>>
                                    </div>
                                </td>
                                <td>
-                                   (m) A dealing involving the introduction of a replication defective retroviral vector able to transduce human cells into a &nbsp;&nbsp; host not mentioned in Part 2 of Schedule 2, if: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        (i) the donor nucleic acid does not: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        (A) confer an oncogenic modification in humans; or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   (m) A dealing involving the introduction of a replication defective retroviral vector able to transduce<br>
+                                   &nbsp;&nbsp;&nbsp;&nbsp;human cells into a host not mentioned in Part 2 of Schedule 2, if: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        (i) the donor nucleic acid does not: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        (A) confer an oncogenic modification in humans; or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                         (B) encode a protein with immunomodulatory activity in humans; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        (ii) all viral genes have been removed from the retroviral vector so that it cannot replicate or assemble into a virion &nbsp;&nbsp; without these functions being supplied in trans; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                   (iii) viral genes needed for virion production in the packaging cell line are expressed from independent, unlinked loci with minimal sequence overlap with the vector to limit or prevent recombination; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                   (iv) either: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                       (A) the retroviral vector includes a deletion in the Long Terminal Repeat sequence of DNA that prevents &nbsp;&nbsp; transcription of genomic RNA following integration into the host cell DNA; or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                       (B) the packaging cell line and packaging plasmids express only viral genes gagpol, rev and an envelope protein gene, or a subset of these.
+                                        (ii) all viral genes have been removed from the retroviral vector so that it cannot replicate or assemble into a virion <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; without these functions being supplied in trans; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   (iii) viral genes needed for virion production in the packaging cell line are expressed from independent, unlinked loci<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; with minimal sequence overlap with the vector to limit or prevent recombination; and <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                   (iv) either: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       (A) the retroviral vector includes a deletion in the Long Terminal Repeat sequence of DNA that prevents<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; transcription of genomic RNA following integration into the host cell DNA; or <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                       (B) the packaging cell line and packaging plasmids express only viral genes <em>gagpol</em>, rev and an envelope <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protein gene, or a subset of these.
 
                                </td>
                            </tr>
@@ -445,13 +533,19 @@
                                        </tr>
                                        <tr>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="pc2_GMO_name" value="<?php if(isset($load)){echo set_value('pc2_GMO_name', $pc2->GMO_name);}else{echo set_value('pc2_GMO_name');} ?>"></div>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="pc2_GMO_name"><?php if(isset($load)){echo set_value('pc2_GMO_name', $pc2->GMO_name);}else{echo set_value('pc2_GMO_name');} ?></textarea>
+                                               </div>
                                            </td>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="pc2_GMO_method" value="<?php if(isset($load)){echo set_value('pc2_GMO_method', $pc2->GMO_method);}else{echo set_value('pc2_GMO_method');} ?>"></div>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="pc2_GMO_method"><?php if(isset($load)){echo set_value('pc2_GMO_method', $pc2->GMO_method);}else{echo set_value('pc2_GMO_method');} ?></textarea>
+                                               </div>
                                            </td>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="pc2_GMO_origin" value="<?php if(isset($load)){echo set_value('pc2_GMO_origin', $pc2->GMO_origin);}else{echo set_value('pc2_GMO_origin');} ?>"></div>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="pc2_GMO_origin"><?php if(isset($load)){echo set_value('pc2_GMO_origin', $pc2->GMO_origin);}else{echo set_value('pc2_GMO_origin');} ?></textarea>
+                                               </div>
                                            </td>
                                        </tr>
                                    </table>
@@ -459,9 +553,7 @@
                            </tr>
                        </tbody>
                    </table>
-                   <span class="text-danger"><?php echo form_error('pc2_GMO_name'); ?></span>
-                   <span class="text-danger"><?php echo form_error('pc2_GMO_method'); ?></span>
-                   <span class="text-danger"><?php echo form_error('pc2_GMO_origin'); ?></span>
+                   
                    
                    <table class="table table-bordered">
                        <thead>
@@ -484,10 +576,14 @@
                                        </tr>
                                        <tr>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="pc2_modified_trait_class" value="<?php if(isset($load)){echo set_value('pc2_modified_trait_class', $pc2->modified_trait_class);}else{echo set_value('pc2_modified_trait_class');} ?>" ></div>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="pc2_modified_trait_class"><?php if(isset($load)){echo set_value('pc2_modified_trait_class', $pc2->modified_trait_class);}else{echo set_value('pc2_modified_trait_class');} ?></textarea>
+                                               </div>
                                            </td>
                                            <td>
-                                               <div class="form-group"><input type="text" class="form-control" name="pc2_modified_trait_description" value="<?php if(isset($load)){echo set_value('pc2_modified_trait_description', $pc2->modified_trait_description);}else{echo set_value('pc2_modified_trait_description');} ?>" ></div>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="pc2_modified_trait_description"><?php if(isset($load)){echo set_value('pc2_modified_trait_description', $pc2->modified_trait_description);}else{echo set_value('pc2_modified_trait_description');} ?></textarea>
+                                               </div>
                                            </td>
                                        </tr>
                                    </table>
@@ -495,8 +591,6 @@
                            </tr>
                        </tbody>
                    </table>
-                   <span class="text-danger"><?php echo form_error('pc2_modified_trait_class'); ?></span>
-                <span class="text-danger"><?php echo form_error('pc2_modified_trait_description'); ?></span>
                    
                    <table class="table table-bordered">
                        <thead>
@@ -605,7 +699,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="pc2_project_SOP" placeholder="250 words max"><?php if(isset($load)){echo set_value('pc2_project_SOP', $pc2->project_SOP);}else{echo set_value('pc2_project_SOP');} ?></textarea>
+                                       <textarea rows="15" class="form-control" name="pc2_project_SOP"><?php if(isset($load)){echo set_value('pc2_project_SOP', $pc2->project_SOP);}else{echo set_value('pc2_project_SOP');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -624,24 +718,51 @@
                                <td colspan="2">
                                    <table class="table table-bordered">
                                        <tr>
-                                           <td>Buiding number: <input type="text" class="form-control" name="pc2_project_facilities_building_no" value="<?php if(isset($load)){echo set_value('pc2_project_facilities_building_no', $pc2->project_facilities_building_no);}else{echo set_value('pc2_roject_facilities_building_no');} ?>"></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_facilities_building_no" class="col-sm-4">Building number:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_facilities_building_no" rows="1"><?php if(isset($load)){echo set_value('pc2_project_facilities_building_no', $pc2->project_facilities_building_no);}else{echo set_value('pc2_project_facilities_building_no');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
                                            
-                                           <td>Room number: <input type="text" class="form-control" name="pc2_project_facilities_room_no" value="<?php if(isset($load)){echo set_value('pc2_project_facilities_room_no', $pc2->project_facilities_room_no);}else{echo set_value('pc2_project_facilities_room_no');} ?>" ></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_facilities_room_no" class="col-sm-4">Room number:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_facilities_room_no" rows="1"><?php if(isset($load)){echo set_value('pc2_project_facilities_room_no', $pc2->project_facilities_room_no);}else{echo set_value('pc2_project_facilities_room_no');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
+                
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group">Containment Level: <input type="text" class="form-control" name="pc2_project_facilities_containment_level" value="<?php if(isset($load)){echo set_value('pc2_project_facilities_containment_level', $pc2->project_facilities_containment_level);}else{echo set_value('pc2_project_facilities_containment_level');} ?>" ></div></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_facilities_containment_level" class="col-sm-4">Containment Level:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_facilities_containment_level" rows="1"><?php if(isset($load)){echo set_value('pc2_project_facilities_containment_level', $pc2->project_facilities_containment_level);}else{echo set_value('pc2_project_facilities_containment_level');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
                                            
-                                           <td><div class="form-group">Certification number: <input type="text" class="form-control" name="pc2_project_facilities_certification_no" value="<?php if(isset($load)){echo set_value('pc2_project_facilities_certification_no', $pc2->project_facilities_certification_no);}else{echo set_value('pc2_project_facilities_certification_no');} ?>" ></div></td>
+                                           <td>
+                                               <div class="form-group row">
+                                                   <label for="pc2_project_facilities_certification_no" class="col-sm-4">Certification number:</label>
+                                                   <div class="col-sm-7">
+                                                       <textarea class="form-control" name="pc2_project_facilities_certification_no" rows="1"><?php if(isset($load)){echo set_value('pc2_project_facilities_certification_no', $pc2->project_facilities_certification_no);}else{echo set_value('pc2_project_facilities_certification_no');} ?></textarea>
+                                                   </div>
+                                               </div>
+                                           </td>
+                    
                                        </tr>
                                    </table>
+                                   
                                </td>
                            </tr>
                        </tbody>
                    </table>
-                   <span class="text-danger"><?php echo form_error('pc2_project_facilities_building_no'); ?></span>
-                <span class="text-danger"><?php echo form_error('pc2_project_facilities_room_no'); ?></span>
-                <span class="text-danger"><?php echo form_error('pc2_project_facilities_containment_level'); ?></span>
-                <span class="text-danger"><?php echo form_error('pc2_project_facilities_certification_no'); ?></span>
                    
                 <div id="section_15" class="sectiontarget">
                    <table class="table table-bordered">
@@ -660,7 +781,7 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="1" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '1', FALSE); ?> <?php if(isset($load)){if($pc2->officer_notified==1){echo set_radio('pc2_officer_notified', '1', TRUE);}} ?>> Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="1" name="pc2_officer_notified" <?php if(isset($load)){if($pc2->officer_notified==1){echo set_radio('pc2_officer_notified', '1', TRUE);}} ?>> Yes</label>
                                                
                                                <label class="radio-inline"><input type="radio" value="0" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '0', FALSE); ?> <?php if(isset($load)){if($pc2->officer_notified==0){echo set_radio('pc2_officer_notified', '0', TRUE);}} ?>> No</label>
                                                
@@ -677,7 +798,11 @@
                                    <table class="table table-bordered">
                                        <tr>
                                            <td>Name of Biosafety Officer(s)</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="pc2_officer_name" value="<?php if(isset($load)){echo set_value('pc2_officer_name', $pc2->officer_name);}else{echo set_value('pc2_officer_name');} ?>" ></div></td>
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="pc2_officer_name"><?php if(isset($load)){echo set_value('pc2_officer_name', $pc2->officer_name);}else{echo set_value('pc2_officer_name');} ?></textarea>
+                                               </div>
+                                           </td>
                                        </tr>
                                        <tr>
                                            <td>Name of Laboratory Manager</td>
