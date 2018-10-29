@@ -151,9 +151,9 @@
                                        <tr>
                                            <td colspan="2">
                                                <div class="form-group row">
-                                                   <label for="project_supervisor_telephone" class="col-sm-4">Phone:</label>
+                                                   <label for="pc1_project_supervisor_telephone" class="col-sm-4">Phone:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" id="project_supervisor_telephone" name="project_supervisor_telephone" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_telephone', $pc1->project_supervisor_telephone);}else{echo set_value('project_supervisor_telephone');} ?></textarea>
+                                                       <textarea class="form-control" name="pc1_project_supervisor_telephone" rows="1"><?php if(isset($load)){echo set_value('pc1_project_supervisor_telephone', $pc1->pc1_project_supervisor_telephone);}else{echo set_value('pc1_project_supervisor_telephone');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>

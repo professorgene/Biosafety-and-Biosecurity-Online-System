@@ -106,7 +106,7 @@
                                            <td colspan="3">Full postal address (including internal mail details): <input type="text" class="form-control" name="pc2_project_supervisor_postal_address" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_postal_address', $pc2->project_supervisor_postal_address);}else{echo set_value('pc2_project_supervisor_postal_address');} ?>"></td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <input type="text" class="form-control" name="project_supervisor_telephone" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_telephone', $pc2->project_supervisor_telephone);}else{echo set_value('pc2_project_supervisor_telephone');} ?>" ></td>
+                                           <td colspan="2">Phone: <input type="text" class="form-control" name="pc2_project_supervisor_telephone" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_telephone', $pc2->pc2_project_supervisor_telephone);}else{echo set_value('pc2_project_supervisor_telephone');} ?>" ></td>
                                            
                                            <td>Fax: <input type="text" class="form-control" name="pc2_project_supervisor_fax" value="<?php if(isset($load)){echo set_value('pc2_project_supervisor_fax', $pc2->project_supervisor_fax);}else{echo set_value('pc2_project_supervisor_fax');} ?>"></td>
                                        </tr>
@@ -118,15 +118,6 @@
                            </tr>
                        </tbody>
                    </table>
-                   <span class="text-danger"><?php echo form_error('pc2_project_supervisor_title'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_name'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_qualification'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_department'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_campus'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_postal_address'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_telephone'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_fax'); ?></span>
-                    <span class="text-danger"><?php echo form_error('pc2_project_supervisor_email_address'); ?></span>
                    
                    
                    <table class="table table-bordered">
