@@ -1428,11 +1428,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $projectSave = 'saved';
             $projectSubmit = 'submitted';
             
+            
+            
+            
             if (!isset($save) && !isset($submit)){
                 
                 $this->load->template('lmoproj_view', $data);
                 
             }elseif(isset($save)){
+                
+                
+                
+                
+                
+                // load upload class library
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('project_intro_activities');
+                
+                
+                
+                
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));

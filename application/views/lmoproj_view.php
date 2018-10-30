@@ -155,7 +155,7 @@ if(!$this->session->userdata('isLogin')){
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>
                 
-                <?php if(isset($editload)) { echo form_open('lmoproj/update_form'); } elseif(isset($saveload)) {echo form_open('lmoproj/continue');} else { echo form_open('lmoproj/index'); } ?>
+                <?php if(isset($editload)) { echo form_open_multipart('lmoproj/update_form'); } elseif(isset($saveload)) {echo form_open_multipart('lmoproj/continue');} else { echo form_open_multipart('lmoproj/index'); } ?>
                 <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 <div class="tab-content">
                     <div class="tab-pane active" id="annex2tab">
