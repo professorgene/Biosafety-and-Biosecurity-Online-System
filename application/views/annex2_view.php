@@ -396,6 +396,7 @@
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
                     <a href="#section_4" class="btn btn-success">Section 4</a>
+                    <a href="#" onclick="window.print()" class="btn btn-success">Print</a>
                 </div>   
             </div>
         </div>
