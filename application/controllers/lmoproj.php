@@ -426,6 +426,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -448,7 +450,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSave))
                 {
                     
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $annex2Data);
                     redirect('saveHistory/index');
                     
                     $this->session->unset_userdata('projectId');
@@ -856,6 +858,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -877,7 +881,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->annex2_model->insert_new_applicant_data($annex2Data) && $this->forme_model->insert_new_applicant_data($formeData) && $this->pc1_model->insert_new_applicant_data($pc1Data) && $this->pc2_model->insert_new_applicant_data($pc2Data) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
                     
-                    $this->notification_model->insert_new_notification(null, 4, "New Project Application For Living Modified Organism", "The following user has submitted a new application for a living modified organism project: " . $this->session->userdata('account_name'));
+                    $this->notification_model->insert_new_notification(null, 4, "New Project Application For LMO", "The following user has submitted a new application for LMO: " . $this->session->userdata('account_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
                     redirect('home/index');
@@ -1332,6 +1336,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -1818,6 +1824,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -2248,6 +2256,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),

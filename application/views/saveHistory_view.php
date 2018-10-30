@@ -37,7 +37,7 @@ if(!$this->session->userdata('isLogin')){
         <!-- Page Heading -->
 		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		<hr>
-        <h5>Submitted or Past Applications</h5>
+        <h5>Saved Project Applications</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <div class="row">

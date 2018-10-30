@@ -53,7 +53,8 @@
             </thead>
             <tbody class="tblTitle2">
                 <tr>
-                    <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $pc1->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                    <td>
+                        <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $pc1->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
                     </td>
                     <td>
                         <input type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('SBC_reference_no', $pc1->SBC_reference_no);}else{echo set_value('SBC_reference_no');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
@@ -62,7 +63,7 @@
             </tbody>
         </table>
                    
-         <div id="section_1" class="sectiontarget">
+         <div id="pc1_section_1" class="sectiontarget">
              <table class="table table-bordered" id="section_1">
                  <thead>
                      <tr>
@@ -192,18 +193,28 @@
                                <td colspan="2">
                                    <table class="table table-bordered">
                                        <tr>
-                                           <td width="200">Title: <input type="text" class="form-control" name="project_add_title[0]" value="<?php if(isset($load)){echo set_value('project_add_title[0]', $pc1i[0]);}else{echo set_value('project_add_title[0]');} ?>"></td>
+                                           <td width="200">
+                                               Title: <textarea class="form-control" name="project_add_title[0]"><?php if(isset($load)){echo set_value('project_add_title[0]', $pc1i[0]);}else{echo set_value('project_add_title[0]');} ?>
+                                               </textarea>
+                                           </td>
                                            
-                                           <td>Name: <input type="text" class="form-control" name="project_add_name[0]" value="<?php if(isset($load)){echo set_value('project_add_name[0]', $pc1a[0]);}else{echo set_value('project_add_name[0]');} ?>"></td>
+                                           <td>
+                                               Name: <textarea class="form-control" name="project_add_name[0]"><?php if(isset($load)){echo set_value('project_add_name[0]', $pc1a[0]);}else{echo set_value('project_add_name[0]');} ?></textarea>
+                                           </td>
                                            
-                                           <td>Current qualifications (please include all): 
-                                               <input type="text" class="form-control" name="project_add_qualification[0]" value="<?php if(isset($load)){echo set_value('project_add_qualification[0]', $pc1b[0]);}else{echo set_value('project_add_qualification[0]');} ?>">
+                                           <td>
+                                               Current qualifications (please include all): 
+                                               <textarea class="form-control" name="project_add_qualification[0]"><?php if(isset($load)){echo set_value('project_add_qualification[0]', $pc1b[0]);}else{echo set_value('project_add_qualification[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <input type="text" class="form-control" name="project_add_department[0]" value="<?php if(isset($load)){echo set_value('project_add_department[0]', $pc1c[0]);}else{echo set_value('project_add_department[0]');} ?>"></td>
+                                           <td colspan="2">
+                                               Department: <textarea class="form-control" name="project_add_department[0]"><?php if(isset($load)){echo set_value('project_add_department[0]', $pc1c[0]);}else{echo set_value('project_add_department[0]');} ?></textarea>
+                                           </td>
                                            
-                                           <td colspan="1">Campus: <input type="text" class="form-control" name="project_add_campus[0]" value="<?php if(isset($load)){echo set_value('project_add_campus[0]', $pc1d[0]);}else{echo set_value('project_add_campus[0]');} ?>"></td>
+                                           <td colspan="1">
+                                               Campus: <textarea class="form-control" name="project_add_campus[0]"><?php if(isset($load)){echo set_value('project_add_campus[0]', $pc1d[0]);}else{echo set_value('project_add_campus[0]');} ?></textarea>
+                                           </td>
                                        </tr>
                                        <tr>
                                            <td colspan="3">
@@ -337,11 +348,11 @@
                        </tbody>
                    </table>
                    
-         <div id="section_5" class="sectiontarget">
+         <div id="pc1_section_5" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="reddata" id="section_5">5</th>
+                               <th width="10px" class="reddata">5</th>
                                <th colspan="2">Project Summary - briefly describe the project, including the aims of the proposed dealing, method of producing GMOs and their use. (This should be written in plain English).</th>
                            </tr>
                        </thead>
@@ -478,11 +489,11 @@
                    </table>
                 <span class="text-danger"><?php echo form_error('project_hazard_environment'); ?></span>
                    
-         <div id="section_10" class="sectiontarget">
+         <div id="pc1_section_10" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="reddata" id="section_10">10</th>
+                               <th width="10px" class="reddata">10</th>
                                <th colspan="2">What are the steps you will take in the event of an unintentional release of the GMO(s)?</th>
                            </tr>
                        </thead>
@@ -557,7 +568,7 @@
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10" class="reddata" id="section_14">14</th>
+                               <th width="10" class="reddata" id="pc1_section_14">14</th>
                                <th>Facilities to be used</th>
                            </tr>
                        </thead>
@@ -611,7 +622,7 @@
                        </tbody>
                    </table>
                    
-         <div id="section_15" class="sectiontarget">
+         <div id="pc1_section_15" class="sectiontarget">
                    <table class="table table-bordered">
                        <table class="table table-bordered">
                        <thead>
@@ -686,10 +697,10 @@
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
                     <a href="#top" class="btn btn-success">Top</a>
-                    <a href="#section_1" class="btn btn-success">Section 1</a> 
-                    <a href="#section_5" class="btn btn-success">Section 2</a>
-                    <a href="#section_10" class="btn btn-success">Section 3</a>
-                    <a href="#section_15" class="btn btn-success">Section 4</a>
+                    <a href="#pc1_section_1" class="btn btn-success">Section 1</a> 
+                    <a href="#pc1_section_5" class="btn btn-success">Section 2</a>
+                    <a href="#pc1_section_10" class="btn btn-success">Section 3</a>
+                    <a href="#pc1_section_15" class="btn btn-success">Section 4</a>
                 </div>   
             </div>
         </div>

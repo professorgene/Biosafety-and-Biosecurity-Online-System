@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 24, 2018 at 03:03 PM
--- Server version: 10.1.31-MariaDB
--- PHP Version: 7.2.3
+-- Generation Time: Oct 30, 2018 at 12:47 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -22,11 +22,9 @@ SET time_zone = "+00:00";
 -- Database: `biosafety_and_biosecurity_online_system`
 --
 
+-- --------------------------------------------------------
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
 USE biosafety_and_biosecurity_online_system;
-
--- --------------------------------------------------------
-
 --
 -- Table structure for table `accounts`
 --
@@ -102,10 +100,13 @@ CREATE TABLE `annex2` (
 --
 
 INSERT INTO `annex2` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `general_info_edit`, `applicant_name`, `institutional_address`, `collaborating_partners`, `project_title`, `exp_param_edit`, `project_objective_methodology`, `biological_system_parent_organisms`, `biological_system_donor_organisms`, `biological_system_modified_traits`, `premises`, `period`, `risk_assessment_and_management`, `emergency_response_plan`, `IBC_recommendation`, `PI_details_edit`, `PI_experience_and_expertise`, `PI_training`, `PI_health`, `PI_other`, `personnel_involved_list_edit`, `personnel_involved`, `personnel_designation`, `IBC_approved`, `IBC_name`, `IBC_date`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, NULL, 1, 28, 0, 'save project status update', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'saved'),
-(2, 2, 5, 1, 29, 0, 'Submit project edited', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'submitted'),
+(2, 2, 1, 1, 29, 0, 'Submit project edited', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', 1, 1, 'submitted'),
 (3, 2, NULL, 1, 30, 0, 'New type', ' New address', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'submitted'),
-(4, 2, 6, 1, 65, 0, 'Test Submit Date', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', 4, 0, 'submitted');
+(4, 2, 6, 1, 65, 0, 'Test Submit Date', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', 4, 0, 'submitted'),
+(5, 2, NULL, 1, 66, 0, 'a', 'a', 'a', 'a', 0, 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 0, 'a', 'a', 'a', 'a', 0, 'a,a,a,a,a', 'a,a,a,a,a', NULL, 'ascsc', '2018-10-31', NULL, 0, 'saved'),
+(7, 2, NULL, 1, 68, 0, 'form e', 'form e', 'form e', 'form e', 0, 'form e', 'form e', 'form e', 'form e', 'form e', 'period', 'risk', 'emergency response', 'additional', 0, 'experience', 'training', 'health', 'others', 0, 'a,a,a,a,a', 'a,a,a,a,a', NULL, 'adada', '2018-10-22', NULL, 0, 'saved'),
+(8, 2, NULL, 1, 69, 0, 'name', 'address', 'partners', 'title', 0, 'objective', 'parent name', 'donor name', 'gene name', 'premises', 'period', 'risk', 'emergency', 'additional', 0, 'experience', 'training', 'health', 'other', 0, 'a,a,a,a,a', 'a,a,a,a,a', NULL, 'sign name', '0000-00-00', NULL, 0, 'saved'),
+(9, 2, NULL, 1, 70, 0, '', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'saved');
 
 -- --------------------------------------------------------
 
@@ -306,7 +307,8 @@ INSERT INTO `announcement` (`announcement_id`, `account_id`, `announcement_title
 (1, 1, 'Application Page Announcement 1', 'Hello! This is a sample message from the database to test out announce for application page!\r\n\r\nThis is very cool and interesting!\r\n\r\nPlease update this message latr', '2018-10-24 15:01:41', 'applicationpage'),
 (2, 1, 'Application Page Announcement 2', 'Testing for Two announcements instead!', '2018-10-24 15:16:35', 'applicationpage'),
 (3, 1, 'Deleted Announcement', 'This should not appear anywhere', '2018-10-24 15:16:35', 'deleted'),
-(4, 1, 'Test from Web Page', 'This message should appear in the\r\nfront page as well!', '2018-10-24 16:25:12', 'applicationpage');
+(4, 1, 'Test from Web Page', 'This message should appear in the\r\nfront page as well!', '2018-10-24 16:25:12', 'applicationpage'),
+(5, 1, 'hey', 'hey', '2018-10-30 14:03:07', 'applicationpage');
 
 -- --------------------------------------------------------
 
@@ -691,10 +693,13 @@ CREATE TABLE `forme` (
 --
 
 INSERT INTO `forme` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `forme_project_title_edit`, `project_title`, `forme_notif_list_edit`, `checklist_form`, `checklist_coverletter`, `checklist_IBC`, `checklist_IBC_report`, `checklist_clearance`, `checklist_CBI`, `checklist_CBI_submit`, `checklist_support`, `checklist_RnD`, `forme_preliminary_info_edit`, `organization`, `applicant_name_PI`, `position`, `telephone_office`, `telephone_mobile`, `fax`, `email_address`, `postal_address`, `project_title2`, `IBC_project_identification_no`, `notified_first`, `NBB_reference`, `NBB_difference`, `forme_importer_details_edit`, `importer_organization`, `importer_contact_person`, `importer_position`, `importer_telephone_office`, `importer_telephone_mobile`, `importer_fax`, `importer_email_address`, `importer_postal_address`, `forme_IBC_details_edit`, `IBC_organization_name`, `IBC_chairperson`, `IBC_telephone_number`, `IBC_fax`, `IBC_email_address`, `forme_IBC_assessment_edit`, `IBC_PI_name`, `IBC_project_title`, `IBC_date`, `IBC_adequate`, `IBC_checklist_activities`, `IBC_checklist_description`, `IBC_checklist_emergency_response`, `IBC_checklist_trained`, `IBC_form_approved`, `IBC_biosafety_approved`, `forme_signature_statuory_edit`, `signature_statutory_endorsed`, `signature_statutory_applicant_free`, `forme_PI_signature_edit`, `applicant_PI_signature_date`, `applicant_PI_signature_name`, `applicant_PI_signature_stamp`, `IBC_chairperson_signature_date`, `IBC_chairperson_signature_name`, `IBC_chairperson_signature_stamp`, `organization_representative_signature_date`, `organization_representative_signature_name`, `organization_representative_signature_stamp`, `forme_partA_edit`, `project_team_name`, `project_team_address`, `project_team_telephone_number`, `project_team_email_address`, `project_team_qualification`, `project_team_designation`, `forme_partB_edit`, `project_intro_objective`, `project_intro_specifics`, `project_intro_activities`, `project_intro_BSL`, `project_intro_duration`, `project_intro_intended_date_commencement`, `project_intro_expected_date_completion`, `project_intro_importation_date`, `project_intro_field_experiment`, `forme_partC_edit`, `LMO_desc_name_parent`, `LMO_desc_name_donor`, `LMO_desc_method`, `LMO_desc_class`, `LMO_desc_trait`, `LMO_desc_genes`, `LMO_desc_genes_function`, `forme_partD1_edit`, `risk_assessment_genes_potential_hazard`, `risk_assessment_genes_comments`, `risk_assessment_genes_management`, `risk_assessment_genes_residual`, `risk_assessment_admin_potential_hazard`, `risk_assessment_admin_comments`, `risk_assessment_admin_management`, `risk_assessment_admin_residual`, `risk_assessment_containment_potential_hazard`, `risk_assessment_containment_comments`, `risk_assessment_containment_management`, `risk_assessment_containment_residual`, `risk_assessment_special_potential_hazard`, `risk_assessment_special_comments`, `risk_assessment_special_management`, `risk_assessment_special_residual`, `forme_partD2_edit`, `risk_management_transport`, `risk_management_disposed`, `risk_management_wastes`, `risk_management_wastewater`, `risk_management_decontaminated`, `forme_partD3_edit`, `risk_response_environment`, `risk_response_plan`, `risk_response_disposal`, `risk_response_isolation`, `risk_response_contigency`, `forme_partE_edit`, `premise_name`, `premise_type`, `premise_BSL`, `premise_IBC`, `premise_IBC_date`, `premise_certification_date`, `premise_certification_no`, `premise_certification_report`, `premise_address`, `premise_officer_name`, `premise_telephone_business`, `premise_telephone_mobile`, `premise_fax`, `premise_email`, `forme_partF_edit`, `confidential_description`, `forme_partG_edit`, `reference_description`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, NULL, 8, 28, 0, 'save status update', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
-(2, 2, 5, 8, 29, 0, 'Submit project edited', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'submitted'),
+(2, 2, 1, 8, 29, 0, 'Submit project edited', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', 1, 1, 'submitted'),
 (3, 2, NULL, 8, 30, 0, 'new type', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'submitted'),
-(4, 2, 6, 8, 65, 0, 'Test Submit Date', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', 4, 0, 'submitted');
+(4, 2, 6, 8, 65, 0, 'Test Submit Date', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', 4, 0, 'submitted'),
+(5, 2, NULL, 8, 66, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '2018-10-08', 1, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, '2018-10-09', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '2018-10-02', '2018-10-03', '2018-10-31', 0, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
+(7, 2, NULL, 8, 68, 0, 'form e', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'form e', 'form e', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
+(8, 2, NULL, 8, 69, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', 0, 0, 0, 0, 0, 0, 0, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
+(9, 2, NULL, 8, 70, 0, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', 0, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 0, '0000-00-00', '', '', '0000-00-00', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved');
 
 -- --------------------------------------------------------
 
@@ -805,14 +810,17 @@ CREATE TABLE `hirarc` (
 --
 
 INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `hirarc_sec1_edit`, `company_name`, `date`, `process_location`, `conducted_name`, `conducted_designation`, `approved_name`, `approved_designation`, `date_from`, `date_to`, `review_date`, `document_no`, `hirarc_sec2_edit`, `HIRARC_activity`, `HIRARC_hazard`, `HIRARC_effects`, `HIRARC_risk_control`, `HIRARC_LLH`, `HIRARC_SEV`, `HIRARC_RR`, `HIRARC_control_measure`, `HIRARC_PIC`, `application_type`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, NULL, 10, 28, 0, 'Save project status update', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
-(2, 2, 5, 10, 29, 0, 'Submit Project', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
+(2, 2, 1, 10, 29, 0, 'Submit Project', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, 1, 1, 'submitted'),
 (3, 2, NULL, 10, 30, 0, 'safcsscf', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
 (5, 2, NULL, 10, 33, 0, 'Biohazardous Test Save updated saved', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
 (6, 2, 3, 10, 34, 0, 'Biohazardous Submit update', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted'),
 (8, 2, NULL, 10, 36, 0, 'exempt save test change', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
 (9, 2, 3, 10, 37, 0, 'Submit exempt project edited', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', '<div style=,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 1, 'submitted'),
-(10, 2, 6, 10, 65, 0, 'Test Submit Date', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, 4, 0, 'submitted');
+(10, 2, 6, 10, 65, 0, 'Test Submit Date', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, 4, 0, 'submitted'),
+(11, 2, NULL, 10, 66, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
+(13, 2, NULL, 10, 68, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
+(14, 2, NULL, 10, 69, 0, 'Hirarc company', '2018-10-02', 'Somewhere', 'me', 'Student', 'Yeung', 'Student', '2018-10-09', '2018-10-17', '2018-10-15', NULL, 0, 'wdsdsdswdadddadwdawdwdwd,addadd,fgnff,fbdfgfnf', 'adsd,dad,bvcv  bgmgm,gfn gnfgn n', 'dadwadad,wdwwdw,ashdbdgn ,fgfgngn fg', 'adwd,wadwd,asasa,', '1,3,5,7', '2,4,6,8', ',,,', 'sdvsdvfd,sddsdbf,bsdfb fb,fb bf ', 'dfbd,fbdbdf,dfbfdfb,fbdfbfb', 0, NULL, 0, 'saved'),
+(15, 2, NULL, 10, 70, 0, '', '0000-00-00', '', '', '', '', '', NULL, '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved');
 
 -- --------------------------------------------------------
 
@@ -915,6 +923,13 @@ CREATE TABLE `inventory` (
   `remarks` varchar(500) DEFAULT NULL,
   `approval` int(1) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `inventory`
+--
+
+INSERT INTO `inventory` (`inventory_id`, `account_id`, `program`, `program_type`, `unit_convenor`, `project_investigator`, `unit_name`, `experiment_title`, `project_title`, `project_reference_no`, `biohazard_type`, `biohazard_name`, `biohazard_id`, `date_received`, `log_in_personnel`, `keeper_name`, `remarks`, `approval`) VALUES
+(1, 2, 'a', 'Teaching', 'a', 'a', 'a', 'a', 'a', 'aa', 'aaaa', 'a', 'a', '2018-10-30', 'a', 'a', '', 0);
 
 -- --------------------------------------------------------
 
@@ -1142,7 +1157,9 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (45, NULL, 4, 'New Annex 2 Application', 'The following user has submitted a new application form: Si Kim Yeung', '2018-10-23 16:47:52', 1),
 (46, NULL, 2, 'New Application For LMO Approved', 'BSO has approved an application for LMO', '2018-10-23 16:56:07', 1),
 (47, NULL, 3, 'Annex 2 Application Approved', 'SSBC Chair has approved an Annex 2 Application that requires additional input', '2018-10-23 16:57:35', 1),
-(48, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-10-23 17:07:37', 1);
+(48, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-10-23 17:07:37', 1),
+(49, NULL, 4, 'Application for Living Modified Organisms Modification Request', 'The following user has requested to edit an Application for Living Modified Organisms: Si Kim Yeung', '2018-10-30 13:58:30', 1),
+(50, NULL, 2, 'New Project Application For LMO Approved', 'BSO has approved an application for LMO', '2018-10-30 14:01:22', 0);
 
 -- --------------------------------------------------------
 
@@ -1296,7 +1313,7 @@ CREATE TABLE `pc1` (
   `project_supervisor_department` varchar(100) DEFAULT NULL,
   `project_supervisor_campus` varchar(100) DEFAULT NULL,
   `project_supervisor_postal_address` varchar(100) DEFAULT NULL,
-  `project_supervisor_telephone` varchar(20) DEFAULT NULL,
+  `pc1_project_supervisor_telephone` varchar(20) DEFAULT NULL,
   `project_supervisor_fax` varchar(20) DEFAULT NULL,
   `project_supervisor_email_address` varchar(100) DEFAULT NULL,
   `pc1_sec3_edit` int(1) DEFAULT '0',
@@ -1339,7 +1356,7 @@ CREATE TABLE `pc1` (
   `project_facilities_containment_level` varchar(50) DEFAULT NULL,
   `project_facilities_certification_no` varchar(10) DEFAULT NULL,
   `pc1_sec15_edit` int(1) DEFAULT '0',
-  `officer_notified` int(1) DEFAULT NULL,
+  `officer_notified` int(1) DEFAULT '3',
   `officer_name` varchar(100) DEFAULT NULL,
   `laboratory_manager` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
@@ -1351,11 +1368,14 @@ CREATE TABLE `pc1` (
 -- Dumping data for table `pc1`
 --
 
-INSERT INTO `pc1` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `pc1_sec1_edit`, `project_title`, `pc1_sec2_edit`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `pc1_sec3_edit`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `pc1_sec4_edit`, `dealing_type_a`, `dealing_type_c`, `pc1_sec5_edit`, `project_summary`, `pc1_sec6_edit`, `GMO_name`, `GMO_method`, `GMO_origin`, `pc1_sec7_edit`, `modified_trait_class`, `modified_trait_description`, `pc1_sec8_edit`, `project_hazard_staff`, `pc1_sec9_edit`, `project_hazard_environment`, `pc1_sec10_edit`, `project_hazard_steps`, `pc1_sec11_edit`, `project_transport`, `pc1_sec12_edit`, `project_disposal`, `pc1_sec13_edit`, `project_SOP`, `pc1_sec14_edit`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `pc1_sec15_edit`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, NULL, 15, 28, NULL, '', 0, 'save status update', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'saved'),
-(2, 2, 5, 15, 29, NULL, '', 0, 'Submit Project', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'submitted'),
+INSERT INTO `pc1` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `pc1_sec1_edit`, `project_title`, `pc1_sec2_edit`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `pc1_project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `pc1_sec3_edit`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `pc1_sec4_edit`, `dealing_type_a`, `dealing_type_c`, `pc1_sec5_edit`, `project_summary`, `pc1_sec6_edit`, `GMO_name`, `GMO_method`, `GMO_origin`, `pc1_sec7_edit`, `modified_trait_class`, `modified_trait_description`, `pc1_sec8_edit`, `project_hazard_staff`, `pc1_sec9_edit`, `project_hazard_environment`, `pc1_sec10_edit`, `project_hazard_steps`, `pc1_sec11_edit`, `project_transport`, `pc1_sec12_edit`, `project_disposal`, `pc1_sec13_edit`, `project_SOP`, `pc1_sec14_edit`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `pc1_sec15_edit`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `editable`, `status`) VALUES
+(2, 2, 1, 15, 29, NULL, '', 0, 'Submit Project', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 1, 1, 'submitted'),
 (3, 2, NULL, 15, 30, NULL, '', 0, 'jasccs', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'submitted'),
-(4, 2, 6, 15, 65, NULL, '', 0, 'Test Submit Date', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 4, 0, 'submitted');
+(4, 2, 6, 15, 65, NULL, '', 0, 'Test Submit Date', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 4, 0, 'submitted'),
+(5, 2, NULL, 15, 66, NULL, '', 0, '', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '12', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
+(7, 2, NULL, 15, 68, NULL, NULL, 0, 'pc1 title', 0, 'Dr', 'asscas', 'Student', 'something', 'campus', 'address\r\nthis', '', '123445', 'new@gmail.com', 0, 'de,', 'cuurentadd,', 'nameadd,', 'department add,', ',<div style=', 'address add,', ',<div style=', '2323,', 'newadd@gmail.com,', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
+(8, 2, NULL, 15, 69, NULL, NULL, 0, 'PC1 title', 0, 'dr', 'name', 'current', 'Biotech', 'swinburne', 'address', '2343', '213', 'myemail', 0, 'prof                                                                                              ,sir', 'name,name 3', 'qualifications,current 3', 'department,department 3', 'swinburne campus,campus 3', 'some address,address 3', '123,333', '45667,343', 'myemail2@gmail.com,myemail3', 0, 1, NULL, 0, 'summary\r\n', 0, 'science name', 'vectirs', 'gene', 0, 'class                                                                                               ', 'detail', 0, 'possible hazard', 0, 'unintentional release', 0, 'steps', 0, 'transport', 0, 'dispose', 0, 'lsit of SOP', 0, '2', '501', '3', '123', 0, 0, 'Ms Chua', 'Manager', NULL, 0, 'saved'),
+(9, 2, NULL, 15, 70, NULL, NULL, 0, '', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '                                                   ', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved');
 
 -- --------------------------------------------------------
 
@@ -1380,8 +1400,8 @@ CREATE TABLE `pc2` (
   `project_supervisor_department` varchar(100) DEFAULT NULL,
   `project_supervisor_campus` varchar(100) DEFAULT NULL,
   `project_supervisor_postal_address` varchar(100) DEFAULT NULL,
-  `project_supervisor_telephone` int(20) DEFAULT NULL,
-  `project_supervisor_fax` int(20) DEFAULT NULL,
+  `pc2_project_supervisor_telephone` int(20) DEFAULT NULL,
+  `project_supervisor_fax` varchar(20) DEFAULT NULL,
   `project_supervisor_email_address` varchar(100) DEFAULT NULL,
   `pc2_sec3_edit` int(1) DEFAULT '0',
   `project_add_title` varchar(500) DEFAULT NULL,
@@ -1435,7 +1455,7 @@ CREATE TABLE `pc2` (
   `project_facilities_containment_level` varchar(25) DEFAULT NULL,
   `project_facilities_certification_no` varchar(10) DEFAULT NULL,
   `pc2_sec15_edit` int(1) DEFAULT '0',
-  `officer_notified` int(1) DEFAULT NULL,
+  `officer_notified` int(1) DEFAULT '3',
   `officer_name` varchar(100) DEFAULT NULL,
   `laboratory_manager` varchar(100) DEFAULT NULL,
   `application_approved` int(1) DEFAULT NULL,
@@ -1447,11 +1467,14 @@ CREATE TABLE `pc2` (
 -- Dumping data for table `pc2`
 --
 
-INSERT INTO `pc2` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `pc2_sec1_edit`, `project_title`, `pc2_sec2_edit`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `pc2_sec3_edit`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `pc2_sec4_edit`, `dealing_type_a`, `dealing_type_aa`, `dealing_type_b`, `dealing_type_c`, `dealing_type_d`, `dealing_type_e`, `dealing_type_f`, `dealing_type_g`, `dealing_type_h`, `dealing_type_i`, `dealing_type_j`, `dealing_type_k`, `dealing_type_l`, `dealing_type_m`, `pc2_sec5_edit`, `project_summary`, `pc2_sec6_edit`, `GMO_name`, `GMO_method`, `GMO_origin`, `pc2_sec7_edit`, `modified_trait_class`, `modified_trait_description`, `pc2_sec8_edit`, `project_hazard_staff`, `pc2_sec9_edit`, `project_hazard_environment`, `pc2_sec10_edit`, `project_hazard_steps`, `pc2_sec11_edit`, `project_transport`, `pc2_sec12_edit`, `project_disposal`, `pc2_sec13_edit`, `project_SOP`, `pc2_sec14_edit`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `pc2_sec15_edit`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, 4, 16, 28, NULL, '', 0, 'save status update', 0, '', '', '', '', '', '', NULL, 0, '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', 3, 0, 'saved'),
-(2, 2, 5, 16, 29, NULL, '', 0, 'Submit Project', 0, '', 'Submit Project', '', '', '', '', NULL, 0, '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 3, 0, 'submitted'),
-(3, 2, 4, 16, 30, NULL, '', 0, 'dvsdvsdvs', 0, '', '', '', '', '', '', NULL, 0, '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 3, 0, 'submitted'),
-(4, 2, 6, 16, 65, NULL, '', 0, 'Test Submit Date', 0, '', '', '', '', '', '', NULL, 0, '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 4, 0, 'submitted');
+INSERT INTO `pc2` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `pc2_sec1_edit`, `project_title`, `pc2_sec2_edit`, `project_supervisor_title`, `project_supervisor_name`, `project_supervisor_qualification`, `project_supervisor_department`, `project_supervisor_campus`, `project_supervisor_postal_address`, `pc2_project_supervisor_telephone`, `project_supervisor_fax`, `project_supervisor_email_address`, `pc2_sec3_edit`, `project_add_title`, `project_add_name`, `project_add_qualification`, `project_add_department`, `project_add_campus`, `project_add_postal_address`, `project_add_telephone`, `project_add_fax`, `project_add_email_address`, `pc2_sec4_edit`, `dealing_type_a`, `dealing_type_aa`, `dealing_type_b`, `dealing_type_c`, `dealing_type_d`, `dealing_type_e`, `dealing_type_f`, `dealing_type_g`, `dealing_type_h`, `dealing_type_i`, `dealing_type_j`, `dealing_type_k`, `dealing_type_l`, `dealing_type_m`, `pc2_sec5_edit`, `project_summary`, `pc2_sec6_edit`, `GMO_name`, `GMO_method`, `GMO_origin`, `pc2_sec7_edit`, `modified_trait_class`, `modified_trait_description`, `pc2_sec8_edit`, `project_hazard_staff`, `pc2_sec9_edit`, `project_hazard_environment`, `pc2_sec10_edit`, `project_hazard_steps`, `pc2_sec11_edit`, `project_transport`, `pc2_sec12_edit`, `project_disposal`, `pc2_sec13_edit`, `project_SOP`, `pc2_sec14_edit`, `project_facilities_building_no`, `project_facilities_room_no`, `project_facilities_containment_level`, `project_facilities_certification_no`, `pc2_sec15_edit`, `officer_notified`, `officer_name`, `laboratory_manager`, `application_approved`, `editable`, `status`) VALUES
+(2, 2, 1, 16, 29, NULL, '', 0, 'Submit Project', 0, '', 'Submit Project', '', '', '', '', NULL, '0', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 1, 1, 'submitted'),
+(3, 2, 4, 16, 30, NULL, '', 0, 'dvsdvsdvs', 0, '', '', '', '', '', '', NULL, '0', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 3, 0, 'submitted'),
+(4, 2, 6, 16, 65, NULL, '', 0, 'Test Submit Date', 0, '', '', '', '', '', '', NULL, '0', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 4, 0, 'submitted'),
+(5, 2, NULL, 16, 66, NULL, '', 0, '', 0, '', '', '', '', '', '', NULL, '0', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'saved'),
+(7, 2, NULL, 16, 68, NULL, NULL, 0, '', 0, '', '', '', '', '', '', NULL, '0', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 0, '', '', NULL, 0, 'saved'),
+(8, 2, NULL, 16, 69, NULL, NULL, 0, 'PC2 title', 0, 'hei', 'fsdv', 'asfccf', 'deparment pc2', 'pc2 campus', 'pc2 address', 1234567890, '23', 'pc2mail', 0, 'dr,dfb', 'Doctor,sebftgbsbcfdeb', 'something,bsdfbrthbfce', 'swinburne sascsac,fbzdfbdtbhdb', 'additional campus,dbzdaaebfb', 'sfcsdfcdf,adfbthbdfrfd', 'dwegefgdb,dfvfgaD', 'dsbsbdsrb,dewdebfbf', 'dfbsaswhebfc f,dsvsewhrs', 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 'sfcsfs', 0, 'Scientific Name PC2', 'Veectors PC2', 'Gene PC2', 0, 'Class PC2', 'Details PC2', 0, 'gnrgngrnngfr', 0, 'ngrsrynsrsnrrfn', 0, 'gnsrgnsrsgn', 0, 'nrnnsng', 0, 'sascscsdvtbrsng', 0, 'aswdca', 0, 'qwd', 'wdwdq', 'wdqwdws', 'wqwsd', 0, 1, 'Ms Chua', 'PC2 managaer', NULL, 0, 'saved'),
+(9, 2, NULL, 16, 70, NULL, NULL, 0, '', 0, '', '', '', '', '', '', 0, '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved');
 
 -- --------------------------------------------------------
 
@@ -1479,15 +1502,14 @@ CREATE TABLE `project` (
 --
 
 INSERT INTO `project` (`project_id`, `approver_id`, `project_name`, `project_desc`, `project_date`, `project_type`, `account_id`, `project_approval`, `project_status`, `project_editable`, `project_duration`, `approval_date`) VALUES
-(28, NULL, 'Test save project', 'save the project status', '2018-10-12 12:33:41', 'app_lmo', 2, 0, 'saved', 0, NULL, NULL),
-(29, 5, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, 0, 'submitted', 0, NULL, NULL),
+(29, 1, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, 1, 'submitted', 1, NULL, NULL),
 (30, NULL, 'New Type Porject', 'asascassabfebdfb ', '2018-10-14 06:15:21', 'app_lmo', 2, 0, 'submitted', 0, NULL, NULL),
-(33, NULL, 'Biohazard Test Save Project', 'Test if biohazard project can be saved', '2018-10-14 15:35:29', 'app_bio', 2, 0, 'saved', 0, NULL, NULL),
+(33, NULL, 'Biohazard Test Save Project', 'Test if biohazard project can be saved', '2018-10-14 15:35:29', 'app_bio', 2, 0, 'deleted', 0, NULL, NULL),
 (34, 3, 'Biohazard submit', 'Biohazardous submit function', '2018-10-14 15:37:44', 'app_bio', 2, 0, 'submitted', 0, NULL, NULL),
 (36, NULL, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0, NULL, NULL),
 (37, 3, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0, NULL, NULL),
 (41, NULL, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'saved', 0, NULL, NULL),
-(42, 3, 'Procurement submit', 'ascacascasc', '2018-10-15 12:38:21', 'procurement', 2, 1, 'submitted', 0, NULL, NULL),
+(42, 3, 'Procurement submit', 'ascacascasc', '2018-12-14 16:00:00', 'procurement', 2, 1, 'submitted', 0, NULL, NULL),
 (43, NULL, 'Notifcation of LMO and BM save', 'Test save function for notification of LMO and BM', '2018-10-16 06:16:56', 'notifLMOBM', 2, 0, 'saved', 0, NULL, NULL),
 (44, 3, 'New Submit For Notification of LMO and BM', 'test submit', '2018-10-16 07:19:54', 'notifLMOBM', 2, 0, 'submitted', 0, NULL, NULL),
 (47, NULL, 'annual save', 'test save', '2018-10-16 13:24:16', 'anuualfinalreport', 2, 0, 'saved', 0, NULL, NULL),
@@ -1506,7 +1528,11 @@ INSERT INTO `project` (`project_id`, `approver_id`, `project_name`, `project_des
 (62, 3, 'disease submit', 'scscc', '2018-10-16 19:59:26', 'occupational', 2, 0, 'submitted', 0, NULL, NULL),
 (63, NULL, 'project one', 'project testing', '2018-10-17 02:04:55', 'app_lmo', 2, 0, NULL, 0, NULL, NULL),
 (64, NULL, 'Bacteria', 'HAUSHAUBDANXXAJ', '2018-10-17 02:12:31', 'app_lmo', 2, 0, NULL, 0, NULL, NULL),
-(65, 6, 'Test Date Insertion', 'Testing if can saved approval date into database', '2018-10-23 08:42:10', 'app_lmo', 2, 4, 'submitted', 0, 2, '2018-10-23');
+(65, 6, 'Test Date Insertion', 'Testing if can saved approval date into database', '2018-10-23 08:42:10', 'app_lmo', 2, 4, 'submitted', 0, 2, '2018-10-23'),
+(66, NULL, 'Test Save', 'Input Format test', '2018-10-26 14:07:07', 'app_lmo', 2, 0, 'saved', 0, 1, NULL),
+(68, NULL, 'Forme radio', 'form e radio button empty', '2018-10-26 15:43:25', 'app_lmo', 2, 0, 'deleted', 0, 1, NULL),
+(69, NULL, 'New LMO', 'Just testing for saved projects', '2018-10-28 10:25:47', 'app_lmo', 2, 0, 'saved', 0, 1, NULL),
+(70, NULL, 'new lmo project', 'jdnknsdk', '2018-10-30 06:36:42', 'app_lmo', 2, 0, 'saved', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1529,6 +1555,13 @@ CREATE TABLE `storage` (
   `approval` int(1) UNSIGNED DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `storage`
+--
+
+INSERT INTO `storage` (`storage_id`, `account_id`, `biohazard_id`, `biohazard_name`, `risk_group`, `location`, `biohazard_source`, `date_created`, `storage_location`, `keeper_name`, `log_in_personnel`, `approval`) VALUES
+(1, 2, 'a', 'a', 'a', 'a', 'a', '2018-10-17', 'a', 'a', 'a', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -1545,7 +1578,7 @@ CREATE TABLE `swp` (
   `SBC_reference_no` varchar(10) DEFAULT NULL,
   `swp_sec1_edit` int(1) DEFAULT '0',
   `SWP_prepared_by` varchar(100) NOT NULL,
-  `SWP_staff_student_no` int(10) UNSIGNED DEFAULT NULL,
+  `SWP_staff_student_no` varchar(10) DEFAULT NULL,
   `SWP_designation` varchar(100) NOT NULL,
   `SWP_faculty` varchar(100) NOT NULL,
   `SWP_unit_title` varchar(500) DEFAULT NULL,
@@ -1562,11 +1595,13 @@ CREATE TABLE `swp` (
   `SWP_declaration_name` varchar(100) NOT NULL,
   `SWP_declaration_date` date DEFAULT NULL,
   `swp_sec4_edit` int(1) DEFAULT '0',
+  `SWP_name` varchar(250) DEFAULT NULL,
+  `SWP_PI` varchar(250) DEFAULT NULL,
   `SWP_signature_prepared_by` varchar(100) DEFAULT NULL,
   `SWP_signature_prepared_by_date` date DEFAULT NULL,
   `SWP_signature_PI` varchar(100) DEFAULT NULL,
   `SWP_signature_PI_date` date DEFAULT NULL,
-  `SWP_lab_trained` int(1) DEFAULT NULL,
+  `SWP_lab_trained` int(1) DEFAULT '3',
   `SWP_lab_trainer` varchar(500) DEFAULT NULL,
   `SWP_approval_by` int(1) DEFAULT NULL,
   `SWP_approved_by` varchar(100) DEFAULT NULL,
@@ -1586,15 +1621,18 @@ CREATE TABLE `swp` (
 -- Dumping data for table `swp`
 --
 
-INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `swp_sec1_edit`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `swp_sec2_edit`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `swp_sec3_edit`, `SWP_declaration_name`, `SWP_declaration_date`, `swp_sec4_edit`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_type`, `application_approved`, `editable`, `status`) VALUES
-(1, 2, 3, 17, 28, NULL, NULL, 0, 'save project update', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
-(2, 2, 3, 17, 29, NULL, NULL, 0, 'Submit Project', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
-(3, 2, 3, 17, 30, NULL, NULL, 0, 'sdcscsdcv', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
-(5, 2, 3, 17, 33, NULL, NULL, 0, 'Biohazardous Test Save updated saved', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
-(6, 2, 3, 17, 34, NULL, NULL, 0, 'Biohazardous Submit', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted'),
-(8, 2, NULL, 17, 36, NULL, NULL, 0, 'exempt save test change', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
-(9, 2, 3, 17, 37, NULL, NULL, 0, 'Submit exempt project edited', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 1, 'submitted'),
-(10, 2, 6, 17, 65, NULL, NULL, 0, 'Test Submit Date', 0, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted');
+INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `swp_sec1_edit`, `SWP_prepared_by`, `SWP_staff_student_no`, `SWP_designation`, `SWP_faculty`, `SWP_unit_title`, `SWP_project_title`, `SWP_location`, `swp_sec2_edit`, `SWP_description`, `SWP_preoperational`, `SWP_operational`, `SWP_postoperational`, `SWP_risk`, `SWP_control`, `swp_sec3_edit`, `SWP_declaration_name`, `SWP_declaration_date`, `swp_sec4_edit`, `SWP_name`, `SWP_PI`, `SWP_signature_prepared_by`, `SWP_signature_prepared_by_date`, `SWP_signature_PI`, `SWP_signature_PI_date`, `SWP_lab_trained`, `SWP_lab_trainer`, `SWP_approval_by`, `SWP_approved_by`, `SWP_declined_by`, `SWP_approve_decline_date`, `SWP_approve_decline_remarks`, `SWP_reviewed_by`, `SWP_reviewed_by_date`, `SWP_reviewed_by_remarks`, `application_type`, `application_approved`, `editable`, `status`) VALUES
+(2, 2, 1, 17, 29, NULL, NULL, 0, 'Submit Project', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 1, 'submitted'),
+(3, 2, 3, 17, 30, NULL, NULL, 0, 'sdcscsdcv', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'submitted'),
+(5, 2, 3, 17, 33, NULL, NULL, 0, 'Biohazardous Test Save updated saved', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 1, 0, 'saved'),
+(6, 2, 3, 17, 34, NULL, NULL, 0, 'Biohazardous Submit', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted'),
+(8, 2, NULL, 17, 36, NULL, NULL, 0, 'exempt save test change', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
+(9, 2, 3, 17, 37, NULL, NULL, 0, 'Submit exempt project edited', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 1, 'submitted'),
+(10, 2, 6, 17, 65, NULL, NULL, 0, 'Test Submit Date', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, 4, 0, 'submitted'),
+(11, 2, NULL, 17, 66, NULL, NULL, 0, '', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
+(13, 2, NULL, 17, 68, NULL, NULL, 0, '', '0', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', NULL, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved'),
+(14, 2, NULL, 17, 69, NULL, NULL, 0, 'Me', '100072290', 'Student', 'BCS', 'COS30015', 'Title Here', 'Kuching', 0, 'Description place here', 'Pre-Operational Stuff Here', 'Operational stuff here', 'Post Operational stuff here', 'Potential Hazard', 'Exposure Control', 0, 'My Name', '2018-10-15', 0, 'Me', 'I signed', 'This name', '2018-10-16', 'Verified By', '2018-10-17', 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 'saved'),
+(15, 2, NULL, 17, 70, NULL, NULL, 0, '', NULL, '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, NULL, NULL, '', '0000-00-00', '', '0000-00-00', 3, '', NULL, NULL, '', '0000-00-00', '', '', '0000-00-00', '', 0, NULL, 0, 'saved');
 
 --
 -- Indexes for dumped tables
@@ -1815,7 +1853,7 @@ ALTER TABLE `accounts`
 -- AUTO_INCREMENT for table `annex2`
 --
 ALTER TABLE `annex2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `annex3`
@@ -1839,7 +1877,7 @@ ALTER TABLE `annex5`
 -- AUTO_INCREMENT for table `announcement`
 --
 ALTER TABLE `announcement`
-  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `announcement_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `annualfinalreport`
@@ -1869,7 +1907,7 @@ ALTER TABLE `exemptdealing`
 -- AUTO_INCREMENT for table `forme`
 --
 ALTER TABLE `forme`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `formf`
@@ -1881,7 +1919,7 @@ ALTER TABLE `formf`
 -- AUTO_INCREMENT for table `hirarc`
 --
 ALTER TABLE `hirarc`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `incidentaccidentreport`
@@ -1893,7 +1931,7 @@ ALTER TABLE `incidentaccidentreport`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `inventory_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `marks`
@@ -1911,7 +1949,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -1929,31 +1967,31 @@ ALTER TABLE `notificationlmobiohazardousmaterial`
 -- AUTO_INCREMENT for table `pc1`
 --
 ALTER TABLE `pc1`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pc2`
 --
 ALTER TABLE `pc2`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `project`
 --
 ALTER TABLE `project`
-  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `project_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=71;
 
 --
 -- AUTO_INCREMENT for table `storage`
 --
 ALTER TABLE `storage`
-  MODIFY `storage_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `storage_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `swp`
 --
 ALTER TABLE `swp`
-  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `application_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

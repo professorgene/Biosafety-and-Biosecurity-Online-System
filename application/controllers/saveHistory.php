@@ -14,7 +14,7 @@ class saveHistory extends CI_Controller {
         $this->load->model('email_model');
 		//breadcrumb
 		$this->breadcrumbs->unshift('Home', '/');	
-        $this->breadcrumbs->push('Modification of Approved Project', true);
+        $this->breadcrumbs->push('Saved Project Application', true);
         
         //Form Models
         $this->load->model('annex2_model');

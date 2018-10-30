@@ -60,8 +60,8 @@
             </tbody>
         </table>
                    
-                <div id="section_1" class="sectiontarget">
-                   <table class="table table-bordered" id="section_1">
+                <div id="pc2_section_1" class="sectiontarget">
+                   <table class="table table-bordered">
                        <thead>
                            <tr>
                                <th width="10" class="reddata">1</th>
@@ -489,11 +489,11 @@
                        </tbody>
                    </table>
                    
-                <div id="section_5" class="sectiontarget">
+                <div id="pc2_section_5" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="reddata" id="section_5">5</th>
+                               <th width="10px" class="reddata">5</th>
                                <th colspan="2">Project Summary - briefly describe the project, including the aims of the proposed dealing, method of producing GMOs and their use. (This should be written in plain English).</th>
                            </tr>
                        </thead>
@@ -630,11 +630,11 @@
                    </table>
                    <span class="text-danger"><?php echo form_error('pc2_project_hazard_environment'); ?></span>
                    
-                <div id="section_10" class="sectiontarget">
+                <div id="pc2_section_10" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
                            <tr>
-                               <th width="10px" class="reddata" id="section_10">10</th>
+                               <th width="10px" class="reddata">10</th>
                                <th colspan="2">What are the steps you will take in the event of an unintentional release of the GMO(s)?</th>
                            </tr>
                        </thead>
@@ -764,7 +764,7 @@
                        </tbody>
                    </table>
                    
-                <div id="section_15" class="sectiontarget">
+                <div id="pc2_section_15" class="sectiontarget">
                    <table class="table table-bordered">
                        <table class="table table-bordered">
                        <thead>
@@ -836,10 +836,10 @@
             <div class="col-md-2">
                 <div class="btn-group-vertical btn-sample">
                     <a href="#top" class="btn btn-success">Top</a>
-                    <a href="#section_1" class="btn btn-success">Section 1</a>
-                    <a href="#section_5" class="btn btn-success">Section 2</a>
-                    <a href="#section_10" class="btn btn-success">Section 3</a>
-                    <a href="#section_15" class="btn btn-success">Section 5</a>
+                    <a href="#pc2_section_1" class="btn btn-success">Section 1</a>
+                    <a href="#pc2_section_5" class="btn btn-success">Section 2</a>
+                    <a href="#pc2_section_10" class="btn btn-success">Section 3</a>
+                    <a href="#pc2_section_15" class="btn btn-success">Section 5</a>
                 </div>   
             </div>
         </div>

@@ -143,6 +143,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -164,7 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->exempt_model->insert_new_applicant_data($exemptData) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSave))
                 {
                     
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $biohazardData);
                     redirect('home/index');
                     
                     $this->session->unset_userdata('projectName');
@@ -289,6 +291,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -474,6 +478,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -673,6 +679,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
@@ -694,7 +702,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->exempt_model->update_saved_data($proj_id, $exemptData) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSave))
                 {
                     
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
+                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $biohazardData);
                     redirect('home/index');
                     
                     #$this->session->unset_userdata('projectId');
@@ -819,6 +827,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'SWP_control' => $this->input->post('SWP_control'),
                     'SWP_declaration_name' => $this->input->post('SWP_declaration_name'),
                     'SWP_declaration_date' => $this->input->post('SWP_declaration_date'),
+                    'SWP_name' => $this->input->post('SWP_name'),
+                    'SWP_PI' => $this->input->post('SWP_PI'),
                     'SWP_signature_prepared_by' => $this->input->post('SWP_signature_prepared_by'),
                     'SWP_signature_PI' => $this->input->post('SWP_signature_PI'),
                     'SWP_signature_prepared_by_date' => $this->input->post('SWP_signature_prepared_by_date'),
