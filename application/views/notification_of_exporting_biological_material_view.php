@@ -72,25 +72,25 @@
                            <tbody>
                                <tr>
                                    <th class="tbheader1">1.01 Name (as per I.C./Passport):</th>
-                                   <td><input type="text" name="personnel_name" class="form-control" value="<?php if(isset($load)){echo set_value('personnel_name', $item->personnel_name);}else{echo set_value('personnel_name');} ?>">
+                                   <td><textarea  type="text" name="personnel_name" class="form-control" value="<?php if(isset($load)){echo set_value('personnel_name', $item->personnel_name);}else{echo set_value('personnel_name');} ?>"></textarea>
                                    </td>
                                    
                                    <th class="tbheader1">1.02 Staff/Student No.:</th>
-                                   <td><input type="text" name="personnel_staff_student_no" class="form-control" value="<?php if(isset($load)){echo set_value('personnel_staff_student_no', $item->personnel_staff_student_no);}else{echo set_value('personnel_staff_student_no');} ?>"></td>
+                                   <td><textarea  type="text" name="personnel_staff_student_no" class="form-control" value="<?php if(isset($load)){echo set_value('personnel_staff_student_no', $item->personnel_staff_student_no);}else{echo set_value('personnel_staff_student_no');} ?>"></textarea></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.03 Designation:</th>
-                                   <td><input type="text" class="form-control" name="personnel_designation" value="<?php if(isset($load)){echo set_value('personnel_designation', $item->personnel_designation);}else{echo set_value('personnel_designation');} ?>" ></td>
+                                   <td><textarea  type="text" class="form-control" name="personnel_designation" value="<?php if(isset($load)){echo set_value('personnel_designation', $item->personnel_designation);}else{echo set_value('personnel_designation');} ?>" ></textarea></td>
                                    
                                    <th class="tbheader1">1.04 Faculty/unit:</th>
-                                   <td><input type="text" class="form-control" name="personnel_faculty" value="<?php if(isset($load)){echo set_value('personnel_faculty', $item->personnel_faculty);}else{echo set_value('personnel_faculty');} ?>"></td>
+                                   <td><textarea  type="text" class="form-control" name="personnel_faculty" value="<?php if(isset($load)){echo set_value('personnel_faculty', $item->personnel_faculty);}else{echo set_value('personnel_faculty');} ?>"></textarea></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.05 Project Title:</th>
-                                   <td><input type="text" class="form-control" name="personnel_project_title" value="<?php if(isset($load)){echo set_value('personnel_project_title', $item->personnel_project_title);}else{echo set_value('personnel_project_title');} ?>" ></td>
+                                   <td><textarea  type="text" class="form-control" name="personnel_project_title" value="<?php if(isset($load)){echo set_value('personnel_project_title', $item->personnel_project_title);}else{echo set_value('personnel_project_title');} ?>" ></textarea></td>
                                    
 							   	   <th class="tbheader1">Ref. No.:</th>
-                                   <td><input type="text" class="form-control" name="personnel_reference_no" value="<?php if(isset($load)){echo set_value('personnel_reference_no', $item->personnel_reference_no);}else{echo set_value('personnel_reference_no');} ?>" ></td>
+                                   <td><textarea  type="text" class="form-control" name="personnel_reference_no" value="<?php if(isset($load)){echo set_value('personnel_reference_no', $item->personnel_reference_no);}else{echo set_value('personnel_reference_no');} ?>" ></textarea></td>
 							   </tr>                              
                            </tbody>
                        </table>
@@ -129,70 +129,70 @@
                                    <th>Volume (g or mL)</th>                                  
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name[0]" value="<?php if(isset($load)){echo set_value('LMO_name[0]', $a[0]);}else{echo set_value('LMO_name[0]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_name[0]" value="<?php if(isset($load)){echo set_value('LMO_name[0]', $a[0]);}else{echo set_value('LMO_name[0]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_risk_level[0]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[0]', $b[0]);}else{echo set_value('LMO_risk_level[0]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_risk_level[0]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[0]', $b[0]);}else{echo set_value('LMO_risk_level[0]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_category[0]" value="<?php if(isset($load)){echo set_value('LMO_category[0]', $c[0]);}else{echo set_value('LMO_category[0]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_category[0]" value="<?php if(isset($load)){echo set_value('LMO_category[0]', $c[0]);}else{echo set_value('LMO_category[0]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="LMO_quantity[0]" value="<?php if(isset($load)){echo set_value('LMO_quantity[0]', $d[0]);}else{echo set_value('LMO_quantity[0]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="LMO_quantity[0]" value="<?php if(isset($load)){echo set_value('LMO_quantity[0]', $d[0]);}else{echo set_value('LMO_quantity[0]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_volume[0]" value="<?php if(isset($load)){echo set_value('LMO_volume[0]', $e[0]);}else{echo set_value('LMO_volume[0]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_volume[0]" value="<?php if(isset($load)){echo set_value('LMO_volume[0]', $e[0]);}else{echo set_value('LMO_volume[0]');} ?>" ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name[1]" value="<?php if(isset($load)){echo set_value('LMO_name[1]', $a[1]);}else{echo set_value('LMO_name[1]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_name[1]" value="<?php if(isset($load)){echo set_value('LMO_name[1]', $a[1]);}else{echo set_value('LMO_name[1]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_risk_level[1]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[1]', $b[1]);}else{echo set_value('LMO_risk_level[1]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_risk_level[1]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[1]', $b[1]);}else{echo set_value('LMO_risk_level[1]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_category[1]" value="<?php if(isset($load)){echo set_value('LMO_category[1]', $c[1]);}else{echo set_value('LMO_category[1]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_category[1]" value="<?php if(isset($load)){echo set_value('LMO_category[1]', $c[1]);}else{echo set_value('LMO_category[1]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="LMO_quantity[1]" value="<?php if(isset($load)){echo set_value('LMO_quantity[1]', $d[1]);}else{echo set_value('LMO_quantity[1]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="LMO_quantity[1]" value="<?php if(isset($load)){echo set_value('LMO_quantity[1]', $d[1]);}else{echo set_value('LMO_quantity[1]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_volume[1]" value="<?php if(isset($load)){echo set_value('LMO_volume[1]', $e[1]);}else{echo set_value('LMO_volume[1]');} ?>"  ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_volume[1]" value="<?php if(isset($load)){echo set_value('LMO_volume[1]', $e[1]);}else{echo set_value('LMO_volume[1]');} ?>"  ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name[2]" value="<?php if(isset($load)){echo set_value('LMO_name[2]', $a[2]);}else{echo set_value('LMO_name[2]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_name[2]" value="<?php if(isset($load)){echo set_value('LMO_name[2]', $a[2]);}else{echo set_value('LMO_name[2]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_risk_level[2]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[2]', $b[2]);}else{echo set_value('LMO_risk_level[2]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_risk_level[2]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[2]', $b[2]);}else{echo set_value('LMO_risk_level[2]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_category[2]" value="<?php if(isset($load)){echo set_value('LMO_category[2]', $c[2]);}else{echo set_value('LMO_category[2]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_category[2]" value="<?php if(isset($load)){echo set_value('LMO_category[2]', $c[2]);}else{echo set_value('LMO_category[2]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="LMO_quantity[2]" value="<?php if(isset($load)){echo set_value('LMO_quantity[2]', $d[2]);}else{echo set_value('LMO_quantity[2]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="LMO_quantity[2]" value="<?php if(isset($load)){echo set_value('LMO_quantity[2]', $d[2]);}else{echo set_value('LMO_quantity[2]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_volume[2]" value="<?php if(isset($load)){echo set_value('LMO_volume[2]', $e[2]);}else{echo set_value('LMO_volume[2]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_volume[2]" value="<?php if(isset($load)){echo set_value('LMO_volume[2]', $e[2]);}else{echo set_value('LMO_volume[2]');} ?>" ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name[3]" value="<?php if(isset($load)){echo set_value('LMO_name[3]', $a[3]);}else{echo set_value('LMO_name[3]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_name[3]" value="<?php if(isset($load)){echo set_value('LMO_name[3]', $a[3]);}else{echo set_value('LMO_name[3]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_risk_level[3]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[3]', $b[3]);}else{echo set_value('LMO_risk_level[3]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_risk_level[3]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[3]', $b[3]);}else{echo set_value('LMO_risk_level[3]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_category[3]" value="<?php if(isset($load)){echo set_value('LMO_category[3]', $c[3]);}else{echo set_value('LMO_category[3]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_category[3]" value="<?php if(isset($load)){echo set_value('LMO_category[3]', $c[3]);}else{echo set_value('LMO_category[3]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="LMO_quantity[3]" value="<?php if(isset($load)){echo set_value('LMO_quantity[3]', $d[3]);}else{echo set_value('LMO_quantity[3]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="LMO_quantity[3]" value="<?php if(isset($load)){echo set_value('LMO_quantity[3]', $d[3]);}else{echo set_value('LMO_quantity[3]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_volume[3]" value="<?php if(isset($load)){echo set_value('LMO_volume[3]', $e[3]);}else{echo set_value('LMO_volume[3]');} ?>"  ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_volume[3]" value="<?php if(isset($load)){echo set_value('LMO_volume[3]', $e[3]);}else{echo set_value('LMO_volume[3]');} ?>"  ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name[4]" value="<?php if(isset($load)){echo set_value('LMO_name[4]', $a[4]);}else{echo set_value('LMO_name[4]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_name[4]" value="<?php if(isset($load)){echo set_value('LMO_name[4]', $a[4]);}else{echo set_value('LMO_name[4]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_risk_level[4]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[4]', $b[4]);}else{echo set_value('LMO_risk_level[4]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_risk_level[4]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[4]', $b[4]);}else{echo set_value('LMO_risk_level[4]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_category[4]" value="<?php if(isset($load)){echo set_value('LMO_category[4]', $c[4]);}else{echo set_value('LMO_category[4]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_category[4]" value="<?php if(isset($load)){echo set_value('LMO_category[4]', $c[4]);}else{echo set_value('LMO_category[4]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="LMO_quantity[4]" value="<?php if(isset($load)){echo set_value('LMO_quantity[4]', $d[4]);}else{echo set_value('LMO_quantity[4]');} ?>"></th>
+                                   <th><textarea  type="number" class="form-control" name="LMO_quantity[4]" value="<?php if(isset($load)){echo set_value('LMO_quantity[4]', $d[4]);}else{echo set_value('LMO_quantity[4]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_volume[4]" value="<?php if(isset($load)){echo set_value('LMO_volume[4]', $e[4]);}else{echo set_value('LMO_volume[4]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_volume[4]" value="<?php if(isset($load)){echo set_value('LMO_volume[4]', $e[4]);}else{echo set_value('LMO_volume[4]');} ?>" ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="LMO_name[5]" value="<?php if(isset($load)){echo set_value('LMO_name[5]', $a[5]);}else{echo set_value('LMO_name[5]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_name[5]" value="<?php if(isset($load)){echo set_value('LMO_name[5]', $a[5]);}else{echo set_value('LMO_name[5]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_risk_level[5]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[5]', $b[5]);}else{echo set_value('LMO_risk_level[5]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_risk_level[5]" value="<?php if(isset($load)){echo set_value('LMO_risk_level[5]', $b[5]);}else{echo set_value('LMO_risk_level[5]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_category[5]" value="<?php if(isset($load)){echo set_value('LMO_category[5]', $c[5]);}else{echo set_value('LMO_category[5]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_category[5]" value="<?php if(isset($load)){echo set_value('LMO_category[5]', $c[5]);}else{echo set_value('LMO_category[5]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="LMO_quantity[5]" value="<?php if(isset($load)){echo set_value('LMO_quantity[5]', $d[5]);}else{echo set_value('LMO_quantity[5]');} ?>"></th>
+                                   <th><textarea  type="number" class="form-control" name="LMO_quantity[5]" value="<?php if(isset($load)){echo set_value('LMO_quantity[5]', $d[5]);}else{echo set_value('LMO_quantity[5]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="LMO_volume[5]" value="<?php if(isset($load)){echo set_value('LMO_volume[5]', $e[5]);}else{echo set_value('LMO_volume[5]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="LMO_volume[5]" value="<?php if(isset($load)){echo set_value('LMO_volume[5]', $e[5]);}else{echo set_value('LMO_volume[5]');} ?>" ></textarea></th>
                                </tr>							   
                            </tbody>
                        </table>
@@ -214,70 +214,70 @@
                                    <th class="reddata">Volume (g or mL)</th>                                  
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="biological_name[0]" value="<?php if(isset($load)){echo set_value('biological_name[0]', $f[0]);}else{echo set_value('biological_name[0]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_name[0]" value="<?php if(isset($load)){echo set_value('biological_name[0]', $f[0]);}else{echo set_value('biological_name[0]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_risk_level[0]" value="<?php if(isset($load)){echo set_value('biological_risk_level[0]', $g[0]);}else{echo set_value('biological_risk_level[0]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_risk_level[0]" value="<?php if(isset($load)){echo set_value('biological_risk_level[0]', $g[0]);}else{echo set_value('biological_risk_level[0]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_category[0]" value="<?php if(isset($load)){echo set_value('biological_category[0]', $h[0]);}else{echo set_value('biological_category[0]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_category[0]" value="<?php if(isset($load)){echo set_value('biological_category[0]', $h[0]);}else{echo set_value('biological_category[0]');} ?>"></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="biological_quantity[0]" value="<?php if(isset($load)){echo set_value('biological_quantity[0]', $i[0]);}else{echo set_value('biological_quantity[0]');} ?>"></th>
+                                   <th><textarea  type="number" class="form-control" name="biological_quantity[0]" value="<?php if(isset($load)){echo set_value('biological_quantity[0]', $i[0]);}else{echo set_value('biological_quantity[0]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_volume[0]" value="<?php if(isset($load)){echo set_value('biological_volume[0]', $j[0]);}else{echo set_value('biological_volume[0]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_volume[0]" value="<?php if(isset($load)){echo set_value('biological_volume[0]', $j[0]);}else{echo set_value('biological_volume[0]');} ?>"></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="biological_name[1]" value="<?php if(isset($load)){echo set_value('biological_name[1]', $f[1]);}else{echo set_value('biological_name[1]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_name[1]" value="<?php if(isset($load)){echo set_value('biological_name[1]', $f[1]);}else{echo set_value('biological_name[1]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_risk_level[1]" value="<?php if(isset($load)){echo set_value('biological_risk_level[1]', $g[1]);}else{echo set_value('biological_risk_level[1]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_risk_level[1]" value="<?php if(isset($load)){echo set_value('biological_risk_level[1]', $g[1]);}else{echo set_value('biological_risk_level[1]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_category[1]" value="<?php if(isset($load)){echo set_value('biological_category[1]', $h[1]);}else{echo set_value('biological_category[1]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_category[1]" value="<?php if(isset($load)){echo set_value('biological_category[1]', $h[1]);}else{echo set_value('biological_category[1]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="biological_quantity[1]" value="<?php if(isset($load)){echo set_value('biological_quantity[1]', $i[1]);}else{echo set_value('biological_quantity[1]');} ?>"></th>
+                                   <th><textarea  type="number" class="form-control" name="biological_quantity[1]" value="<?php if(isset($load)){echo set_value('biological_quantity[1]', $i[1]);}else{echo set_value('biological_quantity[1]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_volume[1]" value="<?php if(isset($load)){echo set_value('biological_volume[1]', $j[1]);}else{echo set_value('biological_volume[1]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_volume[1]" value="<?php if(isset($load)){echo set_value('biological_volume[1]', $j[1]);}else{echo set_value('biological_volume[1]');} ?>"></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="biological_name[2]" value="<?php if(isset($load)){echo set_value('biological_name[2]', $f[2]);}else{echo set_value('biological_name[2]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_name[2]" value="<?php if(isset($load)){echo set_value('biological_name[2]', $f[2]);}else{echo set_value('biological_name[2]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_risk_level[2]" value="<?php if(isset($load)){echo set_value('biological_risk_level[2]', $g[2]);}else{echo set_value('biological_risk_level[2]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_risk_level[2]" value="<?php if(isset($load)){echo set_value('biological_risk_level[2]', $g[2]);}else{echo set_value('biological_risk_level[2]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_category[2]" value="<?php if(isset($load)){echo set_value('biological_category[2]', $h[2]);}else{echo set_value('biological_category[2]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_category[2]" value="<?php if(isset($load)){echo set_value('biological_category[2]', $h[2]);}else{echo set_value('biological_category[2]');} ?>"></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="biological_quantity[2]" value="<?php if(isset($load)){echo set_value('biological_quantity[2]', $i[2]);}else{echo set_value('biological_quantity[2]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="biological_quantity[2]" value="<?php if(isset($load)){echo set_value('biological_quantity[2]', $i[2]);}else{echo set_value('biological_quantity[2]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_volume[2]" value="<?php if(isset($load)){echo set_value('biological_volume[2]', $j[2]);}else{echo set_value('biological_volume[2]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_volume[2]" value="<?php if(isset($load)){echo set_value('biological_volume[2]', $j[2]);}else{echo set_value('biological_volume[2]');} ?>"></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="biological_name[3]" value="<?php if(isset($load)){echo set_value('biological_name[3]', $f[3]);}else{echo set_value('biological_name[3]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_name[3]" value="<?php if(isset($load)){echo set_value('biological_name[3]', $f[3]);}else{echo set_value('biological_name[3]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_risk_level[3]" value="<?php if(isset($load)){echo set_value('biological_risk_level[3]', $g[3]);}else{echo set_value('biological_risk_level[3]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_risk_level[3]" value="<?php if(isset($load)){echo set_value('biological_risk_level[3]', $g[3]);}else{echo set_value('biological_risk_level[3]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_category[3]" value="<?php if(isset($load)){echo set_value('biological_category[3]', $h[3]);}else{echo set_value('biological_category[3]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_category[3]" value="<?php if(isset($load)){echo set_value('biological_category[3]', $h[3]);}else{echo set_value('biological_category[3]');} ?>"></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="biological_quantity[3]" value="<?php if(isset($load)){echo set_value('biological_quantity[3]', $i[3]);}else{echo set_value('biological_quantity[3]');} ?>"></th>
+                                   <th><textarea  type="number" class="form-control" name="biological_quantity[3]" value="<?php if(isset($load)){echo set_value('biological_quantity[3]', $i[3]);}else{echo set_value('biological_quantity[3]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_volume[3]" value="<?php if(isset($load)){echo set_value('biological_volume[3]', $j[3]);}else{echo set_value('biological_volume[3]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_volume[3]" value="<?php if(isset($load)){echo set_value('biological_volume[3]', $j[3]);}else{echo set_value('biological_volume[3]');} ?>" ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="biological_name[4]" value="<?php if(isset($load)){echo set_value('biological_name[4]', $f[4]);}else{echo set_value('biological_name[4]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_name[4]" value="<?php if(isset($load)){echo set_value('biological_name[4]', $f[4]);}else{echo set_value('biological_name[4]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_risk_level[4]" value="<?php if(isset($load)){echo set_value('biological_risk_level[4]', $g[4]);}else{echo set_value('biological_risk_level[4]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_risk_level[4]" value="<?php if(isset($load)){echo set_value('biological_risk_level[4]', $g[4]);}else{echo set_value('biological_risk_level[4]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_category[4]" value="<?php if(isset($load)){echo set_value('biological_category[4]', $h[4]);}else{echo set_value('biological_category[4]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_category[4]" value="<?php if(isset($load)){echo set_value('biological_category[4]', $h[4]);}else{echo set_value('biological_category[4]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="biological_quantity[4]" value="<?php if(isset($load)){echo set_value('biological_quantity[4]', $i[4]);}else{echo set_value('biological_quantity[4]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="biological_quantity[4]" value="<?php if(isset($load)){echo set_value('biological_quantity[4]', $i[4]);}else{echo set_value('biological_quantity[4]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_volume[4]" value="<?php if(isset($load)){echo set_value('biological_volume[4]', $j[4]);}else{echo set_value('biological_volume[4]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_volume[4]" value="<?php if(isset($load)){echo set_value('biological_volume[4]', $j[4]);}else{echo set_value('biological_volume[4]');} ?>" ></textarea></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="biological_name[5]" value="<?php if(isset($load)){echo set_value('biological_name[5]', $f[5]);}else{echo set_value('biological_name[5]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_name[5]" value="<?php if(isset($load)){echo set_value('biological_name[5]', $f[5]);}else{echo set_value('biological_name[5]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_risk_level[5]" value="<?php if(isset($load)){echo set_value('biological_risk_level[5]', $g[5]);}else{echo set_value('biological_risk_level[5]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_risk_level[5]" value="<?php if(isset($load)){echo set_value('biological_risk_level[5]', $g[5]);}else{echo set_value('biological_risk_level[5]');} ?>"></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_category[5]" value="<?php if(isset($load)){echo set_value('biological_category[5]', $h[5]);}else{echo set_value('biological_category[5]');} ?>" ></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_category[5]" value="<?php if(isset($load)){echo set_value('biological_category[5]', $h[5]);}else{echo set_value('biological_category[5]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="number" class="form-control" name="biological_quantity[5]" value="<?php if(isset($load)){echo set_value('biological_quantity[5]', $i[5]);}else{echo set_value('biological_quantity[5]');} ?>" ></th>
+                                   <th><textarea  type="number" class="form-control" name="biological_quantity[5]" value="<?php if(isset($load)){echo set_value('biological_quantity[5]', $i[5]);}else{echo set_value('biological_quantity[5]');} ?>" ></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="biological_volume[5]" value="<?php if(isset($load)){echo set_value('biological_volume[5]', $j[5]);}else{echo set_value('biological_volume[5]');} ?>"></th>
+                                   <th><textarea  type="text" class="form-control" name="biological_volume[5]" value="<?php if(isset($load)){echo set_value('biological_volume[5]', $j[5]);}else{echo set_value('biological_volume[5]');} ?>"></textarea></th>
                                </tr>							   
                            </tbody>
                        </table>	
@@ -295,19 +295,19 @@
                            <tbody>
                                <tr>
                                    <th>3.01   Country:</th>
-                                   <td><input type="text" class="form-control" name="importing_country" value="<?php if(isset($load)){echo set_value('importing_country', $item->importing_country);}else{echo set_value('importing_country');} ?>" ></td>
+                                   <td><textarea  type="text" class="form-control" name="importing_country" value="<?php if(isset($load)){echo set_value('importing_country', $item->importing_country);}else{echo set_value('importing_country');} ?>" ></textarea></td>
                                </tr>
 							   <tr>
                                    <th>3.02   Institute Name:</th>
-                                   <td><input type="text" class="form-control" name="importing_institude" value="<?php if(isset($load)){echo set_value('importing_institude', $item->importing_institude);}else{echo set_value('importing_institude');} ?>"></td>
+                                   <td><textarea  type="text" class="form-control" name="importing_institude" value="<?php if(isset($load)){echo set_value('importing_institude', $item->importing_institude);}else{echo set_value('importing_institude');} ?>"></textarea></td>
                                </tr>
                                <tr>
                                    <th>3.03   Person-in-charge (who receive the material):</th>
-                                   <td><input type="text" class="form-control" name="importing_person_in_charge" value="<?php if(isset($load)){echo set_value('importing_person_in_charge', $item->importing_person_in_charge);}else{echo set_value('importing_person_in_charge');} ?>" ></td>
+                                   <td><textarea  type="text" class="form-control" name="importing_person_in_charge" value="<?php if(isset($load)){echo set_value('importing_person_in_charge', $item->importing_person_in_charge);}else{echo set_value('importing_person_in_charge');} ?>" ></textarea></td>
                                </tr>
                                <tr>
                                    <th>3.04   Contact Number: </th>
-                                   <td><input type="text" class="form-control" name="importing_person_in_charge_telephone_no" value="<?php if(isset($load)){echo set_value('importing_person_in_charge_telephone_no', $item->importing_person_in_charge_telephone_no);}else{echo set_value('importing_person_in_charge_telephone_no');} ?>" ></td>
+                                   <td><textarea  type="text" class="form-control" name="importing_person_in_charge_telephone_no" value="<?php if(isset($load)){echo set_value('importing_person_in_charge_telephone_no', $item->importing_person_in_charge_telephone_no);}else{echo set_value('importing_person_in_charge_telephone_no');} ?>" ></textarea></td>
                                </tr>                 
                            </tbody>
                        </table>
@@ -337,7 +337,7 @@
 							   </td>                               
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" name="declaration_name" placeholder="Signature: your name" value="<?php if(isset($load)){echo set_value('declaration_name', $item->declaration_name);}else{echo set_value('declaration_name');} ?>"></td>
+                               <td><textarea  type="text" class="form-control" name="declaration_name" placeholder="Signature: your name" value="<?php if(isset($load)){echo set_value('declaration_name', $item->declaration_name);}else{echo set_value('declaration_name');} ?>"></textarea></td>
                                
                                <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="declaration_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('declaration_date', $item->declaration_date);}else{echo set_value('declaration_date');} ?>"></td>
                            </tr>
@@ -358,7 +358,7 @@
                                <td>Verified By(Project Investigator):</td>
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" name="signature_verified_by" placeholder="Signature:" value="<?php if(isset($load)){echo set_value('signature_verified_by', $item->signature_verified_by);}else{echo set_value('signature_verified_by');} ?>" ></td>
+                               <td><textarea  type="text" class="form-control" name="signature_verified_by" placeholder="Signature:" value="<?php if(isset($load)){echo set_value('signature_verified_by', $item->signature_verified_by);}else{echo set_value('signature_verified_by');} ?>" ></textarea></td>
                            </tr>
                            <tr>
                                <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="signature_verified_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('signature_verified_date', $item->signature_verified_date);}else{echo set_value('signature_verified_date');} ?>"></td>
@@ -386,13 +386,13 @@
                                 </div>
                                </td>
                                <td style="width:450px">
-                                   <input type="text" class="form-control" name="notification_reviewed_by" placeholder="Reviewed by:" value="<?php if(isset($load)){echo set_value('notification_reviewed_by', $item->notification_reviewed_by);}else{echo set_value('notification_reviewed_by');} ?>">
-                               </td>
+                                   <textarea  type="text" class="form-control" name="notification_reviewed_by" placeholder="Reviewed by:" value="<?php if(isset($load)){echo set_value('notification_reviewed_by', $item->notification_reviewed_by);}else{echo set_value('notification_reviewed_by');} ?>">
+                               </textarea></td>
                            </tr>
                            <tr>
-                               <td><input type="text" class="form-control" name="signature_notification_verified_by" placeholder="Signature:" ></td>
+                               <td><textarea  type="text" class="form-control" name="signature_notification_verified_by" placeholder="Signature:" ></textarea></td>
                                
-							   <td><input type="text" class="form-control" name="signature_notification_reviewed_by" placeholder="Signature:" ></td>
+							   <td><textarea  type="text" class="form-control" name="signature_notification_reviewed_by" placeholder="Signature:" ></textarea></td>
                            </tr>
                            <tr>
                                <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="notification_approve_decline_date" placeholder="Date:" value="<?php if(isset($load)){echo set_value('notification_approve_decline_date', $item->notification_approve_decline_date);}else{echo set_value('notification_approve_decline_date');} ?>"></td>
@@ -401,11 +401,11 @@
                            </tr>
                            <tr>
                                <td>
-                                   <input type="text" class="form-control" name="notification_approve_decline_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('notification_approve_decline_remarks', $item->notification_approve_decline_remarks);}else{echo set_value('notification_approve_decline_remarks');} ?>">
-                               </td>
+                                   <textarea  type="text" class="form-control" name="notification_approve_decline_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('notification_approve_decline_remarks', $item->notification_approve_decline_remarks);}else{echo set_value('notification_approve_decline_remarks');} ?>">
+                               </textarea></td>
                                <td>
-                                   <input type="text" class="form-control" name="notification_reviewed_by_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('notification_reviewed_by_remarks', $item->notification_reviewed_by_remarks);}else{echo set_value('notification_reviewed_by_remarks');} ?>">
-                               </td>
+                                   <textarea  type="text" class="form-control" name="notification_reviewed_by_remarks" placeholder="Remarks:" value="<?php if(isset($load)){echo set_value('notification_reviewed_by_remarks', $item->notification_reviewed_by_remarks);}else{echo set_value('notification_reviewed_by_remarks');} ?>">
+                               </textarea></td>
                            </tr>
                        </tbody>
                    </table>
@@ -426,7 +426,7 @@
                                </tr>
                                <tr>
                                    <th>7.02   Any incident or accident occurs during the exporting?:</th>
-                                   <td><input type="text" class="form-control" name="incident_accident_report" value="<?php if(isset($load)){echo set_value('incident_accident_report', $item->incident_accident_report);}else{echo set_value('incident_accident_report');} ?>"></td>
+                                   <td><textarea  type="text" class="form-control" name="incident_accident_report" value="<?php if(isset($load)){echo set_value('incident_accident_report', $item->incident_accident_report);}else{echo set_value('incident_accident_report');} ?>"></textarea></td>
                                </tr>              
                            </tbody>
                        </table>
@@ -436,7 +436,7 @@
               
                 
 					<div>
-                    <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
+                    <input  type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
                 </div>
                 
                    <div style="text-align: center">
