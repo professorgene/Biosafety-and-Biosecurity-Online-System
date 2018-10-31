@@ -822,22 +822,29 @@
                                     Description of project activities <em>(please provide flow chart of the activities and the premises where each activity is conducted):</em>
                                     <input type="file" class="form-control" name="project_intro_activities"><br>
                                     
-                                    <?php if(isset($load)){if(!$item->project_intro_activities== NULL){$fname = $item->project_intro_activities; ?>
-                                    
-                                    <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>">Download File</a>
-                                    
-                                    <?php }else {}} ?>
+                                    <?php 
+                                        if(isset($load)){
+                                            if(!$item->project_intro_activities== NULL){
+                                                $fname = $item->project_intro_activities; 
+                                    ?>
+                                    <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                    <?php 
+                                            } else {
+
+                                            }
+                                        }
+                                    ?>
                                 </li>
                                 <li>
                                     Biosafety Level (BSL) of the proposed activity:<br>
                                     (the biosafety containment level is determined by the risk assessment of the activity)<br>
-                                     <label class="radio-inline"><input type="radio" value="1" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '1'); ?> <?php if(isset($load)){if($item->project_intro_BSL==1){echo "checked=checked";}}else{} ?> >BSL 1</label>
+                                     <label class="radio-inline"><input type="radio" value="1" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '1'); ?> <?php if(isset($load)){if($item->project_intro_BSL==1){echo "checked=checked";}}else{} ?> > BSL 1</label>
                                     
-                                     <label class="radio-inline"><input type="radio" value="2" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '2'); ?> <?php if(isset($load)){if($item->project_intro_BSL==2){echo "checked=checked";}}else{} ?>>BSL 2</label>
+                                     <label class="radio-inline"><input type="radio" value="2" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '2'); ?> <?php if(isset($load)){if($item->project_intro_BSL==2){echo "checked=checked";}}else{} ?>> BSL 2</label>
                                     
-                                     <label class="radio-inline"><input type="radio" value="3" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '3'); ?> <?php if(isset($load)){if($item->project_intro_BSL==3){echo "checked=checked";}}else{} ?>>BSL 3</label> 
+                                     <label class="radio-inline"><input type="radio" value="3" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '3'); ?> <?php if(isset($load)){if($item->project_intro_BSL==3){echo "checked=checked";}}else{} ?>> BSL 3</label> 
                                     
-                                     <label class="radio-inline"><input type="radio" value="4" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '4'); ?> <?php if(isset($load)){if($item->project_intro_BSL==4){echo "checked=checked";}}else{} ?>>BSL 4</label> 
+                                     <label class="radio-inline"><input type="radio" value="4" name="project_intro_BSL" <?php echo set_radio('project_intro_BSL', '4'); ?> <?php if(isset($load)){if($item->project_intro_BSL==4){echo "checked=checked";}}else{} ?>> BSL 4</label> 
                                 </li>
                                 <li>
                                     Estimated duration of activity <em>(please provide Gantt Chart):</em>

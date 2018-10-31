@@ -36,25 +36,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($save)){
                 
-                // load upload class library
                 $config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
-                $this->load->library('upload', $config);
-                $this->upload->do_upload('project_intro_activities');
-                $project_intro_activities = $this->upload->data();
+                $config['overwrite'] = TRUE;
                 
-                $this->upload->do_upload('project_intro_duration');
-                $project_intro_duration = $this->upload->data();
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('project_intro_activities')){
+                    $project_intro_activities = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
-                $this->upload->do_upload('applicant_PI_signature_file');
-                $applicant_PI_signature_file = $this->upload->data();
+                if($this->upload->do_upload('project_intro_duration')){
+                    $project_intro_duration = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
-                $this->upload->do_upload('IBC_chairperson_signature_file');
-                $IBC_chairperson_signature_file = $this->upload->data();
-                
-                $this->upload->do_upload('organization_representative_signature_file');
-                $organization_representative_signature_file = $this->upload->data();
-                
+                if($this->upload->do_upload('applicant_PI_signature_file')){
+                    $applicant_PI_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                if($this->upload->do_upload('IBC_chairperson_signature_file')){
+                    $IBC_chairperson_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                if($this->upload->do_upload('organization_representative_signature_file')){
+                    $organization_representative_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
@@ -491,24 +496,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($submit)){
                 
-                // load upload class library
                 $config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
-                $this->load->library('upload', $config);
-                $this->upload->do_upload('project_intro_activities');
-                $project_intro_activities = $this->upload->data();
+                $config['overwrite'] = TRUE;
                 
-                $this->upload->do_upload('project_intro_duration');
-                $project_intro_duration = $this->upload->data();
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('project_intro_activities')){
+                    $project_intro_activities = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
-                $this->upload->do_upload('applicant_PI_signature_file');
-                $applicant_PI_signature_file = $this->upload->data();
+                if($this->upload->do_upload('project_intro_duration')){
+                    $project_intro_duration = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
-                $this->upload->do_upload('IBC_chairperson_signature_file');
-                $IBC_chairperson_signature_file = $this->upload->data();
-                
-                $this->upload->do_upload('organization_representative_signature_file');
-                $organization_representative_signature_file = $this->upload->data();
+                if($this->upload->do_upload('applicant_PI_signature_file')){
+                    $applicant_PI_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                if($this->upload->do_upload('IBC_chairperson_signature_file')){
+                    $IBC_chairperson_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                if($this->upload->do_upload('organization_representative_signature_file')){
+                    $organization_representative_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
@@ -990,24 +1001,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($update)){
                 
-                // load upload class library
                 $config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
-                $this->load->library('upload', $config);
-                $this->upload->do_upload('project_intro_activities');
-                $project_intro_activities = $this->upload->data();
+                $config['overwrite'] = TRUE;
                 
-                $this->upload->do_upload('project_intro_duration');
-                $project_intro_duration = $this->upload->data();
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('project_intro_activities')){
+                    $project_intro_activities = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
-                $this->upload->do_upload('applicant_PI_signature_file');
-                $applicant_PI_signature_file = $this->upload->data();
+                if($this->upload->do_upload('project_intro_duration')){
+                    $project_intro_duration = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
-                $this->upload->do_upload('IBC_chairperson_signature_file');
-                $IBC_chairperson_signature_file = $this->upload->data();
-                
-                $this->upload->do_upload('organization_representative_signature_file');
-                $organization_representative_signature_file = $this->upload->data();
+                if($this->upload->do_upload('applicant_PI_signature_file')){
+                    $applicant_PI_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                if($this->upload->do_upload('IBC_chairperson_signature_file')){
+                    $IBC_chairperson_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                if($this->upload->do_upload('organization_representative_signature_file')){
+                    $organization_representative_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
