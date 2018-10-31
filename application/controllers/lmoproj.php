@@ -36,6 +36,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($save)){
                 
+                // load upload class library
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('project_intro_activities');
+                $project_intro_activities = $this->upload->data();
+                
+                $this->upload->do_upload('project_intro_duration');
+                $project_intro_duration = $this->upload->data();
+                
+                $this->upload->do_upload('applicant_PI_signature_file');
+                $applicant_PI_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('IBC_chairperson_signature_file');
+                $IBC_chairperson_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('organization_representative_signature_file');
+                $organization_representative_signature_file = $this->upload->data();
+                
+                
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
                 $ar2 = implode(',',$this->input->post('personnel_designation'));
@@ -76,12 +96,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar35 = implode(',',$this->input->post('premise_IBC_date'));
                 $ar36 = implode(',',$this->input->post('premise_certification_date'));
                 $ar37 = implode(',',$this->input->post('premise_certification_no'));
+                $report = implode(',',$this->input->post('premise_certification_report'));
                 $ar38 = implode(',',$this->input->post('premise_address'));
                 $ar39 = implode(',',$this->input->post('premise_officer_name'));
                 $ar40 = implode(',',$this->input->post('premise_telephone_business'));
                 $ar41 = implode(',',$this->input->post('premise_telephone_mobile'));
                 $ar42 = implode(',',$this->input->post('premise_fax'));
                 $ar43 = implode(',',$this->input->post('premise_email'));
+                $numGenes = implode(',',$this->input->post('LMO_num_gene'));
                 
                 //PC1
                 $ar44 = implode(',',$this->input->post('project_add_qualification'));
@@ -173,12 +195,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'IBC_project_identification_no' => $this->input->post('IBC_project_identification_no'),
                     'notified_first' => $this->input->post('notified_first'),
                     'NBB_reference ' => $this->input->post('NBB_reference'),
-                    'NBB_difference ' => $this->input->post('NBB_difference '),
+                    'NBB_difference ' => $this->input->post('NBB_difference'),
                     'importer_organization' => $this->input->post('importer_organization'),
                     'importer_contact_person' => $this->input->post('importer_contact_person'),
                     'importer_position' => $this->input->post('importer_position'),
                     'importer_telephone_office' => $this->input->post('importer_telephone_office'),
                     'importer_telephone_mobile' => $this->input->post('importer_telephone_mobile'),
+                    'importer_fax' => $this->input->post('importer_fax'),
                     'importer_email_address' => $this->input->post('importer_email_address'),
                     'importer_postal_address' => $this->input->post('importer_postal_address'),
                     'IBC_organization_name' => $this->input->post('IBC_organization_name'),
@@ -225,6 +248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'LMO_desc_method' => $ar11,
                     'LMO_desc_class' => $ar12,
                     'LMO_desc_trait' => $ar13,
+                    'LMO_num_gene' => $numGenes,
                     'LMO_desc_genes_function' => $ar14,
                     'risk_assessment_genes_potential_hazard' => $ar15,
                     'risk_assessment_genes_comments' => $ar16,
@@ -259,6 +283,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'premise_IBC_date' => $ar35,
                     'premise_certification_date' => $ar36,
                     'premise_certification_no' => $ar37,
+                    'premise_certification_report' => $report,
                     'premise_address' => $ar38,
                     'premise_officer_name' => $ar39,
                     'premise_telephone_business' => $ar40,
@@ -466,6 +491,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($submit)){
                 
+                // load upload class library
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('project_intro_activities');
+                $project_intro_activities = $this->upload->data();
+                
+                $this->upload->do_upload('project_intro_duration');
+                $project_intro_duration = $this->upload->data();
+                
+                $this->upload->do_upload('applicant_PI_signature_file');
+                $applicant_PI_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('IBC_chairperson_signature_file');
+                $IBC_chairperson_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('organization_representative_signature_file');
+                $organization_representative_signature_file = $this->upload->data();
+                
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
                 $ar2 = implode(',',$this->input->post('personnel_designation'));
@@ -506,12 +550,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar35 = implode(',',$this->input->post('premise_IBC_date'));
                 $ar36 = implode(',',$this->input->post('premise_certification_date'));
                 $ar37 = implode(',',$this->input->post('premise_certification_no'));
+                $report = implode(',',$this->input->post('premise_certification_report'));
                 $ar38 = implode(',',$this->input->post('premise_address'));
                 $ar39 = implode(',',$this->input->post('premise_officer_name'));
                 $ar40 = implode(',',$this->input->post('premise_telephone_business'));
                 $ar41 = implode(',',$this->input->post('premise_telephone_mobile'));
                 $ar42 = implode(',',$this->input->post('premise_fax'));
                 $ar43 = implode(',',$this->input->post('premise_email'));
+                $numGenes = implode(',',$this->input->post('LMO_num_gene'));
                 
                 //PC1
                 $ar44 = implode(',',$this->input->post('project_add_qualification'));
@@ -611,6 +657,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'importer_position' => $this->input->post('importer_position'),
                     'importer_telephone_office' => $this->input->post('importer_telephone_office'),
                     'importer_telephone_mobile' => $this->input->post('importer_telephone_mobile'),
+                    'importer_fax' => $this->input->post('importer_fax'),
                     'importer_email_address' => $this->input->post('importer_email_address'),
                     'importer_postal_address' => $this->input->post('importer_postal_address'),
                     'IBC_organization_name' => $this->input->post('IBC_organization_name'),
@@ -657,6 +704,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'LMO_desc_method' => $ar11,
                     'LMO_desc_class' => $ar12,
                     'LMO_desc_trait' => $ar13,
+                    'LMO_num_gene' => $numGenes,
                     'LMO_desc_genes_function' => $ar14,
                     'risk_assessment_genes_potential_hazard' => $ar15,
                     'risk_assessment_genes_comments' => $ar16,
@@ -691,6 +739,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'premise_IBC_date' => $ar35,
                     'premise_certification_date' => $ar36,
                     'premise_certification_no' => $ar37,
+                    'premise_certification_report' => $report,
                     'premise_address' => $ar38,
                     'premise_officer_name' => $ar39,
                     'premise_telephone_business' => $ar40,
@@ -941,6 +990,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($update)){
                 
+                // load upload class library
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('project_intro_activities');
+                $project_intro_activities = $this->upload->data();
+                
+                $this->upload->do_upload('project_intro_duration');
+                $project_intro_duration = $this->upload->data();
+                
+                $this->upload->do_upload('applicant_PI_signature_file');
+                $applicant_PI_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('IBC_chairperson_signature_file');
+                $IBC_chairperson_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('organization_representative_signature_file');
+                $organization_representative_signature_file = $this->upload->data();
+                
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
                 $ar2 = implode(',',$this->input->post('personnel_designation'));
@@ -981,12 +1049,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar35 = implode(',',$this->input->post('premise_IBC_date'));
                 $ar36 = implode(',',$this->input->post('premise_certification_date'));
                 $ar37 = implode(',',$this->input->post('premise_certification_no'));
+                $report = implode(',',$this->input->post('premise_certification_report'));
                 $ar38 = implode(',',$this->input->post('premise_address'));
                 $ar39 = implode(',',$this->input->post('premise_officer_name'));
                 $ar40 = implode(',',$this->input->post('premise_telephone_business'));
                 $ar41 = implode(',',$this->input->post('premise_telephone_mobile'));
                 $ar42 = implode(',',$this->input->post('premise_fax'));
                 $ar43 = implode(',',$this->input->post('premise_email'));
+                $numGenes = implode(',',$this->input->post('LMO_num_gene'));
                 
                 //PC1
                 $ar44 = implode(',',$this->input->post('project_add_qualification'));
@@ -1079,12 +1149,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'IBC_project_identification_no' => $this->input->post('IBC_project_identification_no'),
                     'notified_first' => $this->input->post('notified_first'),
                     'NBB_reference ' => $this->input->post('NBB_reference'),
-                    'NBB_difference ' => $this->input->post('NBB_difference '),
+                    'NBB_difference ' => $this->input->post('NBB_difference'),
                     'importer_organization' => $this->input->post('importer_organization'),
                     'importer_contact_person' => $this->input->post('importer_contact_person'),
                     'importer_position' => $this->input->post('importer_position'),
                     'importer_telephone_office' => $this->input->post('importer_telephone_office'),
                     'importer_telephone_mobile' => $this->input->post('importer_telephone_mobile'),
+                    'importer_fax' => $this->input->post('importer_fax'),
                     'importer_email_address' => $this->input->post('importer_email_address'),
                     'importer_postal_address' => $this->input->post('importer_postal_address'),
                     'IBC_organization_name' => $this->input->post('IBC_organization_name'),
@@ -1119,6 +1190,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_team_email_address' => $ar6,
                     'project_team_qualification' => $ar7,
                     'project_team_designation' => $ar8,
+                    'project_intro_activities' => $project_intro_activities['file_name'],
+                    'project_intro_duration' => $project_intro_duration['file_name'],
                     'project_intro_objective' => $this->input->post('project_intro_objective'),
                     'project_intro_specifics' => $this->input->post('project_intro_specifics'),
                     'project_intro_BSL' => $this->input->post('project_intro_BSL'),
@@ -1131,6 +1204,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'LMO_desc_method' => $ar11,
                     'LMO_desc_class' => $ar12,
                     'LMO_desc_trait' => $ar13,
+                    'LMO_num_gene' => $numGenes,
                     'LMO_desc_genes_function' => $ar14,
                     'risk_assessment_genes_potential_hazard' => $ar15,
                     'risk_assessment_genes_comments' => $ar16,
@@ -1165,6 +1239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'premise_IBC_date' => $ar35,
                     'premise_certification_date' => $ar36,
                     'premise_certification_no' => $ar37,
+                    'premise_certification_no' => $report,
                     'premise_address' => $ar38,
                     'premise_officer_name' => $ar39,
                     'premise_telephone_business' => $ar40,
@@ -1439,17 +1514,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 
                 
-                
-                
                 // load upload class library
                 $config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
                 $this->load->library('upload', $config);
                 $this->upload->do_upload('project_intro_activities');
+                $project_intro_activities = $this->upload->data();
                 
+                $this->upload->do_upload('project_intro_duration');
+                $project_intro_duration = $this->upload->data();
                 
+                $this->upload->do_upload('applicant_PI_signature_file');
+                $applicant_PI_signature_file = $this->upload->data();
                 
+                $this->upload->do_upload('IBC_chairperson_signature_file');
+                $IBC_chairperson_signature_file = $this->upload->data();
                 
+                $this->upload->do_upload('organization_representative_signature_file');
+                $organization_representative_signature_file = $this->upload->data();
                 
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
@@ -1491,12 +1573,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar35 = implode(',',$this->input->post('premise_IBC_date'));
                 $ar36 = implode(',',$this->input->post('premise_certification_date'));
                 $ar37 = implode(',',$this->input->post('premise_certification_no'));
+                $report = implode(',',$this->input->post('premise_certification_report'));
                 $ar38 = implode(',',$this->input->post('premise_address'));
                 $ar39 = implode(',',$this->input->post('premise_officer_name'));
                 $ar40 = implode(',',$this->input->post('premise_telephone_business'));
                 $ar41 = implode(',',$this->input->post('premise_telephone_mobile'));
                 $ar42 = implode(',',$this->input->post('premise_fax'));
                 $ar43 = implode(',',$this->input->post('premise_email'));
+                $numGenes = implode(',',$this->input->post('LMO_num_gene'));
                 
                 //PC1
                 $ar44 = implode(',',$this->input->post('project_add_qualification'));
@@ -1588,12 +1672,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'IBC_project_identification_no' => $this->input->post('IBC_project_identification_no'),
                     'notified_first' => $this->input->post('notified_first'),
                     'NBB_reference ' => $this->input->post('NBB_reference'),
-                    'NBB_difference ' => $this->input->post('NBB_difference '),
+                    'NBB_difference ' => $this->input->post('NBB_difference'),
                     'importer_organization' => $this->input->post('importer_organization'),
                     'importer_contact_person' => $this->input->post('importer_contact_person'),
                     'importer_position' => $this->input->post('importer_position'),
                     'importer_telephone_office' => $this->input->post('importer_telephone_office'),
                     'importer_telephone_mobile' => $this->input->post('importer_telephone_mobile'),
+                    'importer_fax' => $this->input->post('importer_fax'),
                     'importer_email_address' => $this->input->post('importer_email_address'),
                     'importer_postal_address' => $this->input->post('importer_postal_address'),
                     'IBC_organization_name' => $this->input->post('IBC_organization_name'),
@@ -1613,12 +1698,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'IBC_biosafety_approved' => $this->input->post('IBC_biosafety_approved'),
                     'signature_statutory_endorsed' => $this->input->post('signature_statutory_endorsed'),
                     'signature_statutory_applicant_free' => $this->input->post('signature_statutory_applicant_free'),
+                    'applicant_PI_signature' => $this->input->post('applicant_PI_signature'),
+                    'applicant_PI_signature_file' => $applicant_PI_signature_file['file_name'],
                     'applicant_PI_signature_date' => $this->input->post('applicant_PI_signature_date'),
                     'applicant_PI_signature_name' => $this->input->post('applicant_PI_signature_name'),
                     'applicant_PI_signature_stamp' => $this->input->post('applicant_PI_signature_stamp'),
+                    'IBC_chairperson_signature' => $this->input->post('IBC_chairperson_signature'),
+                    'IBC_chairperson_signature_file' => $IBC_chairperson_signature_file['file_name'],
                     'IBC_chairperson_signature_date' => $this->input->post('IBC_chairperson_signature_date'),
                     'IBC_chairperson_signature_name' => $this->input->post('IBC_chairperson_signature_name'),
                     'IBC_chairperson_signature_stamp' => $this->input->post('IBC_chairperson_signature_stamp'),
+                    'organization_representative_signature' => $this->input->post('organization_representative_signature'),
+                    'organization_representative_signature_file' => $organization_representative_signature_file['file_name'],
                     'organization_representative_signature_date' => $this->input->post('organization_representative_signature_date'),
                     'organization_representative_signature_name' => $this->input->post('organization_representative_signature_name'),
                     'organization_representative_signature_stamp' => $this->input->post('organization_representative_signature_stamp'),
@@ -1628,6 +1719,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_team_email_address' => $ar6,
                     'project_team_qualification' => $ar7,
                     'project_team_designation' => $ar8,
+                    'project_intro_activities' => $project_intro_activities['file_name'],
+                    'project_intro_duration' => $project_intro_duration['file_name'],
                     'project_intro_objective' => $this->input->post('project_intro_objective'),
                     'project_intro_specifics' => $this->input->post('project_intro_specifics'),
                     'project_intro_BSL' => $this->input->post('project_intro_BSL'),
@@ -1640,6 +1733,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'LMO_desc_method' => $ar11,
                     'LMO_desc_class' => $ar12,
                     'LMO_desc_trait' => $ar13,
+                    'LMO_num_gene' => $numGenes,
                     'LMO_desc_genes_function' => $ar14,
                     'risk_assessment_genes_potential_hazard' => $ar15,
                     'risk_assessment_genes_comments' => $ar16,
@@ -1674,6 +1768,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'premise_IBC_date' => $ar35,
                     'premise_certification_date' => $ar36,
                     'premise_certification_no' => $ar37,
+                    'premise_certification_report' => $report,
                     'premise_address' => $ar38,
                     'premise_officer_name' => $ar39,
                     'premise_telephone_business' => $ar40,
@@ -1881,6 +1976,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($submit)){
                 
+                // load upload class library
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $this->load->library('upload', $config);
+                $this->upload->do_upload('project_intro_activities');
+                $project_intro_activities = $this->upload->data();
+                
+                $this->upload->do_upload('project_intro_duration');
+                $project_intro_duration = $this->upload->data();
+                
+                $this->upload->do_upload('applicant_PI_signature_file');
+                $applicant_PI_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('IBC_chairperson_signature_file');
+                $IBC_chairperson_signature_file = $this->upload->data();
+                
+                $this->upload->do_upload('organization_representative_signature_file');
+                $organization_representative_signature_file = $this->upload->data();
+                
+                 
+                
+                //Annex 2 Data
+                $ar1 = implode(',',$this->input->post('personnel_involved'));
+                $ar2 = implode(',',$this->input->post('personnel_designation'));
+                
                 //Annex 2 Data
                 $ar1 = implode(',',$this->input->post('personnel_involved'));
                 $ar2 = implode(',',$this->input->post('personnel_designation'));
@@ -1921,12 +2041,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $ar35 = implode(',',$this->input->post('premise_IBC_date'));
                 $ar36 = implode(',',$this->input->post('premise_certification_date'));
                 $ar37 = implode(',',$this->input->post('premise_certification_no'));
+                $report = implode(',',$this->input->post('premise_certification_report'));
                 $ar38 = implode(',',$this->input->post('premise_address'));
                 $ar39 = implode(',',$this->input->post('premise_officer_name'));
                 $ar40 = implode(',',$this->input->post('premise_telephone_business'));
                 $ar41 = implode(',',$this->input->post('premise_telephone_mobile'));
                 $ar42 = implode(',',$this->input->post('premise_fax'));
                 $ar43 = implode(',',$this->input->post('premise_email'));
+                $numGenes = implode(',',$this->input->post('LMO_num_gene'));
                 
                 //PC1
                 $ar44 = implode(',',$this->input->post('project_add_qualification'));
@@ -2020,12 +2142,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'IBC_project_identification_no' => $this->input->post('IBC_project_identification_no'),
                     'notified_first' => $this->input->post('notified_first'),
                     'NBB_reference ' => $this->input->post('NBB_reference'),
-                    'NBB_difference ' => $this->input->post('NBB_difference '),
+                    'NBB_difference ' => $this->input->post('NBB_difference'),
                     'importer_organization' => $this->input->post('importer_organization'),
                     'importer_contact_person' => $this->input->post('importer_contact_person'),
                     'importer_position' => $this->input->post('importer_position'),
                     'importer_telephone_office' => $this->input->post('importer_telephone_office'),
                     'importer_telephone_mobile' => $this->input->post('importer_telephone_mobile'),
+                    'importer_fax' => $this->input->post('importer_fax'),
                     'importer_email_address' => $this->input->post('importer_email_address'),
                     'importer_postal_address' => $this->input->post('importer_postal_address'),
                     'IBC_organization_name' => $this->input->post('IBC_organization_name'),
@@ -2045,12 +2168,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'IBC_biosafety_approved' => $this->input->post('IBC_biosafety_approved'),
                     'signature_statutory_endorsed' => $this->input->post('signature_statutory_endorsed'),
                     'signature_statutory_applicant_free' => $this->input->post('signature_statutory_applicant_free'),
+                    'applicant_PI_signature' => $this->input->post('applicant_PI_signature'),
+                    'applicant_PI_signature_file' => $applicant_PI_signature_file['file_name'],
                     'applicant_PI_signature_date' => $this->input->post('applicant_PI_signature_date'),
                     'applicant_PI_signature_name' => $this->input->post('applicant_PI_signature_name'),
                     'applicant_PI_signature_stamp' => $this->input->post('applicant_PI_signature_stamp'),
+                    'IBC_chairperson_signature' => $this->input->post('IBC_chairperson_signature'),
+                    'IBC_chairperson_signature_file' => $IBC_chairperson_signature_file['file_name'],
                     'IBC_chairperson_signature_date' => $this->input->post('IBC_chairperson_signature_date'),
                     'IBC_chairperson_signature_name' => $this->input->post('IBC_chairperson_signature_name'),
                     'IBC_chairperson_signature_stamp' => $this->input->post('IBC_chairperson_signature_stamp'),
+                    'organization_representative_signature' => $this->input->post('organization_representative_signature'),
+                    'organization_representative_signature_file' => $organization_representative_signature_file['file_name'],
                     'organization_representative_signature_date' => $this->input->post('organization_representative_signature_date'),
                     'organization_representative_signature_name' => $this->input->post('organization_representative_signature_name'),
                     'organization_representative_signature_stamp' => $this->input->post('organization_representative_signature_stamp'),
@@ -2060,6 +2189,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_team_email_address' => $ar6,
                     'project_team_qualification' => $ar7,
                     'project_team_designation' => $ar8,
+                    'project_intro_activities' => $project_intro_activities['file_name'],
+                    'project_intro_duration' => $project_intro_duration['file_name'],
                     'project_intro_objective' => $this->input->post('project_intro_objective'),
                     'project_intro_specifics' => $this->input->post('project_intro_specifics'),
                     'project_intro_BSL' => $this->input->post('project_intro_BSL'),
@@ -2072,6 +2203,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'LMO_desc_method' => $ar11,
                     'LMO_desc_class' => $ar12,
                     'LMO_desc_trait' => $ar13,
+                    'LMO_num_gene' => $numGenes,
                     'LMO_desc_genes_function' => $ar14,
                     'risk_assessment_genes_potential_hazard' => $ar15,
                     'risk_assessment_genes_comments' => $ar16,
@@ -2106,6 +2238,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'premise_IBC_date' => $ar35,
                     'premise_certification_date' => $ar36,
                     'premise_certification_no' => $ar37,
+                    'premise_certification_report' => $report,
                     'premise_address' => $ar38,
                     'premise_officer_name' => $ar39,
                     'premise_telephone_business' => $ar40,
@@ -2115,7 +2248,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'confidential_description' => $this->input->post('confidential_description'),
                     'reference_description' => $this->input->post('reference_description'),
                     'editable' => $editableValue,
-                    'status' => $submitStatus
+                    'status' => $saveStatus
                 );
                 
                 //PC1 Form Submission
@@ -2312,6 +2445,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 }
                 
             }
+            
+        }
+        
+        public function download($filename = NULL){
+            
+            //load download helper
+            $this->load->helper('download');
+            //read file contents
+            $data = file_get_contents(base_url('/uploads/'.$filename));
+            force_download($filename, $data);
             
         }
         

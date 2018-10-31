@@ -639,7 +639,7 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="1" name="officer_notified" <?php if(isset($load)){if($pc1->officer_notified==1){echo set_radio('officer_notified', '1', TRUE);}} ?>> Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="1" name="officer_notified" <?php echo set_radio('officer_notified', '1', FALSE); ?> <?php if(isset($load)){if($pc1->officer_notified==1){echo set_radio('officer_notified', '1', TRUE);}} ?>> Yes</label>
                                                
                                                <label class="radio-inline"><input type="radio" value="0" name="officer_notified" <?php echo set_radio('officer_notified', '0', FALSE); ?> <?php if(isset($load)){if($pc1->officer_notified==0){echo set_radio('officer_notified', '0', TRUE);}} ?>> No</label>
                                                
