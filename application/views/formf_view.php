@@ -181,36 +181,36 @@ if(!$this->session->userdata('isLogin')){
 					<div id="section_1" class="sectiontarget">
                        <h6 id="part1"><strong>Part 1 Details of the Applicant (Exporter) </strong></h6>
                        <div class="form-group">
-                           Organization: <input type="text" class="form-control" name="exporter_organization" value="<?php if(isset($load)){echo set_value('exporter_organization', $item->exporter_organization);}else{echo set_value('exporter_organization');} ?>">
+                           Organization: <textarea type="text" class="form-control" name="exporter_organization" value="<?php if(isset($load)){echo set_value('exporter_organization', $item->exporter_organization);}else{echo set_value('exporter_organization');} ?>"></textarea>
                            <span class="text-danger"><?php echo form_error('exporter_organization'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Name of Applicant: <input type="text" class="form-control" name="exporter_name" value="<?php if(isset($load)){echo set_value('exporter_name', $item->exporter_name);}else{echo set_value('exporter_name');} ?>">
-                           <span class="text-danger"><?php echo form_error('exporter_name'); ?></span>
+                           Name of Applicant: <textarea  type="text" class="form-control" name="exporter_name" value="<?php if(isset($load)){echo set_value('exporter_name', $item->exporter_name);}else{echo set_value('exporter_name');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('exporter_name'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Position in Organization: <input type="text" class="form-control" name="exporter_position" value="<?php if(isset($load)){echo set_value('exporter_position', $item->exporter_position);}else{echo set_value('exporter_position');} ?>">
-                           <span class="text-danger"><?php echo form_error('exporter_position'); ?></span>
+                           Position in Organization: <textarea  type="text" class="form-control" name="exporter_position" value="<?php if(isset($load)){echo set_value('exporter_position', $item->exporter_position);}else{echo set_value('exporter_position');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('exporter_position'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Telephone (office): <input type="text" class="form-control" name="exporter_telephone_office" value="<?php if(isset($load)){echo set_value('exporter_telephone_office', $item->exporter_telephone_office);}else{echo set_value('exporter_telephone_office');} ?>">
-                           <span class="text-danger" ><?php echo form_error('exporter_telephone_office'); ?></span>
+                           Telephone (office): <textarea  type="text" class="form-control" name="exporter_telephone_office" value="<?php if(isset($load)){echo set_value('exporter_telephone_office', $item->exporter_telephone_office);}else{echo set_value('exporter_telephone_office');} ?>">
+                           </textarea><span class="text-danger" ><?php echo form_error('exporter_telephone_office'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Telephone (mobile): <input type="text" class="form-control" name="exporter_telephone_mobile" value="<?php if(isset($load)){echo set_value('exporter_telephone_mobile', $item->exporter_telephone_mobile);}else{echo set_value('exporter_telephone_mobile');} ?>">
-                           <span class="text-danger"><?php echo form_error('exporter_telephone_mobile'); ?></span>
+                           Telephone (mobile): <textarea  type="text" class="form-control" name="exporter_telephone_mobile" value="<?php if(isset($load)){echo set_value('exporter_telephone_mobile', $item->exporter_telephone_mobile);}else{echo set_value('exporter_telephone_mobile');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('exporter_telephone_mobile'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Fax number: <input type="text" class="form-control" name="exporter_fax" value="<?php if(isset($load)){echo set_value('exporter_fax', $item->exporter_fax);}else{echo set_value('exporter_fax');} ?>">
-                           <span class="text-danger"><?php echo form_error('exporter_fax'); ?></span>
+                           Fax number: <textarea  type="text" class="form-control" name="exporter_fax" value="<?php if(isset($load)){echo set_value('exporter_fax', $item->exporter_fax);}else{echo set_value('exporter_fax');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('exporter_fax'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Email: <input type="text" class="form-control" name="exporter_email_address" value="<?php if(isset($load)){echo set_value('exporter_email_address', $item->exporter_email_address);}else{echo set_value('exporter_email_address');} ?>">
-                           <span class="text-danger"><?php echo form_error('exporter_email_address'); ?></span>
+                           Email: <textarea  type="text" class="form-control" name="exporter_email_address" value="<?php if(isset($load)){echo set_value('exporter_email_address', $item->exporter_email_address);}else{echo set_value('exporter_email_address');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('exporter_email_address'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Postal Address: <input type="text" class="form-control" name="exporter_postal_address" value="<?php if(isset($load)){echo set_value('exporter_postal_address', $item->exporter_postal_address);}else{echo set_value('exporter_postal_address');} ?>">
-                           <span class="text-danger"><?php echo form_error('exporter_postal_address'); ?></span>
+                           Postal Address: <textarea  type="text" class="form-control" name="exporter_postal_address" value="<?php if(isset($load)){echo set_value('exporter_postal_address', $item->exporter_postal_address);}else{echo set_value('exporter_postal_address');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('exporter_postal_address'); ?></span>
                        </div>			   
 					</div>
                     
@@ -219,48 +219,48 @@ if(!$this->session->userdata('isLogin')){
 					<div id="section_2" class="sectiontarget">
                        <h6 id="part2"><strong>Part 2  Details of LMO to be exported</strong></h6>
                        <div class="form-group">
-                           Description of LMO to be exported <input type="text" class="form-control" name="LMO_description" value="<?php if(isset($load)){echo set_value('LMO_description', $item->LMO_description);}else{echo set_value('LMO_description');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_description'); ?></span>
+                           Description of LMO to be exported <textarea  type="text" class="form-control" name="LMO_description" value="<?php if(isset($load)){echo set_value('LMO_description', $item->LMO_description);}else{echo set_value('LMO_description');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_description'); ?></span>
                        </div>                       
                        <div class="form-group">
                            Plant, Fish/shellfish, Virus ,Animal, Micro-organism (bacterium/fungus etc.), Animal cell, Others (Please specify)
-						<input type="text" class="form-control" name="LMO_type_description" value="<?php if(isset($load)){echo set_value('LMO_type_description', $item->LMO_type_description);}else{echo set_value('LMO_type_description');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_type_description'); ?></span>
+						<textarea  type="text" class="form-control" name="LMO_type_description" value="<?php if(isset($load)){echo set_value('LMO_type_description', $item->LMO_type_description);}else{echo set_value('LMO_type_description');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_type_description'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Identification of LMO <input type="text" class="form-control" name="LMO_identification" value="<?php if(isset($load)){echo set_value('LMO_identification', $item->LMO_identification);}else{echo set_value('LMO_identification');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_identification'); ?></span>
+                           Identification of LMO <textarea  type="text" class="form-control" name="LMO_identification" value="<?php if(isset($load)){echo set_value('LMO_identification', $item->LMO_identification);}else{echo set_value('LMO_identification');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_identification'); ?></span>
                        </div>                       
                        <div class="form-group">
-                           Common name(s), Scientific name <input type="text" class="form-control" name="LMO_scientific_name" value="<?php if(isset($load)){echo set_value('LMO_scientific_name', $item->LMO_scientific_name);}else{echo set_value('LMO_scientific_name');} ?>" >
-                           <span class="text-danger"><?php echo form_error('LMO_scientific_name'); ?></span>
+                           Common name(s), Scientific name <textarea  type="text" class="form-control" name="LMO_scientific_name" value="<?php if(isset($load)){echo set_value('LMO_scientific_name', $item->LMO_scientific_name);}else{echo set_value('LMO_scientific_name');} ?>" >
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_scientific_name'); ?></span>
                        </div>					   
 					   <div class="form-group">
-                           Introduced  Trait(s) <input type="text" class="form-control" name="LMO_trait" value="<?php if(isset($load)){echo set_value('LMO_trait', $item->LMO_trait);}else{echo set_value('LMO_trait');} ?>" >
-                           <span class="text-danger"><?php echo form_error('LMO_trait'); ?></span>
+                           Introduced  Trait(s) <textarea  type="text" class="form-control" name="LMO_trait" value="<?php if(isset($load)){echo set_value('LMO_trait', $item->LMO_trait);}else{echo set_value('LMO_trait');} ?>" >
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_trait'); ?></span>
                        </div>					   			   
 					   <div class="form-group">
-                          Intended use of LMO <input type="text" class="form-control" name="LMO_intended_usage" value="<?php if(isset($load)){echo set_value('LMO_intended_usage', $item->LMO_intended_usage);}else{echo set_value('LMO_intended_usage');} ?>" >
-                           <span class="text-danger"><?php echo form_error('LMO_intended_usage'); ?></span>
+                          Intended use of LMO <textarea  type="text" class="form-control" name="LMO_intended_usage" value="<?php if(isset($load)){echo set_value('LMO_intended_usage', $item->LMO_intended_usage);}else{echo set_value('LMO_intended_usage');} ?>" >
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_intended_usage'); ?></span>
                        </div>					   
 					   <div class="form-group">
                           Describe the form in which LMO will be exported e.g. as seeds, cuttings, live fish, etc.
-						  <input type="text" class="form-control" name="LMO_export_form" value="<?php if(isset($load)){echo set_value('LMO_export_form', $item->LMO_export_form);}else{echo set_value('LMO_export_form');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_export_form'); ?></span>
+						  <textarea  type="text" class="form-control" name="LMO_export_form" value="<?php if(isset($load)){echo set_value('LMO_export_form', $item->LMO_export_form);}else{echo set_value('LMO_export_form');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_export_form'); ?></span>
                        </div>
 					   <div class="form-group">
                           Mode of export: Sea, Rail, Road, Air, Others (Please specify)	
-					      <input type="text" class="form-control" name="LMO_export_mode_description" value="<?php if(isset($load)){echo set_value('LMO_export_mode_description', $item->LMO_export_mode_description);}else{echo set_value('LMO_export_mode_description');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_export_mode_description'); ?></span>
+					      <textarea  type="text" class="form-control" name="LMO_export_mode_description" value="<?php if(isset($load)){echo set_value('LMO_export_mode_description', $item->LMO_export_mode_description);}else{echo set_value('LMO_export_mode_description');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_export_mode_description'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Point of exit<input type="text" class="form-control" name="LMO_point_of_exit" value="<?php if(isset($load)){echo set_value('LMO_point_of_exit', $item->LMO_point_of_exit);}else{echo set_value('LMO_point_of_exit');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_point_of_exit'); ?></span>
+                          Point of exit<textarea  type="text" class="form-control" name="LMO_point_of_exit" value="<?php if(isset($load)){echo set_value('LMO_point_of_exit', $item->LMO_point_of_exit);}else{echo set_value('LMO_point_of_exit');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_point_of_exit'); ?></span>
                        </div>					   
 					   <div class="form-group">
                           Suggested methods for safe handling, storage, transport and use (if available) 
-						  <input type="text" class="form-control" name="LMO_methods" value="<?php if(isset($load)){echo set_value('LMO_methods', $item->LMO_methods);}else{echo set_value('LMO_methods');} ?>">
-                           <span class="text-danger"><?php echo form_error('LMO_methods'); ?></span>
+						  <textarea  type="text" class="form-control" name="LMO_methods" value="<?php if(isset($load)){echo set_value('LMO_methods', $item->LMO_methods);}else{echo set_value('LMO_methods');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('LMO_methods'); ?></span>
                        </div>					   					   
 					</div>					
 
@@ -269,13 +269,13 @@ if(!$this->session->userdata('isLogin')){
 					<div id="section_3" class="sectiontarget">
                        <h6 id="part3"><strong>Part 3  Importing Country</strong></h6>
                        <div class="form-group">
-                           Name of importing country <input type="text" class="form-control" name="import_country_name" value="<?php if(isset($load)){echo set_value('import_country_name', $item->import_country_name);}else{echo set_value('import_country_name');} ?>">
-                           <span class="text-danger"><?php echo form_error('import_country_name'); ?></span>
+                           Name of importing country <textarea  type="text" class="form-control" name="import_country_name" value="<?php if(isset($load)){echo set_value('import_country_name', $item->import_country_name);}else{echo set_value('import_country_name');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('import_country_name'); ?></span>
                        </div>                       
                        <div class="form-group">
                            Evidence of compliance with importing country’s requirements (e.g. Copy of Import permit, copy of approval from competent authority, etc.)
-						   <input type="file" class="form-control" name="import_evidence" value="<?php echo set_value('import_evidence'); ?>">
-                           <span class="text-danger"><?php echo form_error('import_evidence'); ?></span>
+						   <textarea  type="file" class="form-control" name="import_evidence" value="<?php echo set_value('import_evidence'); ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('import_evidence'); ?></span>
                        </div>              
 					</div>
                    
@@ -285,8 +285,8 @@ if(!$this->session->userdata('isLogin')){
                        <h6 id="part4"><strong>Part 4 Confidential Business Information</strong></h6>
                        <div class="form-group">
                            Enter in this section any information required in Part 1-3 for which you are claiming confidentiality, together with full justification for that claim.
-						   <input type="text" class="form-control" name="export_import_CBI" value="<?php if(isset($load)){echo set_value('export_import_CBI', $item->export_import_CBI);}else{echo set_value('export_import_CBI');} ?>">
-                           <span class="text-danger"><?php echo form_error('export_import_CBI'); ?></span>
+						   <textarea  type="text" class="form-control" name="export_import_CBI" value="<?php if(isset($load)){echo set_value('export_import_CBI', $item->export_import_CBI);}else{echo set_value('export_import_CBI');} ?>">
+                           </textarea><span class="text-danger"><?php echo form_error('export_import_CBI'); ?></span>
                        </div>                       
              		</div>	
 					
@@ -306,16 +306,16 @@ if(!$this->session->userdata('isLogin')){
 					<div>
                        <h6><strong>Applicant:</strong></h6>
                        <div class="form-group">
-						  Date <input type="date" class="form-control" name="applicant_signature_date" value="<?php if(isset($load)){echo set_value('applicant_signature_date', $item->applicant_signature_date);}else{echo set_value('applicant_signature_date');} ?>" >
+						  Date <input  type="date" class="form-control" name="applicant_signature_date" value="<?php if(isset($load)){echo set_value('applicant_signature_date', $item->applicant_signature_date);}else{echo set_value('applicant_signature_date');} ?>" >
                           <span class="text-danger"><?php echo form_error('applicant_signature_date'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Name as in Identity Card/Passport:<input type="text" class="form-control" name="applicant_name" value="<?php if(isset($load)){echo set_value('applicant_name', $item->applicant_name);}else{echo set_value('applicant_name');} ?>" >
-                          <span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
+                          Name as in Identity Card/Passport:<textarea type="text" class="form-control" name="applicant_name" value="<?php if(isset($load)){echo set_value('applicant_name', $item->applicant_name);}else{echo set_value('applicant_name');} ?>" >
+                          </textarea><span class="text-danger"><?php echo form_error('applicant_name'); ?></span>
                        </div>
 					   <div class="form-group">
-                          Official Stamp <input type="text" class="form-control" name="applicant_stamp" value="<?php if(isset($load)){echo set_value('applicant_stamp', $item->applicant_stamp);}else{echo set_value('applicant_stamp');} ?>" >
-                           <span class="text-danger"><?php echo form_error('applicant_stamp'); ?></span>
+                          Official Stamp <textarea  type="text" class="form-control" name="applicant_stamp" value="<?php if(isset($load)){echo set_value('applicant_stamp', $item->applicant_stamp);}else{echo set_value('applicant_stamp');} ?>" >
+                           </textarea><span class="text-danger"><?php echo form_error('applicant_stamp'); ?></span>
                        </div>					   
              		</div>
 					
@@ -325,18 +325,18 @@ if(!$this->session->userdata('isLogin')){
                        <h6><strong>Head of organization/ Authorized Representative:</strong></h6>
                         
                        <div class="form-group">
-					      Date <input type="date" class="form-control" name="representative_signature_date" value="<?php if(isset($load)){echo set_value('representative_signature_date', $item->representative_signature_date);}else{echo set_value('representative_signature_date');} ?>" >
+					      Date <input  type="date" class="form-control" name="representative_signature_date" value="<?php if(isset($load)){echo set_value('representative_signature_date', $item->representative_signature_date);}else{echo set_value('representative_signature_date');} ?>" >
                            <span class="text-danger"><?php echo form_error('representative_signature_date'); ?></span>
                        </div>
                         
 					   <div class="form-group">
-                          Name as in Identity Card/Passport:<input type="text" class="form-control" name="representative_name" value="<?php if(isset($load)){echo set_value('representative_name', $item->representative_name);}else{echo set_value('representative_name');} ?>" >
-                           <span class="text-danger"><?php echo form_error('representative_name'); ?></span>
+                          Name as in Identity Card/Passport:<textarea type="text" class="form-control" name="representative_name" value="<?php if(isset($load)){echo set_value('representative_name', $item->representative_name);}else{echo set_value('representative_name');} ?>" >
+                           </textarea><span class="text-danger"><?php echo form_error('representative_name'); ?></span></textarea>
                        </div>
                         
 					   <div class="form-group">
-                          Official Stamp <input type="text" class="form-control" name="representative_stamp" value="<?php if(isset($load)){echo set_value('representative_stamp', $item->representative_stamp);}else{echo set_value('representative_stamp');} ?>" >
-                           <span class="text-danger"><?php echo form_error('representative_stamp'); ?></span>
+                          Official Stamp <textarea  type="text" class="form-control" name="representative_stamp" value="<?php if(isset($load)){echo set_value('representative_stamp', $item->representative_stamp);}else{echo set_value('representative_stamp');} ?>" >
+                           </textarea><span class="text-danger"><?php echo form_error('representative_stamp'); ?></span></textarea>
                        </div>					   
              		</div>
 					
