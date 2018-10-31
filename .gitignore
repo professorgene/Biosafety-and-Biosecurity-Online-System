@@ -29,4 +29,3 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
-application/libraries/MY_Form_validation.php
