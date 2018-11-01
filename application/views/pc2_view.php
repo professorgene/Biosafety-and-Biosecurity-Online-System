@@ -839,7 +839,7 @@
                     <a href="#pc2_section_1" class="btn btn-success">Section 1</a>
                     <a href="#pc2_section_5" class="btn btn-success">Section 2</a>
                     <a href="#pc2_section_10" class="btn btn-success">Section 3</a>
-                    <a href="#pc2_section_15" class="btn btn-success">Section 5</a>
+                    <a href="#pc2_section_15" class="btn btn-success">Section 4</a>
                 </div>   
             </div>
         </div>
