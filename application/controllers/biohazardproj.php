@@ -33,6 +33,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($save)){
                 
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $config['overwrite'] = TRUE;
+                
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('biohazard_signature_file')){
+                    $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));
                 $ar2 = implode(',',$this->input->post('project_personnel_role'));
@@ -56,11 +67,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $biohazardData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
                     'project_supervisor_department' => $this->input->post('project_supervisor_department'),
                     'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
                     'project_alt_person' => $this->input->post('project_alt_person'),
+                    'project_alt_department' => $this->input->post('project_alt_department'),
                     'project_alt_email' => $this->input->post('project_alt_email'),
                     'project_personnel_name' => $ar1,
                     'project_personnel_role' => $ar2,
@@ -78,7 +92,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
                     'officer_notified' => $this->input->post('IBC_name'),
-                    'officer_name' => $this->input->post('IBC_name'),
+                    'officer_name' => $this->input->post('officer_name'),
+                    'biohazard_signature' => $this->input->post('biohazard_signature'),
+                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $saveStatus
                 );
                 
@@ -165,6 +181,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($submit)){
                 
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $config['overwrite'] = TRUE;
+                
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('biohazard_signature_file')){
+                    $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));
                 $ar2 = implode(',',$this->input->post('project_personnel_role'));
@@ -188,11 +215,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $biohazardData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
                     'project_supervisor_department' => $this->input->post('project_supervisor_department'),
                     'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
                     'project_alt_person' => $this->input->post('project_alt_person'),
+                    'project_alt_department' => $this->input->post('project_alt_department'),
                     'project_alt_email' => $this->input->post('project_alt_email'),
                     'project_personnel_name' => $ar1,
                     'project_personnel_role' => $ar2,
@@ -210,7 +240,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
                     'officer_notified' => $this->input->post('IBC_name'),
-                    'officer_name' => $this->input->post('IBC_name'),
+                    'officer_name' => $this->input->post('officer_name'),
+                    'biohazard_signature' => $this->input->post('biohazard_signature'),
+                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $submitStatus
                 );
                 
@@ -334,6 +366,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }elseif(isset($update)){
                 
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $config['overwrite'] = TRUE;
+                
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('biohazard_signature_file')){
+                    $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
+                
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));
                 $ar2 = implode(',',$this->input->post('project_personnel_role'));
@@ -357,11 +400,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $biohazardData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $appID,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
                     'project_supervisor_department' => $this->input->post('project_supervisor_department'),
                     'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
                     'project_alt_person' => $this->input->post('project_alt_person'),
+                    'project_alt_department' => $this->input->post('project_alt_department'),
                     'project_alt_email' => $this->input->post('project_alt_email'),
                     'project_personnel_name' => $ar1,
                     'project_personnel_role' => $ar2,
@@ -379,7 +425,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
                     'officer_notified' => $this->input->post('IBC_name'),
-                    'officer_name' => $this->input->post('IBC_name'),
+                    'officer_name' => $this->input->post('officer_name'),
+                    'biohazard_signature' => $this->input->post('biohazard_signature'),
+                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $submitStatus,
                     'editable' => $editableValue
                 );
@@ -521,6 +569,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             }elseif(isset($save)){
                 
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                //$config['overwrite'] = TRUE;
+                
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                /*if($this->upload->do_upload('biohazard_signature_file')){
+                    $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }*/
+                $this->upload->do_upload('biohazard_signature_file');
+                $biohazard_signature_file = $this->upload->data(); 
+                
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));
                 $ar2 = implode(',',$this->input->post('project_personnel_role'));
@@ -544,11 +605,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $biohazardData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
                     'project_supervisor_department' => $this->input->post('project_supervisor_department'),
                     'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
                     'project_alt_person' => $this->input->post('project_alt_person'),
+                    'project_alt_department' => $this->input->post('project_alt_department'),
                     'project_alt_email' => $this->input->post('project_alt_email'),
                     'project_personnel_name' => $ar1,
                     'project_personnel_role' => $ar2,
@@ -566,7 +630,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
                     'officer_notified' => $this->input->post('IBC_name'),
-                    'officer_name' => $this->input->post('IBC_name'),
+                    'officer_name' => $this->input->post('officer_name'),
+                    'biohazard_signature' => $this->input->post('biohazard_signature'),
+                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $saveStatus
                 );
                 
@@ -638,7 +704,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 {
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $biohazardData);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -646,12 +712,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('home/index');
+                   redirect('saveHistory/index');
   
                 }
                  
                 
             }elseif(isset($submit)){
+                
+                $config['upload_path'] = './uploads/';
+                $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
+                $config['overwrite'] = TRUE;
+                
+                $this->load->library('upload'); //initialize
+                $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
+                #$this->upload->do_upload(); // do upload
+                if($this->upload->do_upload('biohazard_signature_file')){
+                    $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
+                }
                 
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));
@@ -676,11 +753,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $biohazardData = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
                     'project_supervisor_department' => $this->input->post('project_supervisor_department'),
                     'project_supervisor_email_address' => $this->input->post('project_supervisor_email_address'),
                     'project_alt_person' => $this->input->post('project_alt_person'),
+                    'project_alt_department' => $this->input->post('project_alt_department'),
                     'project_alt_email' => $this->input->post('project_alt_email'),
                     'project_personnel_name' => $ar1,
                     'project_personnel_role' => $ar2,
@@ -698,7 +778,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
                     'officer_notified' => $this->input->post('IBC_name'),
-                    'officer_name' => $this->input->post('IBC_name'),
+                    'officer_name' => $this->input->post('officer_name'),
+                    'biohazard_signature' => $this->input->post('biohazard_signature'),
+                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $submitStatus
                 );
                 
@@ -770,7 +852,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 {
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -778,12 +860,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('home/index');
+                   redirect('saveHistory/index');
   
                 }
                 
             }
         
+        }
+        
+        public function download($filename = NULL){
+            
+            //load download helper
+            $this->load->helper('download');
+            //read file contents
+            $data = file_get_contents(base_url('/uploads/'.$filename));
+            force_download($filename, $data);
+            
         }
     }
 ?>

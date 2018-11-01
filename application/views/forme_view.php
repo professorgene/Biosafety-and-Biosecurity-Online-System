@@ -97,14 +97,31 @@
         }
     
     ?>
+
+           <div class="row">
+               <div class="col-md-4">
+                   <h5>NBB/N/CU/15/FORM E</h5>
+                   
+               </div>
+               
+               <div class="col-md-1"></div>
+               
+               <div class="col-md-7">
+                   <div class="form-group row">
+                            <label class="col-sm-5" for="NBB_reference_no"><h6>NBB REF NO&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;<strong>JBK (S) 602-1/2</strong></h6><br><h6>(For Office Use)</h6></label>
+                                <div class="col-sm-7">
+                                    <textarea class="form-control" name="NBB_reference_no" placeholder="Click here to enter text" rows="2" <?php if($this->session->userdata('account_type') != 2 || $this->session->userdata('account_type') != 4){echo "disabled";} ?>><?php if(isset($load)){echo set_value('NBB_reference_no', $item->NBB_reference_no);}else{echo set_value('NBB_reference_no');} ?></textarea>
+
+                                </div>
+                        </div>
+               </div>
+           </div>
         
             
             <div class="row">
                 
                 <div class="col-md-11">
-                    
-                    
-                    
+
                     <div>
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
@@ -577,7 +594,22 @@
                                         <td>
                                             <textarea class="form-control" name="applicant_PI_signature"><?php if(isset($load)){echo set_value('applicant_PI_signature', $item->applicant_PI_signature);}else{echo set_value('applicant_PI_signature');} ?></textarea>
                                         </td>
-                                        <td><input type="file" class="form-control" name="applicant_PI_signature_file"></td>
+                                        <td>
+                                            <input type="file" class="form-control" name="applicant_PI_signature_file"><br>
+                                            
+                                            <?php 
+                                            if(isset($load)){
+                                                if(!$item->applicant_PI_signature_file== NULL){
+                                                $fname = $item->applicant_PI_signature_file; 
+                                            ?>
+                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                            <?php 
+                                                } else {
+
+                                                }
+                                            }
+                                            ?>
+                                        </td>
                                         
                                         <td>Date:</td>
                                         <td><input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="applicant_PI_signature_date" value="<?php if(isset($load)){echo set_value('applicant_PI_signature_date', $item->applicant_PI_signature_date);}else{echo set_value('applicant_PI_signature_date');} ?>"></td>
@@ -615,7 +647,22 @@
                                         <td>
                                             <textarea class="form-control" name="IBC_chairperson_signature"><?php if(isset($load)){echo set_value('IBC_chairperson_signature', $item->IBC_chairperson_signature);}else{echo set_value('IBC_chairperson_signature');} ?></textarea>
                                         </td>
-                                        <td><input type="file" class="form-control" name="IBC_chairperson_signature_file"></td>
+                                        <td>
+                                            <input type="file" class="form-control" name="IBC_chairperson_signature_file"><br>
+                                            
+                                            <?php 
+                                            if(isset($load)){
+                                                if(!$item->IBC_chairperson_signature_file== NULL){
+                                                $fname = $item->IBC_chairperson_signature_file; 
+                                            ?>
+                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                            <?php 
+                                                } else {
+
+                                                }
+                                            }
+                                            ?>
+                                        </td>
                                         
                                         <td>Date:</td>
                                         <td><input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="IBC_chairperson_signature_date" value="<?php if(isset($load)){echo set_value('IBC_chairperson_signature_date', $item->IBC_chairperson_signature_date);}else{echo set_value('IBC_chairperson_signature_date');} ?>" ></td>
@@ -650,7 +697,22 @@
                                         <td>
                                             <textarea class="form-control" name="organization_representative_signature"><?php if(isset($load)){echo set_value('organization_representative_signature', $item->organization_representative_signature);}else{echo set_value('organization_representative_signature');} ?></textarea>
                                         </td>
-                                        <td><input type="file" class="form-control" name="organization_representative_signature_file"></td>
+                                        <td>
+                                            <input type="file" class="form-control" name="organization_representative_signature_file"><br>
+                                            
+                                            <?php 
+                                            if(isset($load)){
+                                                if(!$item->organization_representative_signature_file== NULL){
+                                                $fname = $item->organization_representative_signature_file; 
+                                            ?>
+                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                            <?php 
+                                                } else {
+
+                                                }
+                                            }
+                                            ?>
+                                        </td>
                                         
                                         <td>Date:</td>
                                         <td><input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="organization_representative_signature_date" value="<?php if(isset($load)){echo set_value('organization_representative_signature_date', $item->organization_representative_signature_date);}else{echo set_value('organization_representative_signature_date');} ?>"></td>
@@ -849,6 +911,20 @@
                                 <li>
                                     Estimated duration of activity <em>(please provide Gantt Chart):</em>
                                     <input type="file" class="form-control" name="project_intro_duration"><br>
+                                    
+                                    <?php 
+                                        if(isset($load)){
+                                            if(!$item->project_intro_duration== NULL){
+                                                $fname = $item->project_intro_duration; 
+                                    ?>
+                                    <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                    <?php 
+                                            } else {
+
+                                            }
+                                        }
+                                    ?>
+                                    
                                 </li>
                                 <li>
                                     <div class="form-group row">

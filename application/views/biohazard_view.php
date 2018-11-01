@@ -37,18 +37,20 @@
                            <tr>
                                <th>DATE RECEIVED</th>
                                <th>SBC REFERENCE NUMBER</th>
+
                            </tr>
                        </thead>
                        <tbody class="tblTitle2">
                            <tr>
-                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only">
+                               <td>
+                                   <input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $item->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
                                </td>
                                <td>
-                                   <input type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only">
+                                   <input type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('SBC_reference_no', $item->SBC_reference_no);}else{echo set_value('SBC_reference_no');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
                                </td>
                            </tr>
                        </tbody>
-                   </table>
+                </table>
                    
                 <div id="section_1" class="sectiontarget">
                    <table class="table table-bordered">
@@ -60,11 +62,13 @@
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><input type="text" name="project_title" class="form-control" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>"></td> 
+                              <td colspan="2">
+                                  <textarea name="project_title" class="form-control" ><?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?></textarea>
+                               </td> 
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_title'); ?></span>
+                
                 </div>
                 
                 <div id="section_2" class="sectiontarget">
@@ -77,19 +81,38 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_supervisor_name" value="<?php if(isset($load)){echo set_value('project_supervisor_name', $item->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?>"></div></td>
+                               <td colspan="2">
+                                   <div class="form-group row">
+                                       <label for="project_supervisor_name" class="col-sm-4">Name:</label>
+                                       <div class="col-sm-7">
+                                           <textarea class="form-control" name="project_supervisor_name" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_name', $item->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?></textarea>
+                                       </div>
+                                   </div>
+                               </td>
                            </tr>
                            <tr>
-                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_supervisor_department" value="<?php if(isset($load)){echo set_value('project_supervisor_department', $item->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?>"></div></td>
+                               <td colspan="2">
+                                   <div class="form-group row">
+                                       <label for="project_supervisor_department" class="col-sm-4">Department:</label>
+                                       <div class="col-sm-7">
+                                           <textarea class="form-control" name="project_supervisor_department" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_department', $item->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?></textarea>
+                                       </div>
+                                   </div>
+                               </td>
                            </tr>
                            <tr>
-                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_supervisor_email_address" value="<?php if(isset($load)){echo set_value('project_supervisor_email_address', $item->project_supervisor_email_address);}else{echo set_value('project_supervisor_email_address');} ?>"></div></td>
+                               <td colspan="2">
+                                   <div class="form-group row">
+                                       <label for="project_supervisor_email_address" class="col-sm-4">Email <em>(MUST be Swinburne email address)</em>:</label>
+                                       <div class="col-sm-7">
+                                           <textarea class="form-control" name="project_supervisor_email_address" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_email_address', $item->project_supervisor_email_address);}else{echo set_value('project_supervisor_email_address');} ?></textarea>
+                                       </div>
+                                   </div>
+                               </td>
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_supervisor_name'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_supervisor_department'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_supervisor_email_address'); ?></span>
+        
                 </div>
                 <div id="section_3" class="sectiontarget">
                    <table class="table table-bordered">
@@ -101,19 +124,39 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="2">Name: <div class="form-group"><input type="text" class="form-control" name="project_alt_person" value="<?php if(isset($load)){echo set_value('project_alt_person', $item->project_alt_person);}else{echo set_value('project_alt_person');} ?>"></div></td>
+                               <td colspan="2">
+                                   <div class="form-group row">
+                                       <label for="project_alt_person" class="col-sm-4">Name:</label>
+                                       <div class="col-sm-7">
+                                           <textarea class="form-control" name="project_alt_person" rows="1"><?php if(isset($load)){echo set_value('project_alt_person', $item->project_alt_person);}else{echo set_value('project_alt_person');} ?></textarea>
+                                       </div>
+                                   </div>
+                               </td>
+                               
                            </tr>
                            <tr>
-                               <td colspan="2">Department: <div class="form-group"><input type="text" class="form-control" name="project_alt_department" value="<?php if(isset($load)){echo set_value('project_alt_department', $item->project_alt_department);}else{echo set_value('project_alt_department');} ?>" ></div></td>
+                               <td colspan="2">
+                                   <div class="form-group row">
+                                       <label for="project_alt_department" class="col-sm-4">Department:</label>
+                                       <div class="col-sm-7">
+                                           <textarea class="form-control" name="project_alt_department" rows="1"><?php if(isset($load)){echo set_value('project_alt_department', $item->project_alt_department);}else{echo set_value('project_alt_department');} ?></textarea>
+                                       </div>
+                                   </div>
+                               </td>
                            </tr>
                            <tr>
-                               <td colspan="2">Email (MUST be Swinburne email address): <div class="form-group"><input type="email" class="form-control" name="project_alt_email" value="<?php if(isset($load)){echo set_value('project_alt_email', $item->project_alt_email);}else{echo set_value('project_alt_email');} ?>"></div></td>
+                               <td colspan="2">
+                                   <div class="form-group row">
+                                       <label for="project_alt_email" class="col-sm-4">Email <em>(MUST be Swinburne email address)</em>:</label>
+                                       <div class="col-sm-7">
+                                           <textarea class="form-control" name="project_alt_email" rows="1"><?php if(isset($load)){echo set_value('project_alt_email', $item->project_alt_email);}else{echo set_value('project_alt_email');} ?></textarea>
+                                       </div>
+                                   </div>
+                               </td>
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_alt_person'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_alt_department'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_alt_email'); ?></span>
+       
                 </div>
                 <div id="section_4" class="sectiontarget">
                    <table class="table table-bordered">
@@ -132,29 +175,63 @@
                                            <th>Role on project (e.g. PhD student, Research Assistant, Biosafety Officers, Laboratory Manager, co-Chief Investigator)</th>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[0]" value="<?php if(isset($load)){echo set_value('project_personel_name[0]', $a[0]);}else{echo set_value('project_personel_name[0]');} ?>"></div></td>
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_name[0]" ><?php if(isset($load)){echo set_value('project_personel_name[0]', $a[0]);}else{echo set_value('project_personel_name[0]');} ?></textarea>
+                                               </div>
+                                           </td>
                                            
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[0]" value="<?php if(isset($load)){echo set_value('project_personel_role[0]', $b[0]);}else{echo set_value('project_personel_role[0]');} ?>"></div></td>
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_role[0]" ><?php if(isset($load)){echo set_value('project_personel_role[0]', $b[0]);}else{echo set_value('project_personel_role[0]');} ?></textarea>
+                                               </div>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[1]" value="<?php if(isset($load)){echo set_value('project_personel_name[1]', $a[1]);}else{echo set_value('project_personel_name[1]');} ?>"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[1]" value="<?php if(isset($load)){echo set_value('project_personel_role[1]', $b[1]);}else{echo set_value('project_personel_role[1]');} ?>"></div></td>
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_name[1]" ><?php if(isset($load)){echo set_value('project_personel_name[1]', $a[1]);}else{echo set_value('project_personel_name[1]');} ?></textarea>
+                                               </div>
+                                           </td>
+                                           
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_role[1]" ><?php if(isset($load)){echo set_value('project_personel_role[1]', $b[1]);}else{echo set_value('project_personel_role[1]');} ?></textarea>
+                                               </div>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[2]" value="<?php if(isset($load)){echo set_value('project_personel_name[2]', $a[2]);}else{echo set_value('project_personel_name[2]');} ?>"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[2]" value="<?php if(isset($load)){echo set_value('project_personel_role[2]', $b[2]);}else{echo set_value('project_personel_role[2]');} ?>"></div></td>
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_name[2]" ><?php if(isset($load)){echo set_value('project_personel_name[2]', $a[2]);}else{echo set_value('project_personel_name[2]');} ?></textarea>
+                                               </div>
+                                           </td>
+                                           
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_role[2]" ><?php if(isset($load)){echo set_value('project_personel_role[2]', $b[2]);}else{echo set_value('project_personel_role[2]');} ?></textarea>
+                                               </div>
+                                           </td>
                                        </tr>
                                        <tr>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_name[3]" value="<?php if(isset($load)){echo set_value('project_personel_name[3]', $a[3]);}else{echo set_value('project_personel_name[3]');} ?>"></div></td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="project_personnel_role[3]" value="<?php if(isset($load)){echo set_value('project_personel_role[3]', $b[3]);}else{echo set_value('project_personel_role[3]');} ?>"></div></td>
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_name[3]" ><?php if(isset($load)){echo set_value('project_personel_name[3]', $a[3]);}else{echo set_value('project_personel_name[3]');} ?></textarea>
+                                               </div>
+                                           </td>
+                                           
+                                           <td>
+                                               <div class="form-group">
+                                                   <textarea class="form-control" name="project_personnel_role[3]" ><?php if(isset($load)){echo set_value('project_personel_role[3]', $b[3]);}else{echo set_value('project_personel_role[3]');} ?></textarea>
+                                               </div>
+                                           </td>
                                        </tr>
                                    </table>
                                </td>
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_personnel_name[0]'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_personnel_role[0]'); ?></span>
+                
                 </div>
                 <div id="section_5" class="sectiontarget">
                    <table class="table table-bordered">
@@ -236,8 +313,9 @@
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_summary'); ?></span>
+                
                 </div>
+                
                 <div id="section_7" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
@@ -252,8 +330,9 @@
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_activity'); ?></span>
+                
                 </div>
+                
                 <div id="section_8" class="sectiontarget">
                    <table class="table table-bordered">
                        <thead>
@@ -275,31 +354,31 @@
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" name="project_SOP_title[0]" value="<?php if(isset($load)){echo set_value('project_SOP_title[0]', $c[0]);}else{echo set_value('project_SOP_title[0]');} ?>">
+                                                   <textarea class="form-control" name="project_SOP_title[0]"><?php if(isset($load)){echo set_value('project_SOP_title[0]', $c[0]);}else{echo set_value('project_SOP_title[0]');} ?></textarea>
                                                </div>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_SOP_risk_title[0]" value="<?php if(isset($load)){echo set_value('project_SOP_risk_title[0]', $d[0]);}else{echo set_value('project_SOP_risk_title[0]');} ?>" >
+                                               <textarea class="form-control" name="project_SOP_risk_title[0]" ><?php if(isset($load)){echo set_value('project_SOP_risk_title[0]', $d[0]);}else{echo set_value('project_SOP_risk_title[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" name="project_SOP_title[1]" value="<?php if(isset($load)){echo set_value('project_SOP_title[1]', $c[1]);}else{echo set_value('project_SOP_title[1]');} ?>" >
+                                                   <textarea class="form-control" name="project_SOP_title[1]"><?php if(isset($load)){echo set_value('project_SOP_title[1]', $c[1]);}else{echo set_value('project_SOP_title[1]');} ?></textarea>
                                                </div>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_SOP_risk_title[1]" value="<?php if(isset($load)){echo set_value('project_SOP_risk_title[1]', $d[1]);}else{echo set_value('project_SOP_risk_title[1]');} ?>">
+                                               <textarea class="form-control" name="project_SOP_risk_title[1]" ><?php if(isset($load)){echo set_value('project_SOP_risk_title[1]', $d[1]);}else{echo set_value('project_SOP_risk_title[1]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <input type="text" class="form-control" name="project_SOP_title[2]" value="<?php if(isset($load)){echo set_value('project_SOP_title[2]', $c[2]);}else{echo set_value('project_SOP_title[2]');} ?>" >
+                                                   <textarea class="form-control" name="project_SOP_title[2]"><?php if(isset($load)){echo set_value('project_SOP_title[2]', $c[2]);}else{echo set_value('project_SOP_title[2]');} ?></textarea>
                                                </div>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_SOP_risk_title[2]" value="<?php if(isset($load)){echo set_value('project_SOP_risk_title[2]', $d[2]);}else{echo set_value('project_SOP_risk_title[2]');} ?>" >
+                                               <textarea class="form-control" name="project_SOP_risk_title[2]" ><?php if(isset($load)){echo set_value('project_SOP_risk_title[2]', $d[2]);}else{echo set_value('project_SOP_risk_title[2]');} ?></textarea>
                                            </td>
                                        </tr>
                                    </table>
@@ -307,8 +386,7 @@
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_SOP_title[0]'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_SOP_risk_title[0]'); ?></span>
+                
                 </div>
                 <div id="section_9" class="sectiontarget">
                    <table class="table table-bordered">
@@ -330,18 +408,18 @@
                                        </tr>
                                        <tr>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_building[0]" value="<?php if(isset($load)){echo set_value('project_facilities_building[0]', $e[0]);}else{echo set_value('project_facilities_building[0]');} ?>" >
+                                               <textarea class="form-control" name="project_facilities_building[0]" ><?php if(isset($load)){echo set_value('project_facilities_building[0]', $e[0]);}else{echo set_value('project_facilities_building[0]');} ?></textarea>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_room[0]" value="<?php if(isset($load)){echo set_value('project_facilities_room[0]', $f[0]);}else{echo set_value('project_facilities_room[0]');} ?>" >
+                                               <textarea class="form-control" name="project_facilities_room[0]" ><?php if(isset($load)){echo set_value('project_facilities_room[0]', $f[0]);}else{echo set_value('project_facilities_room[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_building[1]" value="<?php if(isset($load)){echo set_value('project_facilities_building[1]', $e[1]);}else{echo set_value('project_facilities_building[1]');} ?>" >
+                                               <textarea class="form-control" name="project_facilities_building[1]" ><?php if(isset($load)){echo set_value('project_facilities_building[1]', $e[1]);}else{echo set_value('project_facilities_building[1]');} ?></textarea>
                                            </td>
                                            <td>
-                                               <input type="text" class="form-control" name="project_facilities_room[1]" value="<?php if(isset($load)){echo set_value('project_facilities_room[1]', $f[1]);}else{echo set_value('project_facilities_room[1]');} ?>" >
+                                               <textarea class="form-control" name="project_facilities_room[1]" ><?php if(isset($load)){echo set_value('project_facilities_room[1]', $f[1]);}else{echo set_value('project_facilities_room[1]');} ?></textarea>
                                            </td>
                                        </tr>
                                    </table>
@@ -349,8 +427,7 @@
                            </tr>
                        </tbody>
                    </table>
-                <span class="text-danger"><?php echo form_error('project_facilities_building[0]'); ?></span>
-                <span class="text-danger"><?php echo form_error('project_facilities_room[0]'); ?></span>
+    
                 </div>
                 <div id="section_10" class="sectiontarget">
                    <table class="table table-bordered">
@@ -371,7 +448,9 @@
                            <tr>
                                <td colspan="2">
                                    Name and signature of Biosafety Officer(s)/Lab Manager:
-                                  <div class="form-group"><input type="text" class="form-control" name="officer_name" value="<?php if(isset($load)){echo set_value('officer_name', $item->officer_name);}else{echo set_value('officer_name');} ?>"></div>
+                                  <div class="form-group">
+                                      <textarea class="form-control" name="officer_name" ><?php if(isset($load)){echo set_value('officer_name', $item->officer_name);}else{echo set_value('officer_name');} ?></textarea>
+                                   </div>
                                </td>
                            </tr>
                        </tbody>
@@ -399,7 +478,27 @@
                            <tr>
                                <td colspan="2">
                                    Signature:<br><br><br>
+                                   
+                                   <textarea class="form-control" name="biohazard_signature"><?php if(isset($load)){echo set_value('biohazard_signature', $item->biohazard_signature);}else{echo set_value('biohazard_signature');} ?></textarea>
+                                   <br>
+                                   
+                                   <input type="file" class="form-control" name="biohazard_signature_file"><br>
+                                            
+                                   <?php 
+                                   if(isset($load)){
+                                       if(!$item->biohazard_signature_file== NULL){
+                                           $fname = $item->biohazard_signature_file; 
+                                   ?>
+                                   <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/biohazardproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                   <?php 
+                                       } else {
+
+                                       }
+                                   }
+                                   ?>
+                                   
                                </td>
+                               
                            </tr>
                        </tbody>
                    </table>
@@ -413,7 +512,6 @@
                        <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/biohazard/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
                        <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
-                       <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                    </div>
             

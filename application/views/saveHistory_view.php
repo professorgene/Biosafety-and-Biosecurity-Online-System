@@ -58,7 +58,7 @@ if(!$this->session->userdata('isLogin')){
                         <th></th>
                         <th>Project Name</th>
                         <th>Project Description</th>
-                        <th>Approval Progress</th>
+                        
                         <th></th>
                     </tr>
                 </thead>
@@ -68,14 +68,6 @@ if(!$this->session->userdata('isLogin')){
                         <td class="text-center"><?php echo $i = $i + 1; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['project_desc']; ?></td>
-                        <td class="text-center"><?php 
-                            if($row['approval'] != 4 || $row['approval'] == null){
-                                echo "Awaiting Approval";
-                            } else {
-                                echo "Approved";
-                            }
-                            ?>
-                        </td>
                         <td class="text-center">
                             <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="View"></i>
                             

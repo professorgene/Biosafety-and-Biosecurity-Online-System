@@ -77,6 +77,7 @@
                    
                     
                 </div>
+                
                    <table class="table table-bordered">
                        <thead>
                            <tr>
@@ -89,7 +90,7 @@
                                <td colspan="2">
                                    <table class="table table-bordered">
                                        <tr>
-                                          <td colspan="3">Project Supervisor (must be a Swinburne staff member)</td> 
+                                          <td colspan="3">Project Supervisor <em>(must be a Swinburne staff member)</em></td> 
                                        </tr>
                                        <tr>
                                            <td width="80">
@@ -781,9 +782,9 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="1" name="pc2_officer_notified" <?php if(isset($load)){if($pc2->officer_notified==1){echo set_radio('pc2_officer_notified', '1', TRUE);}} ?>> Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="yes" name="pc2_officer_notified" <?php if(isset($load)){if($pc2->officer_notified=='yes'){echo set_radio('pc2_officer_notified', 'yes', TRUE);}} ?>> Yes</label>
                                                
-                                               <label class="radio-inline"><input type="radio" value="0" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', '0', FALSE); ?> <?php if(isset($load)){if($pc2->officer_notified==0){echo set_radio('pc2_officer_notified', '0', TRUE);}} ?>> No</label>
+                                               <label class="radio-inline"><input type="radio" value="no" name="pc2_officer_notified" <?php echo set_radio('pc2_officer_notified', 'no', FALSE); ?> <?php if(isset($load)){if($pc2->officer_notified=='no'){echo set_radio('pc2_officer_notified', 'no', TRUE);}} ?>> No</label>
                                                
 
                                            </td>
@@ -806,7 +807,7 @@
                                        </tr>
                                        <tr>
                                            <td>Name of Laboratory Manager</td>
-                                           <td><div class="form-group"><input type="text" class="form-control" name="pc2_laboratory_manager" value="<?php if(isset($load)){echo set_value('pc2_laboratory_manager', $pc2->laboratory_manager);}else{echo set_value('pc2_laboratory_manager');} ?>" ></div></td>
+                                           <td><div class="form-group"><textarea class="form-control" name="pc2_laboratory_manager" ><?php if(isset($load)){echo set_value('pc2_laboratory_manager', $pc2->laboratory_manager);}else{echo set_value('pc2_laboratory_manager');} ?></textarea></div></td>
                                        </tr>
                                    </table>
                                </td>
@@ -826,7 +827,6 @@
                        <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/pc2/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
                        <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
-                       <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                        
                    </div>

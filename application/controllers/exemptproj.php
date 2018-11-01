@@ -61,7 +61,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
                     'date_received' => $this->input->post('date_received '),
-                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_title' => $this->input->post('project_supervisor_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
@@ -209,7 +209,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
                     'date_received' => $this->input->post('date_received '),
-                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_title' => $this->input->post('project_supervisor_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
@@ -394,7 +394,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $appID,
                     'date_received' => $this->input->post('date_received '),
-                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_title' => $this->input->post('project_supervisor_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
@@ -597,7 +597,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
                     'date_received' => $this->input->post('date_received '),
-                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_title' => $this->input->post('project_supervisor_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
@@ -703,7 +703,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 {
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $biohazardData);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -711,7 +711,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('home/index');
+                   redirect('saveHistory/index');
   
                 }
                  
@@ -745,7 +745,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
                     'date_received' => $this->input->post('date_received '),
-                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'project_title' => $this->input->post('project_title'),
                     'project_supervisor_title' => $this->input->post('project_supervisor_title'),
                     'project_supervisor_name' => $this->input->post('project_supervisor_name'),
@@ -780,7 +780,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'officer_notified' => $this->input->post('officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'laboratory_manager' => $this->input->post('laboratory_manager'),
-                    'status' => $saveStatus
+                    'status' => $submitStatus
                 );
                 
                 $hirarcData = array(
@@ -847,7 +847,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 );
                 
                 
-                if($this->exempt_model->update_saved_data($proj_id, $biohazardData) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
+                if($this->exempt_model->update_saved_data($proj_id, $exemptData) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
