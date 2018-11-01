@@ -55,7 +55,7 @@
                    <hr>
 				   
 				   <div>
-                       <h5><b>Reference No. :   </b></h5><input  maxlength="20" type="text" name="reference_no" value="<?php if(isset($load)){echo set_value('reference_no', $item->reference_no);}else{echo set_value('reference_no');} ?>">
+                       <h5><b>Reference No. :   </b></h5><textarea  rows="1" maxlength="20" name="reference_no"><?php if(isset($load)){echo set_value('reference_no', $item->reference_no);}else{echo set_value('reference_no');} ?></textarea>
 				   </div>
 				   
 				  <hr>                                                              
@@ -69,23 +69,23 @@
                           <tbody>
                                <tr>
                                    <th>Name:</th>
-                                   <td><input type="text" class="form-control" name="personnel_name" value="<?php if(isset($load)){echo set_value('personnel_name', $item->personnel_name);}else{echo set_value('personnel_name');} ?>"></td>
+                                   <td><textarea   rows="1" class="form-control" name="personnel_name"><?php if(isset($load)){echo set_value('personnel_name', $item->personnel_name);}else{echo set_value('personnel_name');} ?></textarea> </td> 
                                </tr>		   						   							                          
 
                            <tr>
-                               <td>NRIC: <input type="text" class="form-control" name="personnel_NRIC" value="<?php if(isset($load)){echo set_value('personnel_NRIC', $item->personnel_NRIC);}else{echo set_value('personnel_NRIC');} ?>"></td>
+                               <td>NRIC: <textarea  rows="1" class="form-control" name="personnel_NRIC"><?php if(isset($load)){echo set_value('personnel_NRIC', $item->personnel_NRIC);}else{echo set_value('personnel_NRIC');} ?></textarea></td>
                                
-                               <td>Contact no: <input type="tel" class="form-control" name="personnel_telephone_number" value="<?php if(isset($load)){echo set_value('personnel_telephone_number', $item->personnel_telephone_number);}else{echo set_value('personnel_telephone_number');} ?>"></td>
+                               <td>Contact no: <textarea   rows="1" class="form-control" name="personnel_telephone_number"><?php if(isset($load)){echo set_value('personnel_telephone_number', $item->personnel_telephone_number);}else{echo set_value('personnel_telephone_number');} ?></textarea>  </td>
                            </tr>
 						   <tr>
-                               <td>Age: <input type="number" class="form-control" name="personnel_age" value="<?php if(isset($load)){echo set_value('personnel_age', $item->personnel_age);}else{echo set_value('personnel_age');} ?>"></td>
+                               <td>Age: <textarea   rows="1" class="form-control" name="personnel_age"><?php if(isset($load)){echo set_value('personnel_age', $item->personnel_age);}else{echo set_value('personnel_age');} ?></textarea>  </td>
                                
-                               <td>Office: <input type="tel" class="form-control" name="personnel_office_number" value="<?php if(isset($load)){echo set_value('personnel_office_number', $item->personnel_office_number);}else{echo set_value('personnel_office_number');} ?>"></td>
+                               <td>Office: <textarea  rows="1" class="form-control" name="personnel_office_number"><?php if(isset($load)){echo set_value('personnel_office_number', $item->personnel_office_number);}else{echo set_value('personnel_office_number');} ?></textarea> </td>
                            </tr>
 						   <tr>
-                               <td>Race: <input type="text" class="form-control" name="personnel_race" value="<?php if(isset($load)){echo set_value('personnel_race', $item->personnel_race);}else{echo set_value('personnel_race');} ?>"></td>
+                               <td>Race: <textarea   rows="1" class="form-control" name="personnel_race"><?php if(isset($load)){echo set_value('personnel_race', $item->personnel_race);}else{echo set_value('personnel_race');} ?></textarea>  </td>
                                
-                               <td>Ext: <input type="tel" class="form-control" name="personnel_ext_number" value="<?php if(isset($load)){echo set_value('personnel_ext_number', $item->personnel_ext_number);}else{echo set_value('personnel_ext_number');} ?>"></td>
+                               <td>Ext: <textarea   rows="1" class="form-control" name="personnel_ext_number" ><?php if(isset($load)){echo set_value('personnel_ext_number', $item->personnel_ext_number);}else{echo set_value('personnel_ext_number');} ?></textarea>  </td>
                            </tr>						   
                           </tbody>
 						  <tbody>                               													   
@@ -94,11 +94,11 @@
                                </tr> 
                            <tr>
                                <td>Job Title: </td>
-                               <td><input type="text" class="form-control" name="personnel_employment_job" value="<?php if(isset($load)){echo set_value('personnel_employment_job', $item->personnel_employment_job);}else{echo set_value('personnel_employment_job');} ?>"></td>
+                               <td><textarea  rows="1" class="form-control" name="personnel_employment_job"><?php if(isset($load)){echo set_value('personnel_employment_job', $item->personnel_employment_job);}else{echo set_value('personnel_employment_job');} ?></textarea>  </td>
                            </tr>
 						   <tr>
                                <td>Faculty/Department: </td>
-                               <td><input type="text" class="form-control" name="personnel_employment_faculty" value="<?php if(isset($load)){echo set_value('personnel_employment_faculty', $item->personnel_employment_faculty);}else{echo set_value('personnel_employment_faculty');} ?>"></td>
+                               <td><textarea  rows="1" class="form-control" name="personnel_employment_faculty"><?php if(isset($load)){echo set_value('personnel_employment_faculty', $item->personnel_employment_faculty);}else{echo set_value('personnel_employment_faculty');} ?></textarea> </td>
                            </tr>
 						   <tr>
                                <td>Employment Status: </td>
@@ -112,7 +112,7 @@
                            </tr>
 						   <tr>
                                <td>Duration of Current Job: </td>
-                               <td><input type="text" class="form-control" name="personnel_employment_duration" placeholder= "Months/Years" value="<?php if(isset($load)){echo set_value('personnel_employment_duration', $item->personnel_employment_duration);}else{echo set_value('personnel_employment_duration');} ?>"></td>
+                               <td><textarea  rows="1" class="form-control" name="personnel_employment_duration" placeholder= "Months/Years"><?php if(isset($load)){echo set_value('personnel_employment_duration', $item->personnel_employment_duration);}else{echo set_value('personnel_employment_duration');} ?></textarea></td>
                            </tr>
 						   
                            </tbody>
@@ -144,18 +144,18 @@
                            <tr>
                                <th colspan="2">
 							       Location in the department of occupational exposure to LMO/rDNA materials occurred: 
-								   <input type="text" class="form-control" name="exposure_location" value="<?php if(isset($load)){echo set_value('exposure_location', $item->exposure_location);}else{echo set_value('exposure_location');} ?>">
+								   <textarea rows="1"class="form-control" name="exposure_location"><?php if(isset($load)){echo set_value('exposure_location', $item->exposure_location);}else{echo set_value('exposure_location');} ?></textarea>
 							   </th>                               
                            </tr>
                            <tr>
                                <td>DATE: <input type="date" class="form-control" name="exposure_date" value="<?php if(isset($load)){echo set_value('exposure_date', $item->exposure_date);}else{echo set_value('exposure_date');} ?>"></td>
                                
-                               <td>TIME: <input type="text" class="form-control" name="exposure_time" value="<?php if(isset($load)){echo set_value('exposure_time', $item->exposure_time);}else{echo set_value('exposure_time');} ?>"></td>
+                               <td>TIME: <textarea rows="1" class="form-control" name="exposure_time"><?php if(isset($load)){echo set_value('exposure_time', $item->exposure_time);}else{echo set_value('exposure_time');} ?></textarea></td>
                            </tr>
 						   
 						   <tr>
                                <th colspan="2">
-							       Diagnosis/Provisional Diagnosis : <input type="text" class="form-control" name="exposure_diagnosis" value="<?php if(isset($load)){echo set_value('exposure_diagnosis', $item->exposure_diagnosis);}else{echo set_value('exposure_diagnosis');} ?>">
+							       Diagnosis/Provisional Diagnosis : <textarea rows="1" class="form-control" name="exposure_diagnosis"><?php if(isset($load)){echo set_value('exposure_diagnosis', $item->exposure_diagnosis);}else{echo set_value('exposure_diagnosis');} ?></textarea>
 							   </th>                               
                            </tr>
 						   <tr>
@@ -191,7 +191,7 @@
                            </tr>
 							   <tr>
                                    <th>Duration of MC:</th>
-                                   <td><input type="text" class="form-control" name="exposure_medical_cert_duration" placeholder="Eg: 3 Days or 2 Months" value="<?php if(isset($load)){echo set_value('exposure_medical_cert_duration', $item->exposure_medical_cert_duration);}else{echo set_value('exposure_medical_cert_duration');} ?>"></td>
+                                   <td><textarea rows="1" type="text" class="form-control" name="exposure_medical_cert_duration" placeholder="Eg: 3 Days or 2 Months"><?php if(isset($load)){echo set_value('exposure_medical_cert_duration', $item->exposure_medical_cert_duration);}else{echo set_value('exposure_medical_cert_duration');} ?></textarea></td>
                                </tr>						   
                            </tbody>
 						   <tbody>                               													   
@@ -270,7 +270,7 @@
                            
                            <label class="control-label col-sm-2" for="signature_PI_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_PI_name" value="<?php if(isset($load)){echo set_value('signature_PI_name', $item->signature_PI_name);}else{echo set_value('signature_PI_name');} ?>">
+                               <textarea class="form-control" name="signature_PI_name" ><?php if(isset($load)){echo set_value('signature_PI_name', $item->signature_PI_name);}else{echo set_value('signature_PI_name');} ?></textarea>
                            </div>
                            <span class="text-danger"><?php echo form_error('signature_PI_name'); ?></span>
                            
@@ -287,7 +287,7 @@
                            <p>Signature of Biosafety Officer</p>
                            <label class="control-label col-sm-2" for="signature_BO_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_BO_name" value="<?php if(isset($load)){echo set_value('signature_BO_name', $item->signature_BO_name);}else{echo set_value('signature_BO_name');} ?>">
+                               <textarea class="form-control" name="signature_BO_name" ><?php if(isset($load)){echo set_value('signature_BO_name', $item->signature_BO_name);}else{echo set_value('signature_BO_name');} ?></textarea>
                            </div>
                            <label class="control-label col-sm-2" for="signature_BO_date">Date:</label>
                            <div class="col-sm-10">
@@ -303,7 +303,7 @@
                            <p>Signature of IBC Chair</p>
                            <label class="control-label col-sm-2" for="signature_IBC_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_IBC_name" value="<?php if(isset($load)){echo set_value('signature_IBC_name', $item->signature_IBC_name);}else{echo set_value('signature_IBC_name');} ?>">
+                               <textarea class="form-control" name="signature_IBC_name" ><?php if(isset($load)){echo set_value('signature_IBC_name', $item->signature_IBC_name);}else{echo set_value('signature_IBC_name');} ?></textarea>
                            </div>
                            <label class="control-label col-sm-2" for="signature_PI_date">Date:</label>
                            <div class="col-sm-10">

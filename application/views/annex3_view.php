@@ -57,25 +57,31 @@
                    <hr>
 				   
 				   <div>
-                       <h5><b>Reference No. :   </b></h5><input  maxlength="20" type="text" name="reference_no" value="<?php if(isset($load)){echo set_value('reference_no', $item->reference_no);}else{echo set_value('reference_no');} ?>">
+                       <h5><b>Reference No. :</b></h5>
+					   <textarea rows="1" maxlength="20" rows="1" name="reference_no"><?php if(isset($load)){echo set_value('reference_no', $item->reference_no);}else{echo set_value('reference_no');} ?></textarea>
 				   </div>
 				   
 				  <hr>
                        
                        <div 
-							class="form-group"><h6><strong>ORGANISATION :</strong></h6><input type="text" class="form-control" name="organization" id="organization" value="<?php if(isset($load)){echo set_value('organization', $item->organization);}else{echo set_value('organization');} ?>">
+							class="form-group"><h6><strong>ORGANISATION :
+							</strong></h6><textarea class="form-control" name="organization" id="organization"><?php if(isset($load)){echo set_value('organization', $item->organization);}else{echo set_value('organization');} ?></textarea>
+							
                            <span class="text-danger"><?php echo form_error('organization'); ?></span>
                        </div>
 					   <div 
-							class="form-group"><h6><strong>FACULTY/DEPARTMENT :</strong></h6><input type="text" class="form-control" name="faculty" id="faculty" value="<?php if(isset($load)){echo set_value('faculty', $item->faculty);}else{echo set_value('faculty');} ?>">
+							class="form-group"><h6><strong>FACULTY/DEPARTMENT :
+							</strong></h6><textarea  class="form-control" name="faculty" id="faculty"><?php if(isset($load)){echo set_value('faculty', $item->faculty);}else{echo set_value('faculty');} ?></textarea>
                            <span class="text-danger"><?php echo form_error('faculty'); ?></span>
                        </div>
 					   <div 
-							class="form-group"><h6><strong>LABORATORY :</strong></h6><input type="text" class="form-control" name="laboratory" id="laboratory" value="<?php if(isset($load)){echo set_value('laboratory', $item->laboratory);}else{echo set_value('laboratory');} ?>" >
+							class="form-group"><h6><strong>LABORATORY :
+							</strong></h6><textarea  class="form-control" name="laboratory" id="laboratory"><?php if(isset($load)){echo set_value('laboratory', $item->laboratory);}else{echo set_value('laboratory');} ?></textarea>
                            <span class="text-danger"><?php echo form_error('laboratory'); ?></span>
                        </div>
 					   <div 
-							class="form-group"><h6><strong>DATE & TIME OF INCIDENT :</strong></h6><input type="date" class="form-control" name="date" id="date" value="<?php if(isset($load)){echo set_value('date', $item->date);}else{echo set_value('date');} ?>" >
+							class="form-group"><h6><strong>DATE & TIME OF INCIDENT :
+							</strong></h6><input type="date" class="form-control" name="date" id="date" value="<?php if(isset($load)){echo set_value('date', $item->date);}else{echo set_value('date');} ?>" >
                            <span class="text-danger"><?php echo form_error('date'); ?></span>
                        </div>
                    
@@ -89,11 +95,11 @@
                            <tbody>
                                <tr>
                                    <th>PI/ Laboratory Personnel’s Name:</th>
-                                   <td><input type="text" class="form-control" name="PI_name" value="<?php if(isset($load)){echo set_value('PI_name', $item->PI_name);}else{echo set_value('PI_name');} ?>"></td>
+                                   <td><textarea class="form-control" name="PI_name"><?php if(isset($load)){echo set_value('PI_name', $item->PI_name);}else{echo set_value('PI_name');} ?></textarea></td>
                                </tr>
 							   <tr>
                                    <th>Telephone:</th>
-                                   <td><input type="text" class="form-control" name="PI_telephone_number" value="<?php if(isset($load)){echo set_value('PI_telephone_number', $item->PI_telephone_number);}else{echo set_value('PI_telephone_number');} ?>"></td>
+                                   <td><textarea class="form-control" name="PI_telephone_number"><?php if(isset($load)){echo set_value('PI_telephone_number', $item->PI_telephone_number);}else{echo set_value('PI_telephone_number');} ?></textarea></td>
                                </tr>
 							   
 							                          
@@ -104,7 +110,7 @@
                            </tr>
                            <tr>
                                <td>DATE: <input type="date" class="form-control" name="PI_reported_date" value="<?php if(isset($load)){echo set_value('PI_reported_date', $item->PI_reported_date);}else{echo set_value('PI_reported_date');} ?>"></td>
-                               <td>TIME: <input type="text" class="form-control" name="PI_reported_time" value="<?php if(isset($load)){echo set_value('PI_reported_time', $item->PI_reported_time);}else{echo set_value('PI_reported_time');} ?>"></td>
+                               <td>TIME: <textarea class="form-control" name="PI_reported_time"><?php if(isset($load)){echo set_value('PI_reported_time', $item->PI_reported_time);}else{echo set_value('PI_reported_time');} ?></textarea></td>
                            </tr>                
                            </tbody>
                        </table>
@@ -268,13 +274,13 @@
                            
                            <label class="control-label col-sm-2" for="signature_PI_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_PI_name" value="<?php if(isset($load)){echo set_value('signature_PI_name', $item->signature_PI_name);}else{echo set_value('signature_PI_name');} ?>">
+                               <textarea class="form-control" name="signature_PI_name"><?php if(isset($load)){echo set_value('signature_PI_name', $item->signature_PI_name);}else{echo set_value('signature_PI_name');} ?></textarea>
                            </div>
                            <span class="text-danger"><?php echo form_error('signature_PI_name'); ?></span>
                            
                            <label class="control-label col-sm-2" for="signature_PI_date">Date:</label>
                            <div class="col-sm-10">
-                               <input type="date" class="form-control" name="signature_PI_date" value="<?php if(isset($load)){echo set_value('signature_PI_date', $item->signature_PI_date);}else{echo set_value('signature_PI_date');} ?>">
+                               <input  type="date" class="form-control" name="signature_PI_date" value="<?php if(isset($load)){echo set_value('signature_PI_date', $item->signature_PI_date);}else{echo set_value('signature_PI_date');} ?>">
                            </div>
                            <span class="text-danger"><?php echo form_error('signature_PI_date'); ?></span>
                            
@@ -285,11 +291,11 @@
                            <p>Signature of Biosafety Officer</p>
                            <label class="control-label col-sm-2" for="signature_BO_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_BO_name" value="<?php if(isset($load)){echo set_value('signature_BO_name', $item->signature_BO_name);}else{echo set_value('signature_BO_name');} ?>">
+                               <textarea rows="2" class="form-control" name="signature_BO_name"><?php if(isset($load)){echo set_value('signature_BO_name', $item->signature_BO_name);}else{echo set_value('signature_BO_name');} ?></textarea>
                            </div>
                            <label class="control-label col-sm-2" for="signature_BO_date">Date:</label>
                            <div class="col-sm-10">
-                               <input type="date" class="form-control" name="signature_BO_date" value="<?php if(isset($load)){echo set_value('signature_BO_date', $item->signature_BO_date);}else{echo set_value('signature_BO_date');} ?>">
+                               <input  type="date" class="form-control" name="signature_BO_date" value="<?php if(isset($load)){echo set_value('signature_BO_date', $item->signature_BO_date);}else{echo set_value('signature_BO_date');} ?>">
                            </div>
                            
                        </div>
@@ -301,11 +307,11 @@
                            <p>Signature of IBC Chair</p>
                            <label class="control-label col-sm-2" for="signature_IBC_name">Name:</label>
                            <div class="col-sm-10">
-                               <input type="text" class="form-control" name="signature_IBC_name" value="<?php if(isset($load)){echo set_value('signature_IBC_name', $item->signature_IBC_name);}else{echo set_value('signature_IBC_name');} ?>">
+                               <textarea class="form-control" name="signature_IBC_name"><?php if(isset($load)){echo set_value('signature_IBC_name', $item->signature_IBC_name);}else{echo set_value('signature_IBC_name');} ?></textarea>
                            </div>
                            <label class="control-label col-sm-2" for="signature_PI_date">Date:</label>
                            <div class="col-sm-10">
-                               <input type="date" class="form-control" name="signature_IBC_date" value="<?php if(isset($load)){echo set_value('signature_IBC_date', $item->signature_IBC_date);}else{echo set_value('signature_IBC_date');} ?>">
+                               <input  type="date" class="form-control" name="signature_IBC_date" value="<?php if(isset($load)){echo set_value('signature_IBC_date', $item->signature_IBC_date);}else{echo set_value('signature_IBC_date');} ?>">
                            </div>
                        </div> 
                    </div>

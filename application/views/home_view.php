@@ -172,7 +172,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/historyproj"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/historyproj"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\submitted approved projects.png') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/historyproj">Submitted &amp; Approved Projects</a>
@@ -196,7 +196,7 @@ if(!$this->session->userdata('isLogin')){
             <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/educational/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/educational/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\educational activities.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/educational/index">Educational Activities</a>
@@ -207,7 +207,7 @@ if(!$this->session->userdata('isLogin')){
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/saveHistory"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/saveHistory"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\saved project.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/saveHistory">Saved Projects</a>

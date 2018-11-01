@@ -12,11 +12,10 @@ class incidentexemptpage extends CI_Controller {
         $this->load->model('project_model');
         
         //breadcrum
-		$this->breadcrumbs->unshift('Home', '/');	
-		$this->breadcrumbs->push('New Project','/projectselect', true);
-		$this->breadcrumbs->push('Application','/applicationpage', true);
-		$this->breadcrumbs->push('New Application','/newapplicationpage', true);
-        $this->breadcrumbs->push('Living Modified Organism', true);
+		$this->breadcrumbs->unshift('Home', '/');
+		$this->breadcrumbs->push('New Project','/projectselect', true);	
+		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
+        $this->breadcrumbs->push('EXEMPT DEALING OR BIOHAZARDOUS MATERIAL',true);
     }
 		
 		public function index(){

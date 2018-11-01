@@ -18,13 +18,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['hirarctype']= $this->input->get('type');
             
-           
-            $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('Incident Accident Reporting','/incidentaccidentreportingpage', true);
-            $this->breadcrumbs->push('Living Modified Organism (LMO)','lmo61page',true);
-            $this->breadcrumbs->push('MINOR BIOLOGICAL INCIDENT OR ACCIDENT',true);
+                      
             
-            }
             
             $this->form_validation->set_rules('victim_name', 'Victim name', 'required|callback_fullname_check');
             $this->form_validation->set_rules('victim_age', 'Victim age', 'required');
