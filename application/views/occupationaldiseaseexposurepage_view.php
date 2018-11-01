@@ -29,13 +29,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <!-- Page Content -->
     <div class="container">
         <!-- Page Heading -->
-        <br>
-
-        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>			
-
+		<br>
+		<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		<hr>
 	<div class="row" >
 	<div class="col-lg-5" >
+		
         <?php echo form_open('occupationaldiseaseexposurepage/index'); ?>
         <br/>
         <legend>New Project</legend>
@@ -119,6 +118,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
     }
 </script>
-    
 </body>
 </html>

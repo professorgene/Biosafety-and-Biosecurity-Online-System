@@ -130,7 +130,7 @@ if(!$this->session->userdata('isLogin')){
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><textarea  type="text" name="project_title" class="form-control" value="<?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>">
+                              <td colspan="2"><textarea  name="project_title" class="form-control"><?php if(isset($load)){echo set_value('project_title', $item->project_title);}else{echo set_value('project_title');} ?>
                                </textarea>                             
                            </td> 
                            </tr>
@@ -149,7 +149,7 @@ if(!$this->session->userdata('isLogin')){
                        </thead>
                        <tbody>
                            <tr>
-                              <td colspan="2"><textarea  type="text" name="chief_investigator" class="form-control" value="<?php if(isset($load)){echo set_value('chief_investigator', $item->chief_investigator);}else{echo set_value('chief_investigator');} ?>">
+                              <td colspan="2"><textarea  name="chief_investigator" class="form-control" ><?php if(isset($load)){echo set_value('chief_investigator', $item->chief_investigator);}else{echo set_value('chief_investigator');} ?>
                                   </textarea>
                                </td> 
                            </tr>
@@ -177,39 +177,39 @@ if(!$this->session->userdata('isLogin')){
 										  </td> 
                                        </tr>
                                        <tr>
-                                           <td width="90px">Title: <textarea  type="text" class="form-control" name="personnel_extra_title" value="<?php if(isset($load)){echo set_value('personnel_extra_title', $item->personnel_extra_title);}else{echo set_value('personnel_extra_title');} ?>">
+                                           <td width="90px">Title: <textarea class="form-control" name="personnel_extra_title"><?php if(isset($load)){echo set_value('personnel_extra_title', $item->personnel_extra_title);}else{echo set_value('personnel_extra_title');} ?>
 												</textarea>
                                            </td>
-                                           <td>Name: <textarea  type="text" class="form-control" name="personnel_extra_name" value="<?php if(isset($load)){echo set_value('personnel_extra_name', $item->personnel_extra_name);}else{echo set_value('personnel_extra_name');} ?>">
+                                           <td>Name: <textarea  class="form-control" name="personnel_extra_name"><?php if(isset($load)){echo set_value('personnel_extra_name', $item->personnel_extra_name);}else{echo set_value('personnel_extra_name');} ?>
 												</textarea>
                                            </td>
-                                           <td>Current qualifications (please include all): <textarea  type="text" class="form-control" name="personnel_extra_qualifications" value="<?php if(isset($load)){echo set_value('personnel_extra_qualifications', $item->personnel_extra_qualifications);}else{echo set_value('personnel_extra_qualifications');} ?>">
+                                           <td>Current qualifications (please include all): <textarea class="form-control" name="personnel_extra_qualifications"><?php if(isset($load)){echo set_value('personnel_extra_qualifications', $item->personnel_extra_qualifications);}else{echo set_value('personnel_extra_qualifications');} ?>
 												</textarea>
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Department: <textarea  type="text" class="form-control" name="personnel_extra_department" value="<?php if(isset($load)){echo set_value('personnel_extra_department', $item->personnel_extra_department);}else{echo set_value('personnel_extra_department');} ?>">
+                                           <td colspan="2">Department: <textarea class="form-control" name="personnel_extra_department" ><?php if(isset($load)){echo set_value('personnel_extra_department', $item->personnel_extra_department);}else{echo set_value('personnel_extra_department');} ?>
                                                </textarea>
                                            </td>
-                                           <td colspan="1">Campus: <textarea  type="text" class="form-control" name="personnel_extra_campus" value="<?php if(isset($load)){echo set_value('personnel_extra_campus', $item->personnel_extra_campus);}else{echo set_value('personnel_extra_campus');} ?>">
+                                           <td colspan="1">Campus: <textarea  class="form-control" name="personnel_extra_campus"><?php if(isset($load)){echo set_value('personnel_extra_campus', $item->personnel_extra_campus);}else{echo set_value('personnel_extra_campus');} ?>
 												</textarea>
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Full postal address (including internal mail details): <textarea type="text" class="form-control" name="personnel_extra_postal_address" value="<?php if(isset($load)){echo set_value('personnel_extra_postal_address', $item->personnel_extra_postal_address);}else{echo set_value('personnel_extra_postal_address');} ?>">
+                                           <td colspan="3">Full postal address (including internal mail details): <textarea class="form-control" name="personnel_extra_postal_address"><?php if(isset($load)){echo set_value('personnel_extra_postal_address', $item->personnel_extra_postal_address);}else{echo set_value('personnel_extra_postal_address');} ?>
 												</textarea>
                                            </td>
                                        </tr>
                                        <tr>
-                                           <td colspan="2">Phone: <textarea  type="tel" class="form-control" name="personnel_extra_telephone" value="<?php if(isset($load)){echo set_value('personnel_extra_telephone', $item->personnel_extra_telephone);}else{echo set_value('personnel_extra_telephone');} ?>">
+                                           <td colspan="2">Phone: <textarea class="form-control" name="personnel_extra_telephone"><?php if(isset($load)){echo set_value('personnel_extra_telephone', $item->personnel_extra_telephone);}else{echo set_value('personnel_extra_telephone');} ?>
 												</textarea>
                                            </td>
                                            
-                                           <td>Fax: <textarea  type="text" class="form-control" name="personnel_extra_fax" value="<?php if(isset($load)){echo set_value('personnel_extra_fax', $item->personnel_extra_fax);}else{echo set_value('personnel_extra_fax');} ?>"></textarea></td>
+                                           <td>Fax: <textarea class="form-control" name="personnel_extra_fax" ><?php if(isset($load)){echo set_value('personnel_extra_fax', $item->personnel_extra_fax);}else{echo set_value('personnel_extra_fax');} ?></textarea></td>
 												
                                        </tr>
                                        <tr>
-                                           <td colspan="3">Email (MUST be staff email address): <textarea  type="email" class="form-control" name="personnel_extra_email_address" value="<?php if(isset($load)){echo set_value('personnel_extra_email_address', $item->personnel_extra_email_address);}else{echo set_value('personnel_extra_email_address');} ?>">
+                                           <td colspan="3">Email (MUST be staff email address): <textarea class="form-control" name="personnel_extra_email_address" ><?php if(isset($load)){echo set_value('personnel_extra_email_address', $item->personnel_extra_email_address);}else{echo set_value('personnel_extra_email_address');} ?>
 												</textarea>
                                            </td>
                                        </tr>
@@ -351,10 +351,10 @@ if(!$this->session->userdata('isLogin')){
                                        </tr>
                                        <tr>
                                            <td>
-                                               <div class="form-group"><textarea  type="text" class="form-control" name="project_facility_building_number" value="<?php if(isset($load)){echo set_value('project_facility_building_number', $item->project_facility_building_number);}else{echo set_value('project_facility_building_number');} ?>"></textarea></div>
+                                               <div class="form-group"><textarea  class="form-control" name="project_facility_building_number"><?php if(isset($load)){echo set_value('project_facility_building_number', $item->project_facility_building_number);}else{echo set_value('project_facility_building_number');} ?></textarea></div>
                                            </td>
                                            <td>
-                                               <div class="form-group"><textarea  type="text" class="form-control" name="project_facility_room_number" value="<?php if(isset($load)){echo set_value('project_facility_room_number', $item->project_facility_room_number);}else{echo set_value('project_facility_room_number');} ?>"></textarea></div>
+                                               <div class="form-group"><textarea  class="form-control" name="project_facility_room_number"><?php if(isset($load)){echo set_value('project_facility_room_number', $item->project_facility_room_number);}else{echo set_value('project_facility_room_number');} ?></textarea></div>
                                            </td>
                                        </tr>
                                    </table>
@@ -379,11 +379,11 @@ if(!$this->session->userdata('isLogin')){
                                    <table class="table table-bordered">
                                        <tr>
                                            <td>Chief Investigator: </td>
-                                           <td><div class="form-group"><textarea  type="text" class="form-control" name="project_sign_off_chief_investigator_name" value="<?php if(isset($load)){echo set_value('project_sign_off_chief_investigator_name', $item->project_sign_off_chief_investigator_name);}else{echo set_value('project_sign_off_chief_investigator_name');} ?>"></textarea></div></td>
+                                           <td><div class="form-group"><textarea  class="form-control" name="project_sign_off_chief_investigator_name"><?php if(isset($load)){echo set_value('project_sign_off_chief_investigator_name', $item->project_sign_off_chief_investigator_name);}else{echo set_value('project_sign_off_chief_investigator_name');} ?></textarea></div></td>
                                        </tr>
                                        <tr>
                                            <td>Lab Manager/Biosafety Officer: </td>
-                                           <td><div class="form-group"><textarea  type="text" class="form-control" name="project_sign_off_BO_name" value="<?php if(isset($load)){echo set_value('project_sign_off_BO_name', $item->project_sign_off_BO_name);}else{echo set_value('project_sign_off_BO_name');} ?>"></textarea></div></td>
+                                           <td><div class="form-group"><textarea  type="text" class="form-control" name="project_sign_off_BO_name"><?php if(isset($load)){echo set_value('project_sign_off_BO_name', $item->project_sign_off_BO_name);}else{echo set_value('project_sign_off_BO_name');} ?></textarea></div></td>
                                        </tr>
                                    </table>
                                </td>
