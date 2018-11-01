@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2A3_storage_ingestion' => $this->input->post('Sec2A3_storage_ingestion'),
                     'Sec2A3_storage_injection' => $this->input->post('Sec2A3_storage_injection'),
                     'Sec2A3_storage_others' => $this->input->post('Sec2A3_storage_others'),
-                    'Sec2A3_storage_description' => $this->input->post('Sec2A3_storage_description'),
+                    'Sec2A3_other_storage_description' => $this->input->post('Sec2A3_other_storage_description'),
                     'Sec2A3_storage_control' => $this->input->post('Sec2A3_storage_control'),
                     'Sec2A3_handling_inhalation' => $this->input->post('Sec2A3_handling_inhalation'),
                     'Sec2A3_handling_skin' => $this->input->post('Sec2A3_handling_skin'),
@@ -140,10 +140,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2B2_risk_reduction_action_completed' => $this->input->post('Sec2B2_risk_reduction_action_completed'),
                     'Sec2B2_overall_assessment_risk_level_after' => $this->input->post('Sec2B2_overall_assessment_risk_level_after'),
                     'Sec3_requestor' => $this->input->post('Sec3_requestor'),
+                    'Sec3_requestor_signature' => $this->input->post('Sec3_requestor_signature'),
                     'Sec3_requestor_date' => $this->input->post('Sec3_requestor_date'),
-                    'Sec3_supervisor' => $this->input->post('Sec3_supervisor'),
+                    'Sec3_supervisor_HMU' => $this->input->post('Sec3_supervisor_HMU'),
+                    'Sec3_supervisor_signature' => $this->input->post('Sec3_supervisor_signature'),
                     'Sec3_supervisor_date' => $this->input->post('Sec3_supervisor_date'),
                     'Sec3_LO' => $this->input->post('Sec3_LO'),
+                    'Sec3_LO_signature' => $this->input->post('Sec3_LO_signature'),
                     'Sec3_LO_date' => $this->input->post('Sec3_LO_date'),
                     'status' => $saveStatus
                     
@@ -214,7 +217,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2A3_storage_ingestion' => $this->input->post('Sec2A3_storage_ingestion'),
                     'Sec2A3_storage_injection' => $this->input->post('Sec2A3_storage_injection'),
                     'Sec2A3_storage_others' => $this->input->post('Sec2A3_storage_others'),
-                    'Sec2A3_storage_description' => $this->input->post('Sec2A3_storage_description'),
+                    'Sec2A3_other_storage_description' => $this->input->post('Sec2A3_other_storage_description'),
                     'Sec2A3_storage_control' => $this->input->post('Sec2A3_storage_control'),
                     'Sec2A3_handling_inhalation' => $this->input->post('Sec2A3_handling_inhalation'),
                     'Sec2A3_handling_skin' => $this->input->post('Sec2A3_handling_skin'),
@@ -272,10 +275,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2B2_risk_reduction_action_completed' => $this->input->post('Sec2B2_risk_reduction_action_completed'),
                     'Sec2B2_overall_assessment_risk_level_after' => $this->input->post('Sec2B2_overall_assessment_risk_level_after'),
                     'Sec3_requestor' => $this->input->post('Sec3_requestor'),
+                    'Sec3_requestor_signature' => $this->input->post('Sec3_requestor_signature'),
                     'Sec3_requestor_date' => $this->input->post('Sec3_requestor_date'),
-                    'Sec3_supervisor' => $this->input->post('Sec3_supervisor'),
+                    'Sec3_supervisor_HMU' => $this->input->post('Sec3_supervisor_HMU'),
+                    'Sec3_supervisor_signature' => $this->input->post('Sec3_supervisor_signature'),
                     'Sec3_supervisor_date' => $this->input->post('Sec3_supervisor_date'),
                     'Sec3_LO' => $this->input->post('Sec3_LO'),
+                    'Sec3_LO_signature' => $this->input->post('Sec3_LO_signature'),
                     'Sec3_LO_date' => $this->input->post('Sec3_LO_date'),
                     'status' => $submitStatus
                     
@@ -382,7 +388,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2A3_storage_ingestion' => $this->input->post('Sec2A3_storage_ingestion'),
                     'Sec2A3_storage_injection' => $this->input->post('Sec2A3_storage_injection'),
                     'Sec2A3_storage_others' => $this->input->post('Sec2A3_storage_others'),
-                    'Sec2A3_storage_description' => $this->input->post('Sec2A3_storage_description'),
+                    'Sec2A3_other_storage_description' => $this->input->post('Sec2A3_other_storage_description'),
                     'Sec2A3_storage_control' => $this->input->post('Sec2A3_storage_control'),
                     'Sec2A3_handling_inhalation' => $this->input->post('Sec2A3_handling_inhalation'),
                     'Sec2A3_handling_skin' => $this->input->post('Sec2A3_handling_skin'),
@@ -440,10 +446,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2B2_risk_reduction_action_completed' => $this->input->post('Sec2B2_risk_reduction_action_completed'),
                     'Sec2B2_overall_assessment_risk_level_after' => $this->input->post('Sec2B2_overall_assessment_risk_level_after'),
                     'Sec3_requestor' => $this->input->post('Sec3_requestor'),
+                    'Sec3_requestor_signature' => $this->input->post('Sec3_requestor_signature'),
                     'Sec3_requestor_date' => $this->input->post('Sec3_requestor_date'),
-                    'Sec3_supervisor' => $this->input->post('Sec3_supervisor'),
+                    'Sec3_supervisor_HMU' => $this->input->post('Sec3_supervisor_HMU'),
+                    'Sec3_supervisor_signature' => $this->input->post('Sec3_supervisor_signature'),
                     'Sec3_supervisor_date' => $this->input->post('Sec3_supervisor_date'),
                     'Sec3_LO' => $this->input->post('Sec3_LO'),
+                    'Sec3_LO_signature' => $this->input->post('Sec3_LO_signature'),
                     'Sec3_LO_date' => $this->input->post('Sec3_LO_date'),
                     'status' => $submitStatus,
                     'editable' => $editableValue
@@ -494,6 +503,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if($this->project_model->update_proj_status($id, $status))
             {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been removed</div>');
                 redirect('home/index');
             }
         
@@ -562,7 +572,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2A3_storage_ingestion' => $this->input->post('Sec2A3_storage_ingestion'),
                     'Sec2A3_storage_injection' => $this->input->post('Sec2A3_storage_injection'),
                     'Sec2A3_storage_others' => $this->input->post('Sec2A3_storage_others'),
-                    'Sec2A3_storage_description' => $this->input->post('Sec2A3_storage_description'),
+                    'Sec2A3_other_storage_description' => $this->input->post('Sec2A3_other_storage_description'),
                     'Sec2A3_storage_control' => $this->input->post('Sec2A3_storage_control'),
                     'Sec2A3_handling_inhalation' => $this->input->post('Sec2A3_handling_inhalation'),
                     'Sec2A3_handling_skin' => $this->input->post('Sec2A3_handling_skin'),
@@ -620,10 +630,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2B2_risk_reduction_action_completed' => $this->input->post('Sec2B2_risk_reduction_action_completed'),
                     'Sec2B2_overall_assessment_risk_level_after' => $this->input->post('Sec2B2_overall_assessment_risk_level_after'),
                     'Sec3_requestor' => $this->input->post('Sec3_requestor'),
+                    'Sec3_requestor_signature' => $this->input->post('Sec3_requestor_signature'),
                     'Sec3_requestor_date' => $this->input->post('Sec3_requestor_date'),
-                    'Sec3_supervisor' => $this->input->post('Sec3_supervisor'),
+                    'Sec3_supervisor_HMU' => $this->input->post('Sec3_supervisor_HMU'),
+                    'Sec3_supervisor_signature' => $this->input->post('Sec3_supervisor_signature'),
                     'Sec3_supervisor_date' => $this->input->post('Sec3_supervisor_date'),
                     'Sec3_LO' => $this->input->post('Sec3_LO'),
+                    'Sec3_LO_signature' => $this->input->post('Sec3_LO_signature'),
                     'Sec3_LO_date' => $this->input->post('Sec3_LO_date'),
                     'status' => $saveStatus
                     
@@ -633,7 +646,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->procurement_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSave)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -641,7 +654,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('procurementproj/index');
+                   redirect('saveHistory/index');
                     
                     
                     
@@ -694,7 +707,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2A3_storage_ingestion' => $this->input->post('Sec2A3_storage_ingestion'),
                     'Sec2A3_storage_injection' => $this->input->post('Sec2A3_storage_injection'),
                     'Sec2A3_storage_others' => $this->input->post('Sec2A3_storage_others'),
-                    'Sec2A3_storage_description' => $this->input->post('Sec2A3_storage_description'),
+                    'Sec2A3_other_storage_description' => $this->input->post('Sec2A3_other_storage_description'),
                     'Sec2A3_storage_control' => $this->input->post('Sec2A3_storage_control'),
                     'Sec2A3_handling_inhalation' => $this->input->post('Sec2A3_handling_inhalation'),
                     'Sec2A3_handling_skin' => $this->input->post('Sec2A3_handling_skin'),
@@ -752,10 +765,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'Sec2B2_risk_reduction_action_completed' => $this->input->post('Sec2B2_risk_reduction_action_completed'),
                     'Sec2B2_overall_assessment_risk_level_after' => $this->input->post('Sec2B2_overall_assessment_risk_level_after'),
                     'Sec3_requestor' => $this->input->post('Sec3_requestor'),
+                    'Sec3_requestor_signature' => $this->input->post('Sec3_requestor_signature'),
                     'Sec3_requestor_date' => $this->input->post('Sec3_requestor_date'),
-                    'Sec3_supervisor' => $this->input->post('Sec3_supervisor'),
+                    'Sec3_supervisor_HMU' => $this->input->post('Sec3_supervisor_HMU'),
+                    'Sec3_supervisor_signature' => $this->input->post('Sec3_supervisor_signature'),
                     'Sec3_supervisor_date' => $this->input->post('Sec3_supervisor_date'),
                     'Sec3_LO' => $this->input->post('Sec3_LO'),
+                    'Sec3_LO_signature' => $this->input->post('Sec3_LO_signature'),
                     'Sec3_LO_date' => $this->input->post('Sec3_LO_date'),
                     'status' => $submitStatus
                     
@@ -765,7 +781,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->procurement_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -773,7 +789,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 } else {
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                   redirect('procurementproj/index');
+                   redirect('saveHistory/index');
                     
                     
                 }

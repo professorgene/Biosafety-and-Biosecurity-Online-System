@@ -91,7 +91,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_SOP_risk_title' => $ar4,
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
-                    'officer_notified' => $this->input->post('IBC_name'),
+                    'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
                     'biohazard_signature_file' => $biohazard_signature_file['file_name'],
@@ -239,7 +239,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_SOP_risk_title' => $ar4,
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
-                    'officer_notified' => $this->input->post('IBC_name'),
+                    'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
                     'biohazard_signature_file' => $biohazard_signature_file['file_name'],
@@ -424,7 +424,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_SOP_risk_title' => $ar4,
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
-                    'officer_notified' => $this->input->post('IBC_name'),
+                    'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
                     'biohazard_signature_file' => $biohazard_signature_file['file_name'],
@@ -545,6 +545,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if($this->project_model->update_proj_status($id, $status))
             {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been removed</div>');
                 redirect('home/index');
             }
         
@@ -629,7 +630,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_SOP_risk_title' => $ar4,
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
-                    'officer_notified' => $this->input->post('IBC_name'),
+                    'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
                     'biohazard_signature_file' => $biohazard_signature_file['file_name'],
@@ -777,7 +778,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_SOP_risk_title' => $ar4,
                     'project_facilities_building' => $ar5,
                     'project_facilities_room' => $ar6,
-                    'officer_notified' => $this->input->post('IBC_name'),
+                    'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
                     'biohazard_signature_file' => $biohazard_signature_file['file_name'],

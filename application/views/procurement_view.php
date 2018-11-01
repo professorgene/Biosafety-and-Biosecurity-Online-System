@@ -76,10 +76,14 @@
                                <th class="text-center tbheader1">
                                    1.02 Doc ID
                                </th>
-                               <td class="text-center"><input type="text" class="form-control" name="Sec1_doc_id"  value="<?php if(isset($load)){echo set_value('Sec1_doc_id', $item->Sec1_doc_id);}else{echo set_value('Sec1_doc_id');} ?>"></td>
+                               <td class="text-center">
+                                   <textarea class="form-control" name="Sec1_doc_id"><?php if(isset($load)){echo set_value('Sec1_doc_id', $item->Sec1_doc_id);}else{echo set_value('Sec1_doc_id');} ?></textarea>
+                               </td>
                                
                                <th class="text-center tbheader1">1.03 Review Date</th>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec1_review_date" value="<?php if(isset($load)){echo set_value('Sec1_review_date', $item->Sec1_review_date);}else{echo set_value('Sec1_review_date');} ?>" ></td>
+                               <td class="text-center">
+                                   <input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec1_review_date" value="<?php if(isset($load)){echo set_value('Sec1_review_date', $item->Sec1_review_date);}else{echo set_value('Sec1_review_date');} ?>" >
+                               </td>
                            </tr>
                        </tbody>
                    </table>
@@ -93,24 +97,37 @@
                        <tbody>
                            <tr>
                                <th class="tbheader1">1.01 Name of the substance</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_name" value="<?php if(isset($load)){echo set_value('Sec2A_name', $item->Sec2A_name);}else{echo set_value('Sec2A_name');} ?>" ></div></td>
+                               <td>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A_name" ><?php if(isset($load)){echo set_value('Sec2A_name', $item->Sec2A_name);}else{echo set_value('Sec2A_name');} ?></textarea>
+                                   </div>
+                               </td>
+                               
                                <th class="tbheader1">1.04 If “Yes”, list the hazard statement</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_statement" value="<?php if(isset($load)){echo set_value('Sec2A_statement', $item->Sec2A_statement);}else{echo set_value('Sec2A_statement');} ?>" ></div></td>
+                               <td>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A_statement" ><?php if(isset($load)){echo set_value('Sec2A_statement', $item->Sec2A_statement);}else{echo set_value('Sec2A_statement');} ?></textarea>
+                                   </div>
+                               </td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.02 Substance’s manufacturer</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A_manufacturer" value="<?php if(isset($load)){echo set_value('Sec2A_manufacturer', $item->Sec2A_manufacturer);}else{echo set_value('Sec2A_manufacturer');} ?>" ></div></td>
+                               <td>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A_manufacturer" ><?php if(isset($load)){echo set_value('Sec2A_manufacturer', $item->Sec2A_manufacturer);}else{echo set_value('Sec2A_manufacturer');} ?></textarea>
+                                   </div>
+                               </td>
                                <th class="tbheader1">1.05 Is the waste a scheduled waste?<p class="grey-text">*If it’s hazardous, it’s a scheduled waste</p></th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A_waste" <?php echo set_radio('Sec2A_waste', '1'); ?> <?php if(isset($load)){if($item->Sec2A_waste==1){echo "checked=checked";}}else{} ?> />Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A_waste" <?php echo set_radio('Sec2A_waste', '0'); ?> <?php if(isset($load)){if($item->Sec2A_waste==0){echo "checked=checked";}}else{} ?> >No</label>
+                                   <label class="radio-inline"><input type="radio" value="yes" name="Sec2A_waste" <?php echo set_radio('Sec2A_waste', 'yes'); ?> <?php if(isset($load)){if($item->Sec2A_waste=='yes'){echo "checked=checked";}}else{} ?> />Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="no" name="Sec2A_waste" <?php echo set_radio('Sec2A_waste', 'no'); ?> <?php if(isset($load)){if($item->Sec2A_waste=='no'){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.03 Is the substance a hazardous substance?</th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A_hazardous" <?php echo set_radio('Sec2A_hazardous', '1'); ?> <?php if(isset($load)){if($item->Sec2A_hazardous==1){echo "checked=checked";}}else{} ?> >Yes</label>
-                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A_hazardous" <?php echo set_radio('Sec2A_hazardous', '0'); ?> <?php if(isset($load)){if($item->Sec2A_hazardous==0){echo "checked=checked";}}else{} ?> >No</label>
+                                   <label class="radio-inline"><input type="radio" value="yes" name="Sec2A_hazardous" <?php echo set_radio('Sec2A_hazardous', 'yes'); ?> <?php if(isset($load)){if($item->Sec2A_hazardous=='yes'){echo "checked=checked";}}else{} ?> >Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="no" name="Sec2A_hazardous" <?php echo set_radio('Sec2A_hazardous', 'no'); ?> <?php if(isset($load)){if($item->Sec2A_hazardous=='no'){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                                <th class="tbheader1">1.06 If “Yes”, list the scheduled waste characteristic</th>
                                <td>
@@ -143,31 +160,39 @@
                            <tr>
                                <th class="tbheader1">2.01 Licensing / permit required?</th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A2_permit" <?php echo set_radio('Sec2A2_permit', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_permit==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="yes" name="Sec2A2_permit" <?php echo set_radio('Sec2A2_permit', 'yes'); ?> <?php if(isset($load)){if($item->Sec2A2_permit=='yes'){echo "checked=checked";}}else{} ?>>Yes</label>
                                    
-                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A2_permit" <?php echo set_radio('Sec2A2_permit', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_permit==0){echo "checked=checked";}}else{} ?>>No</label>
+                                   <label class="radio-inline"><input type="radio" value="no" name="Sec2A2_permit" <?php echo set_radio('Sec2A2_permit', 'no'); ?> <?php if(isset($load)){if($item->Sec2A2_permit=='no'){echo "checked=checked";}}else{} ?>>No</label>
                                </td>
                                <th class="tbheader1">2.05 Storage requirements?</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A2_storage" value="<?php if(isset($load)){echo set_value('Sec2A2_storage', $item->Sec2A2_storage);}else{echo set_value('Sec2A2_storage');} ?>"></div></td>
+                               <td>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A2_storage" ><?php if(isset($load)){echo set_value('Sec2A2_storage', $item->Sec2A2_storage);}else{echo set_value('Sec2A2_storage');} ?></textarea>
+                                   </div>
+                               </td>
                            </tr>
                            <tr>
                                <th class="tbheader1">2.02 If “Yes”, type of license / permit required</th>
-                               <td><div class="form-group"><input type="text" class="form-control" name="Sec2A2_permit_type" value="<?php if(isset($load)){echo set_value('Sec2A2_permit_type', $item->Sec2A2_permit_type);}else{echo set_value('Sec2A2_permit_type');} ?>" ></div></td>
+                               <td>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A2_permit_type" ><?php if(isset($load)){echo set_value('Sec2A2_permit_type', $item->Sec2A2_permit_type);}else{echo set_value('Sec2A2_permit_type');} ?></textarea>
+                                   </div>
+                               </td>
                                
                                <th class="tbheader1">2.06 Waste / disposal requirements?<p class="grey-text">*Refer to Disposal section in SDS or the Accidental Release section</p>
                                </th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A2_waste_requirement" <?php echo set_radio('Sec2A2_waste_requirement', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_waste_requirement==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="yes" name="Sec2A2_waste_requirement" <?php echo set_radio('Sec2A2_waste_requirement', 'yes'); ?> <?php if(isset($load)){if($item->Sec2A2_waste_requirement=='yes'){echo "checked=checked";}}else{} ?> >Yes</label>
                                    
-                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A2_waste_requirement" <?php echo set_radio('Sec2A2_waste_requirement', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_waste_requirement==0){echo "checked=checked";}}else{} ?> >No</label>
+                                   <label class="radio-inline"><input type="radio" value="no" name="Sec2A2_waste_requirement" <?php echo set_radio('Sec2A2_waste_requirement', 'no'); ?> <?php if(isset($load)){if($item->Sec2A2_waste_requirement=='no'){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                            </tr>
                            <tr>
                                <th class="tbheader1"><p>2.03 Current MSDS (less than 5yrs) is available</p></th>
                                <td>
-                                   <label class="radio-inline"><input type="radio" value="1" name="Sec2A2_MSDS" <?php echo set_radio('Sec2A2_MSDS', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_MSDS==1){echo "checked=checked";}}else{} ?> >Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="yes" name="Sec2A2_MSDS" <?php echo set_radio('Sec2A2_MSDS', 'yes'); ?> <?php if(isset($load)){if($item->Sec2A2_MSDS=='yes'){echo "checked=checked";}}else{} ?> >Yes</label>
                                    
-                                   <label class="radio-inline"><input type="radio" value="0" name="Sec2A2_MSDS" <?php echo set_radio('Sec2A2_MSDS', '1'); ?> <?php if(isset($load)){if($item->Sec2A2_MSDS==0){echo "checked=checked";}}else{} ?> >No</label>
+                                   <label class="radio-inline"><input type="radio" value="no" name="Sec2A2_MSDS" <?php echo set_radio('Sec2A2_MSDS', 'no'); ?> <?php if(isset($load)){if($item->Sec2A2_MSDS=='no'){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                                <th class="tbheader1"><p>2.07 Risk control for the use of material</p></th>
                                <td>
@@ -271,7 +296,9 @@
                                    <div class="checkbox">
                                        <label><input type="checkbox" value="1" name="Sec2A3_storage_others" <?php echo set_checkbox('Sec2A3_storage_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_storage_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_storage_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_storage_description', $item->Sec2A3_storage_description);}else{echo set_value('Sec2A3_storage_description');} ?>"></div>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A3_other_storage_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_other_storage_description', $item->Sec2A3_other_storage_description);}else{echo set_value('Sec2A3_other_storage_description');} ?>"></textarea>
+                                   </div>
                                </td>
                                <td>
                                    <textarea rows="10" class="form-control" name="Sec2A3_storage_control"><?php if(isset($load)){echo set_value('Sec2A3_storage_control', $item->Sec2A3_storage_control);}else{echo set_value('Sec2A3_storage_control');} ?></textarea>
@@ -296,7 +323,7 @@
                                        <label><input type="checkbox" value="1" name="Sec2A3_handling_others" <?php echo  set_checkbox('Sec2A3_handling_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_handling_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
                                    <div class="form-group">
-                                       <input type="text" class="form-control" name="Sec2A3_handling_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_handling_description', $item->Sec2A3_handling_description);}else{echo set_value('Sec2A3_handling_description');} ?>">
+                                       <textarea class="form-control" name="Sec2A3_handling_description" placeholder="specify" ><?php if(isset($load)){echo set_value('Sec2A3_handling_description', $item->Sec2A3_handling_description);}else{echo set_value('Sec2A3_handling_description');} ?></textarea>
                                    </div>
                                </td>
                                <td>
@@ -322,7 +349,7 @@
                                        <label><input type="checkbox" value="1" name="Sec2A3_spill_others" <?php echo  set_checkbox('Sec2A3_spill_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_spill_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
                                    <div class="form-group">
-                                       <input type="text" class="form-control" name="Sec2A3_spill_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_spill_description', $item->Sec2A3_spill_description);}else{echo set_value('Sec2A3_spill_description');} ?>">
+                                       <textarea class="form-control" name="Sec2A3_spill_description" placeholder="specify"><?php if(isset($load)){echo set_value('Sec2A3_spill_description', $item->Sec2A3_spill_description);}else{echo set_value('Sec2A3_spill_description');} ?></textarea>
                                    </div>
                                </td>
                                <td>
@@ -347,7 +374,10 @@
                                    <div class="checkbox">
                                        <label><input type="checkbox" value="1" name="Sec2A3_disposal_others" <?php echo  set_checkbox('Sec2A3_disposal_others', '1'); ?> <?php if(isset($load)){if($item->Sec2A3_disposal_others==1){echo "checked=checked";}}else{} ?> >Others</label>
                                    </div>
-                                   <div class="form-group"><input type="text" class="form-control" name="Sec2A3_disposal_description" placeholder="specify" value="<?php if(isset($load)){echo set_value('Sec2A3_disposal_description', $item->Sec2A3_disposal_description);}else{echo set_value('Sec2A3_disposal_description');} ?>"></div>
+                                   <div class="form-group">
+                                       <textarea class="form-control" name="Sec2A3_disposal_description" placeholder="specify" ><?php if(isset($load)){echo set_value('Sec2A3_disposal_description', $item->Sec2A3_disposal_description);}else{echo set_value('Sec2A3_disposal_description');} ?>
+                                       </textarea>
+                                   </div>
                                </td>
                                <td>
                                    <textarea rows="10" class="form-control" name="Sec2A3_disposal_control"><?php if(isset($load)){echo set_value('Sec2A3_disposal_control', $item->Sec2A3_disposal_control);}else{echo set_value('Sec2A3_disposal_control');} ?></textarea>
@@ -365,15 +395,21 @@
                        <tbody>
                            <tr>
                                <th class="tbheader1">1.01 Name of the equipment</th>
-                               <td><input type="text" class="form-control" name="Sec2B1_equipment_name" value="<?php if(isset($load)){echo set_value('Sec2B1_equipment_name', $item->Sec2B1_equipment_name);}else{echo set_value('Sec2B1_equipment_name');} ?> "></td>
+                               <td>
+                                   <textarea class="form-control" name="Sec2B1_equipment_name" ><?php if(isset($load)){echo set_value('Sec2B1_equipment_name', $item->Sec2B1_equipment_name);}else{echo set_value('Sec2B1_equipment_name');} ?></textarea>
+                               </td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.02 Type of Activity</th>
-                               <td><input type="text" class="form-control" name="Sec2B1_activity_type" value="<?php if(isset($load)){echo set_value('Sec2B1_activity_type', $item->Sec2B1_activity_type);}else{echo set_value('Sec2B1_activity_type');} ?>"></td>
+                               <td>
+                                   <textarea class="form-control" name="Sec2B1_activity_type" value="<?php if(isset($load)){echo set_value('Sec2B1_activity_type', $item->Sec2B1_activity_type);}else{echo set_value('Sec2B1_activity_type');} ?>"><?php if(isset($load)){echo set_value('Sec2B1_activity_type', $item->Sec2B1_activity_type);}else{echo set_value('Sec2B1_activity_type');} ?></textarea>
+                               </td>
                            </tr>
                            <tr>
                                <th class="tbheader1">1.03 Location of Activity</th>
-                               <td><input type="text" class="form-control" name="Sec2B1_activity_location" value="<?php if(isset($load)){echo set_value('Sec2B1_activity_location', $item->Sec2B1_activity_location);}else{echo set_value('Sec2B1_activity_location');} ?>" ></td>
+                               <td>
+                                   <textarea class="form-control" name="Sec2B1_activity_location" ><?php if(isset($load)){echo set_value('Sec2B1_activity_location', $item->Sec2B1_activity_location);}else{echo set_value('Sec2B1_activity_location');} ?></textarea>
+                               </td>
                            </tr>
                        </tbody>
                    </table>
@@ -547,11 +583,15 @@
                            </tr>
                            <tr>
                                <td colspan="1">Exposure</td>
-                               <td colspan="5"><input type="text" class="form-control" name="Sec2B2_exposure" placeholder="(duration/frequency of use) e.g. 10mins/daily, 3 hours/monthly" value="<?php if(isset($load)){echo set_value('Sec2B2_exposure', $item->Sec2B2_exposure);}else{echo set_value('Sec2B2_exposure');} ?>"></td>
+                               <td colspan="5">
+                                   <textarea class="form-control" name="Sec2B2_exposure" placeholder="(duration/frequency of use) e.g. 10mins/daily, 3 hours/monthly" ><?php if(isset($load)){echo set_value('Sec2B2_exposure', $item->Sec2B2_exposure);}else{echo set_value('Sec2B2_exposure');} ?></textarea>
+                               </td>
                            </tr>
                            <tr>
                                <td colspan="1">Users</td>
-                               <td colspan="5"><input type="text" class="form-control" name="Sec2B2_users" placeholder="Competency, inexperience, those persons at increased risk of harm (disabled, pregnancy)" value="<?php if(isset($load)){echo set_value('Sec2B2_users', $item->Sec2B2_users);}else{echo set_value('Sec2B2_users');} ?>" ></td>
+                               <td colspan="5">
+                                   <textarea class="form-control" name="Sec2B2_users" placeholder="Competency, inexperience, those persons at increased risk of harm (disabled, pregnancy)"  ><?php if(isset($load)){echo set_value('Sec2B2_users', $item->Sec2B2_users);}else{echo set_value('Sec2B2_users');} ?></textarea>
+                               </td>
                            </tr>
                            <tr>
                                <td colspan="1">Outline the control measures for the use of the machinery</td>
@@ -569,7 +609,7 @@
                                <th colspan="6" class="tbheader1"><strong>Risk Level (Tick)</strong></th>
                            </tr>
                            <tr>
-                               <td class="greendata">Low</td>
+                               <td class="greendata2">Low</td>
                                <td>
                                    <div class="checkbox">
                                        <label><input type="radio" value="1" name="Sec2B2_overall_assessment_risk_level" <?php echo set_radio('Sec2B2_overall_assessment_risk_level', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level==1){echo "checked=checked";}}else{} ?> /></label>
@@ -613,7 +653,7 @@
                                <th colspan="6" class="tbheader1"><strong>Risk Level (Tick)</strong></th>
                            </tr>
                            <tr>
-                               <td class="greendata">Low</td>
+                               <td class="greendata2">Low</td>
                                <td>
                                    <div class="checkbox">
                                        <label><input type="radio" value="1" name="Sec2B2_overall_assessment_risk_level_after" <?php echo set_radio('Sec2B2_overall_assessment_risk_level_after', '1'); ?> <?php if(isset($load)){if($item->Sec2B2_overall_assessment_risk_level_after==1){echo "checked=checked";}}else{} ?> /></label>
@@ -646,7 +686,7 @@
                        </thead>
                        <tbody>
                            <tr>
-                               <td class="greendata">Low</td>
+                               <td class="greendata2">Low</td>
                                <td>No further action required.  However, continue to monitor the machinery and work activity.</td>
                            </tr>
                            <tr>
@@ -662,13 +702,13 @@
                    
                    <table class="table table-bordered" id="section_3">
                        <thead>
-                           <th colspan="4" class="tblTitle">
+                           <th colspan="5" class="tblTitle">
                                Section 3 – Consultation and Acknowledgement
                            </th>
                        </thead>
                        <tbody>
                            <tr>
-                               <td colspan="4">
+                               <td colspan="5">
                                    <ul>
                                        <li>
                                            I, hereby declare that the information I have provided in this report form for Pre-Purchase Material Risk Assessment is true and correct.
@@ -681,33 +721,35 @@
                            </tr>
                            <tr>
                                <td class="tbheader1">Requestor's Name</td>
-                               <td><input type="text" class="form-control" name="Sec3_requestor" value="<?php if(isset($load)){echo set_value('Sec3_requestor', $item->Sec3_requestor);}else{echo set_value('Sec3_requestor');} ?>"></td>
+                               <td><textarea class="form-control" name="Sec3_requestor" ><?php if(isset($load)){echo set_value('Sec3_requestor', $item->Sec3_requestor);}else{echo set_value('Sec3_requestor');} ?></textarea></td>
                                
                                <td class="tbheader1">Signature and date</td>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_requestor_date" value="<?php if(isset($load)){echo set_value('Sec3_requestor_date', $item->Sec3_requestor_date);}else{echo set_value('Sec3_requestor_date');} ?>"></td>
+                               
+                               <td><textarea class="form-control" name="Sec3_requestor_signature"><?php if(isset($load)){echo set_value('Sec3_requestor_signature', $item->Sec3_requestor_signature);}else{echo set_value('Sec3_requestor_signature');} ?></textarea></td>
+                               
+                               <td class="text-center"><input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_requestor_date" placeholder="Date" value="<?php if(isset($load)){echo set_value('Sec3_requestor_date', $item->Sec3_requestor_date);}else{echo set_value('Sec3_requestor_date');} ?>"></td>
                            </tr>
                            <tr>
                                <td class="tbheader1">HMU / Dean / Lab Coordinator / Supervisor / Project’s Supervisor</td>
-                               <td><input type="text" class="form-control" name="Sec3_supervisor" value="<?php if(isset($load)){echo set_value('Sec3_supervisor', $item->Sec3_supervisor);}else{echo set_value('Sec3_supervisor');} ?>"></td>
+                               <td><textarea class="form-control" name="Sec3_supervisor_HMU" value="<?php if(isset($load)){echo set_value('Sec3_supervisor_HMU', $item->Sec3_supervisor_HMU);}else{echo set_value('Sec3_supervisor_HMU');} ?>"></textarea></td>
                                
                                <td class="tbheader1">Signature and date</td>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_supervisor_date" value="<?php if(isset($load)){echo set_value('Sec3_supervisor_date', $item->Sec3_supervisor_date);}else{echo set_value('Sec3_supervisor_date');} ?>"></td>
+                               <td><textarea class="form-control" name="Sec3_supervisor_signature"><?php if(isset($load)){echo set_value('Sec3_supervisor_signature', $item->Sec3_supervisor_signature);}else{echo set_value('Sec3_supervisor_signature');} ?></textarea></td>
+                               
+                               <td class="text-center"><input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_supervisor_date" value="<?php if(isset($load)){echo set_value('Sec3_supervisor_date', $item->Sec3_supervisor_date);}else{echo set_value('Sec3_supervisor_date');} ?>"></td>
                            </tr>
                            <tr>
                                <td class="tbheader1">Lab Officer</td>
-                               <td><input type="text" class="form-control" name="Sec3_LO" value="<?php if(isset($load)){echo set_value('Sec3_LO', $item->Sec3_LO);}else{echo set_value('Sec3_LO');} ?>"></td>
+                               <td><textarea class="form-control" name="Sec3_LO"><?php if(isset($load)){echo set_value('Sec3_LO', $item->Sec3_LO);}else{echo set_value('Sec3_LO');} ?></textarea></td>
                                
                                <td class="tbheader1">Signature and date</td>
-                               <td class="text-center"><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_LO_date" value="<?php if(isset($load)){echo set_value('Sec3_LO_date', $item->Sec3_LO_date);}else{echo set_value('Sec3_LO_date');} ?>"></td>
+                               
+                               <td><textarea name="Sec3_LO_signature" class="form-control"><?php if(isset($load)){echo set_value('Sec3_LO_signature', $item->Sec3_LO_signature);}else{echo set_value('Sec3_LO_signature');} ?></textarea></td>
+                               
+                               <td class="text-center"><input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="Sec3_LO_date" value="<?php if(isset($load)){echo set_value('Sec3_LO_date', $item->Sec3_LO_date);}else{echo set_value('Sec3_LO_date');} ?>"></td>
                            </tr>
                        </tbody>
                    </table>
-                   <span class="text-danger"><?php echo form_error('Sec3_requestor'); ?></span>
-                   <span class="text-danger"><?php echo form_error('Sec3_requestor_date'); ?></span>
-                   <span class="text-danger"><?php echo form_error('Sec3_supervisor'); ?></span>
-                   <span class="text-danger"><?php echo form_error('Sec3_supervisor_date'); ?></span>
-                   <span class="text-danger"><?php echo form_error('Sec3_LO'); ?></span>
-                   <span class="text-danger"><?php echo form_error('Sec3_LO_date'); ?></span>
                    
                 <hr>
                 

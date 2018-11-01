@@ -639,9 +639,9 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="yes" name="officer_notified" <?php if(isset($load)){if($pc1->officer_notified=='yes'){echo set_radio('officer_notified', 'yes', TRUE);}} ?>> Yes</label>
+                                               <label class="radio-inline"><input type="radio" value="yes" name="pc1_officer_notified" <?php if(isset($load)){if($pc1->pc1_officer_notified=='yes'){echo set_radio('pc1_officer_notified', 'yes', TRUE);}} ?>> Yes</label>
                                                
-                                               <label class="radio-inline"><input type="radio" value="no" name="officer_notified" <?php echo set_radio('officer_notified', 'no', FALSE); ?> <?php if(isset($load)){if($pc1->officer_notified=='no'){echo set_radio('officer_notified', 'no', TRUE);}} ?>> No</label>
+                                               <label class="radio-inline"><input type="radio" value="no" name="pc1_officer_notified" <?php echo set_radio('pc1_officer_notified', 'no', FALSE); ?> <?php if(isset($load)){if($pc1->pc1_officer_notified=='no'){echo set_radio('pc1_officer_notified', 'no', TRUE);}} ?>> No</label>
                                                
 
                                            </td>

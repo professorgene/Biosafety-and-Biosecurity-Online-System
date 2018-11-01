@@ -440,9 +440,9 @@
                                <td colspan="2">
                                    Has/have the Biosafety Officer and/or Lab Manager responsible for the facilities where the work is to be conducted been made aware of this application and approve the use of the facility for this project? 
                                    
-                                   <label class="checkbox-inline"><input type="checkbox" value="1" name="officer_notified" <?php echo set_checkbox('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==1){echo "checked=checked";}}else{} ?>>Yes</label>
+                                   <label class="radio-inline"><input type="radio" value="yes" name="bio_officer_notified" <?php echo set_radio('bio_officer_notified', 'yes'); ?> <?php if(isset($load)){if($item->bio_officer_notified=='yes'){echo "checked=checked";}}else{} ?> >Yes</label>
                                                
-                                   <label class="checkbox-inline"><input type="checkbox" value="0" name="officer_notified" <?php echo set_checkbox('officer_notified', '1'); ?> <?php if(isset($load)){if($item->officer_notified==0){echo "checked=checked";}}else{} ?> >No</label>
+                                   <label class="radio-inline"><input type="radio" value="no" name="bio_officer_notified" <?php echo set_radio('bio_officer_notified', 'no'); ?> <?php if(isset($load)){if($item->bio_officer_notified=='no'){echo "checked=checked";}}else{} ?> >No</label>
                                </td>
                            </tr>
                            <tr>

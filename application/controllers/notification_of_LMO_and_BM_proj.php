@@ -48,6 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'personnel_name' => $this->input->post('personnel_name'),
                     'personnel_staff_student_no' => $this->input->post('personnel_staff_student_no'),
                     'personnel_designation' => $this->input->post('personnel_designation'),
@@ -76,7 +78,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approver' => $this->input->post('notification_approver'),
                     'notification_decliner' => $this->input->post('notification_decliner'),
                     'notification_reviewed_by' => $this->input->post('notification_reviewed_by'),
+                    'notification_approve_signature' => $this->input->post('notification_approve_signature'),
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
+                    'notification_reviewed_signature' => $this->input->post('notification_reviewed_signature'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
                     'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
@@ -116,6 +120,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'personnel_name' => $this->input->post('personnel_name'),
                     'personnel_staff_student_no' => $this->input->post('personnel_staff_student_no'),
                     'personnel_designation' => $this->input->post('personnel_designation'),
@@ -144,7 +150,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approver' => $this->input->post('notification_approver'),
                     'notification_decliner' => $this->input->post('notification_decliner'),
                     'notification_reviewed_by' => $this->input->post('notification_reviewed_by'),
+                    'notification_approve_signature' => $this->input->post('notification_approve_signature'),
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
+                    'notification_reviewed_signature' => $this->input->post('notification_reviewed_signature'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
                     'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
@@ -220,6 +228,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $appID,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no'),
                     'personnel_name' => $this->input->post('personnel_name'),
                     'personnel_staff_student_no' => $this->input->post('personnel_staff_student_no'),
                     'personnel_designation' => $this->input->post('personnel_designation'),
@@ -248,7 +258,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approver' => $this->input->post('notification_approver'),
                     'notification_decliner' => $this->input->post('notification_decliner'),
                     'notification_reviewed_by' => $this->input->post('notification_reviewed_by'),
+                    'notification_approve_signature' => $this->input->post('notification_approve_signature'),
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
+                    'notification_reviewed_signature' => $this->input->post('notification_reviewed_signature'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
                     'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
@@ -299,6 +311,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if($this->project_model->update_proj_status($id, $status))
             {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been removed</div>');
                 redirect('home/index');
             }
         
@@ -335,6 +348,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'personnel_name' => $this->input->post('personnel_name'),
                     'personnel_staff_student_no' => $this->input->post('personnel_staff_student_no'),
                     'personnel_designation' => $this->input->post('personnel_designation'),
@@ -363,7 +378,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approver' => $this->input->post('notification_approver'),
                     'notification_decliner' => $this->input->post('notification_decliner'),
                     'notification_reviewed_by' => $this->input->post('notification_reviewed_by'),
+                    'notification_approve_signature' => $this->input->post('notification_approve_signature'),
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
+                    'notification_reviewed_signature' => $this->input->post('notification_reviewed_signature'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
                     'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
@@ -374,7 +391,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->notification_of_LMO_and_BM_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSave)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     
@@ -403,6 +420,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $data = array(
                     'account_id' => $this->session->userdata('account_id'),
                     'project_id' => $proj_id,
+                    'date_received ' => $this->input->post('date_received '),
+                    'SBC_reference_no' => $this->input->post('SBC_reference_no '),
                     'personnel_name' => $this->input->post('personnel_name'),
                     'personnel_staff_student_no' => $this->input->post('personnel_staff_student_no'),
                     'personnel_designation' => $this->input->post('personnel_designation'),
@@ -431,7 +450,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'notification_approver' => $this->input->post('notification_approver'),
                     'notification_decliner' => $this->input->post('notification_decliner'),
                     'notification_reviewed_by' => $this->input->post('notification_reviewed_by'),
+                    'notification_approve_signature' => $this->input->post('notification_approve_signature'),
                     'notification_approve_decline_date' => $this->input->post('notification_approve_decline_date'),
+                    'notification_reviewed_signature' => $this->input->post('notification_reviewed_signature'),
                     'notification_reviewed_by_date' => $this->input->post('notification_reviewed_by_date'),
                     'notification_approve_decline_remarks' => $this->input->post('notification_approve_decline_remarks'),
                     'notification_reviewed_by_remarks' => $this->input->post('notification_reviewed_by_remarks'),
@@ -442,7 +463,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->notification_of_LMO_and_BM_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
-                    redirect('home/index');
+                    redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');
                     

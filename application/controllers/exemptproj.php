@@ -546,6 +546,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             if($this->project_model->update_proj_status($id, $status))
             {
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been removed</div>');
                 redirect('home/index');
             }
         

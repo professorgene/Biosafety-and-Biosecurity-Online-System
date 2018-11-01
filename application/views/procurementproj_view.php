@@ -45,6 +45,10 @@ if(!$this->session->userdata('isLogin')){
             background-color: lawngreen;
         }
         
+        .greendata2{
+            background-color: rgb(13, 177, 75);
+        }
+        
         .reddata{
             background-color: red;
         }

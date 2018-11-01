@@ -243,9 +243,9 @@
                                    <p>Have the lab personnel gone through the training(s)?</p>
                                    
                                    <div class="checkbox">
-                                       <label class="radio-inline"><input type="radio" value="1" name="SWP_lab_trained" <?php if($this->session->userdata('account_type') != 2 || $this->session->userdata('account_type') != 4){echo "disabled";} ?> <?php if(isset($load)){if($swp->SWP_lab_trained==1){echo set_radio('SWP_lab_trained', '1', TRUE);}} ?>> Yes</label>
+                                       <label class="radio-inline"><input type="radio" value="yes" name="SWP_lab_trained" <?php if($this->session->userdata('account_type') != 2 || $this->session->userdata('account_type') != 4){echo "disabled";} ?> <?php if(isset($load)){if($swp->SWP_lab_trained=='yes'){echo set_radio('SWP_lab_trained', 'yes', TRUE);}} ?>> Yes</label>
                                                
-                                       <label class="radio-inline"><input type="radio" value="0" name="officer_notified" <?php if($this->session->userdata('account_type') != 2 || $this->session->userdata('account_type') != 4){echo "disabled";} ?> <?php echo set_radio('SWP_lab_trained', '0', FALSE); ?> <?php if(isset($load)){if($swp->SWP_lab_trained==0){echo set_radio('SWP_lab_trained', '0', TRUE);}} ?>> No</label>
+                                       <label class="radio-inline"><input type="radio" value="no" name="officer_notified" <?php if($this->session->userdata('account_type') != 2 || $this->session->userdata('account_type') != 4){echo "disabled";} ?> <?php echo set_radio('SWP_lab_trained', 'no', FALSE); ?> <?php if(isset($load)){if($swp->SWP_lab_trained=='no'){echo set_radio('SWP_lab_trained', 'no', TRUE);}} ?>> No</label>
                                        
                                    </div>
                                    

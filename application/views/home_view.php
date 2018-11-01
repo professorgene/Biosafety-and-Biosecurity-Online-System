@@ -35,6 +35,17 @@ if(!$this->session->userdata('isLogin')){
 <body>
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
+    
+    <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 text-center">
+                <br/>
+                <?php echo $this->session->flashdata('msg'); ?>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
 
     <!-- Page Content -->
     <div class="container">
