@@ -44,10 +44,11 @@
                            </thead>
                            <tbody>
                                <tr>
-                                   <th class="tbheader1">1.01  Name (as per I.C./Passport):</th>
-                                   <td><input type="text" name="victim_name" class="form-control" value="<?php if(isset($load)){echo set_value('victim_name', $item->victim_name);}else{echo set_value('victim_name');} ?>" ></td>
-                                   <th class="tbheader1">1.05  Employment Designation:</th>
-                                   <td><input type="text" name="victim_employment_designation" class="form-control" value="<?php if(isset($load)){echo set_value('victim_employment_designation', $item->victim_employment_designation);}else{echo set_value('victim_employment_designation');} ?>"></td>
+                                   <th class="tbheader1">1.01  Name (as per I.C./Passport):</th>								   
+                                   <td><textarea name="victim_name" class="form-control"><?php if(isset($load)){echo set_value('victim_name', $item->victim_name);}else{echo set_value('victim_name');} ?></textarea></td>				   						 		   
+							
+                                   <th class="tbheader1">1.05  Employment Designation:</th>								   
+                                   <td><textarea name="victim_employment_designation" class="form-control"><?php if(isset($load)){echo set_value('victim_employment_designation', $item->victim_employment_designation);}else{echo set_value('victim_employment_designation');} ?></textarea></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.02   Gender:</th>
@@ -60,18 +61,19 @@
 										</div>
 								   </td>
                                    <th class="tbheader1">1.06   Unit/Faculty:</th>
-                                   <td><input type="text" name="victim_faculty" class="form-control" value="<?php if(isset($load)){echo set_value('victim_faculty', $item->victim_faculty);}else{echo set_value('victim_faculty');} ?>"></td>
+                                   <td><textarea name="victim_faculty" class="form-control"><?php if(isset($load)){echo set_value('victim_faculty', $item->victim_faculty);}else{echo set_value('victim_faculty');} ?></textarea></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.03  Age:</th>
-                                   <td><input type="number" name="victim_age" class="form-control" value="<?php if(isset($load)){echo set_value('victim_age', $item->victim_age);}else{echo set_value('victim_age');} ?>"></td>
+                                   <td><textarea name="victim_age" class="form-control"><?php if(isset($load)){echo set_value('victim_age', $item->victim_age);}else{echo set_value('victim_age');} ?></textarea></td>
                                    
                                    <th class="tbheader1">1.07   Doc ID:</th>
-                                   <td><input type="text" name="doc_id" class="form-control" value="OHS/F/4.20.X" disabled></td>
+                                   <td><input  type="text" name="doc_id" class="form-control" value="OHS/F/4.20.X" disabled></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">1.04   Citizenship:</th>
-                                   <td><input type="text" name="victim_citizenship" class="form-control" value="<?php if(isset($load)){echo set_value('victim_citizenship', $item->victim_citizenship);}else{echo set_value('victim_citizenship');} ?>"></td>
+                                   <td><textarea name="victim_citizenship" class="form-control"><?php if(isset($load)){echo set_value('victim_citizenship', $item->victim_citizenship);}else{echo set_value('victim_citizenship');} ?></textarea></td>
+
                                    <th class="tbheader1">1.08   Review Date:</th>
                                    <td><input type="date" name="review_date" class="form-control" value="<?php if(isset($load)){echo set_value('review_date', $item->review_date);}else{echo set_value('review_date');} ?>"></td>
                                </tr>							   
@@ -90,21 +92,21 @@
                            <tbody>
                                <tr>
                                    <th class="tbheader1">2.1 Date of incident:</th>
-                                   <td colspan="4"><input type="date" class="form-control" name="incident_date" value="<?php if(isset($load)){echo set_value('incident_date', $item->incident_date);}else{echo set_value('incident_date');} ?>" ></td>
+                                   <td colspan="4"><input  type="date" class="form-control" name="incident_date" value="<?php if(isset($load)){echo set_value('incident_date', $item->incident_date);}else{echo set_value('incident_date');} ?>" ></td>
 							   </tr>
                                <tr>
                                    <th class="tbheader1">2.2 Time:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="incident_time" value="<?php if(isset($load)){echo set_value('incident_time', $item->incident_time);}else{echo set_value('incident_time');} ?>" ></td>
+                                   <td colspan="4"><textarea class="form-control" name="incident_time"><?php if(isset($load)){echo set_value('incident_time', $item->incident_time);}else{echo set_value('incident_time');} ?></textarea></td>
                                </tr>
 							   <tr>
                                    <th class="tbheader1">2.3 Room/Area:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="incident_location" value="<?php if(isset($load)){echo set_value('incident_location', $item->incident_location);}else{echo set_value('incident_location');} ?>"></td>
+                                   <td colspan="4"><textarea class="form-control" name="incident_location"><?php if(isset($load)){echo set_value('incident_location', $item->incident_location);}else{echo set_value('incident_location');} ?></textarea></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">2.4 Type of Incident:</th>
                                    <td colspan="1">										
 								   <div class="checkbox">
-											<label><input type="checkbox" name="incident_type1" value="1" <?php echo set_checkbox('incident_type1', '1'); ?> <?php if(isset($load)){if($item->incident_type1==1){echo "checked=checked";}}else{} ?> > Slips, Trips and Falls</label>
+											<label><input  type="checkbox" name="incident_type1" value="1" <?php echo set_checkbox('incident_type1', '1'); ?> <?php if(isset($load)){if($item->incident_type1==1){echo "checked=checked";}}else{} ?> > Slips, Trips and Falls</label>
 									</div>
 									<div class="checkbox">
 											<label><input type="checkbox" name="incident_type2" value="2" <?php echo set_checkbox('incident_type2', '2'); ?> <?php if(isset($load)){if($item->incident_type2==2){echo "checked=checked";}}else{} ?> > Unsafe Act</label>
@@ -135,7 +137,8 @@
 											<label><input type="checkbox" name="incident_type9" value="9" <?php echo set_checkbox('incident_type9', '9'); ?> <?php if(isset($load)){if($item->incident_type9==9){echo "checked=checked";}}else{} ?> > Unsafe Workplace Condition</label>
 									</div>
 									
-									<div> Others (specify):<input type="text" name="incident_type_description" class="form-control" value="<?php if(isset($load)){echo set_value('incident_type_description', $item->incident_type_description);}else{echo set_value('incident_type_description');} ?>" ></div>
+									<div> Others (specify):<textarea name="incident_type_description" class="form-control"><?php if(isset($load)){echo set_value('incident_type_description', $item->incident_type_description);}else{echo set_value('incident_type_description');} ?>
+									</textarea></div>
 								   
 								   
 								   </td>
@@ -160,11 +163,11 @@
                                </tr>
                                <tr>
                                    <th class="tbheader1">2.7 Details of incident:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="incident_details" value="<?php if(isset($load)){echo set_value('incident_details', $item->incident_details);}else{echo set_value('incident_details');} ?>" ></td>
+                                   <td colspan="4"><textarea class="form-control" name="incident_details"><?php if(isset($load)){echo set_value('incident_details', $item->incident_details);}else{echo set_value('incident_details');} ?></textarea></td>
                                </tr>
                                <tr>
                                    <th class="tbheader1">2.8 Actions Taken:</th>
-                                   <td colspan="4"><input type="text" class="form-control" name="incident_actions" value="<?php if(isset($load)){echo set_value('incident_actions', $item->incident_actions);}else{echo set_value('incident_actions');} ?>" ></td>
+                                   <td colspan="4"><textarea class="form-control" name="incident_actions"><?php if(isset($load)){echo set_value('incident_actions', $item->incident_actions);}else{echo set_value('incident_actions');} ?></textarea></td>
                                </tr>                               
                            </tbody>
                        </table>
@@ -189,15 +192,15 @@
                            </tr>
                            <tr>
                                    <th class="tbheader1">Reported by:</th>
-                                   <td style="width:80%"><input type="text" class="form-control" name="reporter_name" value="<?php if(isset($load)){echo set_value('reporter_name', $item->reporter_name);}else{echo set_value('reporter_name');} ?>" ></td>
+                                   <td style="width:80%"><textarea class="form-control" name="reporter_name"><?php if(isset($load)){echo set_value('reporter_name', $item->reporter_name);}else{echo set_value('reporter_name');} ?></textarea></td>
                            </tr>
 						   <tr>
                                    <th class="tbheader1">Designation:</th>
-                                   <td style="width:80%"><input type="text" class="form-control" name="reporter_designation" value="<?php if(isset($load)){echo set_value('reporter_designation', $item->reporter_designation);}else{echo set_value('reporter_designation');} ?>" ></td>
+                                   <td style="width:80%"><textarea class="form-control" name="reporter_designation"><?php if(isset($load)){echo set_value('reporter_designation', $item->reporter_designation);}else{echo set_value('reporter_designation');} ?></textarea></td>
                            </tr>
 						   <tr>
                                    <th class="tbheader1">Date:</th>
-                                   <td style="width:80%"><input type="date" class="form-control" name="reporter_date" value="<?php if(isset($load)){echo set_value('reporter_date', $item->reporter_date);}else{echo set_value('reporter_date');} ?>" ></td>
+                                   <td style="width:80%"><input  type="date" class="form-control" name="reporter_date" value="<?php if(isset($load)){echo set_value('reporter_date', $item->reporter_date);}else{echo set_value('reporter_date');} ?>" ></td>
                            </tr>
                        </tbody>
                    </table>
@@ -222,17 +225,17 @@
 								   </td>
                                    <th class="tbheader1">4.3 Victim’s citizenship:</th>
                                    <td>
-										<input type="text" class="form-control" name="investigation_victim_citizenship" value="<?php if(isset($load)){echo set_value('investigation_victim_citizenship', $item->investigation_victim_citizenship);}else{echo set_value('investigation_victim_citizenship');} ?>" >
+										<textarea class="form-control" name="investigation_victim_citizenship"><?php if(isset($load)){echo set_value('investigation_victim_citizenship', $item->investigation_victim_citizenship);}else{echo set_value('investigation_victim_citizenship');} ?></textarea>
 								   </td>
                                </tr>
 							   <tr>
                                    <th class="tbheader1">4.2 Victim’s age:</th>
                                    <td>
-										<input type="text" class="form-control" name="investigation_victim_age" value="<?php if(isset($load)){echo set_value('investigation_victim_age', $item->investigation_victim_age);}else{echo set_value('investigation_victim_age');} ?>" >
+										<textarea class="form-control" name="investigation_victim_age"><?php if(isset($load)){echo set_value('investigation_victim_age', $item->investigation_victim_age);}else{echo set_value('investigation_victim_age');} ?></textarea>
 								   </td>
                                    <th class="tbheader1">4.4 Victim’s job description:</th>
                                    <td>
-										<input type="text" class="form-control" name="investigation_victim_job_description" value="<?php if(isset($load)){echo set_value('investigation_victim_job_description', $item->investigation_victim_job_description);}else{echo set_value('investigation_victim_job_description');} ?>" >
+										<textarea class="form-control" name="investigation_victim_job_description"><?php if(isset($load)){echo set_value('investigation_victim_job_description', $item->investigation_victim_job_description);}else{echo set_value('investigation_victim_job_description');} ?></textarea>
 								   </td>
                                </tr>
 							   
@@ -264,56 +267,71 @@
                                    <th>Timeline/Completion Date</th>                                                                     
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="investigation_preventive_no[0]" value="<?php if(isset($load)){echo set_value('investigation_preventive_no[0]', $a[0]);}else{echo set_value('investigation_preventive_no[0]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_no[0]"><?php if(isset($load)){echo set_value('investigation_preventive_no[0]', $a[0]);}else{echo set_value('investigation_preventive_no[0]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_action[0]" value="<?php if(isset($load)){echo set_value('investigation_preventive_action[0]', $b[0]);}else{echo set_value('investigation_preventive_action[0]');} ?>"></th>
+                                   <th><textarea  class="form-control" name="investigation_preventive_action[0]"><?php if(isset($load)){echo set_value('investigation_preventive_action[0]', $b[0]);}else{echo set_value('investigation_preventive_action[0]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom[0]" value="<?php if(isset($load)){echo set_value('investigation_preventive_by_whom[0]', $c[0]);}else{echo set_value('investigation_preventive_by_whom[0]');} ?>"></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_by_whom[0]"><?php if(isset($load)){echo set_value('investigation_preventive_by_whom[0]', $c[0]);}else{echo set_value('investigation_preventive_by_whom[0]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline[0]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[0]', $d[0]);}else{echo set_value('investigation_preventive_timeline[0]');} ?>"></th>
+                                   <th><input  type="date" class="form-control" name="investigation_preventive_timeline[0]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[0]', $d[0]);}else{echo set_value('investigation_preventive_timeline[0]');} ?>"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="investigation_preventive_no[1]" value="<?php if(isset($load)){echo set_value('investigation_preventive_no[1]', $a[1]);}else{echo set_value('investigation_preventive_no[1]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_no[1]"><?php if(isset($load)){echo set_value('investigation_preventive_no[1]', $a[1]);}else{echo set_value('investigation_preventive_no[1]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_action[1]" value="<?php if(isset($load)){echo set_value('investigation_preventive_action[1]', $b[1]);}else{echo set_value('investigation_preventive_action[1]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_action[1]"><?php if(isset($load)){echo set_value('investigation_preventive_action[1]', $b[1]);}else{echo set_value('investigation_preventive_action[1]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom[1]" value="<?php if(isset($load)){echo set_value('investigation_preventive_by_whom[1]', $c[1]);}else{echo set_value('investigation_preventive_by_whom[1]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_by_whom[1]"><?php if(isset($load)){echo set_value('investigation_preventive_by_whom[1]', $c[1]);}else{echo set_value('investigation_preventive_by_whom[1]');} ?></textarea></th>
                                    
                                    <th><input type="date" class="form-control" name="investigation_preventive_timeline[1]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[1]', $d[1]);}else{echo set_value('investigation_preventive_timeline[1]');} ?>"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="investigation_preventive_no[2]" value="<?php if(isset($load)){echo set_value('investigation_preventive_no[2]', $a[2]);}else{echo set_value('investigation_preventive_no[2]');} ?>"></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_no[2]"><?php if(isset($load)){echo set_value('investigation_preventive_no[2]', $a[2]);}else{echo set_value('investigation_preventive_no[2]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_action[2]" value="<?php if(isset($load)){echo set_value('investigation_preventive_action[2]', $b[2]);}else{echo set_value('investigation_preventive_action[2]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_action[2]"><?php if(isset($load)){echo set_value('investigation_preventive_action[2]', $b[2]);}else{echo set_value('investigation_preventive_action[2]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom[2]" value="<?php if(isset($load)){echo set_value('investigation_preventive_by_whom[2]', $c[2]);}else{echo set_value('investigation_preventive_by_whom[2]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_by_whom[2]"><?php if(isset($load)){echo set_value('investigation_preventive_by_whom[2]', $c[2]);}else{echo set_value('investigation_preventive_by_whom[2]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="date" class="form-control" name="investigation_preventive_timeline[2]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[2]', $d[2]);}else{echo set_value('investigation_preventive_timeline[2]');} ?>"></th>
+                                   <th><input  type="date" class="form-control" name="investigation_preventive_timeline[2]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[2]', $d[2]);}else{echo set_value('investigation_preventive_timeline[2]');} ?>"></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="investigation_preventive_no[3]" value="<?php if(isset($load)){echo set_value('investigation_preventive_no[3]', $a[3]);}else{echo set_value('investigation_preventive_no[3]');} ?>"></th>
+                                   <th><textarea  class="form-control" name="investigation_preventive_no[3]"><?php if(isset($load)){echo set_value('investigation_preventive_no[3]', $a[3]);}else{echo set_value('investigation_preventive_no[3]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_action[3]" value="<?php if(isset($load)){echo set_value('investigation_preventive_action[3]', $b[3]);}else{echo set_value('investigation_preventive_action[3]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_action[3]"><?php if(isset($load)){echo set_value('investigation_preventive_action[3]', $b[3]);}else{echo set_value('investigation_preventive_action[3]');} ?></textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom[3]" value="<?php if(isset($load)){echo set_value('investigation_preventive_by_whom[3]', $c[3]);}else{echo set_value('investigation_preventive_by_whom[3]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_by_whom[3]"><?php if(isset($load)){echo set_value('investigation_preventive_by_whom[3]', $c[3]);}else{echo set_value('investigation_preventive_by_whom[3]');} ?></textarea></th>
                                    
                                    <th><input type="date" class="form-control" name="investigation_preventive_timeline[3]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[3]', $d[3]);}else{echo set_value('investigation_preventive_timeline[3]');} ?>" ></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="investigation_preventive_no[4]" value="<?php if(isset($load)){echo set_value('investigation_preventive_no[4]', $a[4]);}else{echo set_value('investigation_preventive_no[4]');} ?>"></th>
+                                   <th><textarea  class="form-control" name="investigation_preventive_no[4]"><?php if(isset($load)){echo set_value('investigation_preventive_no[4]', $a[4]);}else{echo set_value('investigation_preventive_no[4]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_action[4]" value="<?php if(isset($load)){echo set_value('investigation_preventive_action[4]', $b[4]);}else{echo set_value('investigation_preventive_action[4]');} ?>" ></th>
+                                   <th><textarea  class="form-control" name="investigation_preventive_action[4]"><?php if(isset($load)){echo set_value('investigation_preventive_action[4]', $b[4]);}else{echo set_value('investigation_preventive_action[4]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom[4]" value="<?php if(isset($load)){echo set_value('investigation_preventive_by_whom[4]', $c[4]);}else{echo set_value('investigation_preventive_by_whom[4]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_by_whom[4]"><?php if(isset($load)){echo set_value('investigation_preventive_by_whom[4]', $c[4]);}else{echo set_value('investigation_preventive_by_whom[4]');} ?>
+								   </textarea></th>
                                    
                                    <th><input type="date" class="form-control" name="investigation_preventive_timeline[4]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[4]', $d[4]);}else{echo set_value('investigation_preventive_timeline[4]');} ?>" ></th>
                                </tr>
                                <tr style="width:25%">
-                                   <th><input type="text" class="form-control" name="investigation_preventive_no[5]" value="<?php if(isset($load)){echo set_value('investigation_preventive_no[5]', $a[5]);}else{echo set_value('investigation_preventive_no[5]');} ?>"></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_no[5]"><?php if(isset($load)){echo set_value('investigation_preventive_no[5]', $a[5]);}else{echo set_value('investigation_preventive_no[5]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_action[5]" value="<?php if(isset($load)){echo set_value('investigation_preventive_action[5]', $b[5]);}else{echo set_value('investigation_preventive_action[5]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_action[5]"><?php if(isset($load)){echo set_value('investigation_preventive_action[5]', $b[5]);}else{echo set_value('investigation_preventive_action[5]');} ?>
+								   </textarea></th>
                                    
-                                   <th><input type="text" class="form-control" name="investigation_preventive_by_whom[5]" value="<?php if(isset($load)){echo set_value('investigation_preventive_by_whom[5]', $c[5]);}else{echo set_value('investigation_preventive_by_whom[5]');} ?>" ></th>
+                                   <th><textarea class="form-control" name="investigation_preventive_by_whom[5]"><?php if(isset($load)){echo set_value('investigation_preventive_by_whom[5]', $c[5]);}else{echo set_value('investigation_preventive_by_whom[5]');} ?>
+								   </textarea></th>
                                    
                                    <th><input type="date" class="form-control" name="investigation_preventive_timeline[5]" value="<?php if(isset($load)){echo set_value('investigation_preventive_timeline[5]', $d[5]);}else{echo set_value('investigation_preventive_timeline[5]');} ?>" ></th>
                                </tr>
@@ -321,9 +339,11 @@
                                <td colspan="4">
                                    <table class="table table-bordered">
                                        <tr>
-                                           <td>Report/Investigated By: <input type="text" class="form-control" name="investigated_by" value="<?php if(isset($load)){echo set_value('investigated_by', $item->investigated_by);}else{echo set_value('investigated_by');} ?>"></td>
+                                           <td>Report/Investigated By: <textarea class="form-control" name="investigated_by"><?php if(isset($load)){echo set_value('investigated_by', $item->investigated_by);}else{echo set_value('investigated_by');} ?>
+										   </textarea></td>
                                            
-                                           <td>Reviewed By: <input type="text" class="form-control" name="reviewed_by" value="<?php if(isset($load)){echo set_value('reviewed_by', $item->reviewed_by);}else{echo set_value('reviewed_by');} ?>"></td>
+                                           <td>Reviewed By: <textarea class="form-control" name="reviewed_by"><?php if(isset($load)){echo set_value('reviewed_by', $item->reviewed_by);}else{echo set_value('reviewed_by');} ?>
+										   </textarea></td>
                                        </tr>                                       
                                    </table>
                                </td>
