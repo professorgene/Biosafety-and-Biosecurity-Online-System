@@ -302,7 +302,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['retrieved'] = $this->incidentaccidentreport_model->get_form_by_project_id($id);
             
         
-            $this->load->template('minorproj_view', $data);
+            $this->load->template('minorbioproj_view', $data);
         }
         
         public function delete_saved_project(){
