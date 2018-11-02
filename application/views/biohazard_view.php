@@ -482,7 +482,7 @@
                                    <textarea class="form-control" name="biohazard_signature"><?php if(isset($load)){echo set_value('biohazard_signature', $item->biohazard_signature);}else{echo set_value('biohazard_signature');} ?></textarea>
                                    <br>
                                    
-                                   <input type="file" class="form-control" name="biohazard_signature_file"><br>
+                                   <input type="hideen" class="form-control" name="biohazard_signature_file"><br>
                                             
                                    <?php 
                                    if(isset($load)){

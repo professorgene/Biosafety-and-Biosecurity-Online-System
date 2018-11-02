@@ -40,9 +40,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 $this->load->library('upload'); //initialize
                 $this->upload->initialize($config); //Alternately you can set preferences by calling the initialize function. Useful if you auto-load the class
                 #$this->upload->do_upload(); // do upload
-                if($this->upload->do_upload('biohazard_signature_file')){
+                /*if($this->upload->do_upload('biohazard_signature_file')){
                     $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
-                }
+                }*/
                 
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));
@@ -94,7 +94,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
-                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
+                    //'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $saveStatus
                 );
                 
@@ -242,7 +242,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
-                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
+                    //'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $submitStatus
                 );
                 
@@ -427,7 +427,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'bio_officer_notified' => $this->input->post('bio_officer_notified'),
                     'officer_name' => $this->input->post('officer_name'),
                     'biohazard_signature' => $this->input->post('biohazard_signature'),
-                    'biohazard_signature_file' => $biohazard_signature_file['file_name'],
+                    //'biohazard_signature_file' => $biohazard_signature_file['file_name'],
                     'status' => $submitStatus,
                     'editable' => $editableValue
                 );
@@ -570,7 +570,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             }elseif(isset($save)){
                 
-                $config['upload_path'] = './uploads/';
+                /*/$config['upload_path'] = './uploads/';
                 $config['allowed_types'] = 'gif|jpg|png|pdf|doc';
                 //$config['overwrite'] = TRUE;
                 
@@ -580,8 +580,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 /*if($this->upload->do_upload('biohazard_signature_file')){
                     $biohazard_signature_file = $this->upload->data(); //returns an array containing all of the data related to the file you uploaded.
                 }*/
-                $this->upload->do_upload('biohazard_signature_file');
-                $biohazard_signature_file = $this->upload->data(); 
+                /*$this->upload->do_upload('biohazard_signature_file');
+                $biohazard_signature_file = $this->upload->data(); */
                 
                 //biohazard
                 $ar1 = implode(',',$this->input->post('project_personnel_name'));

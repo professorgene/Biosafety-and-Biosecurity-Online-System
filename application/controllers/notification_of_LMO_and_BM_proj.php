@@ -90,7 +90,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->notification_of_LMO_and_BM_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSave)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $data);
                     redirect('home/index');
                     
                     $this->session->unset_userdata('projectId');
@@ -390,7 +390,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->notification_of_LMO_and_BM_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSave)){
                     
-                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully saved!</div>', $data);
                     redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');

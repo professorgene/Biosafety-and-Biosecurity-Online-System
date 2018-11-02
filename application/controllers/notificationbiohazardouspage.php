@@ -19,12 +19,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 		
 		public function index(){
-        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
 
-        # change the value inside ( ' HERE ' ) to call different announcement for different pages
-        $data['announcement'] = $this->announcement_model->get_all_announcement( 'notifbio' );
+            # change the value inside ( ' HERE ' ) to call different announcement for different pages
+            $data['announcement'] = $this->announcement_model->get_all_announcement( 'notifbio' );
+            
+            $this->form_validation->set_rules('project_name', 'Project Name', 'required');
+            $this->form_validation->set_rules('project_desc', 'Project Description', 'required');
+        
+            # Submit form
+            if($this->form_validation->run() == FALSE){
+                # validation fails
+                $this->load->template('notificationbiohazardouspage_view', $data);
+            } else {
+                $data = array(
+                    'project_name' => $this->input->post('project_name'),
+                    'project_desc' => $this->input->post('project_desc'),
+                    'project_type' => 'notifLMOBM',
+                    'project_duration' => $this->input->post('project_duration'),
+                    'account_id' => $this->session->userdata('account_id')
+                );
+            
+                if($this->project_model->insert_new_proj($data)){
+                    
+                    //if data succesfully submitted, retrieve the row that has the same name as the one just submitted
+                    $name = $this->input->post('project_name');
+                     $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+                    $data['session'] = $this->project_model->get_proj_name($name);
+                                    
+                    $this->load->template('notification_of_LMO_and_BM_proj_view', $data);
+                } else {
+                    $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+                    redirect('notificationbiohazardouspage/index');
+                }
+            }
+        
 
-        $this->load->template('notificationbiohazardouspage_view', $data);
     }
     
     # reuse this function, do not create another new_announcement()!
