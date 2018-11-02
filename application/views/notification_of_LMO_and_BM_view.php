@@ -162,22 +162,39 @@
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_name[0]"><?php if(isset($load)){echo set_value('LMO_name[0]', $ar1[0]);}else{echo set_value('LMO_name[0]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_name[0]">
+                                                       <?php 
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_name[0]', $ar1[0]);
+                                                       } else {
+                                                           echo set_value('LMO_name[0]');} 
+                                                       ?>
+                                                   </textarea>
                                                </div>
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_risk_level[0]"><?php if(isset($load)){echo set_value('LMO_risk_level[0]', $ar2[0]);}else{echo set_value('LMO_risk_level[0]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_risk_level[0]">
+                                                       <?php 
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_risk_level[0]', $ar2[0]);
+                                                       } else {
+                                                           echo set_value('LMO_risk_level[0]');
+                                                       } 
+                                                       ?>
+                                                   </textarea>
                                                </div>
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_quantity[0]"><?php if(isset($load)){echo set_value('LMO_quantity[0]', $ar3[0]);}else{echo set_value('LMO_quantity[0]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_quantity[0]"><?php if(isset($load)){echo set_value('LMO_quantity[0]', $ar3[0]);}else{echo set_value('LMO_quantity[0]');} ?>
+                                                   </textarea>
                                                </div>
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_volume[0]"><?php if(isset($load)){echo set_value('LMO_volume[0]', $ar4[0]);}else{echo set_value('LMO_volume[0]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_volume[0]"><?php if(isset($load)){echo set_value('LMO_volume[0]', $ar4[0]);}else{echo set_value('LMO_volume[0]');} ?>
+                                                   </textarea>
                                                </div>
                                            </td>
                                        </tr>
@@ -189,8 +206,17 @@
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_risk_level[1]"><?php if(isset($load)){echo set_value('LMO_risk_level[1]', $ar2[1]);}else{echo set_value('LMO_risk_level[1]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_risk_level[1]">
+                                                       <?php 
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_risk_level[1]', $ar2[1]);
+                                                       }else{
+                                                           echo set_value('LMO_risk_level[1]');
+                                                       } 
+                                                       ?>
+                                                   </textarea>
                                                </div>
+                                               
                                            </td>
                                            <td>
                                                <div class="form-group">
@@ -255,7 +281,14 @@
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_risk_level[4]"><?php if(isset($load)){echo set_value('LMO_risk_level[4]', $ar2[4]);}else{echo set_value('LMO_risk_level[4]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_risk_level[4]">
+                                                       <?php 
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_risk_level[4]', $ar2[4]);
+                                                       }else{
+                                                           echo set_value('LMO_risk_level[4]');
+                                                       } ?>
+                                                   </textarea>
                                                </div>
                                            </td>
                                            <td>

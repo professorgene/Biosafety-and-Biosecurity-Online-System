@@ -1552,10 +1552,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             $project_intro_activities = $this->upload->data();
                             $project_activities = $project_intro_activities['file_name'];
                         }else{
-                            $project_activities = $applicantFile;
+                            $project_activities = null;
                         }
                     }else{
-                        $project_activities = $applicantFile;
+                        //get row from form e with specific project id
+                        $result = $this->forme_model->get_form_by_project_id($proj_id);
+                        
+                        if($result->project_activities != null){
+                            
+                            $project_activities = $result->project_activities;
+                            
+                        }else{
+                            
+                            $project_activities = null;
+                            
+                        }
+                        
                     }
                     
                     

@@ -36,6 +36,13 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    #get from db form e
+    #get form e based on id
+    #return the row result
+    
+    
+    
+    
     function get_all_exempt_edit_request() 
     {
         $this->db->select('*');

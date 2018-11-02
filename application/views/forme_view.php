@@ -609,6 +609,7 @@
                                                 }
                                             }
                                             ?>
+                                            
                                         </td>
                                         
                                         <td>Date:</td>
@@ -624,7 +625,7 @@
                                         <td>
                                             <textarea class="form-control" name="applicant_PI_signature_name"><?php if(isset($load)){echo set_value('applicant_PI_signature_name', $item->applicant_PI_signature_name);}else{echo set_value('applicant_PI_signature_name');} ?></textarea>
                                         </td>
-                                        <input type="hidden" name="app_file" value="<?php if(isset($item->applicant_PI_signature_name)){echo $item->applicant_PI_signature_name;} ?>">
+                                        
                                     </tr>
                                 </table>
                             </div>
@@ -897,6 +898,7 @@
                                             }
                                         }
                                     ?>
+                                    
                                 </li>
                                 <li>
                                     Biosafety Level (BSL) of the proposed activity:<br>
