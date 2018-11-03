@@ -45,8 +45,6 @@ class upload extends CI_Controller {
                 }else{
                     $order1 = null;
                 }
-            }else{
-                $order1 = null;
             }
             
             if(!empty($_FILES['order_attach'])){
@@ -63,17 +61,26 @@ class upload extends CI_Controller {
                 }else{
                     $order2 = null;
                 }
-            }else{
-                $order2 = null;
             }
             
             $data = array(
                 #'account_email' => $this->input->post('account_email'),
-                'order_name' => $this->input->post('order_name'),
-                'order_file' => $order1,
-                'order_attach' => $order2
+                'order_name' => $this->input->post('order_name')
+                #'order_file' => $order1,
+                #'order_attach' => $order2
             );
-
+            
+            if ($order1 != null){
+                $data = $data + array(
+                    'order_file' => $order1
+                );
+            }
+            if ($order2 != null){
+                $data = $data + array(
+                    'order_attach' => $order2
+                );
+            }
+            
             # checks for account credentials
             if($this->upload_model->update_stuff(1, $data)){
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully updated your password!</div>');

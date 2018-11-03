@@ -18,5 +18,11 @@ class upload_model extends CI_Model
         }
     }
     
+    function get_stuff($id) {
+		$this->db->where('order_id', $id);
+        $query = $this->db->select('*')->from('test')->get();
+        return $query->result();
+    }
+    
 }
 ?>
