@@ -1558,9 +1558,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         //get row from form e with specific project id
                         $result = $this->forme_model->get_form_by_project_id($proj_id);
                         
-                        if($result->project_activities != null){
+                        if($result->project_intro_activities != null){
                             
-                            $project_activities = $result->project_activities;
+                            $project_activities = $result->project_intro_activities;
                             
                         }else{
                             
