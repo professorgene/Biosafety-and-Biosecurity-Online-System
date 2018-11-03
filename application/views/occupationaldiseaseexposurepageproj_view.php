@@ -69,12 +69,12 @@ if(!$this->session->userdata('isLogin')){
     <div class="container">
         <div class="row">
 		  <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
-		
+		<hr>
             <div class="col-md-12">
 			
 			<br>
                 <ul class="nav nav-tabs">
-                    <li class="nav-item active"><a href="#annex4tab" class="nav-link" data-toggle="tab">Annex 4 Form</a></li>
+                    <li class="nav-item active"><a href="#annex4tab" class="nav-link active" data-toggle="tab">Annex 4 Form</a></li>
                     <li class="nav-item"><a href="#ohstab" class="nav-link" data-toggle="tab">Incident Accident Form</a></li>
                 </ul>
                 

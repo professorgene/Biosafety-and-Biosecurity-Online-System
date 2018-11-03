@@ -13,6 +13,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->model('biohazard_model');
         $this->load->model('hirarc_model');
         $this->load->model('swp_model');
+		
+		        //breadcrum
+		$this->breadcrumbs->unshift('Home', '/');
+        $this->breadcrumbs->push('New Project','/projectselect', true);		
+		$this->breadcrumbs->push('Application','/applicationpage', true);
+        $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+        $this->breadcrumbs->push('Biohazardous Material', true);
         
     }
 		
