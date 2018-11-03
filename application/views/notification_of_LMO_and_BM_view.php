@@ -237,7 +237,14 @@
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_risk_level[2]"><?php if(isset($load)){echo set_value('LMO_risk_level[2]', $ar2[2]);}else{echo set_value('LMO_risk_level[2]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_risk_level[2]">
+                                                       <?php
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_risk_level[2]', $ar2[2]);
+                                                       }else{
+                                                           echo set_value('LMO_risk_level[2]');
+                                                       } 
+                                                       ?></textarea>
                                                </div>
                                            </td>
                                            <td>
@@ -259,7 +266,14 @@
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_risk_level[0]"><?php if(isset($load)){echo set_value('LMO_risk_level[3]', $ar2[3]);}else{echo set_value('LMO_risk_level[3]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_risk_level[3]">
+                                                       <?php 
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_risk_level[3]', $ar2[3]);
+                                                       }else{
+                                                           echo set_value('LMO_risk_level[3]');
+                                                       } 
+                                                       ?></textarea>
                                                </div>
                                            </td>
                                            <td>
@@ -310,7 +324,13 @@
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="LMO_risk_level[5]"><?php if(isset($load)){echo set_value('LMO_risk_level[5]', $ar2[5]);}else{echo set_value('LMO_risk_level[5]');} ?></textarea>
+                                                   <textarea class="form-control" name="LMO_risk_level[5]">
+                                                       <?php 
+                                                       if(isset($load)){
+                                                           echo set_value('LMO_risk_level[5]', $ar2[5]);
+                                                       }else{
+                                                           echo set_value('LMO_risk_level[5]');
+                                                       } ?></textarea>
                                                </div>
                                            </td>
                                            <td>
