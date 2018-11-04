@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div class="col-lg-7">
 			<div>		
-				<h4>Announcements</h4>
+				<h4>Living Modified Organisms (LMOs)</h4>
 			</div>				
 			<div>		
 				<div class="row">
