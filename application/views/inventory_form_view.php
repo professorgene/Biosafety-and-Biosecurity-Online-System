@@ -107,9 +107,9 @@ if(!$this->session->userdata('isLogin')){
                 <div class="col-md-10 bg-white">
                     <?php 
                         if(isset($details)){
-                            echo form_open('inventory/edit/'.$form_id);
+                            echo form_open('inventory/edit/'. $form_id, array('id' => 'myform'));
                         } else {
-                            echo form_open('inventory/new_inventory');
+                            echo form_open('inventory/new_inventory', array('id' => 'myform'));
                         }
                     ?>
                        
@@ -226,7 +226,7 @@ if(!$this->session->userdata('isLogin')){
                             <span class="col-md-2"></span>
                             <button name="submit" type="submit" class="btn btn-success col-md-3">Submit</button>
                             <span class="col-md-2"></span>
-                            <button name="cancel" type="reset" class="btn col-md-3">Reset</button>
+                            <button name="cancel" type="button" onclick="hard_reset()" class="btn col-md-3">Reset</button>
                             <span class="col-md-2"></span>
                         </div>
                     <?php echo form_close(); ?>
@@ -278,6 +278,25 @@ if(!$this->session->userdata('isLogin')){
             } else {
                 document.getElementById("biohazardtypeothers").disabled = true;
             }
+        }
+        
+        function hard_reset() {
+            //$("#myform").trigger('reset');
+            document.getElementById("programname").value = "";
+            document.getElementById("programtype").value = "";
+            document.getElementById("unitconvenor").value = "";
+            document.getElementById("projectinvestigator").value = "";
+            document.getElementById("unitname").value = "";
+            document.getElementById("projecttitle").value = "";
+            document.getElementById("experimenttitle").value = "";
+            document.getElementById("referenceno").value = "";
+            document.getElementById("biohazardtype").value = "";
+            document.getElementById("biohazardtypeothers").value = "";
+            document.getElementById("biohazardname").value = "";
+            document.getElementById("biohazardid").value = "";
+            document.getElementById("loginpersonnel").value = "";
+            document.getElementById("keepername").value = "";
+            document.getElementById("remark").value = "";
         }
     </script>
 </body>
