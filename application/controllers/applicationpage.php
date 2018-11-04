@@ -83,6 +83,9 @@ class applicationpage extends CI_Controller {
                 }elseif($originPage == 'annualfinal'){
                     redirect('annualfinalreportpage/index');
                     
+                }elseif($originPage == 'incidentexempt'){
+                    redirect('incidentexemptpage/index');
+                    
                 }
                 
             } else {
