@@ -21,6 +21,7 @@ class registration extends CI_Controller {
         $this->form_validation->set_rules('account_email', 'Email Address', 'required|valid_email|is_unique[accounts.account_email]');
         $this->form_validation->set_rules('account_password', 'Password', 'required');
         $this->form_validation->set_rules('account_confirmpassword', 'Confirm Password', 'required|matches[account_password]');
+        $this->form_validation->set_rules('account_type', 'Account Type', 'required');
         
         # Submit form
         if($this->form_validation->run() == FALSE){

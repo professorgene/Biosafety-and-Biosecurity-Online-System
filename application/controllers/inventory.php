@@ -9,6 +9,7 @@ class inventory extends CI_Controller {
         
         $this->load->database();
         $this->load->model('inventory_model');
+        $this->load->model('statistic_model');
         $this->load->model('notification_model');
     }
     
@@ -18,6 +19,96 @@ class inventory extends CI_Controller {
         $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
         
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        
+        $inventory = $this->statistic_model->get_all_inventory();
+        
+        $bacteriatotal = [0, 0, 0];
+        $fungitotal = [0, 0, 0];
+        $algaetotal = [0, 0, 0];
+        $virustotal = [0, 0, 0];
+        $hbttotal = [0, 0, 0];
+        $bloodtotal = [0, 0, 0];
+        $mcltotal = [0, 0, 0];
+        $toxintotal = [0, 0, 0];
+        $otherstotal = [0, 0, 0];
+        
+        foreach ( $inventory as $row ) {
+            if ( $row->biohazard_type == "Microorganism (bacteria)" ) {
+                $bacteriatotal[0] = $bacteriatotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $bacteriatotal[1] = $bacteriatotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $bacteriatotal[2] = $bacteriatotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Microorganism (fungi)" ) {
+                $fungitotal[0] = $fungitotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $fungitotal[1] = $fungitotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $fungitotal[2] = $fungitotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Microorganism (algae)" ) {
+                $algaetotal[0] = $algaetotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $algaetotal[1] = $algaetotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $algaetotal[2] = $algaetotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Microorganism (virus)" ) {
+                $virustotal[0] = $virustotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $virustotal[1] = $virustotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $virustotal[2] = $virustotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Human body tissue" ) {
+                $hbttotal[0] = $hbttotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $hbttotal[1] = $hbttotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $hbttotal[2] = $hbttotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Blood product" ) {
+                $bloodtotal[0] = $bloodtotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $bloodtotal[1] = $bloodtotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $bloodtotal[2] = $bloodtotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Mammalian cell line" ) {
+                $mcltotal[0] = $mcltotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $mcltotal[1] = $mcltotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $mcltotal[2] = $mcltotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Biological toxin" ) {
+                $toxintotal[0] = $toxintotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $toxintotal[1] = $toxintotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $toxintotal[2] = $toxintotal[2] + 1;
+                }
+            } elseif ( $row->biohazard_type == "Others:" ) {
+                $otherstotal[0] = $otherstotal[0] + 1;
+                if ( $row->program_type == "Teaching" ){
+                    $otherstotal[1] = $otherstotal[1] + 1;
+                } elseif ( $row->program_type == "Research" ){
+                    $otherstotal[2] = $otherstotal[2] + 1;
+                }
+            }
+        }
+        
+        $data['bacteriatotal'] = $bacteriatotal;
+        $data['fungitotal'] = $fungitotal;
+        $data['algaetotal'] = $algaetotal;
+        $data['virustotal'] = $virustotal;
+        $data['hbttotal'] = $hbttotal;
+        $data['bloodtotal'] = $bloodtotal;
+        $data['mcltotal'] = $mcltotal;
+        $data['toxintotal'] = $toxintotal;
+        $data['otherstotal'] = $otherstotal;
+        
         
         $this->load->template('inventory_statistic_view', $data);
     }
@@ -59,6 +150,7 @@ class inventory extends CI_Controller {
         $this->form_validation->set_rules('biohazard_type', 'Biohazard Material Type', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
+        $this->form_validation->set_rules('date_received', 'Date', 'required');
         $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
         $this->form_validation->set_rules('keeper_name', 'Keeper\'s Name', 'required');
         
@@ -197,6 +289,7 @@ class inventory extends CI_Controller {
         $this->form_validation->set_rules('biohazard_type', 'Biohazard Material Type', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
+        $this->form_validation->set_rules('date_received', 'Date', 'required');
         $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
         $this->form_validation->set_rules('keeper_name', 'Keeper\'s Name', 'required');
         

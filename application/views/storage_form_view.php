@@ -58,6 +58,7 @@ if(!$this->session->userdata('isLogin')){
 	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 	<hr>
         <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/stats"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Statistics</button></a>
             </div>
@@ -70,6 +71,7 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Inventory Application</button></a>
             </div>
@@ -163,7 +165,7 @@ if(!$this->session->userdata('isLogin')){
                             <span class="col-md-2"></span>
                             <button name="submit" type="submit" class="btn btn-success col-md-3">Submit</button>
                             <span class="col-md-2"></span>
-                            <button name="cancel" type="reset" class="btn col-md-3">Reset</button>
+                            <button name="cancel" type="button" onclick="hard_reset()" class="btn col-md-3">Reset</button>
                             <span class="col-md-2"></span>
                         </div>
                     <?php echo form_close(); ?>
@@ -176,6 +178,25 @@ if(!$this->session->userdata('isLogin')){
     
     <script>
         document.getElementById("riskgroup").value = "<?php echo $form_risk_group; ?>";
+        
+        function hard_reset() {
+            document.getElementById("biohazardid").value = "";
+            document.getElementById("biohazardname").value = "";
+            document.getElementById("riskgroup").value = "";
+            document.getElementById("locationname").value = "";
+            document.getElementById("biohazardsource").value = "";
+            document.getElementById("datecreated").value = "";
+            document.getElementById("storagelocation").value = "";
+            document.getElementById("keepername").value = "";
+            document.getElementById("loginpersonnel").value = "";
+        }
+        
+        $('html').bind('keypress', function(e){
+           if(e.keyCode == 13)
+           {
+              return false;
+           }
+        });
     </script>
     
 </body>

@@ -33,6 +33,7 @@ if(!$this->session->userdata('isLogin')){
 	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 	<hr>
         <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/stats"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Statistics</button></a>
             </div>
@@ -45,6 +46,7 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Inventory Application</button></a>
             </div>

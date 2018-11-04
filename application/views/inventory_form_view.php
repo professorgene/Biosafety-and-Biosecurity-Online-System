@@ -71,6 +71,7 @@ if(!$this->session->userdata('isLogin')){
 	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 	<hr>
         <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/stats"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Statistics</button></a>
             </div>
@@ -83,6 +84,7 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Inventory Application</button></a>
             </div>
@@ -135,25 +137,25 @@ if(!$this->session->userdata('isLogin')){
                             <div class="form-group col-md-6">
                                 <!-- <p style="font-size:11px;"><em>* Please fill in the Unit Convenor section if Teaching is selected.</em></p> -->
                                 <label for="unitconvenor">Unit Convenor:</label>
-                                <input class="form-control" id="unitconvenor" name="unit_convenor" placeholder="Enter the unit convenor here." type="text" value="<?php echo set_value('unit_convenor', $form_unit_convenor); ?>" />
+                                <input class="form-control" id="unitconvenor" name="unit_convenor" placeholder="Enter the unit convenor here." type="text" value="<?php echo set_value('unit_convenor', $form_unit_convenor); ?>" required/>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <!-- <p style="font-size:11px;"><em>* Please fill in the Project Investigator section if FYP / Research is selected.</em></p> -->
                                 <label for="projectinvestigator">Project Investigator:</label>
-                                <input class="form-control" id="projectinvestigator" name="project_investigator" placeholder="Enter the project investigator here." type="text" value="<?php echo set_value('project_investigator', $form_project_investigator); ?>" />
+                                <input class="form-control" id="projectinvestigator" name="project_investigator" placeholder="Enter the project investigator here." type="text" value="<?php echo set_value('project_investigator', $form_project_investigator); ?>" required/>
                             </div>
                         </div>
                     
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="unitname">Unit Name:</label>
-                                <input class="form-control" id="unitname" name="unit_name" placeholder="Enter unit name here." type="text" value="<?php echo set_value('unit_name', $form_unit_name); ?>" />
+                                <input class="form-control" id="unitname" name="unit_name" placeholder="Enter unit name here." type="text" value="<?php echo set_value('unit_name', $form_unit_name); ?>" required/>
                             </div>
                             
                             <div class="form-group col-md-6">
                                 <label for="projecttitle">Project Title:</label>
-                                <input class="form-control" id="projecttitle" name="project_title" placeholder="Enter project title here." type="text" value="<?php echo set_value('project_title', $form_project_title); ?>" />
+                                <input class="form-control" id="projecttitle" name="project_title" placeholder="Enter project title here." type="text" value="<?php echo set_value('project_title', $form_project_title); ?>" required/>
                                 <p style="font-size:11px;"></p>
                             </div>
                         </div>
@@ -161,12 +163,12 @@ if(!$this->session->userdata('isLogin')){
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="experimenttitle">Experiment Title:</label>
-                                <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title', $form_experiment_title); ?>" />
+                                <input class="form-control" id="experimenttitle" name="experiment_title" placeholder="Enter experiment title here." type="text" value="<?php echo set_value('experiment_title', $form_experiment_title); ?>" required/>
                             </div>
 
                             <div class="form-group col-md-6">
                                 <label for="referenceno">Project Reference No.:</label>
-                                <input class="form-control" id="referenceno" name="project_reference_no" placeholder="Enter project reference number here." type="text" value="<?php echo set_value('project_reference_no', $form_project_reference_no); ?>" />
+                                <input class="form-control" id="referenceno" name="project_reference_no" placeholder="Enter project reference number here." type="text" value="<?php echo set_value('project_reference_no', $form_project_reference_no); ?>" required/>
                             </div>
                         </div>
                     
@@ -203,6 +205,7 @@ if(!$this->session->userdata('isLogin')){
                         <div class="form-group">
                             <label for="datereceived">Date Received:</label>
                             <input class="form-control" id="datereceived" name="date_received" placeholder="Enter the date here." type="date" value="<?php echo set_value('date_received', $form_date_received); ?>" />
+                            <span class="text-danger"><?php echo form_error('date_received'); ?></span>
                         </div>
                     
                         <div class="form-group">
@@ -298,6 +301,13 @@ if(!$this->session->userdata('isLogin')){
             document.getElementById("keepername").value = "";
             document.getElementById("remark").value = "";
         }
+        
+        $('html').bind('keypress', function(e){
+           if(e.keyCode == 13)
+           {
+              return false;
+           }
+        });
     </script>
 </body>
 </html>

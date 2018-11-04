@@ -54,7 +54,7 @@ if(!$this->session->userdata('isLogin')){
 			<div onclick="location.href='<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf';" class="float-right">
 				<i class="hovicon small effect-1 sub-a icon-book" title="Click to Download SSBC User Manual"></i>
 				<br>
-				<a href="<?=base_url ()?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
+				<a href="<?php echo base_url(); ?>index.php/download/SSBC_Manualv2.1.pdf" id="texthover">User Manual</a>
 			</div>
         </h2>
 			<br>
