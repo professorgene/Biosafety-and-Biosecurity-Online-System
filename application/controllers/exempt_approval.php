@@ -47,8 +47,7 @@ class exempt_approval extends CI_Controller {
         $this->swp_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 2, "New Project Application For Exempt Dealing Approved", "BSO has approved a new project application for exempt dealing.");
-        
+        $this->notification_model->insert_new_notification(null, 2, "New Project Application For Exempt Dealing Approved", "BSO has approved a new project application for exempt dealing.");        
         redirect('exempt_approval/index');
     }
     

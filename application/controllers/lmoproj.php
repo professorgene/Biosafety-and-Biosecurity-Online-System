@@ -2622,8 +2622,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                     if($this->annex2_model->update_saved_data($proj_id, $annex2Data) && $this->forme_model->update_saved_data($proj_id, $formeData) && $this->pc1_model->update_saved_data($proj_id, $pc1Data) && $this->pc2_model->update_saved_data($proj_id, $pc2Data) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                     {
-                    
-                        $this->notification_model->insert_new_notification(null, 4, "New Project Application for LMO", "The following user has submitted a new project application for LMO: " . $this->session->userdata('account_name'));
+                                            
+						$this->notification_model->insert_new_notification(null, 4, "New Project Application for LMO", "The following user has submitted a new project application for LMO: " . $this->session->userdata('account_name'));
                     
                         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
                         redirect('saveHistory/index');

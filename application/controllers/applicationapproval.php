@@ -76,8 +76,7 @@ class applicationapproval extends CI_Controller {
         
         redirect('applicationapproval/index');
     }
-    
-    public function Chair_approve($id, $appID)
+        public function Chair_approve($id, $appID)
     {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);

@@ -34,7 +34,8 @@ class minorincident_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->procurement_update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+		$this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        
         
         redirect('minorincident_approval/index');
     }

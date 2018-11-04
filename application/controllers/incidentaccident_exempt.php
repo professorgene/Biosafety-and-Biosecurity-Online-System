@@ -13,6 +13,11 @@ class incidentaccident_exempt extends CI_Controller {
         $this->load->model('incidentaccidentreport_model');
         $this->load->model('email_model');
         $this->load->model('project_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccident_type',true);
+		$this->breadcrumbs->push('Exempt Dealing or Biohazardous Material', true);
     }
     
 	public function index()
@@ -34,7 +39,7 @@ class incidentaccident_exempt extends CI_Controller {
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->procurement_update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+		$this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
         
         redirect('incidentaccident_exempt/index');
     }
