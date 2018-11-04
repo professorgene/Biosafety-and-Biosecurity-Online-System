@@ -74,7 +74,7 @@
                  <tbody>
                      <tr>
                          <td colspan="2">
-                             <textarea name="pc1_project_title" class="form-control"><?php if(isset($load)){echo set_value('pc1_project_title', $pc1->project_title);}else{echo set_value('pc1_project_title');} ?></textarea>
+                             <textarea <?php if(isset($disabled)){echo "disabled";} ?> name="pc1_project_title" class="form-control"><?php if(isset($load)){echo set_value('pc1_project_title', $pc1->project_title);}else{echo set_value('pc1_project_title');} ?></textarea>
                          </td> 
                      </tr>
                  </tbody>
@@ -102,14 +102,14 @@
                                            <td>
                                                Title:
                                                    <div>
-                                                       <textarea class="form-control" id="project_supervisor_title" name="project_supervisor_title" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_title', $pc1->project_supervisor_title);}else{echo set_value('project_supervisor_title');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="project_supervisor_title" name="project_supervisor_title" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_title', $pc1->project_supervisor_title);}else{echo set_value('project_supervisor_title');} ?></textarea>
                                                    </div>
                                            </td>
                                            
                                            <td>
                                                Name:
                                                    <div>
-                                                       <textarea class="form-control" id="project_supervisor_name" name="project_supervisor_name" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_name', $pc1->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="project_supervisor_name" name="project_supervisor_name" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_name', $pc1->project_supervisor_name);}else{echo set_value('project_supervisor_name');} ?></textarea>
                                                    </div>
                                                
                                            </td>
@@ -117,7 +117,7 @@
                                            <td>
                                                Current qualifications (please include all):
                                                <div>
-                                                   <textarea class="form-control" id="project_supervisor_qualification" name="project_supervisor_qualification" rows="2"><?php if(isset($load)){echo set_value('project_supervisor_qualification', $pc1->project_supervisor_qualification);}else{echo set_value('project_supervisor_qualification');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="project_supervisor_qualification" name="project_supervisor_qualification" rows="2"><?php if(isset($load)){echo set_value('project_supervisor_qualification', $pc1->project_supervisor_qualification);}else{echo set_value('project_supervisor_qualification');} ?></textarea>
                                                </div>
                                            </td>
                                            
@@ -128,7 +128,7 @@
                                            <td colspan="2">
                                                Department:
                                                    <div>
-                                                       <textarea class="form-control" id="project_supervisor_department" name="project_supervisor_department" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_department', $pc1->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="project_supervisor_department" name="project_supervisor_department" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_department', $pc1->project_supervisor_department);}else{echo set_value('project_supervisor_department');} ?></textarea>
                                                    </div>
                                                
                                            </td>
@@ -136,7 +136,7 @@
                                            <td>
                                                Campus:
                                                    <div>
-                                                       <textarea class="form-control" id="project_supervisor_campus" name="project_supervisor_campus" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_campus', $pc1->project_supervisor_campus);}else{echo set_value('project_supervisor_campus');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="project_supervisor_campus" name="project_supervisor_campus" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_campus', $pc1->project_supervisor_campus);}else{echo set_value('project_supervisor_campus');} ?></textarea>
                                                    </div>
                                                
                                            </td>
@@ -145,7 +145,7 @@
                                        
                                        <tr>
                                            <td colspan="3">
-                                               Full postal address (including internal mail details): <textarea class="form-control" name="project_supervisor_postal_address" rows="2"><?php if(isset($load)){echo set_value('project_supervisor_postal_address', $pc1->project_supervisor_postal_address);}else{echo set_value('project_supervisor_postal_address');} ?></textarea>
+                                               Full postal address (including internal mail details): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_supervisor_postal_address" rows="2"><?php if(isset($load)){echo set_value('project_supervisor_postal_address', $pc1->project_supervisor_postal_address);}else{echo set_value('project_supervisor_postal_address');} ?></textarea>
                                            </td>
                                        </tr>
                                        
@@ -154,7 +154,7 @@
                                                <div class="form-group row">
                                                    <label for="pc1_project_supervisor_telephone" class="col-sm-4">Phone:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="pc1_project_supervisor_telephone" rows="1"><?php if(isset($load)){echo set_value('pc1_project_supervisor_telephone', $pc1->pc1_project_supervisor_telephone);}else{echo set_value('pc1_project_supervisor_telephone');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="pc1_project_supervisor_telephone" rows="1"><?php if(isset($load)){echo set_value('pc1_project_supervisor_telephone', $pc1->pc1_project_supervisor_telephone);}else{echo set_value('pc1_project_supervisor_telephone');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -163,7 +163,7 @@
                                                <div class="form-group row">
                                                    <label for="project_supervisor_fax" class="col-sm-4">Fax:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" id="project_supervisor_fax" name="project_supervisor_fax" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_fax', $pc1->project_supervisor_fax);}else{echo set_value('project_supervisor_fax');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="project_supervisor_fax" name="project_supervisor_fax" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_fax', $pc1->project_supervisor_fax);}else{echo set_value('project_supervisor_fax');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -171,7 +171,7 @@
                                        
                                        <tr>
                                            <td colspan="3">
-                                               Email (MUST be staff email address): <textarea class="form-control" name="project_supervisor_email_address" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_email_address', $pc1->project_supervisor_email_address);}else{echo set_value('project_supervisor_email_address');} ?></textarea>
+                                               Email (MUST be staff email address): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_supervisor_email_address" rows="1"><?php if(isset($load)){echo set_value('project_supervisor_email_address', $pc1->project_supervisor_email_address);}else{echo set_value('project_supervisor_email_address');} ?></textarea>
                                            </td>
                                        </tr>
                                        
@@ -194,31 +194,31 @@
                                    <table class="table table-bordered">
                                        <tr>
                                            <td width="200">
-                                               Title: <textarea class="form-control" name="project_add_title[0]"><?php if(isset($load)){echo set_value('project_add_title[0]', $pc1i[0]);}else{echo set_value('project_add_title[0]');} ?>
+                                               Title: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_title[0]"><?php if(isset($load)){echo set_value('project_add_title[0]', $pc1i[0]);}else{echo set_value('project_add_title[0]');} ?>
                                                </textarea>
                                            </td>
                                            
                                            <td>
-                                               Name: <textarea class="form-control" name="project_add_name[0]"><?php if(isset($load)){echo set_value('project_add_name[0]', $pc1a[0]);}else{echo set_value('project_add_name[0]');} ?></textarea>
+                                               Name: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_name[0]"><?php if(isset($load)){echo set_value('project_add_name[0]', $pc1a[0]);}else{echo set_value('project_add_name[0]');} ?></textarea>
                                            </td>
                                            
                                            <td>
                                                Current qualifications (please include all): 
-                                               <textarea class="form-control" name="project_add_qualification[0]"><?php if(isset($load)){echo set_value('project_add_qualification[0]', $pc1b[0]);}else{echo set_value('project_add_qualification[0]');} ?></textarea>
+                                               <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_qualification[0]"><?php if(isset($load)){echo set_value('project_add_qualification[0]', $pc1b[0]);}else{echo set_value('project_add_qualification[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td colspan="2">
-                                               Department: <textarea class="form-control" name="project_add_department[0]"><?php if(isset($load)){echo set_value('project_add_department[0]', $pc1c[0]);}else{echo set_value('project_add_department[0]');} ?></textarea>
+                                               Department: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_department[0]"><?php if(isset($load)){echo set_value('project_add_department[0]', $pc1c[0]);}else{echo set_value('project_add_department[0]');} ?></textarea>
                                            </td>
                                            
                                            <td colspan="1">
-                                               Campus: <textarea class="form-control" name="project_add_campus[0]"><?php if(isset($load)){echo set_value('project_add_campus[0]', $pc1d[0]);}else{echo set_value('project_add_campus[0]');} ?></textarea>
+                                               Campus: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_campus[0]"><?php if(isset($load)){echo set_value('project_add_campus[0]', $pc1d[0]);}else{echo set_value('project_add_campus[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td colspan="3">
-                                               Full postal address (including internal mail details): <textarea class="form-control" name="project_add_postal_address[0]"><?php if(isset($load)){echo set_value('project_add_postal_address[0]', $pc1e[0]);}else{echo set_value('project_add_postal_address[0]');} ?></textarea>
+                                               Full postal address (including internal mail details): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_postal_address[0]"><?php if(isset($load)){echo set_value('project_add_postal_address[0]', $pc1e[0]);}else{echo set_value('project_add_postal_address[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                        <tr>
@@ -226,7 +226,7 @@
                                                <div class="form-group row">
                                                    <label for="project_add_telephone[0]" class="col-sm-4">Phone:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="project_add_telephone[0]" rows="1"><?php if(isset($load)){echo set_value('project_add_telephone[0]', $pc1f[0]);}else{echo set_value('project_add_telephone[0]');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_telephone[0]" rows="1"><?php if(isset($load)){echo set_value('project_add_telephone[0]', $pc1f[0]);}else{echo set_value('project_add_telephone[0]');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -235,14 +235,14 @@
                                                <div class="form-group row">
                                                    <label for="project_add_fax[0]" class="col-sm-4">Fax:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="project_add_fax[0]" rows="1"><?php if(isset($load)){echo set_value('project_add_fax[0]', $pc1g[0]);}else{echo set_value('project_add_fax[0]');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_fax[0]" rows="1"><?php if(isset($load)){echo set_value('project_add_fax[0]', $pc1g[0]);}else{echo set_value('project_add_fax[0]');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
                                        </tr>
                                        <tr>
                                            <td colspan="3">
-                                               Email (MUST be staff email address): <textarea class="form-control" name="project_add_email_address[0]" rows="1"><?php if(isset($load)){echo set_value('project_add_email_address[0]', $pc1h[0]);}else{echo set_value('project_add_email_address[0]');} ?></textarea>
+                                               Email (MUST be staff email address): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_email_address[0]" rows="1"><?php if(isset($load)){echo set_value('project_add_email_address[0]', $pc1h[0]);}else{echo set_value('project_add_email_address[0]');} ?></textarea>
                                            </td>
                                        </tr>
                                    </table>
@@ -254,30 +254,30 @@
                    <table class="table table-bordered">
                        <tr>
                            <td width="90px">
-                               Title: <textarea class="form-control" name="project_add_title[1]"><?php if(isset($load)){echo set_value('project_add_title[1]', $pc1i[1]);}else{echo set_value('project_add_title[1]');} ?></textarea>
+                               Title: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_title[1]"><?php if(isset($load)){echo set_value('project_add_title[1]', $pc1i[1]);}else{echo set_value('project_add_title[1]');} ?></textarea>
                            </td>
                                            
                            <td>
-                               Name: <textarea class="form-control" name="project_add_name[1]"><?php if(isset($load)){echo set_value('project_add_name[1]', $pc1a[1]);}else{echo set_value('project_add_name[1]');} ?></textarea>
+                               Name: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_name[1]"><?php if(isset($load)){echo set_value('project_add_name[1]', $pc1a[1]);}else{echo set_value('project_add_name[1]');} ?></textarea>
                            </td>
                                            
                            <td>
-                               Current qualifications (please include all): <textarea class="form-control" name="project_add_qualification[1]"><?php if(isset($load)){echo set_value('project_add_qualification[1]', $pc1b[1]);}else{echo set_value('project_add_qualification[1]');} ?></textarea>
+                               Current qualifications (please include all): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_qualification[1]"><?php if(isset($load)){echo set_value('project_add_qualification[1]', $pc1b[1]);}else{echo set_value('project_add_qualification[1]');} ?></textarea>
                            </td>
                        </tr>
                        
                        <tr>
                            <td colspan="2">
-                               Department: <textarea class="form-control" name="project_add_department[1]"><?php if(isset($load)){echo set_value('project_add_department[1]', $pc1c[1]);}else{echo set_value('project_add_department[1]');} ?></textarea>
+                               Department: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_department[1]"><?php if(isset($load)){echo set_value('project_add_department[1]', $pc1c[1]);}else{echo set_value('project_add_department[1]');} ?></textarea>
                            </td>
                            
                            <td colspan="1">
-                               Campus: <textarea class="form-control" name="project_add_campus[1]"><?php if(isset($load)){echo set_value('project_add_campus[1]', $pc1d[1]);}else{echo set_value('project_add_campus[1]');} ?></textarea>
+                               Campus: <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_campus[1]"><?php if(isset($load)){echo set_value('project_add_campus[1]', $pc1d[1]);}else{echo set_value('project_add_campus[1]');} ?></textarea>
                            </td>
                        </tr>
                        
                        <tr>
-                           <td colspan="3">Full postal address (including internal mail details): <textarea class="form-control" name="project_add_postal_address[1]"><?php if(isset($load)){echo set_value('project_add_postal_address[1]', $pc1e[1]);}else{echo set_value('project_add_postal_address[1]');} ?></textarea>
+                           <td colspan="3">Full postal address (including internal mail details): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_postal_address[1]"><?php if(isset($load)){echo set_value('project_add_postal_address[1]', $pc1e[1]);}else{echo set_value('project_add_postal_address[1]');} ?></textarea>
                            </td>
                        </tr>
                        
@@ -286,7 +286,7 @@
                                 <div class="form-group row">
                                     <label for="project_add_telephone[1]" class="col-sm-4">Phone:</label>
                                     <div class="col-sm-7">
-                                        <textarea class="form-control" name="project_add_telephone[1]" rows="1"><?php if(isset($load)){echo set_value('project_add_telephone[1]', $pc1f[1]);}else{echo set_value('project_add_telephone[1]');} ?></textarea>
+                                        <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_telephone[1]" rows="1"><?php if(isset($load)){echo set_value('project_add_telephone[1]', $pc1f[1]);}else{echo set_value('project_add_telephone[1]');} ?></textarea>
                                     </div>
                                 </div>
                             </td>
@@ -296,7 +296,7 @@
                                 <div class="form-group row">
                                     <label for="project_add_fax[1]" class="col-sm-4">Fax:</label>
                                     <div class="col-sm-7">
-                                        <textarea class="form-control" name="project_add_fax[1]" rows="1"><?php if(isset($load)){echo set_value('project_add_fax[1]', $pc1g[1]);}else{echo set_value('project_add_fax[1]');} ?></textarea>
+                                        <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_fax[1]" rows="1"><?php if(isset($load)){echo set_value('project_add_fax[1]', $pc1g[1]);}else{echo set_value('project_add_fax[1]');} ?></textarea>
                                     </div>
                                 </div>
                             </td>
@@ -304,7 +304,7 @@
                        </tr>
                        
                        <tr>
-                           <td colspan="3">Email (MUST be staff email address): <textarea class="form-control" name="project_add_email_address[1]" rows="1"><?php if(isset($load)){echo set_value('project_add_email_address[1]', $pc1h[1]);}else{echo set_value('project_add_email_address[1]');} ?></textarea>
+                           <td colspan="3">Email (MUST be staff email address): <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_add_email_address[1]" rows="1"><?php if(isset($load)){echo set_value('project_add_email_address[1]', $pc1h[1]);}else{echo set_value('project_add_email_address[1]');} ?></textarea>
                            </td>
                        </tr>
                        
@@ -321,7 +321,7 @@
                            <tr>
                                <td>
                                    <div class="form-group">
-                                       <input type="checkbox" value="1" class="form-control" name="dealing_type_a" <?php echo set_checkbox('dealing_type_a', '1'); ?> <?php if(isset($load)){if($pc1->dealing_type_a==1){echo "checked=checked";}}else{} ?>>
+                                       <input <?php if(isset($disabled)){echo "disabled";} ?> type="checkbox" value="1" class="form-control" name="dealing_type_a" <?php echo set_checkbox('dealing_type_a', '1'); ?> <?php if(isset($load)){if($pc1->dealing_type_a==1){echo "checked=checked";}}else{} ?>>
                                    </div>
                                </td>
                                <td>
@@ -333,7 +333,7 @@
                            <tr>
                                <td>
                                    <div class="form-group">
-                                       <input type="checkbox" value="1" class="form-control" name="dealing_type_c" <?php echo set_checkbox('dealing_type_c', '1'); ?> <?php if(isset($load)){if($pc1->dealing_type_c==1){echo "checked=checked";}}else{} ?>>
+                                       <input <?php if(isset($disabled)){echo "disabled";} ?> type="checkbox" value="1" class="form-control" name="dealing_type_c" <?php echo set_checkbox('dealing_type_c', '1'); ?> <?php if(isset($load)){if($pc1->dealing_type_c==1){echo "checked=checked";}}else{} ?>>
                                    </div>
                                </td>
                                <td>
@@ -360,7 +360,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea class="form-control" name="project_summary" rows="6"><?php if(isset($load)){echo set_value('project_summary', $pc1->project_summary);}else{echo set_value('project_summary');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_summary" rows="6"><?php if(isset($load)){echo set_value('project_summary', $pc1->project_summary);}else{echo set_value('project_summary');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -393,17 +393,17 @@
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="GMO_name"><?php if(isset($load)){echo set_value('GMO_name', $pc1->GMO_name);}else{echo set_value('GMO_name');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="GMO_name"><?php if(isset($load)){echo set_value('GMO_name', $pc1->GMO_name);}else{echo set_value('GMO_name');} ?></textarea>
                                                </div>
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="GMO_method"><?php if(isset($load)){echo set_value('GMO_method', $pc1->GMO_method);}else{echo set_value('GMO_method');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="GMO_method"><?php if(isset($load)){echo set_value('GMO_method', $pc1->GMO_method);}else{echo set_value('GMO_method');} ?></textarea>
                                                </div>
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="GMO_origin"><?php if(isset($load)){echo set_value('GMO_origin', $pc1->GMO_origin);}else{echo set_value('GMO_origin');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="GMO_origin"><?php if(isset($load)){echo set_value('GMO_origin', $pc1->GMO_origin);}else{echo set_value('GMO_origin');} ?></textarea>
                                                </div>
                                            </td>
                                        </tr>
@@ -435,13 +435,13 @@
                                        <tr>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="modified_trait_class"><?php if(isset($load)){echo set_value('modified_trait_class', $pc1->modified_trait_class);}else{echo set_value('modified_trait_class');} ?>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="modified_trait_class"><?php if(isset($load)){echo set_value('modified_trait_class', $pc1->modified_trait_class);}else{echo set_value('modified_trait_class');} ?>
                                                    </textarea>
                                                </div>
                                            </td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="modified_trait_description"><?php if(isset($load)){echo set_value('modified_trait_description', $pc1->modified_trait_description);}else{echo set_value('modified_trait_description');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="modified_trait_description"><?php if(isset($load)){echo set_value('modified_trait_description', $pc1->modified_trait_description);}else{echo set_value('modified_trait_description');} ?></textarea>
                                                </div>
                                            </td>
                                        </tr>
@@ -462,7 +462,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="project_hazard_staff" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_hazard_staff', $pc1->project_hazard_staff);}else{echo set_value('project_hazard_staff');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> rows="15" class="form-control" name="project_hazard_staff" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_hazard_staff', $pc1->project_hazard_staff);}else{echo set_value('project_hazard_staff');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -481,7 +481,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="project_hazard_environment" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_hazard_environment', $pc1->project_hazard_environment);}else{echo set_value('project_hazard_environment');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> rows="15" class="form-control" name="project_hazard_environment" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_hazard_environment', $pc1->project_hazard_environment);}else{echo set_value('project_hazard_environment');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -501,7 +501,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="project_hazard_steps" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_hazard_steps', $pc1->project_hazard_steps);}else{echo set_value('project_hazard_steps');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> rows="15" class="form-control" name="project_hazard_steps" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_hazard_steps', $pc1->project_hazard_steps);}else{echo set_value('project_hazard_steps');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -520,7 +520,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="project_transport" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_transport', $pc1->project_transport);}else{echo set_value('project_transport');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> rows="15" class="form-control" name="project_transport" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_transport', $pc1->project_transport);}else{echo set_value('project_transport');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -539,7 +539,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="project_disposal" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_disposal', $pc1->project_disposal);}else{echo set_value('project_disposal');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> rows="15" class="form-control" name="project_disposal" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_disposal', $pc1->project_disposal);}else{echo set_value('project_disposal');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -558,7 +558,7 @@
                            <tr>
                                <td colspan="2">
                                    <div class="form-group">
-                                       <textarea rows="15" class="form-control" name="project_SOP" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_SOP', $pc1->project_SOP);}else{echo set_value('project_SOP');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> rows="15" class="form-control" name="project_SOP" placeholder="250 words max"><?php if(isset($load)){echo set_value('project_SOP', $pc1->project_SOP);}else{echo set_value('project_SOP');} ?></textarea>
                                    </div>
                                </td>
                            </tr>
@@ -581,7 +581,7 @@
                                                <div class="form-group row">
                                                    <label for="project_facilities_building_no" class="col-sm-4">Building number:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="project_facilities_building_no" rows="1"><?php if(isset($load)){echo set_value('project_facilities_building_no', $pc1->project_facilities_building_no);}else{echo set_value('project_facilities_building_no');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_facilities_building_no" rows="1"><?php if(isset($load)){echo set_value('project_facilities_building_no', $pc1->project_facilities_building_no);}else{echo set_value('project_facilities_building_no');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -590,7 +590,7 @@
                                                <div class="form-group row">
                                                    <label for="project_facilities_room_no" class="col-sm-4">Room number:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="project_facilities_room_no" rows="1"><?php if(isset($load)){echo set_value('project_facilities_room_no', $pc1->project_facilities_room_no);}else{echo set_value('project_facilities_room_no');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_facilities_room_no" rows="1"><?php if(isset($load)){echo set_value('project_facilities_room_no', $pc1->project_facilities_room_no);}else{echo set_value('project_facilities_room_no');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -601,7 +601,7 @@
                                                <div class="form-group row">
                                                    <label for="project_facilities_containment_level" class="col-sm-4">Containment Level:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="project_facilities_containment_level" rows="1"><?php if(isset($load)){echo set_value('project_facilities_containment_level', $pc1->project_facilities_containment_level);}else{echo set_value('project_facilities_containment_level');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_facilities_containment_level" rows="1"><?php if(isset($load)){echo set_value('project_facilities_containment_level', $pc1->project_facilities_containment_level);}else{echo set_value('project_facilities_containment_level');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -610,7 +610,7 @@
                                                <div class="form-group row">
                                                    <label for="project_facilities_containment_level" class="col-sm-4">Certification number:</label>
                                                    <div class="col-sm-7">
-                                                       <textarea class="form-control" name="project_facilities_certification_no" rows="1"><?php if(isset($load)){echo set_value('project_facilities_certification_no', $pc1->project_facilities_certification_no);}else{echo set_value('project_facilities_certification_no');} ?></textarea>
+                                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="project_facilities_certification_no" rows="1"><?php if(isset($load)){echo set_value('project_facilities_certification_no', $pc1->project_facilities_certification_no);}else{echo set_value('project_facilities_certification_no');} ?></textarea>
                                                    </div>
                                                </div>
                                            </td>
@@ -639,9 +639,9 @@
                                            <td>
                                                Has/have the Biosafety Officer(s)/Lab Manager responsible for the facilities where the dealing is to be conducted been made aware of this application? &nbsp;&nbsp;
                                                
-                                               <label class="radio-inline"><input type="radio" value="yes" name="pc1_officer_notified" <?php if(isset($load)){if($pc1->pc1_officer_notified=='yes'){echo set_radio('pc1_officer_notified', 'yes', TRUE);}} ?>> Yes</label>
+                                               <label class="radio-inline"><input <?php if(isset($disabled)){echo "disabled";} ?> type="radio" value="yes" name="pc1_officer_notified" <?php if(isset($load)){if($pc1->pc1_officer_notified=='yes'){echo set_radio('pc1_officer_notified', 'yes', TRUE);}} ?>> Yes</label>
                                                
-                                               <label class="radio-inline"><input type="radio" value="no" name="pc1_officer_notified" <?php echo set_radio('pc1_officer_notified', 'no', FALSE); ?> <?php if(isset($load)){if($pc1->pc1_officer_notified=='no'){echo set_radio('pc1_officer_notified', 'no', TRUE);}} ?>> No</label>
+                                               <label class="radio-inline"><input <?php if(isset($disabled)){echo "disabled";} ?> type="radio" value="no" name="pc1_officer_notified" <?php echo set_radio('pc1_officer_notified', 'no', FALSE); ?> <?php if(isset($load)){if($pc1->pc1_officer_notified=='no'){echo set_radio('pc1_officer_notified', 'no', TRUE);}} ?>> No</label>
                                                
 
                                            </td>
@@ -658,7 +658,7 @@
                                            <td>Name of Biosafety Officer(s)</td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="officer_name"><?php if(isset($load)){echo set_value('officer_name', $pc1->officer_name);}else{echo set_value('officer_name');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="officer_name"><?php if(isset($load)){echo set_value('officer_name', $pc1->officer_name);}else{echo set_value('officer_name');} ?></textarea>
                                                </div>
                                            </td>
                                        </tr>
@@ -667,7 +667,7 @@
                                            <td>Name of Laboratory Manager</td>
                                            <td>
                                                <div class="form-group">
-                                                   <textarea class="form-control" name="laboratory_manager"><?php if(isset($load)){echo set_value('laboratory_manager', $pc1->laboratory_manager);}else{echo set_value('laboratory_manager');} ?></textarea>
+                                                   <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="laboratory_manager"><?php if(isset($load)){echo set_value('laboratory_manager', $pc1->laboratory_manager);}else{echo set_value('laboratory_manager');} ?></textarea>
                                                </div>
                                            </td>
                                        </tr>
@@ -687,6 +687,8 @@
                        
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/pc1/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }elseif(isset($disabled)){ ?>
+                        <button name="backButton" onclick="goBack()" class="btn btn-primary col-md-2">Back</button>
                        <?php }else{ ?>
                        <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
                        <?php } ?>

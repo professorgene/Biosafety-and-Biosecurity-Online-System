@@ -9,7 +9,7 @@ if(!$this->session->userdata('isLogin')){
 <head>
 <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" />
 <link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
-    <title>Swinburne Biosafety and Biosecurity Online System - Educational Activities</title>
+<title>Swinburne Biosafety and Biosecurity Online System - Educational Activities</title>
     
     <style>
         body {

@@ -290,11 +290,14 @@ class project_model extends CI_Model
     
     function get_all_sub_lmo2() 
     {
+        
+        
         $this->db->select('*');
         $this->db->from('project');
         $this->db->join('accounts', 'project.account_id = accounts.account_id');
+        $this->db->join('comments', 'project.project_id = comments.comment_id');
         $this->db->where('project.project_approval', 1);
-        $this->db->or_where('project.project_approval', 3);
+        $this->db->or_where('project.ssbc_agreement >' , 5);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'app_lmo');
         $query = $this->db->get();
@@ -622,12 +625,12 @@ class project_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('project_approval' => 5);
+            $data = array('project_approval' => 101);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
-        } elseif ($type == 1) {
-            $data = array('project_approval' => 1, 'approver_id' => $approver_id);
+        } elseif ($type == 1) { //like that
+            $data = array('project_approval' => 1, 'BSO_approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -692,12 +695,12 @@ class project_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('project_approval' => 5);
+            $data = array('project_approval' => 102);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
         } elseif ($type == 1) {
-            $data = array('project_approval' => 2, 'approver_id' => $approver_id);
+            $data = array('project_approval' => 2, 'Chair_approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -710,12 +713,45 @@ class project_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('project_approval' => 5);
+            if($this->session->userdata('account_id') == 4){
+                $data = array('project_approval' => 103, 'ssbc1_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 8){
+                $data = array('project_approval' => 103, 'ssbc2_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 9){
+                $data = array('project_approval' => 103, 'ssbc3_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 10){
+                $data = array('project_approval' => 103, 'ssbc4_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 11){
+                $data = array('project_approval' => 103, 'ssbc5_approver_id' => $approver_id);
+                
+            }
+            
+            $this->db->set('ssbc_agreement', 'ssbc_agreement-1', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
         } elseif ($type == 1) {
-            $data = array('project_approval' => 3, 'approver_id' => $approver_id);
+            if($this->session->userdata('account_id') == 4){
+                $data = array('project_approval' => 3, 'ssbc1_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 8){
+                $data = array('project_approval' => 3, 'ssbc2_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 9){
+                $data = array('project_approval' => 3, 'ssbc3_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 10){
+                $data = array('project_approval' => 3, 'ssbc4_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_id') == 11){
+                $data = array('project_approval' => 3, 'ssbc5_approver_id' => $approver_id);
+                
+            }
+            $this->db->set('ssbc_agreement', 'ssbc_agreement+1', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);

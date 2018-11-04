@@ -9,6 +9,7 @@ class applicationapproval extends CI_Controller {
         
         $this->load->database();
         $this->load->model('project_model');
+        $this->load->model('comment_model');
         $this->load->model('email_model');
         $this->load->model('notification_model');
         $this->load->model('account_model');
@@ -98,6 +99,8 @@ class applicationapproval extends CI_Controller {
     
     public function approve2($id, $appID)
     {
+        $q1 = $this->project_model->get_all_sub_lmo2();
+        
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);

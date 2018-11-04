@@ -156,7 +156,7 @@ if(!$this->session->userdata('isLogin')){
                 </ul>
                 
                 <?php if(isset($editload)) { echo form_open_multipart('lmoproj/update_form'); } elseif(isset($saveload)) {echo form_open_multipart('lmoproj/continue');} else { echo form_open_multipart('lmoproj/index'); } ?>
-                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
+                
                 <div class="tab-content">
                     <div class="tab-pane active" id="annex2tab">
                         <br/>
@@ -187,8 +187,15 @@ if(!$this->session->userdata('isLogin')){
                         <br/>
                         <?php include 'swp_view.php' ?>
                     </div>
+                    
+                    <script>
+                        function goBack() {
+                            window.history.back();
+                        }
+                    </script>
+                    
                 </div>
-                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
+                
                <?php echo form_close(); ?>
                 
                 

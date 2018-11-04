@@ -30,16 +30,6 @@
     
     ?>
 
-<script>
-    function calculate0(){
-        var llh0 = document.getElementById("LLH0");
-        var sev0 = document.getElementById("SEV0");
-        var rr0 = document.getElementById("RR0");
-        
-        var result = llho * sev0;
-        rr0.value = result;
-    }
-</script>
     
         <div id="hirarctop" class="row">   
             
@@ -69,58 +59,58 @@
                                <tr>
                                    <th>1.01 Company/Department</th>
                                    <td>
-                                       <textarea class="form-control" name="company_name"><?php if(isset($load)){echo set_value('company_name', $hirarc->company_name);}else{echo set_value('company_name');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="company_name"><?php if(isset($load)){echo set_value('company_name', $hirarc->company_name);}else{echo set_value('company_name');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.02 Date</th>
                                    <td>
-                                       <input type="date" class="form-control" name="date" value="<?php if(isset($load)){echo set_value('date', $hirarc->date);}else{echo set_value('date');} ?>">
+                                       <input <?php if(isset($disabled)){echo "disabled";} ?> type="date" class="form-control" name="date" value="<?php if(isset($load)){echo set_value('date', $hirarc->date);}else{echo set_value('date');} ?>">
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.03 Process Location</th>
                                    <td>
-                                       <textarea class="form-control" name="process_location"><?php if(isset($load)){echo set_value('process_location', $hirarc->process_location);}else{echo set_value('process_location');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="process_location"><?php if(isset($load)){echo set_value('process_location', $hirarc->process_location);}else{echo set_value('process_location');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.04 Conducted by (name)</th>
                                    <td>
-                                       <textarea class="form-control" name="conducted_name"><?php if(isset($load)){echo set_value('conducted_name', $hirarc->conducted_name);}else{echo set_value('conducted_name');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="conducted_name"><?php if(isset($load)){echo set_value('conducted_name', $hirarc->conducted_name);}else{echo set_value('conducted_name');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.04.2 Conducted by (designation)</th>
                                    <td>
-                                       <textarea class="form-control" name="conducted_designation"><?php if(isset($load)){echo set_value('conducted_designation', $hirarc->conducted_designation);}else{echo set_value('conducted_designation');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="conducted_designation"><?php if(isset($load)){echo set_value('conducted_designation', $hirarc->conducted_designation);}else{echo set_value('conducted_designation');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.05 Approved by (name)</th>
                                    <td>
-                                       <textarea class="form-control" name="approved_name"><?php if(isset($load)){echo set_value('approved_name', $hirarc->approved_name);}else{echo set_value('approved_name');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="approved_name"><?php if(isset($load)){echo set_value('approved_name', $hirarc->approved_name);}else{echo set_value('approved_name');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.05.2 Approved by (designation)</th>
                                    <td>
-                                       <textarea class="form-control" name="approved_designation"><?php if(isset($load)){echo set_value('approved_designation', $hirarc->approved_designation);}else{echo set_value('approved_designation');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="approved_designation"><?php if(isset($load)){echo set_value('approved_designation', $hirarc->approved_designation);}else{echo set_value('approved_designation');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.06 Date (From ... To ...)</th>
                                    <td>
-                                       <input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_from" placeholder="Date (From...)" value="<?php if(isset($load)){echo set_value('date_from', $hirarc->date_from);}else{echo set_value('date_from');} ?>">
+                                       <input <?php if(isset($disabled)){echo "disabled";} ?> type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_from" placeholder="Date (From...)" value="<?php if(isset($load)){echo set_value('date_from', $hirarc->date_from);}else{echo set_value('date_from');} ?>">
                                        
-                                       <input type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_to" placeholder="Date (To...)" value="<?php if(isset($load)){echo set_value('date_to', $hirarc->date_to);}else{echo set_value('date_to');} ?>">
+                                       <input <?php if(isset($disabled)){echo "disabled";} ?> type="date" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_to" placeholder="Date (To...)" value="<?php if(isset($load)){echo set_value('date_to', $hirarc->date_to);}else{echo set_value('date_to');} ?>">
                                    
                                    </td>
                                </tr>
                                <tr>
                                    <th>1.07 Review Date</th>
                                    <td>
-                                       <input type="date" class="form-control" name="review_date" value="<?php if(isset($load)){echo set_value('review_date', $hirarc->review_date);}else{echo set_value('review_date');} ?>">
+                                       <input <?php if(isset($disabled)){echo "disabled";} ?> type="date" class="form-control" name="review_date" value="<?php if(isset($load)){echo set_value('review_date', $hirarc->review_date);}else{echo set_value('review_date');} ?>">
                                    </td>
                                </tr>
                                <tr>
@@ -160,153 +150,153 @@
                                <tr>
                                    <td>1</td>
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_activity[0]"><?php if(isset($load)){echo set_value('HIRARC_activity[0]', $hi1[0]);}else{echo set_value('HIRARC_activity[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_activity[0]"><?php if(isset($load)){echo set_value('HIRARC_activity[0]', $hi1[0]);}else{echo set_value('HIRARC_activity[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_hazard[0]"><?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi2[0]);}else{echo set_value('HIRARC_hazard[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_hazard[0]"><?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi2[0]);}else{echo set_value('HIRARC_hazard[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_effects[0]"><?php if(isset($load)){echo set_value('HIRARC_effects[0]', $hi3[0]);}else{echo set_value('HIRARC_effects[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_effects[0]"><?php if(isset($load)){echo set_value('HIRARC_effects[0]', $hi3[0]);}else{echo set_value('HIRARC_effects[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_risk_control[0]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[0]', $hi4[0]);}else{echo set_value('HIRARC_risk_control[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_risk_control[0]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[0]', $hi4[0]);}else{echo set_value('HIRARC_risk_control[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" id="LLH0" name="HIRARC_LLH[0]" oninput="calculate0()"><?php if(isset($load)){echo set_value('HIRARC_LLH[0]', $hi5[0]);}else{echo set_value('HIRARC_LLH[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="LLH0" name="HIRARC_LLH[0]" oninput="calculate0()"><?php if(isset($load)){echo set_value('HIRARC_LLH[0]', $hi5[0]);}else{echo set_value('HIRARC_LLH[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" id="SEV0" name="HIRARC_SEV[0]" oninput="calculate0()"><?php if(isset($load)){echo set_value('HIRARC_SEV[0]', $hi6[0]);}else{echo set_value('HIRARC_SEV[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="SEV0" name="HIRARC_SEV[0]" oninput="calculate0()"><?php if(isset($load)){echo set_value('HIRARC_SEV[0]', $hi6[0]);}else{echo set_value('HIRARC_SEV[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" id="RR0" name="HIRARC_RR[0]"><?php if(isset($load)){echo set_value('HIRARC_RR[0]', $hi7[0]);}else{echo set_value('HIRARC_RR[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" id="RR0" name="HIRARC_RR[0]"><?php if(isset($load)){echo set_value('HIRARC_RR[0]', $hi7[0]);}else{echo set_value('HIRARC_RR[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_control_measure[0]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[0]', $hi8[0]);}else{echo set_value('HIRARC_control_measure[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_control_measure[0]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[0]', $hi8[0]);}else{echo set_value('HIRARC_control_measure[0]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_PIC[0]"><?php if(isset($load)){echo set_value('HIRARC_PIC[0]', $hi9[0]);}else{echo set_value('HIRARC_PIC[0]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_PIC[0]"><?php if(isset($load)){echo set_value('HIRARC_PIC[0]', $hi9[0]);}else{echo set_value('HIRARC_PIC[0]');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <td>2</td>
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_activity[1]"><?php if(isset($load)){echo set_value('HIRARC_activity[1]', $hi1[1]);}else{echo set_value('HIRARC_activity[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_activity[1]"><?php if(isset($load)){echo set_value('HIRARC_activity[1]', $hi1[1]);}else{echo set_value('HIRARC_activity[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_hazard[1]"><?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi2[1]);}else{echo set_value('HIRARC_hazard[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_hazard[1]"><?php if(isset($load)){echo set_value('HIRARC_hazard[0]', $hi2[1]);}else{echo set_value('HIRARC_hazard[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_effects[1]"><?php if(isset($load)){echo set_value('HIRARC_effects[1]', $hi3[1]);}else{echo set_value('HIRARC_effects[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_effects[1]"><?php if(isset($load)){echo set_value('HIRARC_effects[1]', $hi3[1]);}else{echo set_value('HIRARC_effects[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_risk_control[1]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[1]', $hi4[1]);}else{echo set_value('HIRARC_risk_control[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_risk_control[1]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[1]', $hi4[1]);}else{echo set_value('HIRARC_risk_control[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_LLH[1]"><?php if(isset($load)){echo set_value('HIRARC_LLH[1]', $hi5[1]);}else{echo set_value('HIRARC_LLH[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_LLH[1]"><?php if(isset($load)){echo set_value('HIRARC_LLH[1]', $hi5[1]);}else{echo set_value('HIRARC_LLH[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_SEV[1]"><?php if(isset($load)){echo set_value('HIRARC_SEV[1]', $hi6[1]);}else{echo set_value('HIRARC_SEV[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_SEV[1]"><?php if(isset($load)){echo set_value('HIRARC_SEV[1]', $hi6[1]);}else{echo set_value('HIRARC_SEV[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_RR[1]"><?php if(isset($load)){echo set_value('HIRARC_RR[1]', $hi7[1]);}else{echo set_value('HIRARC_RR[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_RR[1]"><?php if(isset($load)){echo set_value('HIRARC_RR[1]', $hi7[1]);}else{echo set_value('HIRARC_RR[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_control_measure[1]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[1]', $hi8[1]);}else{echo set_value('HIRARC_control_measure[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_control_measure[1]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[1]', $hi8[1]);}else{echo set_value('HIRARC_control_measure[1]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_PIC[1]"><?php if(isset($load)){echo set_value('HIRARC_PIC[1]', $hi9[1]);}else{echo set_value('HIRARC_PIC[1]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_PIC[1]"><?php if(isset($load)){echo set_value('HIRARC_PIC[1]', $hi9[1]);}else{echo set_value('HIRARC_PIC[1]');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <td>3</td>
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_activity[2]"><?php if(isset($load)){echo set_value('HIRARC_activity[2]', $hi1[2]);}else{echo set_value('HIRARC_activity[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_activity[2]"><?php if(isset($load)){echo set_value('HIRARC_activity[2]', $hi1[2]);}else{echo set_value('HIRARC_activity[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_hazard[2]"><?php if(isset($load)){echo set_value('HIRARC_hazard[2]', $hi2[2]);}else{echo set_value('HIRARC_hazard[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_hazard[2]"><?php if(isset($load)){echo set_value('HIRARC_hazard[2]', $hi2[2]);}else{echo set_value('HIRARC_hazard[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_effects[2]"><?php if(isset($load)){echo set_value('HIRARC_effects[2]', $hi3[2]);}else{echo set_value('HIRARC_effects[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_effects[2]"><?php if(isset($load)){echo set_value('HIRARC_effects[2]', $hi3[2]);}else{echo set_value('HIRARC_effects[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_risk_control[2]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[2]', $hi4[2]);}else{echo set_value('HIRARC_risk_control[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_risk_control[2]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[2]', $hi4[2]);}else{echo set_value('HIRARC_risk_control[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_LLH[2]"><?php if(isset($load)){echo set_value('HIRARC_LLH[2]', $hi5[2]);}else{echo set_value('HIRARC_LLH[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_LLH[2]"><?php if(isset($load)){echo set_value('HIRARC_LLH[2]', $hi5[2]);}else{echo set_value('HIRARC_LLH[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_SEV[2]"><?php if(isset($load)){echo set_value('HIRARC_SEV[2]', $hi6[2]);}else{echo set_value('HIRARC_SEV[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_SEV[2]"><?php if(isset($load)){echo set_value('HIRARC_SEV[2]', $hi6[2]);}else{echo set_value('HIRARC_SEV[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_RR[2]"><?php if(isset($load)){echo set_value('HIRARC_RR[2]', $hi7[2]);}else{echo set_value('HIRARC_RR[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_RR[2]"><?php if(isset($load)){echo set_value('HIRARC_RR[2]', $hi7[2]);}else{echo set_value('HIRARC_RR[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_control_measure[2]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[2]', $hi8[2]);}else{echo set_value('HIRARC_control_measure[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_control_measure[2]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[2]', $hi8[2]);}else{echo set_value('HIRARC_control_measure[2]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_PIC[2]"><?php if(isset($load)){echo set_value('HIRARC_PIC[2]', $hi9[2]);}else{echo set_value('HIRARC_PIC[2]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_PIC[2]"><?php if(isset($load)){echo set_value('HIRARC_PIC[2]', $hi9[2]);}else{echo set_value('HIRARC_PIC[2]');} ?></textarea>
                                    </td>
                                </tr>
                                <tr>
                                    <td>4</td>
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_activity[3]"><?php if(isset($load)){echo set_value('HIRARC_activity[3]', $hi1[3]);}else{echo set_value('HIRARC_activity[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_activity[3]"><?php if(isset($load)){echo set_value('HIRARC_activity[3]', $hi1[3]);}else{echo set_value('HIRARC_activity[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_hazard[3]"><?php if(isset($load)){echo set_value('HIRARC_hazard[3]', $hi2[3]);}else{echo set_value('HIRARC_hazard[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_hazard[3]"><?php if(isset($load)){echo set_value('HIRARC_hazard[3]', $hi2[3]);}else{echo set_value('HIRARC_hazard[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_effects[3]"><?php if(isset($load)){echo set_value('HIRARC_effects[3]', $hi3[3]);}else{echo set_value('HIRARC_effects[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_effects[3]"><?php if(isset($load)){echo set_value('HIRARC_effects[3]', $hi3[3]);}else{echo set_value('HIRARC_effects[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_risk_control[3]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[3]', $hi4[3]);}else{echo set_value('HIRARC_risk_control[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_risk_control[3]"><?php if(isset($load)){echo set_value('HIRARC_risk_control[3]', $hi4[3]);}else{echo set_value('HIRARC_risk_control[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_LLH[3]"><?php if(isset($load)){echo set_value('HIRARC_LLH[3]', $hi5[3]);}else{echo set_value('HIRARC_LLH[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_LLH[3]"><?php if(isset($load)){echo set_value('HIRARC_LLH[3]', $hi5[3]);}else{echo set_value('HIRARC_LLH[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_SEV[3]"><?php if(isset($load)){echo set_value('HIRARC_SEV[3]', $hi6[3]);}else{echo set_value('HIRARC_SEV[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_SEV[3]"><?php if(isset($load)){echo set_value('HIRARC_SEV[3]', $hi6[3]);}else{echo set_value('HIRARC_SEV[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_RR[3]"><?php if(isset($load)){echo set_value('HIRARC_RR[3]', $hi7[3]);}else{echo set_value('HIRARC_RR[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_RR[3]"><?php if(isset($load)){echo set_value('HIRARC_RR[3]', $hi7[3]);}else{echo set_value('HIRARC_RR[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_control_measure[3]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[3]', $hi8[3]);}else{echo set_value('HIRARC_control_measure[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_control_measure[3]"><?php if(isset($load)){echo set_value('HIRARC_control_measure[3]', $hi8[3]);}else{echo set_value('HIRARC_control_measure[3]');} ?></textarea>
                                    </td>
                                    
                                    <td>
-                                       <textarea class="form-control" name="HIRARC_PIC[3]"><?php if(isset($load)){echo set_value('HIRARC_PIC[3]', $hi9[3]);}else{echo set_value('HIRARC_PIC[3]');} ?></textarea>
+                                       <textarea <?php if(isset($disabled)){echo "disabled";} ?> class="form-control" name="HIRARC_PIC[3]"><?php if(isset($load)){echo set_value('HIRARC_PIC[3]', $hi9[3]);}else{echo set_value('HIRARC_PIC[3]');} ?></textarea>
                                    </td>
                                </tr>
                            </tbody>
@@ -498,6 +488,8 @@
                        
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/hirarc/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }elseif(isset($disabled)){ ?>
+                        <button name="backButton" onclick="goBack()" class="btn btn-primary col-md-2">Back</button>
                        <?php }else{ ?>
                        <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
                        <?php } ?>

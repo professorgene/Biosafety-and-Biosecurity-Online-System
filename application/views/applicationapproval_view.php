@@ -90,7 +90,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td class="text-center">
                             <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>, <?php echo $row->project_type; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -154,18 +154,38 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                 <hr>
                                 <button class="btn btn-danger" onclick="annex2_show()" title="No Issue">No</button>
                         </td>
+                        <!-- If No Issue -->
                         <td id="annex2_Chair" style="display:none;" class="text-center">
                             <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
                             <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
-                        <?php }elseif($row->project_approval == 3 ){ ?>
+                        
+                        <!-- After SSBC member review -->
+                        <?php }elseif($row->ssbc_agreement > 5 ){ ?>
+                        <?php
+                                                                
+                        $sum = 0;
+                        
+                        if($row->no_of_ssbc != $sum){
+                            
+                            if($row->ssbc1_approver_id != null){$sum += 1;}
+                            if($row->ssbc2_approver_id != null){$sum += 1;}
+                            if($row->ssbc3_approver_id != null){$sum += 1;}                                        
+                            if($row->ssbc4_approver_id != null){$sum += 1;}
+                            if($row->ssbc5_approver_id != null){$sum += 1;}
+                            
+                        }else{
+                                                                
+                        ?>
+                        
+                        
                         <td class="text-center">
                             <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
                             <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
-                        <?php } ?>
+                        <?php }} ?>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -199,6 +219,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <tbody id="account">
                     <tr class="searchable">
                         <?php $i=0; foreach($all_lmoproj_SSBC as $row): ?>
+                        <?php if($this->session->userdata('account_id') != $row->account_id ){ ?>
                         <td><?php echo $i = $i+1 ?></td>
                         <td><?php echo $row->account_email; ?></td>
                         <td><?php echo $row->account_fullname; ?></td>
@@ -228,6 +249,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <button class="btn btn-danger" onclick="reject_2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
+                    <?php } ?>
                 <?php endforeach; ?>
                 </tbody>
             </table>
@@ -256,19 +278,25 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <script>
         function approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
         }
         
         function reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + btoa(j);
-            }
+            
+            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + j;
+            
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
         }
     </script>
     
     <script> 
         function Chair_approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function annex2_show(){
@@ -281,322 +309,38 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             x.style.display = "block";
         }
         
-        function Chair_disapprove(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_disapprove/" + i + "/" + k;
-        }
         
         function final_approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function final_reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject/" + i + "/" + k + "/" + btoa(j);
-            }
+            
+            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
         }
     </script>
     
     <script>
         function approve_2(i,k){
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve2/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function reject_2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <!-- Form E Approval and Reject Function -->
-    <script>
-        function approve_forme(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_forme/" + i + "/" + k;
-        }
-        
-        function reject_forme(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_forme/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function Chair_approve_forme(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve_forme/" + i + "/" + k;
-        }
-        
-        function forme_show(){
             
-            var v = document.getElementById("forme_issue");
-            v.style.display = "none";
+            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject2/" + i + "/" + k;
             
-           
-            var x = document.getElementById("forme_proceed");
-            x.style.display = "block";
-        }
-        
-        
-        function Chair_disapprove_forme(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_disapprove_forme/" + i + "/" + k;
-        }
-        
-        function final_approve_forme(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve_forme/" + i + "/" + k;
-        }
-        
-        function final_reject_forme(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject_forme/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve_forme2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_forme2/" + i + "/" + k;
-        }
-        
-        function reject_forme2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_forme2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    <!-- END of Form E -->
-    
-    <!-- HIRARC Approval and Reject Function -->
-    <script>
-        function approve_hirarc(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_hirarc/" + i + "/" + k;
-        }
-        
-        function reject_hirarc(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_hirarc/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function hirarc_show(){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
             
-            var v = document.getElementById("hirarc_issue");
-            v.style.display = "none";
-            
-            
-            var x = document.getElementById("hirarc_proceed");
-            x.style.display = "block";
-        }
-        
-        function Chair_approve_hirarc(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve_hirarc/" + i + "/" + k;
-        }
-        
-        
-        function Chair_disapprove_hirarc(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_disapprove_hirarc/" + i + "/" + k;
-        }
-        
-        function final_approve_hirarc(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve_hirarc/" + i + "/" + k;
-        }
-        
-        function final_reject_hirarc(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject_hirarc/" + i + "/" + k + "/" + btoa(j);
-            }
         }
     </script>
     
-    <script>
-        function approve_hirarc2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_hirarc2/" + i + "/" + k;
-        }
-        
-        function reject_hirarc2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_hirarc2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    <!-- END of HIRARC -->
-    
-    <!-- PC1 Approval and Reject Function -->
-    <script>
-        function approve_pc1(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_pc1/" + i + "/" + k;
-        }
-        
-        function reject_pc1(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_pc1/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function pc1_show(){
-
-            var v = document.getElementById("pc1_issue");
-            v.style.display = "none";
-            
-            
-            var x = document.getElementById("pc1_proceed");
-            x.style.display = "block";
-        }
-        
-        function Chair_approve_pc1(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve_pc1/" + i + "/" + k;
-        }
-        
-        
-        function final_approve_pc1(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve_pc1/" + i + "/" + k;
-        }
-        
-        function final_reject_pc1(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject_pc1/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve_pc1_2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_pc1_2/" + i + "/" + k;
-        }
-        
-        function reject_pc1_2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_pc1_2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    <!-- END of PC1 -->
-    
-    <!-- PC2 Approval and Reject Function -->
-    <script>
-        function approve_pc2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_pc2/" + i + "/" + k;
-        }
-        
-        function reject_pc2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_pc2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function pc2_show(){
-
-            var v = document.getElementById("pc2_issue");
-            v.style.display = "none";
-            
-            
-            var x = document.getElementById("pc2_proceed");
-            x.style.display = "block";
-        }
-        
-        function Chair_approve_pc2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve_pc2/" + i + "/" + k;
-        }
-        
-        
-        function final_approve_pc2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve_pc2/" + i + "/" + k;
-        }
-        
-        function final_reject_pc2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject_pc2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve_pc2_2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_pc2_2/" + i + "/" + k;
-        }
-        
-        function reject_pc2_2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_pc2_2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    <!-- END of PC2 -->
-    
-    <!-- SWP Approval and Reject Function -->
-    <script>
-        function approve_swp(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_swp/" + i + "/" + k;
-        }
-        
-        function reject_swp(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_swp/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function swp_show(){
-
-            var v = document.getElementById("swp_issue");
-            v.style.display = "none";
-            
-            
-            var x = document.getElementById("swp_proceed");
-            x.style.display = "block";
-        }
-        
-        function Chair_approve_swp(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve_swp/" + i + "/" + k;
-        }
-        
-        
-        function final_approve_swp(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve_swp/" + i + "/" + k;
-        }
-        
-        function final_reject_swp(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject_swp/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    
-    <script>
-        function approve_swp_2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve_swp_2/" + i + "/" + k;
-        }
-        
-        function reject_swp_2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject_swp_2/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-    </script>
-    <!-- END of SWP -->
 
 
 </body>
