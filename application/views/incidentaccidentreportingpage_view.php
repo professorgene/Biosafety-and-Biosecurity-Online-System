@@ -56,7 +56,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div class="col-lg-7">
 			<div>		
-				<h4>Announcements</h4>
+				<h4>Incident & Accident Reporting</h4>
 			</div>				
 			<div class="row">
           <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
