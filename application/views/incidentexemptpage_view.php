@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="form-group">
             <label for="email_add">Project Description:</label>
-            <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here." value="<?php echo set_value('project_desc'); ?>"></textarea>
+            <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here."><?php echo set_value('project_desc'); ?></textarea>
             <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
         </div>
         
@@ -66,19 +66,69 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <span class="col-md-1"></span>
             <button name="submit" type="submit" class="btn btn-success col-md-4">Create</button>
             <span class="col-md-2"></span>
-            <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+            <button name="cancel" type="button" onclick="hard_reset()" class="btn col-md-4">Reset</button>
             <span class="col-md-1"></span>
         </div>
         <?php echo form_close(); ?>
         <br/>
     </div>
 		
-		<div class="col-lg-7">
-			
-			
+        <div class="col-lg-7">
+            <h3>Announcements
+                <?php if($this->session->userdata('account_type') == 4) { ?>
+                <i class="fa fa-plus btn btn-info float-right" onclick="new_announcement()" title="New Announcement"></i>
+                <?php } ?>
+            </h3>
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <br/>
+                    <?php echo $this->session->flashdata('msg'); ?>
+                </div>
+            </div>
+            <?php if(isset($announcement)) {
+                    foreach($announcement as $row) {
+            ?>
+            <div class="card my-4">
+                <h5 class="card-header"><?php echo $row->announcement_title ?>
+                    <?php if($this->session->userdata('account_type') == 4) { ?>
+                    <i class="fa fa-times btn btn-danger float-right" onclick="delete_announcement(<?php echo $row->announcement_id; ?>)" title="Remove Announcement"></i>
+                    <?php } ?>
+                </h5>
+                <div class="card-body">
+                    <p><?php echo $row->announcement_desc ?></p>
+                </div>
+            </div>
+            <?php   }
+                } 
+            ?>
 		</div>
 	</div>	
 	</div>
         <br/>
+    <script>
+    <?php # Change the index.php/application/new_announcement/ + "xxx" to in the javascript here to the corresponding page. ?>
+    function new_announcement(){
+        window.location = "<?php echo base_url(); ?>index.php/incidentexemptpage/new_announcement/" + "incidentexempt";
+    }
+    
+    <?php # Change the index.php/xxx/delete_announcement to in the javascript here to the corresponding page. ?>
+    function delete_announcement(i){
+        var k = confirm("Are you sure?");
+        if (k){
+            window.location = "<?php echo base_url(); ?>index.php/incidentexemptpage/delete_announcement/" + i;
+        }
+    }
+        function hard_reset() {
+            document.getElementById("projname").value = "";
+            document.getElementById("projdesc").value = "";
+        }
+        
+        $('html').bind('keypress', function(e){
+           if(e.keyCode == 13)
+           {
+              return false;
+           }
+        });
+</script>
 </body>
 </html>

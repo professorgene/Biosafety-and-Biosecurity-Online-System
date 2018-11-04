@@ -93,10 +93,13 @@ if(!$this->session->userdata('isLogin')){
     
     
     <div class="container">
+	        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+		
+		<hr>
         <div class="row">
             <div class="col-md-12">
                 <ul class="nav nav-tabs">
-                    <li class="nav-item active"><a href="#biohazardtab" class="nav-link" data-toggle="tab">Biohazard Material Form</a></li>
+                    <li class="nav-item active"><a href="#biohazardtab" class="nav-link active" data-toggle="tab">Biohazard Material Form</a></li>
                     <li class="nav-item"><a href="#hirarctab" class="nav-link" data-toggle="tab">OHS-F-4.5.X HIRARC FORM</a></li>
                     <li class="nav-item"><a href="#swptab" class="nav-link" data-toggle="tab">Safe Work Procedure</a></li>
                 </ul>

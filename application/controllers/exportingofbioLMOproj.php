@@ -128,6 +128,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				if($this->formf_model->insert_new_applicant_data($data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
                     
+					$this->notification_model->insert_new_notification(null, 4, "New Project For Exporting of Biological Material(LMOs)", "The following user has submitted a new project for Exporting of Biological Material(LMOs): " . $this->session->userdata('account_name'));
+					
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
                     redirect('home/index');
                     
@@ -374,6 +376,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				
 				if($this->formf_model->update_saved_data($proj_id, $data) && $this->project_model->update_proj_status($proj_id, $projectSubmit)){
                     
+					$this->notification_model->insert_new_notification(null, 4, "New Project For Exporting of Biological Material(LMOs)", "The following user has submitted a new project for Exporting of Biological Material(LMOs): " . $this->session->userdata('account_name'));
+					
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $data);
                     redirect('home/index');
                     

@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex5_model->insert_new_applicant_data($data)){
                     
-                   $this->notification_model->insert_new_notification(null, 4, "New Annex 5 Application", "The following user has submitted a new Annex 5 form: " . $this->session->userdata('account_name'));
+                   $this->notification_model->insert_new_notification(null, 4, "New Project Application for Extension Or Termination of Approved project", "The following user has submitted a new project application for Extension Or Termination of Approved project: " . $this->session->userdata('account_name'));
                     
                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
                    redirect('annex5/index');
@@ -198,7 +198,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->annex5_model->update_applicant_data($appID, $data)){
                     
-                    $this->notification_model->insert_new_notification(null, 4, "Annex 5 Application Updated", "The following user has updated an Annex 5 form: " . $this->session->userdata('account_name'));
+                    $this->notification_model->insert_new_notification(null, 4, "New Project Application for Extension Or Termination of Approved project", "The following user has submitted a new project application for Extension Or Termination of Approved project: " . $this->session->userdata('account_name'));
                     
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully updated!</div>', $data);
                     redirect('history/index');

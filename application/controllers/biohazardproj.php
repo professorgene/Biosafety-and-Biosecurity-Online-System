@@ -13,6 +13,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         $this->load->model('biohazard_model');
         $this->load->model('hirarc_model');
         $this->load->model('swp_model');
+		
+		        //breadcrum
+		$this->breadcrumbs->unshift('Home', '/');
+        $this->breadcrumbs->push('New Project','/projectselect', true);		
+		$this->breadcrumbs->push('Application','/applicationpage', true);
+        $this->breadcrumbs->push('New Application','/newapplicationpage', true);
+        $this->breadcrumbs->push('Biohazardous Material', true);
         
     }
 		
@@ -312,7 +319,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
                 if($this->biohazard_model->insert_new_applicant_data($biohazardData) && $this->hirarc_model->insert_new_applicant_data($hirarcData) && $this->swp_model->insert_new_applicant_data($swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
-                    
+                    $this->notification_model->insert_new_notification(null, 4, "New Project Application for Biohazardous Material", "The following user has submitted a new project application for Biohazardous Material: " . $this->session->userdata('account_name'));
+					
                     $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
                     redirect('home/index');
                     
@@ -852,7 +860,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 if($this->biohazard_model->update_saved_data($proj_id, $biohazardData) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
                 {
                     
-                    $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
+                    $this->notification_model->insert_new_notification(null, 4, "New Project Application for Biohazardous Material", "The following user has submitted a new project application for Biohazardous Material: " . $this->session->userdata('account_name'));
+					
+					$this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $biohazardData);
                     redirect('saveHistory/index');
                     
                     #$this->session->unset_userdata('projectId');

@@ -49,7 +49,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
         <div class="form-group">
             <label for="email_add">Project Description:</label>
-            <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here." value="<?php echo set_value('project_desc'); ?>"></textarea>
+            <textarea rows="5" id="projdesc" name="project_desc" class="form-control" placeholder="Enter project description here."><?php echo set_value('project_desc'); ?></textarea>
             <span class="text-danger"><?php echo form_error('project_desc'); ?></span>
         </div>
         
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <span class="col-md-1"></span>
             <button name="submit" type="submit" class="btn btn-success col-md-4">Create</button>
             <span class="col-md-2"></span>
-            <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+            <button name="cancel" type="button" onclick="hard_reset()" class="btn col-md-4">Reset</button>
             <span class="col-md-1"></span>
         </div>
         
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		
 		<div class="col-lg-7">
 			<div>		
-				<h4>Announcements</h4>
+				<h4>Living Modified Organisms (LMOs)</h4>
 			</div>				
 			<div>		
 				<div class="row">
@@ -113,5 +113,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	</div>	
 	</div>
         <br/>
+		
+		<script>
+        function hard_reset() {
+            document.getElementById("projname").value = "";
+            document.getElementById("projdesc").value = "";
+        }
+        
+        $('html').bind('keypress', function(e){
+           if(e.keyCode == 13)
+           {
+              return false;
+           }
+        });
+    </script>
 </body>
 </html>

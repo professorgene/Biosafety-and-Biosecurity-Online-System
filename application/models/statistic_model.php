@@ -79,6 +79,14 @@ class statistic_model extends CI_Model
         $query = $this->db->get('accounts');
 		return $query->result();
 	}
+    
+    
+    function get_all_inventory()
+    {
+        $query = $this->db->select('*')->from('inventory')->get();
+		return $query->result();
+    }
+    
 }
 ?>
 

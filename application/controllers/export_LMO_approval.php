@@ -39,8 +39,8 @@ class export_LMO_approval extends CI_Controller {
         $this->formf_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->formf_update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 3, "Notification For Exporting LMO Project Approved", "BSO has approved a Notification For Exporting LMO Project");
         
+        $this->notification_model->insert_new_notification(null, 3, "Notification For Exporting LMO Project Approved", "BSO has approved a Notification For Exporting LMO Project");
         redirect('export_LMO_approval/index');
     }
     

@@ -1765,6 +1765,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 );
                 
                 
+<<<<<<< HEAD
                 
                 if($this->annex2_model->update_applicant_data($appID, $annex2Data) && $this->forme_model->update_applicant_data($appID, $formeData) && $this->pc1_model->update_applicant_data($appID, $pc1Data) && $this->pc2_model->update_applicant_data($appID, $pc2Data) && $this->hirarc_model->update_applicant_data($appID, $hirarcData) && $this->swp_model->update_applicant_data($appID, $swpData) && $this->project_model->update_applicant_data($appID, $editableValue))
                 {
@@ -1850,6 +1851,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }else{
                 
                 if(isset($save)){
+=======
+                    if($this->annex2_model->update_saved_data($proj_id, $annex2Data) && $this->forme_model->update_saved_data($proj_id, $formeData) && $this->pc1_model->update_saved_data($proj_id, $pc1Data) && $this->pc2_model->update_saved_data($proj_id, $pc2Data) && $this->hirarc_model->update_saved_data($proj_id, $hirarcData) && $this->swp_model->update_saved_data($proj_id, $swpData) && $this->project_model->update_proj_status($proj_id, $projectSubmit))
+                    {
+                                            
+						$this->notification_model->insert_new_notification(null, 4, "New Project Application for LMO", "The following user has submitted a new project application for LMO: " . $this->session->userdata('account_name'));
+                    
+                        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been successfully submitted!</div>', $annex2Data);
+                        redirect('saveHistory/index');
+                    
+>>>>>>> d95f2b0564bab3529d95927155bca43ee297511a
                     
                     $config['upload_path'] = './uploads/';
                     $config['allowed_types'] = 'jpg|jpeg|png|gif|doc|pdf|zip';

@@ -24,11 +24,17 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
 </head>
 
 <body>
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <!-- Navigation -->
     <?php include_once 'template/navbar.php' ?>
 
     <!-- Page Content -->
     <div class="container">
+	        <br>
+  
+    <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        
+		<hr>
         <h5>Incident/Accident Reporting for Exempt Dealing or Biohazardous Materials Project Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">

@@ -33,12 +33,20 @@ if(!$this->session->userdata('isLogin')){
 	<div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 	<hr>
         <div class="text-center row">
+            <div class="col-md-1"></div>
+            <div class="col-md-3">
+                <a href="<?php echo base_url(); ?>index.php/inventory/stats"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Statistics</button></a>
+            </div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Inventory Database</button></a>
             </div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Storage Database</button></a>
             </div>
+        </div>
+        <br/>
+        <div class="text-center row">
+            <div class="col-md-1"></div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Inventory Application</button></a>
             </div>
@@ -87,7 +95,7 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row->unit_convenor . $row->project_investigator; ?></td>
                         <td><?php echo $row->unit_name . " " . $row->experiment_title; ?></td>
                         <td><?php echo $row->project_title . " " . $row->project_reference_no; ?></td>
-                        <td><?php echo $row->biohazard_type; ?></td>
+                        <td><?php echo $row->biohazard_type . " " . $row->biohazard_type_others; ?></td>
                         <td><?php echo $row->biohazard_name; ?></td>
                         <td><?php echo $row->biohazard_id; ?></td>
                         <td class="text-center">
@@ -106,7 +114,7 @@ if(!$this->session->userdata('isLogin')){
                         <td colspan="10">
                             <p>Date Received: <?php echo $row->date_received; ?></p>
                             <p>Log In Personnel: <?php echo $row->log_in_personnel; ?></p>
-                            <p>Keeper Name: <?php echo $row->keeper_name; ?></p>
+                            <p>Keeper's Name: <?php echo $row->keeper_name; ?></p>
                             <p>Remarks: <?php echo $row->remarks; ?></p>
                         </td>
                     </tr>
@@ -158,7 +166,7 @@ if(!$this->session->userdata('isLogin')){
                         <th>Name of Biohazardous Material</th>
                         <th>Risk Group</th>
                         <th>Storage Location</th>
-                        <th>Keeper Name</th>
+                        <th>Keeper's Name</th>
                         <th>Log In Personnel</th>
                         <th></th>
                     </tr>
@@ -187,7 +195,7 @@ if(!$this->session->userdata('isLogin')){
                     </tr>
                     <tr id="tr<?php echo $row->storage_id; ?>" style="display:none;">
                         <td colspan="10">
-                            <p>Location of Supplier / Company Name: <?php echo $row->location; ?></p>
+                            <p>Location of Collection / Supplier Name: <?php echo $row->location; ?></p>
                             <p>Source of Biohazardous Material: <?php echo $row->biohazard_source; ?></p>
                             <p>Date Created: <?php echo $row->date_created; ?></p>
                         </td>

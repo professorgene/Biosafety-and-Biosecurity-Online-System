@@ -80,13 +80,14 @@ if($this->session->userdata('isLogin')){
                                 <option value="6">Laboratory Officer</option>
                                 <option value="7">Student & Postgraduate</option>
                             </select>
+                            <span class="text-danger"><?php echo form_error('account_type'); ?></span>
                         </div>
 
                         <div class="form-group text-center">
                             <span class="col-md-1"></span>
                             <button name="submit" type="submit" class="btn btn-success col-md-4">Register</button>
                             <span class="col-md-2"></span>
-                            <button name="cancel" type="reset" class="btn col-md-4">Reset</button>
+                            <button name="cancel" type="button" onclick="hard_reset()" class="btn col-md-4">Reset</button>
                             <span class="col-md-1"></span>
                         </div>
                     <?php echo form_close(); ?>
@@ -108,5 +109,21 @@ if($this->session->userdata('isLogin')){
             <br/>
         </div>
     </div>
+    <script>
+        function hard_reset() {
+            document.getElementById("fullname").value = "";
+            document.getElementById("email_add").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("confirmpassword").value = "";
+            document.getElementById("type").value = "";
+        }
+        
+        $('html').bind('keypress', function(e){
+           if(e.keyCode == 13)
+           {
+              return false;
+           }
+        });
+    </script>
 </body>
 </html>

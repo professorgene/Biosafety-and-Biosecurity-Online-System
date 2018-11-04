@@ -44,6 +44,87 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <div class="container">
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
+        <hr/>
+        <h3 class="my-4">Statistics</h3>
+        <br/>
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><h2 class="text-center"><?php echo $newprojecttotal ?></h2></div>
+                    <div class="col-md-12"><p class="text-center">Recently Submitted Projects</p></div>
+                </div>
+                <br/>
+                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><h2 class="text-center"><?php echo $newuserstotal ?></h2></div>
+                    <div class="col-md-12"><p class="text-center">Monthly New BBOS Users</p></div>
+                </div>
+                <br/>
+                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
+                    <div class="col-md-12"><br/></div>
+                    <div class="col-md-12"><h2 class="text-center"><?php echo $existinguserstotal ?></h2></div>
+                    <div class="col-md-12"><p class="text-center">Total BBOS Users</p></div>
+                </div>
+            </div>
+            <div class="row col-md-9">
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="newusers" class="donut-size">
+                        <div class="pie-wrapper">
+                            <span class="label">
+                                <span class="num">0</span>
+                            </span>
+                            <div class="pie">
+                                <div class="left-side half-circle"></div>
+                                <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
+                        </div>
+                    </div>
+                    <br/>
+                    <p class="text-center">Pending User Account Approvals</p>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="blank" class="donut-size">
+                        <div class="pie-wrapper">
+                            <span class="label">
+                                <span class="num">0</span><span class="smaller">%</span>
+                            </span>
+                            <div class="pie">
+                                <div class="left-side half-circle"></div>
+                                <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
+                        </div>
+                    </div>
+                    <br/>
+                    <p class="text-center">Placeholder</p>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <div id="blank" class="donut-size">
+                        <div class="pie-wrapper">
+                            <span class="label">
+                                <span class="num">0</span><span class="smaller">%</span>
+                            </span>
+                            <div class="pie">
+                                <div class="left-side half-circle"></div>
+                                <div class="right-side half-circle"></div>
+                            </div>
+                            <div class="shadow"></div>
+                        </div>
+                    </div>
+                    <br/>
+                    <p class="text-center">Placeholder</p>
+                </div>
+            </div>
+        </div>
+        
+        <br/>
+        <hr/>
+        <br/>
         
         <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 ) {  ?>
         <div class="row">
@@ -196,87 +277,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         </div>
         <?php } ?>
         
-        <hr/>
-        
-        <h3 class="my-4">Statistics</h3>
-        <br/>
-        <div class="row">
-            <div class="col-md-3">
-                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><h2 class="text-center"><?php echo $newprojecttotal ?></h2></div>
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><p class="text-center">Recently Submitted Projects</p></div>
-                </div>
-                <br/>
-                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><h2 class="text-center"><?php echo $newuserstotal ?></h2></div>
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><p class="text-center">Monthly New BBOS Users</p></div>
-                </div>
-                <br/>
-                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><h2 class="text-center"><?php echo $existinguserstotal ?></h2></div>
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><p class="text-center">Total BBOS Users</p></div>
-                </div>
-            </div>
-            <div class="row col-md-9">
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <div id="newusers" class="donut-size">
-                        <div class="pie-wrapper">
-                            <span class="label">
-                                <span class="num">0</span>
-                            </span>
-                            <div class="pie">
-                                <div class="left-side half-circle"></div>
-                                <div class="right-side half-circle"></div>
-                            </div>
-                            <div class="shadow"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <p class="text-center">Pending User Account Approvals</p>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <div id="blank" class="donut-size">
-                        <div class="pie-wrapper">
-                            <span class="label">
-                                <span class="num">0</span><span class="smaller">%</span>
-                            </span>
-                            <div class="pie">
-                                <div class="left-side half-circle"></div>
-                                <div class="right-side half-circle"></div>
-                            </div>
-                            <div class="shadow"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <p class="text-center">Placeholder</p>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <div id="blank" class="donut-size">
-                        <div class="pie-wrapper">
-                            <span class="label">
-                                <span class="num">0</span><span class="smaller">%</span>
-                            </span>
-                            <div class="pie">
-                                <div class="left-side half-circle"></div>
-                                <div class="right-side half-circle"></div>
-                            </div>
-                            <div class="shadow"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <p class="text-center">Placeholder</p>
-                </div>
-            </div>
-        </div>
     </div>
     
     <br/>
