@@ -12,10 +12,20 @@ class inventory extends CI_Controller {
         $this->load->model('notification_model');
     }
     
+    public function stats() {
+        //breadcrumb
+        $this->breadcrumbs->unshift('Home', '/');	
+        $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
+        
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        
+        $this->load->template('inventory_statistic_view', $data);
+    }
+    
     public function index() {
 			//breadcrumb
             $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('Inventory Database', true);
+            $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
 			
         $data['inventory'] = $this->inventory_model->get_all_inventory();
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
@@ -27,7 +37,7 @@ class inventory extends CI_Controller {
 	{
 		//breadcrumb
             $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('Storage Database', true);
+            $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
 			
         $data['storage'] = $this->inventory_model->get_all_storage();
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
@@ -35,18 +45,22 @@ class inventory extends CI_Controller {
 	}
     
     public function edit() {
+        //breadcrumb
+        $this->breadcrumbs->unshift('Home', '/');	
+        $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
+        
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
         $id = $this->uri->segment(3);
         $data['details'] = $this->inventory_model->get_inventory_by_id($id);
         
         $this->form_validation->set_rules('program', 'Program', 'required');
-        #$this->form_validation->set_rules('program_type', 'Program Type', 'required');
-        $this->form_validation->set_rules('biohazard_type', 'Biohazard Type', 'required');
+        $this->form_validation->set_rules('program_type', 'Program Type', 'required');
+        $this->form_validation->set_rules('biohazard_type', 'Biohazard Material Type', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
         $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
-        $this->form_validation->set_rules('keeper_name', 'Keeper Name', 'required');
+        $this->form_validation->set_rules('keeper_name', 'Keeper\'s Name', 'required');
         
         # Submit form
         if($this->form_validation->run() == FALSE){
@@ -64,6 +78,7 @@ class inventory extends CI_Controller {
                 'project_title' => $this->input->post('project_title'),
                 'project_reference_no' => $this->input->post('project_reference_no'),
                 'biohazard_type' => $this->input->post('biohazard_type'),
+                'biohazard_type_others' => $this->input->post('biohazard_type_others'),
                 'biohazard_name' => $this->input->post('biohazard_name'),
                 'biohazard_id' => $this->input->post('biohazard_id'),
                 'date_received' => $this->input->post('date_received'),
@@ -74,7 +89,7 @@ class inventory extends CI_Controller {
             );
             
             if($this->inventory_model->update_inventory($id, $data)){
-                $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Inventory Modified", "Inventory has been modified by: " . $this->session->userdata('account_name'));
+                $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 4, "Inventory Modified", "Inventory has been modified by: " . $this->session->userdata('account_name'));
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully edited an inventory!</div>');
                 redirect('inventory/index');
             } else {
@@ -85,19 +100,23 @@ class inventory extends CI_Controller {
     }
     
     public function edit2() {
+        //breadcrumb
+        $this->breadcrumbs->unshift('Home', '/');	
+        $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
+        
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
         $id = $this->uri->segment(3);
         $data['details'] = $this->inventory_model->get_storage_by_id($id);
         
-        $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
+        $this->form_validation->set_rules('biohazard_id', 'ID No.', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('risk_group', 'Risk Group', 'required');
-        $this->form_validation->set_rules('location', 'Location', 'required');
-        $this->form_validation->set_rules('biohazard_source', 'Biohazard Source', 'required');
+        $this->form_validation->set_rules('location', 'Location / Supplier Name', 'required');
+        $this->form_validation->set_rules('biohazard_source', 'Source of Biohazardous Material', 'required');
         $this->form_validation->set_rules('date_created', 'Date', 'required');
         $this->form_validation->set_rules('storage_location', 'Storage Location', 'required');
-        $this->form_validation->set_rules('keeper_name', 'Keeper Name', 'required');
+        $this->form_validation->set_rules('keeper_name', 'Keeper\'s Name', 'required');
         $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
         
         # Submit form
@@ -121,7 +140,7 @@ class inventory extends CI_Controller {
             );
             
             if($this->inventory_model->update_storage($id, $data)){
-                $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Storage Modified", "Storage has been modified by: " . $this->session->userdata('account_name'));
+                $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 4, "Storage Modified", "Storage has been modified by: " . $this->session->userdata('account_name'));
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully edited a storage!</div>');
                 redirect('inventory/index2');
             } else {
@@ -140,8 +159,8 @@ class inventory extends CI_Controller {
         #$details = $this->inventory_model->get_inventory_by_id($id);
         
         if( $this->inventory_model->delete_item($id, 1) ){
-            $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Inventory Deleted", "Inventory has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
-            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the inventory item!</div>');
+            $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 4, "Inventory Deleted", "Inventory has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the chosen inventory item!</div>');
             redirect('inventory/index');
         } else {
             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
@@ -158,8 +177,8 @@ class inventory extends CI_Controller {
         #$details = $this->inventory_model->get_storage_by_id($id);
         
         if( $this->inventory_model->delete_item($id, 2) ){
-            $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 2, "Storage Deleted", "Storage has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
-            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the storage item!</div>');
+            $this->notification_model->insert_new_notification($this->session->userdata('account_id'), 4, "Storage Deleted", "Storage has been deleted by: " . $this->session->userdata('account_name') . ", due to: " . $msg);
+            $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully deleted the chosen storage item!</div>');
             redirect('inventory/index2');
         } else {
             $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
@@ -170,16 +189,16 @@ class inventory extends CI_Controller {
     public function new_inventory() {	
 //breadcrumb
             $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('New Inventory Application', true);	
+            $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);	
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
  
         $this->form_validation->set_rules('program', 'Program', 'required');
         $this->form_validation->set_rules('program_type', 'Program Type', 'required');
-        $this->form_validation->set_rules('biohazard_type', 'Biohazard Type', 'required');
+        $this->form_validation->set_rules('biohazard_type', 'Biohazard Material Type', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
         $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
-        $this->form_validation->set_rules('keeper_name', 'Keeper Name', 'required');
+        $this->form_validation->set_rules('keeper_name', 'Keeper\'s Name', 'required');
         
         # Submit form
         if($this->form_validation->run() == FALSE){
@@ -197,6 +216,7 @@ class inventory extends CI_Controller {
                 'project_title' => $this->input->post('project_title'),
                 'project_reference_no' => $this->input->post('project_reference_no'),
                 'biohazard_type' => $this->input->post('biohazard_type'),
+                'biohazard_type_others' => $this->input->post('biohazard_type_others'),
                 'biohazard_name' => $this->input->post('biohazard_name'),
                 'biohazard_id' => $this->input->post('biohazard_id'),
                 'date_received' => $this->input->post('date_received'),
@@ -206,7 +226,8 @@ class inventory extends CI_Controller {
             );
             
             if($this->inventory_model->insert_new_inventory($data)){
-                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully applied for a new inventory!</div>');
+                $this->notification_model->insert_new_notification( $this->session->userdata('account_id'), 4, "New Inventory Added", "A new inventory: " . $this->input->post('biohazard_name') . " has been added by: " . $this->session->userdata('account_name') );
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your details have been successfully saved in the Inventory Database.</div>');
                 redirect('inventory/new_inventory');
             } else {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
@@ -218,18 +239,18 @@ class inventory extends CI_Controller {
     public function new_storage() {
 		//breadcrumb
             $this->breadcrumbs->unshift('Home', '/');	
-            $this->breadcrumbs->push('New Storage Application', true);
+            $this->breadcrumbs->push('Swinburne Sarawak LMO & Biohazardous Material Database', true);
 		
         $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
         
-        $this->form_validation->set_rules('biohazard_id', 'Biohazard ID', 'required');
+        $this->form_validation->set_rules('biohazard_id', 'ID No.', 'required');
         $this->form_validation->set_rules('biohazard_name', 'Biohazard Name', 'required');
         $this->form_validation->set_rules('risk_group', 'Risk Group', 'required');
-        $this->form_validation->set_rules('location', 'Location', 'required');
-        $this->form_validation->set_rules('biohazard_source', 'Biohazard Source', 'required');
+        $this->form_validation->set_rules('location', 'Location / Supplier Name', 'required');
+        $this->form_validation->set_rules('biohazard_source', 'Source of Biohazardous Material', 'required');
         $this->form_validation->set_rules('date_created', 'Date', 'required');
         $this->form_validation->set_rules('storage_location', 'Storage Location', 'required');
-        $this->form_validation->set_rules('keeper_name', 'Keeper Name', 'required');
+        $this->form_validation->set_rules('keeper_name', 'Keeper\'s Name', 'required');
         $this->form_validation->set_rules('log_in_personnel', 'Log In Personnel', 'required');
         
         # Submit form
@@ -252,7 +273,8 @@ class inventory extends CI_Controller {
             );
             
             if($this->inventory_model->insert_new_storage($data)){
-                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully applied for a new storage!</div>');
+                $this->notification_model->insert_new_notification( $this->session->userdata('account_id'), 4, "New Storage Added", "A new storage: " . $this->input->post('biohazard_name') . " has been added by: " . $this->session->userdata('account_name') );
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Your details have been successfully saved in the Storage Database.</div>');
                 redirect('inventory/new_storage');
             } else {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');

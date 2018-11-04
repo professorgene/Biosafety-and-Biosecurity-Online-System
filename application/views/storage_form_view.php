@@ -59,11 +59,17 @@ if(!$this->session->userdata('isLogin')){
 	<hr>
         <div class="text-center row">
             <div class="col-md-3">
+                <a href="<?php echo base_url(); ?>index.php/inventory/stats"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Statistics</button></a>
+            </div>
+            <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/index"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Inventory Database</button></a>
             </div>
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/index2"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">Storage Database</button></a>
             </div>
+        </div>
+        <br/>
+        <div class="text-center row">
             <div class="col-md-3">
                 <a href="<?php echo base_url(); ?>index.php/inventory/new_inventory"><button class="btn btn-info button_right" style="display:inline-block;width:225px;">New Inventory Application</button></a>
             </div>
@@ -98,7 +104,7 @@ if(!$this->session->userdata('isLogin')){
                         <br/>
                         <div class="form-group">
                             <label for="biohazardid">ID No.:</label>
-                            <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the biohazard id here." type="text" value="<?php echo set_value('biohazard_id', $form_biohazard_id); ?>" />
+                            <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the ID No. here." type="text" value="<?php echo set_value('biohazard_id', $form_biohazard_id); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_id'); ?></span>
                         </div>
                     
@@ -110,19 +116,22 @@ if(!$this->session->userdata('isLogin')){
                     
                         <div class="form-group">
                             <label for="riskgroup">Risk Group:</label>
-                            <input class="form-control" id="riskgroup" name="risk_group" placeholder="Enter risk group here." type="text" value="<?php echo set_value('risk_group', $form_risk_group); ?>" />
+                            <select class="form-control" id="riskgroup" name="risk_group">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                            </select>
                             <span class="text-danger"><?php echo form_error('risk_group'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="locationname">Location:</label>
-                            <input class="form-control" id="locationname" name="location" placeholder="Enter location here." type="text" value="<?php echo set_value('location', $form_location); ?>" />
+                            <label for="locationname">Location of Collection / Supplier Name:</label>
+                            <input class="form-control" id="locationname" name="location" placeholder="Enter location / supplier name here." type="text" value="<?php echo set_value('location', $form_location); ?>" />
                             <span class="text-danger"><?php echo form_error('location'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="biohazardsource">Source of Biohazardous Material:</label>
-                            <input class="form-control" id="biohazardsource" name="biohazard_source" placeholder="Enter biohazard source here." type="text" value="<?php echo set_value('biohazard_source', $form_biohazard_source); ?>" />
+                            <input class="form-control" id="biohazardsource" name="biohazard_source" placeholder="Enter the source of biohazardous material here." type="text" value="<?php echo set_value('biohazard_source', $form_biohazard_source); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_source'); ?></span>
                         </div>
                     
@@ -140,13 +149,13 @@ if(!$this->session->userdata('isLogin')){
                     
                         <div class="form-group">
                             <label for="keepername">Keeper Name:</label>
-                            <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper name here." type="text" value="<?php echo set_value('keeper_name', $form_keeper_name); ?>" />
+                            <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper's name here." type="text" value="<?php echo set_value('keeper_name', $form_keeper_name); ?>" />
                             <span class="text-danger"><?php echo form_error('keeper_name'); ?></span>
                         </div>
                     
                         <div class="form-group">
                             <label for="loginpersonnel">Log In Personnel:</label>
-                            <input class="form-control" id="loginpersonnel" name="log_in_personnel" placeholder="Enter the log in personnel here." type="text" value="<?php echo set_value('log_in_personnel', $form_log_in_personnel); ?>" />
+                            <input class="form-control" id="loginpersonnel" name="log_in_personnel" placeholder="Enter the log in personnel name here." type="text" value="<?php echo set_value('log_in_personnel', $form_log_in_personnel); ?>" />
                             <span class="text-danger"><?php echo form_error('log_in_personnel'); ?></span>
                         </div>
 
@@ -164,5 +173,10 @@ if(!$this->session->userdata('isLogin')){
             </div>
         <br/>
     </div>
+    
+    <script>
+        document.getElementById("riskgroup").value = "<?php echo $form_risk_group; ?>";
+    </script>
+    
 </body>
 </html>
