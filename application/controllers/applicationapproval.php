@@ -109,133 +109,134 @@ class applicationapproval extends CI_Controller {
         $q2 = $this->comment_model->get_comment_by_project_id($appID);
         
         if($q2->no_of_ssbc == 1){
-            if($q1->ssbc1_approver_id == null && $q1->ssbc1_approver_id != $this->session->userdata('account_id') ){
-                # do projectapproval update based on approve / reject 
+            if($q1->ssbc1_mem == null ){
+                # do projectapproval update based on approve / reject
+                $this->project_model->update_ssbc1($appID, 1);
                 $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
                 
             }
         } elseif ($q2->no_of_ssbc == 2){
-            if($q1->ssbc2_approver_id == null && $q1->ssbc2_approver_id != $this->session->userdata('account_id') ){
-                if($q1->ssbc1_approver_id != null && $q1->ssbc1_approver_id != $this->session->userdata('account_id') ){
-                    # calculate ssbcagreement with an if else statement to see if it is >5 or <=5
-                    $this->project_model->increment_agreement($appID); 
+            if($q1->ssbc2_mem == null ){
+                if($q1->ssbc1_mem != null ){
                     
-                    # do projectapproval update based on approve / reject
-                    if($q1->ssbc_agreement > 5){
+                    $this->project_model->update_ssbc2($appID, 1);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem;
+                    $average = $add / 2;
+                    
+                    if($average > 0.5){
                         $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
                         
-                    }elseif($q1->ssbc_agreement <= 5){
+                    }elseif($average <= 0.5){
                         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
                         
                     }
                     
                 } else {
                     # do ssbc1 = this approver id 
-                    $this->project_model->update_ssbc1($appID, $approver_id);
+                    $this->project_model->update_ssbc1($appID, 1);
                     
-                    # do ssbcagreement update ()
-                    $this->project_model->increment_agreement($appID); 
                     
                 }
                 
             }
         } elseif ($q2->no_of_ssbc == 3){
-            if($q1->ssbc3_approver_id == null && $q1->ssbc3_approver_id != $this->session->userdata('account_id') ){
-                if($q1->ssbc2_approver_id != null && $q1->ssbc2_approver_id != $this->session->userdata('account_id') ){
-                    # calculate ssbcagreement with an if else statement to see if it is >5 or <=5
-                    $this->project_model->increment_agreement($appID); 
+            if($q1->ssbc3_mem == null ){
+                if($q1->ssbc2_mem != null ){
+                   
+                    $this->project_model->update_ssbc3($appID, 1);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem + $q1->ssbc3_mem;
+                    $average = $add / 3;
                     
-                    # do projectapproval update based on approve / reject
-                    if($q1->ssbc_agreement > 5){
+                    
+                    if($average > 0.5){
                         $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
                         
-                    }elseif($q1->ssbc_agreement <= 5){
+                    }elseif($average <= 0.5){
                         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
                         
                     }
                     
-                } elseif($q1->ssbc1_approver_id != null && $q1->ssbc1_approver_id != $this->session->userdata('account_id') ){
+                } elseif($q1->ssbc1_mem != null ){
                     
-                    $this->project_model->update_ssbc2($appID, $approver_id);
-                    $this->project_model->increment_agreement($appID); 
+                    $this->project_model->update_ssbc2($appID, 1);
+                    
                     
                 }else {
                     # do ssbc1 = this approver id 
-                    $this->project_model->update_ssbc1($appID, $approver_id);
+                    $this->project_model->update_ssbc1($appID, 1);
                     
-                    # do ssbcagreement update ()
-                    $this->project_model->increment_agreement($appID); 
                     
                 }
                 
             }
         } elseif ($q2->no_of_ssbc == 4){
-            if($q1->ssbc4_approver_id == null && $q1->ssbc4_approver_id != $this->session->userdata('account_id') ){
-                if($q1->ssbc3_approver_id != null && $q1->ssbc3_approver_id != $this->session->userdata('account_id') ){
+            if($q1->ssbc4_mem == null ){
+                if($q1->ssbc3_mem != null){
                     
-                    $this->project_model->increment_agreement($appID); 
+                    $this->project_model->update_ssbc4($appID, 1);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem + $q1->ssbc3_mem + $q1->ssbc4_mem;
+                    $average = $add / 4;
                     
-                    if($q1->ssbc_agreement > 5){
+                    
+                    if($q1->ssbc_agreement > 0.5){
                         $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
                         
-                    }elseif($q1->ssbc_agreement <= 5){
+                    }elseif($q1->ssbc_agreement <= 0.5){
                         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
                         
                     }
                     
-                } elseif($q1->ssbc2_approver_id != null && $q1->ssbc2_approver_id != $this->session->userdata('account_id') ){
+                } elseif($q1->ssbc2_mem != null){
                     
-                    $this->project_model->update_ssbc3($appID, $approver_id);
-                    $this->project_model->increment_agreement($appID); 
+                    $this->project_model->update_ssbc3($appID, 1);
                     
-                } elseif($q1->ssbc1_approver_id != null && $q1->ssbc1_approver_id != $this->session->userdata('account_id') ){
                     
-                    $this->project_model->update_ssbc2($appID, $approver_id);
-                    $this->project_model->increment_agreement($appID); 
+                } elseif($q1->ssbc1_mem != null ){
+                    
+                    $this->project_model->update_ssbc2($appID, 1);
                     
                 } else {
                     
-                    $this->project_model->update_ssbc1($appID, $approver_id);
+                    $this->project_model->update_ssbc1($appID, 1);
                     
-                    $this->project_model->increment_agreement($appID); 
                     
                 }
                 
             }
         } elseif ($q2->no_of_ssbc == 5){
-            if($q1->ssbc5_approver_id == null && $q1->ssbc5_approver_id != $this->session->userdata('account_id') ){
-                if($q1->ssbc4_approver_id != null && $q1->ssbc4_approver_id != $this->session->userdata('account_id') ){
+            if($q1->ssbc5_mem == null){
+                if($q1->ssbc4_mem != null ){
                     
-                    $this->project_model->increment_agreement($appID); 
+                    $this->project_model->update_ssbc5($appID, 1);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem + $q1->ssbc3_mem + $q1->ssbc4_mem + $q1->ssbc5_mem;
+                    $average = $add / 5;
+
                     
-                    if($q1->ssbc_agreement > 5){
+                    if($q1->ssbc_agreement > 0.5){
                         $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
                         
-                    }elseif($q1->ssbc_agreement <= 5){
+                    }elseif($q1->ssbc_agreement <= 0.5){
                         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
                         
                     }
                     
-                } elseif($q1->ssbc3_approver_id != null && $q1->ssbc3_approver_id != $this->session->userdata('account_id') ){
+                } elseif($q1->ssbc3_mem != null ){
                     
-                    $this->project_model->update_ssbc4($appID, $approver_id);
-                    $this->project_model->increment_agreement($appID); 
+                    $this->project_model->update_ssbc4($appID, 1);
                     
-                } elseif($q1->ssbc2_approver_id != null && $q1->ssbc2_approver_id != $this->session->userdata('account_id') ){
                     
-                    $this->project_model->update_ssbc3($appID, $approver_id);
-                    $this->project_model->increment_agreement($appID); 
+                } elseif($q1->ssbc2_mem != null ){
                     
-                } elseif($q1->ssbc1_approver_id != null && $q1->ssbc1_approver_id != $this->session->userdata('account_id') ){
+                    $this->project_model->update_ssbc3($appID, 1);
                     
-                    $this->project_model->update_ssbc2($appID, $approver_id);
-                    $this->project_model->increment_agreement($appID); 
+                } elseif($q1->ssbc1_mem != null){
+                    
+                    $this->project_model->update_ssbc2($appID, 1); 
                     
                 } else {
                     
-                    $this->project_model->update_ssbc1($appID, $approver_id);
+                    $this->project_model->update_ssbc1($appID, 1);
                     
-                    $this->project_model->increment_agreement($appID); 
                     
                 }
                 
@@ -255,16 +256,149 @@ class applicationapproval extends CI_Controller {
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(4));
         $result = $this->account_model->get_account_by_id($id);
-        $this->annex2_model->update_approval_SSBC($id, 0, $approver_id, $appID);
-        $this->forme_model->update_approval_SSBC($id, 0, $approver_id, $appID);
-        $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
-        $this->pc1_model->update_approval_SSBC($id, 0, $approver_id, $appID);
-        $this->pc2_model->update_approval_SSBC($id, 0, $approver_id, $appID);
-        $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+        
+        $q1 = $this->project_model->get_sub_proj_by_user_id($appID);
+        $q2 = $this->comment_model->get_comment_by_project_id($appID);
+        
+        if($q2->no_of_ssbc == 1){
+            if($q1->ssbc1_mem == null ){
+                # do projectapproval update based on approve / reject
+                $this->project_model->update_ssbc1($appID, 0);
+                $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+                
+            }
+        } elseif ($q2->no_of_ssbc == 2){
+            if($q1->ssbc2_mem == null ){
+                if($q1->ssbc1_mem != null ){
+                    
+                    $this->project_model->update_ssbc2($appID, 0);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem;
+                    $average = $add / 2;
+                    
+                    if($average > 0.5){
+                        $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+                        
+                    }elseif($average <= 0.5){
+                        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+                        
+                    }
+                    
+                } else {
+                    # do ssbc1 = this approver id 
+                    $this->project_model->update_ssbc1($appID, 0);
+                    
+                    
+                }
+                
+            }
+        } elseif ($q2->no_of_ssbc == 3){
+            if($q1->ssbc3_mem == null ){
+                if($q1->ssbc2_mem != null ){
+                   
+                    $this->project_model->update_ssbc3($appID, 0);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem + $q1->ssbc3_mem;
+                    $average = $add / 3;
+                    
+                    
+                    if($average > 0.5){
+                        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+                        
+                    }elseif($average <= 0.5){
+                        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+                        
+                    }
+                    
+                } elseif($q1->ssbc1_mem != null ){
+                    
+                    $this->project_model->update_ssbc2($appID, 0);
+                    
+                    
+                }else {
+                    # do ssbc1 = this approver id 
+                    $this->project_model->update_ssbc1($appID, 0);
+                    
+                    
+                }
+                
+            }
+        } elseif ($q2->no_of_ssbc == 4){
+            if($q1->ssbc4_mem == null ){
+                if($q1->ssbc3_mem != null){
+                    
+                    $this->project_model->update_ssbc4($appID, 0);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem + $q1->ssbc3_mem + $q1->ssbc4_mem;
+                    $average = $add / 4;
+                    
+                    
+                    if($q1->ssbc_agreement > 0.5){
+                        $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+                        
+                    }elseif($q1->ssbc_agreement <= 0.5){
+                        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+                        
+                    }
+                    
+                } elseif($q1->ssbc2_mem != null){
+                    
+                    $this->project_model->update_ssbc3($appID, 0);
+                    
+                    
+                } elseif($q1->ssbc1_mem != null ){
+                    
+                    $this->project_model->update_ssbc2($appID, 0);
+                    
+                } else {
+                    
+                    $this->project_model->update_ssbc1($appID, 0);
+                    
+                    
+                }
+                
+            }
+        } elseif ($q2->no_of_ssbc == 5){
+            if($q1->ssbc5_mem == null){
+                if($q1->ssbc4_mem != null ){
+                    
+                    $this->project_model->update_ssbc5($appID, 0);
+                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem + $q1->ssbc3_mem + $q1->ssbc4_mem + $q1->ssbc5_mem;
+                    $average = $add / 5;
+
+                    
+                    if($q1->ssbc_agreement > 0.5){
+                        $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+                        
+                    }elseif($q1->ssbc_agreement <= 0.5){
+                        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+                        
+                    }
+                    
+                } elseif($q1->ssbc3_mem != null ){
+                    
+                    $this->project_model->update_ssbc4($appID, 0);
+                    
+                    
+                } elseif($q1->ssbc2_mem != null ){
+                    
+                    $this->project_model->update_ssbc3($appID, 0);
+                    
+                } elseif($q1->ssbc1_mem != null){
+                    
+                    $this->project_model->update_ssbc2($appID, 0); 
+                    
+                } else {
+                    
+                    $this->project_model->update_ssbc1($appID, 0);
+                    
+                    
+                }
+                
+            }
+        }
+        
         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Rejected", "<p>Your New Project Application for LMO Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        //$this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Rejected", "<p>Your New Project Application for LMO Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
         redirect('applicationapproval/index');
     }

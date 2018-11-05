@@ -224,64 +224,46 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
-    function update_ssbc1($id, $approver_id)
+    function update_ssbc1($id, $type)
     {
-        $data = array('ssbc1_approver_id' => $approver_id);
+        $data = array('ssbc1_mem' => $type);
         $this->db->where('project_id', $id);
         $this->db->update('project', $data);
         
         return true;
     }
     
-    function update_ssbc2($id, $approver_id)
+    function update_ssbc2($id, $type)
     {
-        $data = array('ssbc2_approver_id' => $approver_id);
+        $data = array('ssbc2_mem' => $type);
         $this->db->where('project_id', $id);
         $this->db->update('project', $data);
         
         return true;
     }
     
-    function update_ssbc3($id, $approver_id)
+    function update_ssbc3($id, $type)
     {
-        $data = array('ssbc3_approver_id' => $approver_id);
+        $data = array('ssbc3_approver_id' => $type);
         $this->db->where('project_id', $id);
         $this->db->update('project', $data);
         
         return true;
     }
     
-    function update_ssbc4($id, $approver_id)
+    function update_ssbc4($id, $type)
     {
-        $data = array('ssbc4_approver_id' => $approver_id);
+        $data = array('ssbc4_approver_id' => $type);
         $this->db->where('project_id', $id);
         $this->db->update('project', $data);
         
         return true;
     }
     
-    function update_ssbc5($id, $approver_id)
+    function update_ssbc5($id, $type)
     {
-        $data = array('ssbc5_approver_id' => $approver_id);
+        $data = array('ssbc5_approver_id' => $type);
         $this->db->where('project_id', $id);
-        $this->db->update('project', $data);
-        
-        return true;
-    }
-    
-    function increment_agreement($id)
-    {
-        $this->db->where('project_id', $id);
-        $this->db->set('ssbc_agreement', 'ssbc_agreement+1', FALSE);
-        $this->db->update('project', $data);
-        
-        return true;
-    }
-    
-    function decrease_agreement($id)
-    {
-        $this->db->where('project_id', $id);
-        $this->db->set('ssbc_agreement', 'ssbc_agreement-1', FALSE);
         $this->db->update('project', $data);
         
         return true;
@@ -354,7 +336,7 @@ class project_model extends CI_Model
         $this->db->join('accounts', 'project.account_id = accounts.account_id');
         $this->db->join('comments', 'project.project_id = comments.comment_id');
         $this->db->where('project.project_approval', 1);
-        $this->db->or_where('project.ssbc_agreement >' , 5);
+        $this->db->or_where('project.project_approval', 3);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'app_lmo');
         $query = $this->db->get();

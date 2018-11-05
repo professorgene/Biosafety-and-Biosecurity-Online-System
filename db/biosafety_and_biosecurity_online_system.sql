@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2018 at 03:18 PM
+-- Generation Time: Nov 05, 2018 at 04:13 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -23,7 +23,6 @@ SET time_zone = "+00:00";
 --
 
 -- --------------------------------------------------------
-
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
 USE biosafety_and_biosecurity_online_system;
 --
@@ -478,7 +477,7 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comment_id`, `comment_type`, `annex2_comment`, `forme_comment`, `pc1_comment`, `pc2_comment`, `hirarc_comment`, `swp_comment`, `biohazard_comment`, `exempt_comment`, `procurement_comment`, `notif_of_LMO_BM_comment`, `formf_comment`, `notif_of_export_bio_comment`, `incident_accident_comment`, `annex3_comment`, `annex4_comment`, `annual_report_comment`, `no_of_ssbc`) VALUES
-(29, 'app_lmo', 'ssbc', 'form e comments', 'pc1 comments', 'pc2 comments', 'hirarc comments', 'swp comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2);
+(29, 'app_lmo', 'ssbc change', 'form e comments', 'pc1 comments', 'pc2 comments', 'hirarc comments', 'swp comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -1262,7 +1261,8 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (85, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 21:44:35', 0),
 (86, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 21:48:46', 0),
 (87, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 21:50:26', 0),
-(88, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 22:05:04', 0);
+(88, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 22:05:04', 0),
+(89, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 23:13:12', 0);
 
 -- --------------------------------------------------------
 
@@ -1599,14 +1599,13 @@ CREATE TABLE `project` (
   `approver_id` int(10) UNSIGNED DEFAULT NULL,
   `BSO_approver_id` int(10) UNSIGNED DEFAULT NULL,
   `Chair_approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `ssbc1_approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `ssbc2_approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `ssbc3_approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `ssbc4_approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `ssbc5_approver_id` int(10) UNSIGNED DEFAULT NULL,
+  `ssbc1_mem` int(1) UNSIGNED DEFAULT NULL,
+  `ssbc2_mem` int(1) UNSIGNED DEFAULT NULL,
+  `ssbc3_mem` int(1) UNSIGNED DEFAULT NULL,
+  `ssbc4_mem` int(1) UNSIGNED DEFAULT NULL,
+  `ssbc5_mem` int(1) UNSIGNED DEFAULT NULL,
   `HSO_approver_id` int(10) UNSIGNED DEFAULT NULL,
   `Lab_approver_id` int(10) UNSIGNED DEFAULT NULL,
-  `ssbc_agreement` int(2) DEFAULT '5',
   `project_name` varchar(200) DEFAULT NULL,
   `project_desc` varchar(500) DEFAULT NULL,
   `project_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -1623,48 +1622,48 @@ CREATE TABLE `project` (
 -- Dumping data for table `project`
 --
 
-INSERT INTO `project` (`project_id`, `approver_id`, `BSO_approver_id`, `Chair_approver_id`, `ssbc1_approver_id`, `ssbc2_approver_id`, `ssbc3_approver_id`, `ssbc4_approver_id`, `ssbc5_approver_id`, `HSO_approver_id`, `Lab_approver_id`, `ssbc_agreement`, `project_name`, `project_desc`, `project_date`, `project_type`, `account_id`, `project_approval`, `project_status`, `project_editable`, `project_duration`, `approval_date`) VALUES
-(29, 6, 3, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, 2, 'submitted', 1, NULL, NULL),
-(30, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'New Type Porject', 'asascassabfebdfb ', '2018-10-14 06:15:21', 'app_lmo', 2, 1, 'submitted', 0, NULL, NULL),
-(33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Biohazard Test Save Project', 'Test if biohazard project can be saved', '2018-10-14 15:35:29', 'app_bio', 2, 0, 'deleted', 0, NULL, NULL),
-(34, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Biohazard submit', 'Biohazardous submit function', '2018-10-14 15:37:44', 'app_bio', 2, 0, 'submitted', 0, NULL, NULL),
-(36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0, NULL, NULL),
-(37, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0, NULL, NULL),
-(41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'submitted', 0, NULL, NULL),
-(42, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Procurement submit', 'ascacascasc', '2018-12-14 16:00:00', 'procurement', 2, 0, 'submitted', 0, NULL, NULL),
-(43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Notifcation of LMO and BM save', 'Test save function for notification of LMO and BM', '2018-10-16 06:16:56', 'notifLMOBM', 2, 0, 'saved', 0, NULL, NULL),
-(44, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'New Submit For Notification of LMO and BM', 'test submit', '2018-10-16 07:19:54', 'notifLMOBM', 2, 0, 'submitted', 1, NULL, NULL),
-(47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'annual save', 'test save', '2018-10-16 13:24:16', 'anuualfinalreport', 2, 0, 'saved', 0, NULL, NULL),
-(48, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test submit anual', 'acscac', '2018-10-16 13:32:34', 'anuualfinalreport', 2, 0, 'submitted', 0, NULL, NULL),
-(50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Form F test save', 'ksjdvmsdmv', '2018-10-16 14:48:20', 'exportLMO', 2, 0, 'saved', 0, NULL, NULL),
-(51, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test Form F submit', 'Sajinasc', '2018-10-16 14:51:43', 'exportLMO', 2, 0, 'submitted', 0, NULL, NULL),
-(52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test save export exempt', 'advdvdx', '2018-10-16 15:59:05', 'exportExempt', 2, 0, 'saved', 0, NULL, NULL),
-(53, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test export exempt submit', 'vsdvsdv', '2018-10-16 16:04:54', 'exportExempt', 2, 0, 'submitted', 0, NULL, NULL),
-(55, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test exempt incident save', 'scscsdcd', '2018-10-16 17:17:35', 'incidentExempt', 2, 0, 'saved', 0, NULL, NULL),
-(56, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Exempt incident submit', 'sdgvdsvgd', '2018-10-16 17:20:49', 'incidentExempt', 2, 0, 'submitted', 0, NULL, NULL),
-(57, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'New minor save', 'asdcfsc', '2018-10-16 18:22:43', 'minorbio', 2, 0, 'saved', 0, NULL, NULL),
-(58, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'minor submit', 'bfgftrjt6jngf', '2018-10-16 18:24:45', 'minorbio', 2, 0, 'submitted', 0, NULL, NULL),
-(59, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'major save', 'dksmvsv', '2018-10-16 19:07:48', 'majorbio', 2, 0, 'saved', 0, NULL, NULL),
-(60, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'major submit', 'sfascf', '2018-10-16 19:12:50', 'majorbio', 2, 0, 'submitted', 0, NULL, NULL),
-(61, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'occupational disease save', 'wndfnmvswd', '2018-10-16 19:58:09', 'occupational', 2, 0, 'saved', 0, NULL, NULL),
-(62, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'disease submit', 'scscc', '2018-10-16 19:59:26', 'occupational', 2, 0, 'submitted', 0, NULL, NULL),
-(63, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'project one', 'project testing', '2018-10-17 02:04:55', 'app_lmo', 2, 0, NULL, 0, NULL, NULL),
-(64, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Bacteria', 'HAUSHAUBDANXXAJ', '2018-10-17 02:12:31', 'app_lmo', 2, 0, NULL, 0, NULL, NULL),
-(65, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test Date Insertion', 'Testing if can saved approval date into database', '2018-10-23 08:42:10', 'app_lmo', 2, 4, NULL, 0, 2, '2018-10-23'),
-(66, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Test Save', 'Input Format test', '2018-10-26 14:07:07', 'app_lmo', 2, 0, 'saved', 0, 1, NULL),
-(68, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Forme radio', 'form e radio button empty', '2018-10-26 15:43:25', 'app_lmo', 2, 0, 'deleted', 0, 1, NULL),
-(69, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'New LMO', 'Just testing for saved projects', '2018-10-28 10:25:47', 'app_lmo', 2, 0, 'saved', 0, 1, NULL),
-(70, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'new lmo project', 'jdnknsdk', '2018-10-30 06:36:42', 'app_lmo', 2, 0, 'deleted', 0, 1, NULL),
-(71, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Biohazardous application', 'Blalakalal', '2018-11-01 03:17:11', 'app_bio', 2, 0, NULL, 0, 1, NULL),
-(72, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Biohazardous application', 'Blalakalal', '2018-11-01 03:17:39', 'app_bio', 2, 0, NULL, 0, 1, NULL),
-(73, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Biohazardous application', 'Blalakalal', '2018-11-01 03:28:14', 'app_bio', 2, 0, 'saved', 0, 1, NULL),
-(74, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'adwd', 'wdwsd', '2018-11-01 11:12:09', 'app_lmo', 2, 0, 'deleted', 0, 2, NULL),
-(75, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'Notif of LMO and BM', 'Test if new format changes anything', '2018-11-02 01:06:07', 'notifLMOBM', 2, 0, 'saved', 0, 1, NULL),
-(76, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'new procurement', 'acscasc', '2018-11-02 15:11:50', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
-(77, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'new procurement test 2', 'afsccfaas', '2018-11-02 15:12:17', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
-(78, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 'New notif test 2', 'ascac', '2018-11-02 15:12:35', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
-(79, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 'Test save/submit for LMO', 'ascscsa', '2018-11-04 05:15:57', 'app_lmo', 3, 0, 'saved', 0, 1, NULL),
-(80, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, 'Test subit for LMO take 5', 'asfcsscs', '2018-11-04 12:07:56', 'app_lmo', 2, 0, 'submitted', 0, 1, NULL);
+INSERT INTO `project` (`project_id`, `approver_id`, `BSO_approver_id`, `Chair_approver_id`, `ssbc1_mem`, `ssbc2_mem`, `ssbc3_mem`, `ssbc4_mem`, `ssbc5_mem`, `HSO_approver_id`, `Lab_approver_id`, `project_name`, `project_desc`, `project_date`, `project_type`, `account_id`, `project_approval`, `project_status`, `project_editable`, `project_duration`, `approval_date`) VALUES
+(29, 6, 3, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, 2, 'submitted', 1, NULL, NULL),
+(30, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Type Porject', 'asascassabfebdfb ', '2018-10-14 06:15:21', 'app_lmo', 2, 1, 'submitted', 0, NULL, NULL),
+(33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazard Test Save Project', 'Test if biohazard project can be saved', '2018-10-14 15:35:29', 'app_bio', 2, 0, 'deleted', 0, NULL, NULL),
+(34, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazard submit', 'Biohazardous submit function', '2018-10-14 15:37:44', 'app_bio', 2, 0, 'submitted', 0, NULL, NULL),
+(36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0, NULL, NULL),
+(37, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0, NULL, NULL),
+(41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'submitted', 0, NULL, NULL),
+(42, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Procurement submit', 'ascacascasc', '2018-12-14 16:00:00', 'procurement', 2, 0, 'submitted', 0, NULL, NULL),
+(43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Notifcation of LMO and BM save', 'Test save function for notification of LMO and BM', '2018-10-16 06:16:56', 'notifLMOBM', 2, 0, 'saved', 0, NULL, NULL),
+(44, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Submit For Notification of LMO and BM', 'test submit', '2018-10-16 07:19:54', 'notifLMOBM', 2, 0, 'submitted', 1, NULL, NULL),
+(47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'annual save', 'test save', '2018-10-16 13:24:16', 'anuualfinalreport', 2, 0, 'saved', 0, NULL, NULL),
+(48, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test submit anual', 'acscac', '2018-10-16 13:32:34', 'anuualfinalreport', 2, 0, 'submitted', 0, NULL, NULL),
+(50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Form F test save', 'ksjdvmsdmv', '2018-10-16 14:48:20', 'exportLMO', 2, 0, 'saved', 0, NULL, NULL),
+(51, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test Form F submit', 'Sajinasc', '2018-10-16 14:51:43', 'exportLMO', 2, 0, 'submitted', 0, NULL, NULL),
+(52, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test save export exempt', 'advdvdx', '2018-10-16 15:59:05', 'exportExempt', 2, 0, 'saved', 0, NULL, NULL),
+(53, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test export exempt submit', 'vsdvsdv', '2018-10-16 16:04:54', 'exportExempt', 2, 0, 'submitted', 0, NULL, NULL),
+(55, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test exempt incident save', 'scscsdcd', '2018-10-16 17:17:35', 'incidentExempt', 2, 0, 'saved', 0, NULL, NULL),
+(56, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Exempt incident submit', 'sdgvdsvgd', '2018-10-16 17:20:49', 'incidentExempt', 2, 0, 'submitted', 0, NULL, NULL),
+(57, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New minor save', 'asdcfsc', '2018-10-16 18:22:43', 'minorbio', 2, 0, 'saved', 0, NULL, NULL),
+(58, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'minor submit', 'bfgftrjt6jngf', '2018-10-16 18:24:45', 'minorbio', 2, 0, 'submitted', 0, NULL, NULL),
+(59, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'major save', 'dksmvsv', '2018-10-16 19:07:48', 'majorbio', 2, 0, 'saved', 0, NULL, NULL),
+(60, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'major submit', 'sfascf', '2018-10-16 19:12:50', 'majorbio', 2, 0, 'submitted', 0, NULL, NULL),
+(61, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'occupational disease save', 'wndfnmvswd', '2018-10-16 19:58:09', 'occupational', 2, 0, 'saved', 0, NULL, NULL),
+(62, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'disease submit', 'scscc', '2018-10-16 19:59:26', 'occupational', 2, 0, 'submitted', 0, NULL, NULL),
+(63, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'project one', 'project testing', '2018-10-17 02:04:55', 'app_lmo', 2, 0, NULL, 0, NULL, NULL),
+(64, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Bacteria', 'HAUSHAUBDANXXAJ', '2018-10-17 02:12:31', 'app_lmo', 2, 0, NULL, 0, NULL, NULL),
+(65, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test Date Insertion', 'Testing if can saved approval date into database', '2018-10-23 08:42:10', 'app_lmo', 2, 4, NULL, 0, 2, '2018-10-23'),
+(66, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test Save', 'Input Format test', '2018-10-26 14:07:07', 'app_lmo', 2, 0, 'saved', 0, 1, NULL),
+(68, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Forme radio', 'form e radio button empty', '2018-10-26 15:43:25', 'app_lmo', 2, 0, 'deleted', 0, 1, NULL),
+(69, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New LMO', 'Just testing for saved projects', '2018-10-28 10:25:47', 'app_lmo', 2, 0, 'saved', 0, 1, NULL),
+(70, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new lmo project', 'jdnknsdk', '2018-10-30 06:36:42', 'app_lmo', 2, 0, 'deleted', 0, 1, NULL),
+(71, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazardous application', 'Blalakalal', '2018-11-01 03:17:11', 'app_bio', 2, 0, NULL, 0, 1, NULL),
+(72, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazardous application', 'Blalakalal', '2018-11-01 03:17:39', 'app_bio', 2, 0, NULL, 0, 1, NULL),
+(73, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazardous application', 'Blalakalal', '2018-11-01 03:28:14', 'app_bio', 2, 0, 'saved', 0, 1, NULL),
+(74, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'adwd', 'wdwsd', '2018-11-01 11:12:09', 'app_lmo', 2, 0, 'deleted', 0, 2, NULL),
+(75, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Notif of LMO and BM', 'Test if new format changes anything', '2018-11-02 01:06:07', 'notifLMOBM', 2, 0, 'saved', 0, 1, NULL),
+(76, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new procurement', 'acscasc', '2018-11-02 15:11:50', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
+(77, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new procurement test 2', 'afsccfaas', '2018-11-02 15:12:17', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
+(78, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New notif test 2', 'ascac', '2018-11-02 15:12:35', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
+(79, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test save/submit for LMO', 'ascscsa', '2018-11-04 05:15:57', 'app_lmo', 3, 0, 'saved', 0, 1, NULL),
+(80, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test subit for LMO take 5', 'asfcsscs', '2018-11-04 12:07:56', 'app_lmo', 2, 0, 'submitted', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1989,12 +1988,7 @@ ALTER TABLE `project`
   ADD KEY `BSO_approver_id` (`BSO_approver_id`),
   ADD KEY `Chair_approver_id` (`Chair_approver_id`),
   ADD KEY `HSO_approver_id` (`HSO_approver_id`),
-  ADD KEY `Lab_approver_id` (`Lab_approver_id`),
-  ADD KEY `ssbc1_approver_id` (`ssbc1_approver_id`),
-  ADD KEY `ssbc2_approver_id` (`ssbc2_approver_id`),
-  ADD KEY `ssbc3_approver_id` (`ssbc3_approver_id`),
-  ADD KEY `ssbc4_approver_id` (`ssbc4_approver_id`),
-  ADD KEY `ssbc5_approver_id` (`ssbc5_approver_id`);
+  ADD KEY `Lab_approver_id` (`Lab_approver_id`);
 
 --
 -- Indexes for table `storage`
@@ -2132,7 +2126,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=89;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -2264,16 +2258,7 @@ ALTER TABLE `notificationlmobiohazardousmaterial`
 --
 ALTER TABLE `project`
   ADD CONSTRAINT `account_id` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_10` FOREIGN KEY (`ssbc5_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_2` FOREIGN KEY (`BSO_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_3` FOREIGN KEY (`Chair_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_4` FOREIGN KEY (`HSO_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_5` FOREIGN KEY (`Lab_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_6` FOREIGN KEY (`ssbc1_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_7` FOREIGN KEY (`ssbc2_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_8` FOREIGN KEY (`ssbc3_approver_id`) REFERENCES `accounts` (`account_id`),
-  ADD CONSTRAINT `project_ibfk_9` FOREIGN KEY (`ssbc4_approver_id`) REFERENCES `accounts` (`account_id`);
+  ADD CONSTRAINT `project_ibfk_1` FOREIGN KEY (`approver_id`) REFERENCES `accounts` (`account_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
