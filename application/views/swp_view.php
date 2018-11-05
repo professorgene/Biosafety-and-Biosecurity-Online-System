@@ -32,10 +32,10 @@
                        </thead>
                        <tbody class="tblTitle2">
                            <tr>
-                               <td><input <?php if(isset($disabled)){echo "disabled";} ?> type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $swp->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                               <td><input type="text" class="form-control" onfocus="(this.type='date')" onblur="(this.type='text')" name="date_received" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('date_received', $swp->date_received);}else{echo set_value('date_received');} ?>" <?php if($this->session->userdata('account_type') != 4){echo "disabled";} ?> rows="1">
                                </td>
                                <td>
-                                   <input <?php if(isset($disabled)){echo "disabled";} ?> type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('SBC_reference_no', $swp->SBC_reference_no);}else{echo set_value('SBC_reference_no');} ?>" <?php if($this->session->userdata('account_type') != 2){echo "disabled";} ?> rows="1">
+                                   <input type="text" class="form-control" name="SBC_reference_no" placeholder="Office use only" value="<?php if(isset($load)){echo set_value('SBC_reference_no', $swp->SBC_reference_no);}else{echo set_value('SBC_reference_no');} ?>" <?php if($this->session->userdata('account_type') != 4){echo "disabled";} ?> rows="1">
                                </td>
                            </tr>
                        </tbody>

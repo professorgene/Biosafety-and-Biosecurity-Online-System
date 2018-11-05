@@ -126,19 +126,19 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <?php } ?>
                 
-                <?php if($this->session->userdata('account_type') != 3){ ?>
+                
                 <div class="form-group">
                     <label for="type">No. of SSBC members to review:</label>
-                    <select <?php if($this->session->userdata('account_type') != 3){echo "disabled"; }?> class="form-control" name="no_of_ssbc" >
-                        <option value="1" <?php if($comment->no_of_ssbc == 1){echo set_select('no_of_ssbc', '1', TRUE);} ?>>1</option>
-                        <option value="2" <?php if($comment->no_of_ssbc == 2){echo set_select('no_of_ssbc', '1', TRUE);} ?>>2</option>
-                        <option value="3" <?php if($comment->no_of_ssbc == 3){echo set_select('no_of_ssbc', '1', TRUE);} ?>>3</option>
-                        <option value="4" <?php if($comment->no_of_ssbc == 4){echo set_select('no_of_ssbc', '1', TRUE);} ?>>4</option>
-                        <option value="5" <?php if($comment->no_of_ssbc == 5){echo set_select('no_of_ssbc', '1', TRUE);} ?>>5</option>
+                    <select <?php if(isset($load)){if($this->session->userdata('account_type') == 3){echo "disabled"; }}?> class="form-control" name="no_of_ssbc" >
+                        <option value="1" <?php if(isset($load)){if($comment->no_of_ssbc == 1){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>1</option>
+                        <option value="2" <?php if(isset($load)){if($comment->no_of_ssbc == 2){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>2</option>
+                        <option value="3" <?php if(isset($load)){if($comment->no_of_ssbc == 3){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>3</option>
+                        <option value="4" <?php if(isset($load)){if($comment->no_of_ssbc == 4){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>4</option>
+                        <option value="5" <?php if(isset($load)){if($comment->no_of_ssbc == 5){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>5</option>
                         
                     </select>
                 </div>
-                <?php } ?>
+                
                 
                 <input type="hidden" name="project_id" value="<?php if(isset($row->project_id)){echo $row->project_id;} ?>">
                 <input type="hidden" name="project_type" value="<?php if(isset($row->project_type)){echo $row->project_type;} ?>">
