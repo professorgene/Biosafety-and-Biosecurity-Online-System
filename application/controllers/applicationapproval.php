@@ -100,46 +100,57 @@ class applicationapproval extends CI_Controller {
     public function approve2($id, $appID)
     {
         
-        
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         
-        $q1 = $this->project_model->get_sub_proj_by_user_id($appID);
-        $q2 = $this->comment_model->get_comment_by_project_id($appID);
+        $r1 = $this->project_model->get_sub_proj_by_proj_id($appID);
+        $r2 = $this->comment_model->get_comment_by_project_id($appID);
         
-        if($q2->no_of_ssbc == 1){
-            if($q1->ssbc1_mem == null ){
-                # do projectapproval update based on approve / reject
-                $this->project_model->update_ssbc1($appID, 1);
-                $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
-                
-            }
-        } elseif ($q2->no_of_ssbc == 2){
-            if($q1->ssbc2_mem == null ){
-                if($q1->ssbc1_mem != null ){
-                    
-                    $this->project_model->update_ssbc2($appID, 1);
-                    $add = $q1->ssbc1_mem + $q1->ssbc2_mem;
-                    $average = $add / 2;
-                    
-                    if($average > 0.5){
+        foreach ($r1 as $q1) {
+            foreach ($r2 as $q2) {
+                if( $q2->no_of_ssbc == 1 ){
+                    if($q1->SSBC_mem1_id == null ){
+                        # do projectapproval update based on approve / reject
+                        $this->project_model->update_ssbc1($appID, $approver_id, 1);
                         $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
-                        
-                    }elseif($average <= 0.5){
-                        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
-                        
+
                     }
-                    
-                } else {
-                    # do ssbc1 = this approver id 
-                    $this->project_model->update_ssbc1($appID, 1);
-                    
-                    
-                }
-                
+                } elseif ( $q2->no_of_ssbc == 2 ){
+                    if( $q1->SSBC_mem2_id == null ){
+                        if( $q1->SSBC_mem1_id != null && $q1->SSBC_mem1_id != $approver_id ){
+
+                            $this->project_model->update_ssbc2($appID, $approver_id, 1);
+                            
+                            $r3 = $this->project_model->get_sub_proj_by_proj_id($appID);
+                            foreach ( $r3 as $q3 ) {
+                                $add = $q3->SSBC_mem2_res + $q3->SSBC_mem1_res;
+                                $average = $add / 2;
+                            }
+
+                            if($average > 0.5){
+                                $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+                                #$this->session->set_flashdata('msg','<div class="alert alert-danger text-center">1</div>');
+                            }elseif($average <= 0.5){
+                                $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+                                #$this->session->set_flashdata('msg','<div class="alert alert-danger text-center">2</div>');
+                            }
+
+                        } elseif ( $q1->SSBC_mem1_id == $approver_id ) {
+                            #$this->session->set_flashdata('msg','<div class="alert alert-danger text-center">3</div>');
+                            #leave blank and tell user he has already approved it
+                            #redirect('applicationapproval/index');
+                        } else {
+                            # do ssbc1 = this approver id 
+                            $this->project_model->update_ssbc1($appID, $approver_id, 1);
+                            #$this->session->set_flashdata('msg','<div class="alert alert-danger text-center">4</div>');
+                            #redirect('applicationapproval/index');
+                        }
+
+                    }
+                } 
             }
-        } elseif ($q2->no_of_ssbc == 3){
+        } /* elseif ($q2->no_of_ssbc == 3){
             if($q1->ssbc3_mem == null ){
                 if($q1->ssbc2_mem != null ){
                    
@@ -242,6 +253,7 @@ class applicationapproval extends CI_Controller {
                 
             }
         }
+        */
         
         //Notify SSBC Chair that SSBC Members have reviewed and approved the form
         $this->notification_model->insert_new_notification(null, 2, "New Project Application for LMO Approved", "SSBC members have approved an application for an LMO project.");
@@ -257,19 +269,20 @@ class applicationapproval extends CI_Controller {
         $msg = base64_decode($this->uri->segment(4));
         $result = $this->account_model->get_account_by_id($id);
         
+        /*
         $q1 = $this->project_model->get_sub_proj_by_user_id($appID);
         $q2 = $this->comment_model->get_comment_by_project_id($appID);
         
         if($q2->no_of_ssbc == 1){
-            if($q1->ssbc1_mem == null ){
+            if($q1->SSBC_mem1_id == null ){
                 # do projectapproval update based on approve / reject
                 $this->project_model->update_ssbc1($appID, 0);
                 $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
                 
             }
         } elseif ($q2->no_of_ssbc == 2){
-            if($q1->ssbc2_mem == null ){
-                if($q1->ssbc1_mem != null ){
+            if($q1->SSBC_mem2_id == null ){
+                if($q1->SSBC_mem1_id != null ){
                     
                     $this->project_model->update_ssbc2($appID, 0);
                     $add = $q1->ssbc1_mem + $q1->ssbc2_mem;
@@ -394,6 +407,7 @@ class applicationapproval extends CI_Controller {
                 
             }
         }
+        */
         
         $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         

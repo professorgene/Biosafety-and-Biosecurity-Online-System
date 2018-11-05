@@ -190,6 +190,14 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
+    function get_sub_proj_by_proj_id($id)
+    {   
+        $this->db->where('project_id', $id);
+        $this->db->where('project_status', 'submitted');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     # Search saved project by user id
     function get_save_proj_by_user_id($id)
     {   
@@ -224,20 +232,20 @@ class project_model extends CI_Model
 		return $query->result();
     }
     
-    function update_ssbc1($id, $type)
+    function update_ssbc1($id, $approverid, $res)
     {
-        $data = array('ssbc1_mem' => $type);
+        #$data = array('SSBC_mem1_id' => $approverid);
         $this->db->where('project_id', $id);
-        $this->db->update('project', $data);
+        $this->db->update('project', array('SSBC_mem1_id' => $approverid, 'SSBC_mem1_res' => $res));
         
         return true;
     }
     
-    function update_ssbc2($id, $type)
+    function update_ssbc2($id, $approverid, $res)
     {
-        $data = array('ssbc2_mem' => $type);
+        #$data = array('SSBC_mem2_id' => $approverid);
         $this->db->where('project_id', $id);
-        $this->db->update('project', $data);
+        $this->db->update('project', array('SSBC_mem2_id' => $approverid, 'SSBC_mem2_res' => $res));
         
         return true;
     }
