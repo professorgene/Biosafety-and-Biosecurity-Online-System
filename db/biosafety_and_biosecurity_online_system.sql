@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2018 at 04:13 PM
+-- Generation Time: Nov 05, 2018 at 06:17 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.8
 
@@ -114,7 +114,7 @@ INSERT INTO `annex2` (`application_id`, `account_id`, `approver_id`, `form_type`
 (10, 2, NULL, 1, 74, 0, 'awdwsdaswdad', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'saved'),
 (11, 2, NULL, 1, 74, 0, 'awdwsdaswdad', '', '', '', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'saved'),
 (12, 3, NULL, 1, 79, 0, 'ascascasc', 'szvsdvsdvdvs', 'zdvdvdsvs', 'Test save / submit', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'saved'),
-(13, 2, NULL, 1, 80, 0, '', '', '', 'adsdadsw', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', NULL, 0, 'submitted');
+(13, 2, 3, 1, 80, 0, '', '', '', 'adsdadsw', 0, '', '', '', '', '', '', '', '', '', 0, '', '', '', '', 0, ',,,,', ',,,,', NULL, '', '0000-00-00', 1, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -477,7 +477,8 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comment_id`, `comment_type`, `annex2_comment`, `forme_comment`, `pc1_comment`, `pc2_comment`, `hirarc_comment`, `swp_comment`, `biohazard_comment`, `exempt_comment`, `procurement_comment`, `notif_of_LMO_BM_comment`, `formf_comment`, `notif_of_export_bio_comment`, `incident_accident_comment`, `annex3_comment`, `annex4_comment`, `annual_report_comment`, `no_of_ssbc`) VALUES
-(29, 'app_lmo', 'ssbc change', 'form e comments', 'pc1 comments', 'pc2 comments', 'hirarc comments', 'swp comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2);
+(29, 'app_lmo', 'ssbc change', 'form e comments', 'pc1 comments', 'pc2 comments', 'hirarc comments', 'swp comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2),
+(44, 'notifLMOBM', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Notification Of LMO and Biohazardous Materials Comments', NULL, NULL, NULL, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -756,7 +757,7 @@ INSERT INTO `forme` (`application_id`, `account_id`, `approver_id`, `form_type`,
 (9, 2, NULL, 8, 70, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '', '', '', NULL, '', '', NULL, 0, '', '', '', '', '', NULL, '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', '3', '3', '3', '3', '3', '3', '3', '0', NULL, NULL, 0, NULL, NULL, '0000-00-00', '', '', NULL, NULL, '0000-00-00', '', '', NULL, NULL, '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', NULL, NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', NULL, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
 (10, 2, NULL, 8, 74, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '                                                                                                ', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', '0', '0', '0', '0', '0', '0', '0', '0', NULL, NULL, 0, '', '', '0000-00-00', '', '', '', '', '0000-00-00', '', '', '', '', '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', '', NULL, '', '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,,,,<div style=\"border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;\">\r\n\r\n<h4>A PHP Error was encountered</h4>\r\n\r\n<p>Severity: Notice</p>\r\n<p>Message:  Uninitialized string offset: 3</p>\r\n<p>Filename: views/forme_view.php</p>\r\n<p>Line Number: 1438</p>\r\n\r\n\r\n	<p>Backtrace:</p>\r\n	\r\n		\r\n	\r\n		\r\n	\r\n		\r\n			<p style=\"margin-left:10px\">\r\n			File: C:\\xampp\\htdocs\\Biosafety-and-Biosecurity-Online-System\\application\\views\\forme_view.php<br />\r\n			Line: 1438<br />\r\n			Function: _error_handler			</', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
 (11, 3, NULL, 8, 79, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '                                                                                                    ', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '3IMG_20180910_113851.jpg', '0000-00-00', '', '', '', NULL, '0000-00-00', '', '', '', NULL, '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', 0, 0, ',,', ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,,,,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'saved'),
-(12, 2, NULL, 8, 80, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '                                                                                                    ', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', NULL, '0000-00-00', '', '', '', NULL, '0000-00-00', '', '', '', NULL, '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', NULL, 0, 'submitted');
+(12, 2, 3, 8, 80, 0, NULL, '', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', '', '', '', '', '', '                                                                                                    ', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', 0, '', '', '', '', '', 0, '', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', NULL, '0000-00-00', '', '', '', NULL, '0000-00-00', '', '', '', NULL, '0000-00-00', '', '', 0, ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', ',,,,', 0, '', '', NULL, NULL, NULL, '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,', ',,', ',,', ',,', ',,', ',,', NULL, ',,', 0, ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', ',,', 0, '', '', '', '', '', 0, '', '', '', '', '', 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, '', 0, '', 1, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -881,7 +882,7 @@ INSERT INTO `hirarc` (`application_id`, `account_id`, `approver_id`, `form_type`
 (16, 2, NULL, 10, 73, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
 (17, 2, NULL, 10, 74, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
 (18, 3, NULL, 10, 79, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'saved'),
-(19, 2, NULL, 10, 80, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, NULL, 0, 'submitted');
+(19, 2, 3, 10, 80, 0, '', '0000-00-00', '', '', '', '', '', '0000-00-00', '0000-00-00', '0000-00-00', NULL, 0, ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', ',,,', 0, 1, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1262,7 +1263,9 @@ INSERT INTO `notification` (`notification_id`, `account_id`, `notification_type`
 (86, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 21:48:46', 0),
 (87, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 21:50:26', 0),
 (88, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 22:05:04', 0),
-(89, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 23:13:12', 0);
+(89, NULL, 2, 'New Project Application for LMO Approved', 'SSBC members have approved an application for an LMO project.', '2018-11-05 23:13:12', 0),
+(90, NULL, 2, 'New Project Application For LMO Approved', 'BSO has approved an application for LMO', '2018-11-05 23:56:41', 0),
+(91, NULL, 2, 'New Project Application For LMO Approved', 'BSO has approved an application for LMO', '2018-11-05 23:59:05', 0);
 
 -- --------------------------------------------------------
 
@@ -1393,7 +1396,7 @@ CREATE TABLE `notificationlmobiohazardousmaterial` (
 
 INSERT INTO `notificationlmobiohazardousmaterial` (`application_id`, `account_id`, `approver_id`, `form_type`, `project_id`, `date_received`, `SBC_reference_no`, `notificationlmo_sec1_edit`, `personnel_name`, `personnel_staff_student_no`, `personnel_designation`, `personnel_faculty`, `personnel_unit_code`, `personnel_project_title`, `personnel_reference_no`, `personnel_storage`, `personnel_keeper_name`, `notificationlmo_sec2_edit`, `LMO_list`, `LMO_name`, `LMO_risk_level`, `LMO_quantity`, `LMO_volume`, `biohazard_list`, `biohazard_name`, `biohazard_risk_level`, `biohazard_quantity`, `biohazard_volume`, `notificationlmo_sec3_edit`, `declaration_name`, `declaration_date`, `signature_verified_by`, `signature_verified_date`, `notification_approved_by`, `notification_declined_by`, `notification_approver`, `notification_decliner`, `notification_approve_signature`, `notification_reviewed_signature`, `notification_approve_decline_date`, `notification_approve_decline_remarks`, `notification_reviewed_by`, `notification_reviewed_by_date`, `notification_reviewed_by_remarks`, `application_approved`, `editable`, `status`) VALUES
 (1, 2, NULL, 14, 43, NULL, NULL, 0, 'NotificationLMOandBM save updated', 1234, 'Student', 'BCS', 'COS30015', 'Project Title', NULL, 'Somewhere', 'Keeper name', 0, NULL, '                                                       LMO name 1                                                   ,LMO name 2,LMO name 3,LMO name 4,LMO name 5,LMO name 6', 'Level 1                                                                                       ,Level 2,Level 3,Level 4,Level 5,Level 6', '1                                                   ,2,3,4,5,6', '1 g                                                   ,2 g,3 ml,4 ml,5 g,6 g', NULL, 'Biohazard name 1,Biohazard name 2,Biohazard name 3,Biohazard name 4,Biohazard name 5,Biohazard name 6', 'Risk 1,Risk 2,Risk 3,Risk 4,Risk 5,Risk 6', '100,200,300,400,500,600', '1 ml,2 ml,3 ml,4 ml,5 ml,6 ml', 0, 'Decalration signature', '2018-11-06', 'Verified by signature', '2018-11-07', '1', NULL, 'Me', '', 'My signature', 'Someone else\'s signature', '2018-11-14', 'My Remarks', 'Someone else', '2018-11-15', 'Someone Else\'s remarks', NULL, 0, 'saved'),
-(2, 2, 3, 14, 44, NULL, NULL, 0, '', 0, '', '', 'Test if can submit updated', '', NULL, '', '', 0, NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', 0, '', '0000-00-00', '', '0000-00-00', NULL, NULL, '', '', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', NULL, 1, 'submitted'),
+(2, 2, 3, 14, 44, NULL, NULL, 0, '', 0, '', '', 'Test if can submit updated', '', NULL, '', '', 0, NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', NULL, ',,,,,', ',,,,,', ',,,,,', ',,,,,', 0, '', '0000-00-00', '', '0000-00-00', NULL, NULL, '', '', NULL, NULL, '0000-00-00', '', '', '0000-00-00', '', 1, 1, 'submitted'),
 (3, 2, NULL, 14, 75, NULL, NULL, 0, 'Name', 100072290, 'Students', 'BCS', 'SWE40002', 'FYP', NULL, 'Somewhere', 'Keeper\'s Name', 0, NULL, 'LMO name 1,LMO name 2,LMO name 3,LMO name 4,LMO name 5,LMO name 6', '4,2,3,5,6', 'Quantity 1,Quantity 2,Quantity 3,Quantity 4,Quantity 5,Quantity 6', 'Volume 1,Volume 2,Volume 3,Volume 4,Volume 4,Volume 6', NULL, 'BM name,Bm name 2,BM name 3,BM name 4,BM name 5,BM name 6', 'BM level 1,BM level 2,BM level 3,BM level 4,BM level 5,BM level 6', 'Bm quantity 1,BM quantity 2,BM quantity 3,BM quantity 4,BM quantity 5,BM quantity 6', 'Bm volume 1,BM volume 2,BM volume 3,BM volume 4,BM volume5 ,BM volume6', 0, 'Decalration signature', '2018-11-06', 'PI Signature', '2018-11-20', '1', '1', 'Me', 'Me as well', 'My signature', 'Reviewed By signature', '2018-11-13', 'My remarks', 'Reviewed By Me', '2018-11-14', 'Reviewers Remarks', NULL, 0, 'saved');
 
 -- --------------------------------------------------------
@@ -1484,7 +1487,7 @@ INSERT INTO `pc1` (`application_id`, `account_id`, `approver_id`, `form_type`, `
 (9, 2, NULL, 15, 70, NULL, NULL, 0, '', 0, '', '', '', '', '', '', '', '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '                                                   ', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
 (10, 2, NULL, 15, 74, NULL, NULL, 0, '', 0, '', '', '', '', '', '', '', '', '', 0, '                                                                                              ,', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '                                                                                                    ', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, 'no', '', '', NULL, 0, 'saved'),
 (11, 3, NULL, 15, 79, NULL, NULL, 0, '', 0, '', '', '', '', '', '', '', '', '', 0, '                                                                                                                                             ,', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '                                                                                                    ', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
-(12, 2, NULL, 15, 80, NULL, NULL, 0, '', 0, '', '', '', '', '', '', '', '', '', 0, '                                                                                                                                             ,', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '                                                                                                    ', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'submitted');
+(12, 2, 3, 15, 80, NULL, NULL, 0, '', 0, '', '', '', '', '', '', '', '', '', 0, '                                                                                                                                             ,', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, 0, '', 0, '', '', '', 0, '                                                                                                    ', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 1, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1586,7 +1589,7 @@ INSERT INTO `pc2` (`application_id`, `account_id`, `approver_id`, `form_type`, `
 (9, 2, NULL, 16, 70, NULL, NULL, 0, '', 0, '', '', '', '', '', '', 0, '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
 (10, 2, NULL, 16, 74, NULL, NULL, 0, '', 0, '', '', '', '', '', '', 0, '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
 (11, 3, NULL, 16, 79, NULL, NULL, 0, '', 0, '', '', '', '', '', '', 0, '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'saved'),
-(12, 2, NULL, 16, 80, NULL, NULL, 0, '', 0, '', '', '', '', '', '', 0, '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', NULL, 0, 'submitted');
+(12, 2, 3, 16, 80, NULL, NULL, 0, '', 0, '', '', '', '', '', '', 0, '', '', 0, ',', ',', ',', ',', ',', ',', ',', ',', ',', 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, '', 0, '', '', '', 0, '', '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', 0, '', '', '', '', 0, NULL, '', '', 1, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -1624,15 +1627,15 @@ CREATE TABLE `project` (
 
 INSERT INTO `project` (`project_id`, `approver_id`, `BSO_approver_id`, `Chair_approver_id`, `ssbc1_mem`, `ssbc2_mem`, `ssbc3_mem`, `ssbc4_mem`, `ssbc5_mem`, `HSO_approver_id`, `Lab_approver_id`, `project_name`, `project_desc`, `project_date`, `project_type`, `account_id`, `project_approval`, `project_status`, `project_editable`, `project_duration`, `approval_date`) VALUES
 (29, 6, 3, 6, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test project submit', 'Submit project status', '2018-10-12 12:49:43', 'app_lmo', 2, 2, 'submitted', 1, NULL, NULL),
-(30, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Type Porject', 'asascassabfebdfb ', '2018-10-14 06:15:21', 'app_lmo', 2, 1, 'submitted', 0, NULL, NULL),
+(30, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Type Porject', 'asascassabfebdfb ', '2018-10-14 06:15:21', 'app_lmo', 2, 0, 'submitted', 0, NULL, NULL),
 (33, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazard Test Save Project', 'Test if biohazard project can be saved', '2018-10-14 15:35:29', 'app_bio', 2, 0, 'deleted', 0, NULL, NULL),
 (34, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Biohazard submit', 'Biohazardous submit function', '2018-10-14 15:37:44', 'app_bio', 2, 0, 'submitted', 0, NULL, NULL),
 (36, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Exempt save', 'Exempt submission', '2018-10-15 08:35:03', 'app_exempt', 2, 0, 'saved', 0, NULL, NULL),
 (37, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'exempt submit', 'submit testing for exempt project', '2018-10-15 08:37:58', 'app_exempt', 2, 0, 'submitted', 0, NULL, NULL),
-(41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'submitted', 0, NULL, NULL),
-(42, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Procurement submit', 'ascacascasc', '2018-12-14 16:00:00', 'procurement', 2, 0, 'submitted', 0, NULL, NULL),
+(41, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, NULL, 'New Procurement project saved', 'New Save project', '2018-10-15 12:34:55', 'procurement', 2, 0, 'submitted', 0, NULL, '2018-11-06'),
+(42, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 5, NULL, 'Procurement submit', 'ascacascasc', '2018-12-14 16:00:00', 'procurement', 2, 16, 'submitted', 0, NULL, '2018-11-06'),
 (43, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Notifcation of LMO and BM save', 'Test save function for notification of LMO and BM', '2018-10-16 06:16:56', 'notifLMOBM', 2, 0, 'saved', 0, NULL, NULL),
-(44, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Submit For Notification of LMO and BM', 'test submit', '2018-10-16 07:19:54', 'notifLMOBM', 2, 0, 'submitted', 1, NULL, NULL),
+(44, 3, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New Submit For Notification of LMO and BM', 'test submit', '2018-10-16 07:19:54', 'notifLMOBM', 2, 21, 'submitted', 1, NULL, '2018-11-06'),
 (47, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'annual save', 'test save', '2018-10-16 13:24:16', 'anuualfinalreport', 2, 0, 'saved', 0, NULL, NULL),
 (48, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test submit anual', 'acscac', '2018-10-16 13:32:34', 'anuualfinalreport', 2, 0, 'submitted', 0, NULL, NULL),
 (50, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Form F test save', 'ksjdvmsdmv', '2018-10-16 14:48:20', 'exportLMO', 2, 0, 'saved', 0, NULL, NULL),
@@ -1663,7 +1666,7 @@ INSERT INTO `project` (`project_id`, `approver_id`, `BSO_approver_id`, `Chair_ap
 (77, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'new procurement test 2', 'afsccfaas', '2018-11-02 15:12:17', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
 (78, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'New notif test 2', 'ascac', '2018-11-02 15:12:35', 'notifLMOBM', 2, 0, NULL, 0, 1, NULL),
 (79, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test save/submit for LMO', 'ascscsa', '2018-11-04 05:15:57', 'app_lmo', 3, 0, 'saved', 0, 1, NULL),
-(80, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test subit for LMO take 5', 'asfcsscs', '2018-11-04 12:07:56', 'app_lmo', 2, 0, 'submitted', 0, 1, NULL);
+(80, NULL, 3, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Test subit for LMO take 5', 'asfcsscs', '2018-11-04 12:07:56', 'app_lmo', 2, 1, 'submitted', 0, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1767,7 +1770,7 @@ INSERT INTO `swp` (`application_id`, `account_id`, `approver_id`, `form_type`, `
 (16, 2, NULL, 17, 73, NULL, NULL, 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 'saved'),
 (17, 2, NULL, 17, 74, NULL, NULL, 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 'saved'),
 (18, 3, NULL, 17, 79, NULL, NULL, 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 'saved'),
-(19, 2, NULL, 17, 80, NULL, NULL, 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 'submitted');
+(19, 2, 3, 17, 80, NULL, NULL, 0, '', '', '', '', '', '', '', 0, '', '', '', '', '', '', 0, '', '0000-00-00', 0, '', '', '', '0000-00-00', '', '0000-00-00', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, 0, 'submitted');
 
 -- --------------------------------------------------------
 
@@ -2066,7 +2069,7 @@ ALTER TABLE `biohazardousmaterial`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT for table `educational`
@@ -2126,7 +2129,7 @@ ALTER TABLE `materialriskassessment`
 -- AUTO_INCREMENT for table `notification`
 --
 ALTER TABLE `notification`
-  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=92;
 
 --
 -- AUTO_INCREMENT for table `notificationexportingbiologicalmaterial`
@@ -2203,12 +2206,6 @@ ALTER TABLE `annualfinalreport`
 --
 ALTER TABLE `biohazardousmaterial`
   ADD CONSTRAINT `biohazardousmaterial_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`);
-
---
--- Constraints for table `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`comment_id`) REFERENCES `project` (`project_id`);
 
 --
 -- Constraints for table `educational`

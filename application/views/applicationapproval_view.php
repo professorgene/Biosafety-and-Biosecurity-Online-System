@@ -269,7 +269,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             
             window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + j;
             
-            
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
             
         }
@@ -286,7 +285,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
             var v = document.getElementById("annex2_issue");
             v.style.display = "none";
-            
             
             var x = document.getElementById("annex2_Chair");
             x.style.display = "block";

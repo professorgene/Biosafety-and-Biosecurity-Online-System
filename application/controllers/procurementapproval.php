@@ -35,7 +35,7 @@ class procurementapproval extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $result = $this->account_model->get_account_by_id($id);
-        $this->procurement_model->update_approval($id, 1, $approver_id, $appID);
+        //$this->procurement_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->procurement_update_approval($id, 1, $approver_id, $appID);
         
         //Send email to Applicant requesting them to print out assessment sheets, QSF, and Pathogen data safety sheet. Tell them they can proceed to Notification of LMO and Biohazardous materials when the items arrived
@@ -49,13 +49,13 @@ class procurementapproval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(5));
+        //$msg = base64_decode($this->uri->segment(5));
         $result = $this->account_model->get_account_by_id($id);
         $this->procurement_model->update_approval($id, 0, $approver_id, $appID);
         $this->project_model->procurement_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to Applicant telling them their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Rejected", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Rejected", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Rejected</p>");
         
         redirect('procurementapproval/index');
     }

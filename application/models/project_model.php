@@ -681,12 +681,52 @@ class project_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('project_approval' => 3);
+            $data = array('project_approval' => 101);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
         } elseif ($type == 1) {
-            $data = array('project_approval' => 1, 'approver_id' => $approver_id);
+            
+            if($this->session->userdata('account_type') == 4){
+                $data = array('project_approval' => 16, 'BSO_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_type') == 5){
+                $data = array('project_approval' => 16, 'HSO_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_type') == 6){
+                $data = array('project_approval' => 16, 'Lab_approver_id' => $approver_id);
+                
+            }
+
+            $this->db->set('approval_date', 'NOW()', FALSE);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        }
+        return true;
+    }
+    
+    function notif_LMO_BM_update_approval($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('project_approval' => 101);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        } elseif ($type == 1) {
+            
+            if($this->session->userdata('account_type') == 4){
+                $data = array('project_approval' => 21, 'BSO_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_type') == 5){
+                $data = array('project_approval' => 21, 'HSO_approver_id' => $approver_id);
+                
+            }elseif($this->session->userdata('account_type') == 6){
+                $data = array('project_approval' => 21, 'Lab_approver_id' => $approver_id);
+                
+            }
+
             $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
