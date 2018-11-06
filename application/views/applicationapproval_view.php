@@ -309,9 +309,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <script>
         function approve_2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve2/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve2/" + i + "/" + k;
+            }
         }
         
         function reject_2(i,k){
