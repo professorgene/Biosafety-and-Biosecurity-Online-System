@@ -87,6 +87,9 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Application for Living Modified Organisms Modification Request", "The following user has requested to edit an Application for Living Modified Organisms: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
+                
                 redirect('history/index');
             }
             
@@ -115,6 +118,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Application for Biohazardous Materials Modification Request", "The following user has requested to edit an Application for Biohazardous Materials: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -143,6 +148,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Application for Exempt Dealings Modification Request", "The following user has requested to edit an Application for Exempt Dealings: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -168,6 +175,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Application for Procurement of Biohazardous Materials Modification Request", "The following user has requested to edit an Application for Procurement of Biohazardous Materials: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -193,6 +202,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Notification of LMO and BM Modification Request", "The following user has requested to edit an Application for Notification of LMO and BM: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -218,6 +229,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -243,6 +256,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -268,6 +283,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Annual or Final Report Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -293,6 +310,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Incident Accident Report for exempt dealing or biohazardous materials Modification Request", "The following user has requested to edit an Annual or Final Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -318,6 +337,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Minor Incident Accident Report Modification Request", "The following user has requested to edit a Minor Incident Accident Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -345,6 +366,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Major Incident Accident Report Modification Request", "The following user has requested to edit a Major Incident Accident Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
@@ -372,6 +395,8 @@ class history extends CI_Controller {
                 $this->project_model->edit_request($id);
             
                 $this->notification_model->insert_new_notification(null, 4, "Major Incident Accident Report Modification Request", "The following user has requested to edit a Major Incident Accident Report: " . $this->session->userdata('account_name'));
+                
+                $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Edit Request Sent</div>');
                 redirect('history/index');
             }
             
