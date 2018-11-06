@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity_online_system`
 --
-CREATE DATABASE IF NOT EXISTS b8_22954755_biosafety_and_biosecurity_online_system;
-USE b8_22954755_biosafety_and_biosecurity_online_system;
+CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
+USE biosafety_and_biosecurity_online_system;
 -- --------------------------------------------------------
 
 --

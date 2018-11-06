@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sql307.byethost8.com',
-	'username' => 'b8_22954755',
-	'password' => 'swinbbos',
-	'database' => 'b8_22954755_biosafety_and_biosecurity_online_system',
+	'hostname' => 'localhost',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'biosafety_and_biosecurity_online_system',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
