@@ -45,6 +45,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <!-- Page Heading -->
         <h2 class="my-4 text-center">Welcome to your Administrator Panel, <?php echo $this->session->userdata('account_name'); ?></h2>
         <hr/>
+        
+        <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 ) {  ?>
         <h3 class="my-4">Statistics</h3>
         <br/>
         <div class="row">
@@ -121,6 +123,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 </div>
             </div>
         </div>
+        <?php } ?>
         
         <br/>
         <hr/>
