@@ -42,7 +42,9 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Approved", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Approved. </p>");
         
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Approved</div>');
-        
+		
+        $this->notification_model->insert_new_notification($id, 1, "New Project For Notification of LMO and Biohazardous Material", "Notification of LMO and Biohazardous Materials Project Submission Approved by : " . $this->session->userdata('account_name'));
+		
         redirect('notification_of_LMO_and_BM_approval/index');
     }
     
@@ -57,7 +59,9 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $this->project_model->notif_LMO_BM_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to PI that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Rejected", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Rejected.</p>");
+        $this->notification_model->insert_new_notification($id, 1, "New Project For Notification of LMO and Biohazardous Material", "Notification of LMO and Biohazardous Materials Project Submission Rejected by : " . $this->session->userdata('account_name'));
+		
+		$this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Rejected", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Rejected.</p>");
         
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Rejected</div>');
         

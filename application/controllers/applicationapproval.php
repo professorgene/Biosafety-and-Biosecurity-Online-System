@@ -86,7 +86,7 @@ class applicationapproval extends CI_Controller {
         $this->project_model->update_yes_issue($id, 1, $approver_id, $appID);
         
         //Notify All SSBC Members that SSBC Chair has approved a form but still requires their input
-         $this->notification_model->insert_new_notification(null, 3, "New Project Application for LMO Approved", "SSBC Chair has approved an application for an LMO project that requires additional input");
+        $this->notification_model->insert_new_notification(null, 3, "New Project Application for LMO Approved", "SSBC Chair has approved an application for an LMO project that requires additional input");
         
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
@@ -574,7 +574,9 @@ class applicationapproval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Approved.</p>");
-        
+        //sent  notification to the user for final approval
+		$this->notification_model->insert_new_notification($id, 1, "New Project Application For LMO Approved", "Your application for LMO has approved");
+		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('applicationapproval/index');

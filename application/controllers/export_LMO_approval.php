@@ -542,6 +542,7 @@ class export_LMO_approval extends CI_Controller {
         $this->formf_model->update_approval_Chair($id, 1, $approver_id, $appID);
         $this->project_model->formf_update_approval_Chair($id, 1, $approver_id, $appID);
         
+		$this->notification_model->insert_new_notification($id, 1, "Notification For Exporting LMO Project Approved", "Your Notification For Exporting LMO Project has approved by: " . $this->session->userdata('account_name'));
         //Send email to PI, remind them to inform BSO when LMO will arrive to importing country
          $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Project Submission Approved", "<p>Your Notification For Exporting LMO Project Submission Has Been Approved. Please Be sure to inform BSO when the shipped LMO had arrive to importing country</p>");
         
