@@ -59,6 +59,7 @@ if(!$this->session->userdata('isLogin')){
                         <th>Project Name</th>
                         <th>Project Description</th>
                         <th>Approval Progress</th>
+                        <th>Comments</th>
                         <th></th>
                     </tr>
                 </thead>
@@ -70,13 +71,14 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row['project_desc']; ?></td>
                         <td class="text-center">
                             <?php 
-                            if($row['approval'] != 4 || $row['approval'] == null){
+                            if($row['approval'] != 110 || $row['approval'] == null){
                                 echo "Awaiting Approval";
                             } else {
                                 echo "Approved";
                             }
                             ?>
                         </td>
+                        <td><button class="btn btn-primary" onclick="view_comment(<?php echo $row['project_id']; ?>)">View Comments</button></td>
                         <td class="text-center">
                             <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
                             
@@ -103,6 +105,10 @@ if(!$this->session->userdata('isLogin')){
         </script>
 
         <script>
+            function view_comment(i){
+                window.location = "<?php echo base_url(); ?>index.php/comment/view_comments?id=" + i;
+            }
+            
             function view_application(i, j){
                 //check what type of project is it then go to project controller
                 if(j == "app_lmo"){

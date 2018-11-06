@@ -170,6 +170,23 @@ class comment extends CI_Controller {
         
     }
     
+    public function view_comments(){
+        
+        $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+        
+        $id = $this->input->get('id');
+            
+        $data['appID'] = $id;
+        $data['load'] = "true";
+        $data['disabled'] = "true";
+        
+        $data['project_info'] = $this->project_model->get_proj_id($data['appID']);
+        $data['comment_info'] = $this->comment_model->get_comment_by_project_id($data['appID']);
+        
+        $this->load->template('comment_view', $data);
+        
+    }
+    
     
     
 }

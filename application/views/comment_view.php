@@ -72,6 +72,7 @@ if(!$this->session->userdata('isLogin')){
                 <br/>
                 <?php if(!isset($load)){echo form_open('comment/save_comment');?>
                 <?php }else{echo form_open('comment/update_comment');} ?>
+                <?php if(isset($disabled)){ echo "<fieldset disabled='disabled'>"; } ?>
                 <br/>
                 
                 <?php if(isset($project_info)){ ?>
@@ -182,6 +183,7 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <?php } ?>
                 
+                <?php if($this->session->userdata('account_type') != 1){ ?>
                 <?php if($row->project_type == "app_lmo" || $row->project_type == "app_bio" || $row->project_type == "app_exempt" || $row->project_type == "exportLMO" || $row->project_type == "majorbio" || $row->project_type == "occupational" || $row->project_type == "anuualfinalreport"){ ?>
                 <div class="form-group">
                     <label for="type">No. of SSBC members to review:</label>
@@ -194,6 +196,7 @@ if(!$this->session->userdata('isLogin')){
                     </select>
                 </div>
                 <?php } ?>
+                <?php } ?>
                 
                 
                 <input type="hidden" name="project_id" value="<?php if(isset($row->project_id)){echo $row->project_id;} ?>">
@@ -205,10 +208,11 @@ if(!$this->session->userdata('isLogin')){
                 <br/>
                 <div class="form-group text-center">
                     <span class="col-md-2"></span>
-                    <button name="save" type="submit" class="btn btn-success col-md-3">Save Comments</button>
+                    <button <?php if($this->session->userdata('account_type') == 1){echo "style='display:none;'";} ?> name="save" type="submit" class="btn btn-success col-md-3">Save Comments</button>
                     <span class="col-md-2"></span>
                     
                 </div>
+                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                 <?php echo form_close(); ?>
                 
                 <script>
