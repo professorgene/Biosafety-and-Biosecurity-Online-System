@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_activities'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -71,7 +71,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_duration'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -88,7 +88,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['applicant_PI_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -105,7 +105,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['IBC_chairperson_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -122,7 +122,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['organization_representative_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -623,7 +623,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_activities'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -644,7 +644,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_duration'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -661,7 +661,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['applicant_PI_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -678,7 +678,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['IBC_chairperson_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -695,7 +695,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['organization_representative_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1249,7 +1249,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                 if(!empty($_FILES['project_intro_activities'])){
                 
-                    $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
+                    $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
 
                     //Load upload library and initialize configuration
                     $this->load->library('upload', $config);
@@ -1270,7 +1270,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_duration'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1287,7 +1287,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['applicant_PI_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1304,7 +1304,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['IBC_chairperson_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1321,7 +1321,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['organization_representative_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1861,7 +1861,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_activities'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1882,7 +1882,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_duration'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1899,7 +1899,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['applicant_PI_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1916,7 +1916,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['IBC_chairperson_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -1933,7 +1933,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['organization_representative_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -2434,7 +2434,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_activities'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_activities']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -2455,7 +2455,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['project_intro_duration'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['project_intro_duration']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -2472,7 +2472,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['applicant_PI_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['applicant_PI_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -2489,7 +2489,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['IBC_chairperson_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['IBC_chairperson_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);
@@ -2506,7 +2506,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     
                     if(!empty($_FILES['organization_representative_signature_file'])){
                 
-                        $config['file_name'] = $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
+                        $config['file_name'] = $proj_id . $this->session->userdata('account_id') . $_FILES['organization_representative_signature_file']['name'];
 
                         //Load upload library and initialize configuration
                         $this->load->library('upload', $config);

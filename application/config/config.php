@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://localhost/Biosafety-and-Biosecurity-Online-System/';
+$config['base_url'] = 'http://swinburnebbos.byethost8.com/Biosafety-and-Biosecurity-Online-System/';
 
 /*
 |--------------------------------------------------------------------------
