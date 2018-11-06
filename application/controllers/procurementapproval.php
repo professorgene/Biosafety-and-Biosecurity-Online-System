@@ -58,7 +58,7 @@ class procurementapproval extends CI_Controller {
         
         //Send email to Applicant telling them their form has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Rejected", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Rejected</p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "Pre-Purchase Material Risk assessment Project Rejected", "Pre-Purchase Material Risk assessment Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Rejected</div>');
         
         redirect('procurementapproval/index');

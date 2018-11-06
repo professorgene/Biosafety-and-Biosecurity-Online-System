@@ -66,7 +66,8 @@ class applicationapproval extends CI_Controller {
         $this->project_model->update_approval($id, 0, $approver_id, $appid);
             
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For LMO Rejected", "<p>Your New Project Application Submission Has Been Rejected </p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For LMO Rejected", "New Project Application For LMO Project Rejected by : " . $this->session->userdata('account_name'));
+		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('applicationapproval/index');
@@ -552,7 +553,8 @@ class applicationapproval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Rejected", "<p>Your New Project Application for LMO Submission Has Been Rejected </p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For LMO Rejected", "Your application for LMO Rejected by : " . $this->session->userdata('account_name'));
+		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('applicationapproval/index');
@@ -575,8 +577,8 @@ class applicationapproval extends CI_Controller {
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Approved.</p>");
         //sent  notification to the user for final approval
-		$this->notification_model->insert_new_notification($id, 1, "New Project Application For LMO Approved", "Your application for LMO has approved");
-		
+		$this->notification_model->insert_new_notification($id, 1, "New Project Application For LMO Approved", "Your application for LMO Approved by : " . $this->session->userdata('account_name'));
+
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('applicationapproval/index');
@@ -593,8 +595,8 @@ class applicationapproval extends CI_Controller {
         $this->project_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Rejected</p>");
-        
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Rejected", "<p>Your New Project Application for LMO Submission Has Been Rejected</p>");
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For LMO Rejected", "Your application for LMO Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('applicationapproval/index');

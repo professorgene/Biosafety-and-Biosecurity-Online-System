@@ -295,6 +295,8 @@ class occupationaldisease_approval extends CI_Controller {
         //send email to victim or witnesses for investigation outcomes
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Occupational Disease or Exposure Project Submission Processed", "<p>Your Occupational Disease or Exposure Project Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
+		$this->notification_model->insert_new_notification($id, 1, "Occupational Disease or Exposure Project Submission Processed", "Occupational Disease or Exposure Project Submission Processed by : " . $this->session->userdata('account_name'));
+		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('occupationaldisease_approval/index');
@@ -524,7 +526,7 @@ class occupationaldisease_approval extends CI_Controller {
         } 
         
         //$this->project_model->occupational_update_approval_SSBC($id, 0, $approver_id, $appID);
-        
+        $this->notification_model->insert_new_notification($id, 1, "Occupational Disease or Exposure Project Submission Processed Rejected", "Occupational Disease or Exposure Project Submission Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('occupationaldisease_approval/index');
@@ -542,7 +544,8 @@ class occupationaldisease_approval extends CI_Controller {
         
         //send email to victim or witnesses for investigation outcomes
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Occupational Disease or Exposure Project Submission Processed", "<p>Your Occupational Disease or Exposure Project Submission Has Been Processed. (Investigations Outcomes Here)</p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "Occupational Disease or Exposure Project Submission Processed", "Occupational Disease or Exposure Project Submission Processed by : " . $this->session->userdata('account_name'));
+		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('occupationaldisease_approval/index');
@@ -558,6 +561,7 @@ class occupationaldisease_approval extends CI_Controller {
         $this->annex4_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         $this->project_model->occupational_update_approval_HSO($id, 0, $approver_id, $appID);
         
+		$this->notification_model->insert_new_notification($id, 1, "Occupational Disease or Exposure Project Submission Rejected", "Occupational Disease or Exposure Project Submission Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         redirect('occupationaldisease_approval/index');
     }

@@ -68,7 +68,8 @@ class exempt_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected </p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For Exempt Dealing", "New Project Application For Exempt Dealing Project Rejected by : " . $this->session->userdata('account_name'));
+		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('exempt_approval/index');
@@ -548,7 +549,7 @@ class exempt_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Exempt Dealing Rejected", "<p>Your New Project Application for Exempt Dealing Has Been Rejected </p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For Exempt Dealing Rejected", "New Project Application For Exempt Dealing Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('exempt_approval/index');
@@ -567,7 +568,7 @@ class exempt_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Approved", "<p>Your New Project Application For Exempt Dealing Has Been Approved. </p>");
-        
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For Exempt Dealing Approved", "New Project Application For Exempt Dealing Project Approved by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('exempt_approval/index');
@@ -587,8 +588,9 @@ class exempt_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected</p>");
+        $this->notification_model->insert_new_notification($id, 1, "New Project Application For Exempt Dealing Rejected", "New Project Application For Exempt Dealing Project Rejected by : " . $this->session->userdata('account_name'));
         
-        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
+		$this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('exempt_approval/index');
     }
