@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 05, 2018 at 07:00 PM
+-- Generation Time: Nov 06, 2018 at 03:25 AM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,10 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity_online_system`
 --
-
-CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
-USE biosafety_and_biosecurity_online_system;
-
+CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system2;
+USE biosafety_and_biosecurity_online_system2;
 -- --------------------------------------------------------
 
 --
