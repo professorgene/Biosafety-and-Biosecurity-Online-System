@@ -45,7 +45,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_approval($id, 1, $approver_id, $appID);
         $this->hirarc_model->update_BSO($id, 1, $approver_id, $appID);
         $this->swp_model->update_approval($id, 1, $approver_id, $appID);
-        $this->project_model->update_approval($id, 1, $approver_id, $appID);
+        $this->project_model->exempt_update_approval($id, 1, $approver_id, $appID);
         
         $this->notification_model->insert_new_notification(null, 2, "New Project Application For Exempt Dealing Approved", "BSO has approved a new project application for exempt dealing.");        
         redirect('exempt_approval/index');
@@ -61,10 +61,10 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_approval($id, 0, $approver_id, $appID);
         $this->hirarc_model->update_BSO($id, 0, $approver_id, $appID);
         $this->swp_model->update_approval($id, 0, $approver_id, $appID);
-        $this->project_model->update_approval($id, 0, $approver_id, $appID);
+        $this->project_model->exempt_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected </p>");
         
         redirect('exempt_approval/index');
     }
@@ -77,7 +77,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_yes_issue($id, 1, $approver_id, $appID);
         $this->hirarc_model->update_yes_issue($id, 1, $approver_id, $appID);
         $this->swp_model->update_yes_issue($id, 1, $approver_id, $appID);
-        $this->project_model->update_yes_issue($id, 1, $approver_id, $appID);
+        $this->project_model->exempt_update_yes_issue($id, 1, $approver_id, $appID);
         
         $this->notification_model->insert_new_notification(null, 3, "New Project Application For Exempt Dealing Approved", "SSBC Chair has approved a new project application for exempt dealing that requires additional input.");
         
@@ -91,7 +91,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_approval_SSBC($id, 1, $approver_id, $appID);
         $this->hirarc_model->update_SSBC($id, 1, $approver_id, $appID);
         $this->swp_model->update_approval_SSBC($id, 1, $approver_id, $appID);
-        $this->project_model->update_approval_SSBC($id, 1, $approver_id, $appID);
+        $this->project_model->exempt_update_approval_SSBC($id, 1, $approver_id, $appID);
         
         $this->notification_model->insert_new_notification(null, 2, "New Project Application For Exempt Dealing Approved", "SSBC Member has approved an new project application for exempt dealing");
         
@@ -108,10 +108,10 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         $this->hirarc_model->update_SSBC($id, 0, $approver_id, $appID);
         $this->swp_model->update_approval_SSBC($id, 0, $approver_id, $appID);
-        $this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
+        $this->project_model->exempt_update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected </p>");
         
         redirect('exempt_approval/index');
     }
@@ -125,7 +125,7 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->final_approval($id, 1, $approver_id, $appID);
         $this->hirarc_model->final_approval($id, 1, $approver_id, $appID);
         $this->swp_model->final_approval($id, 1, $approver_id, $appID);
-        $this->project_model->final_approval($id, 1, $approver_id, $appID);
+        $this->project_model->exempt_final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Approved", "<p>Your New Project Application For Exempt Dealing Has Been Approved. </p>");
@@ -143,10 +143,10 @@ class exempt_approval extends CI_Controller {
         $this->exempt_model->final_approval($id, 0, $approver_id, $appID);
         $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
         $this->swp_model->final_approval($id, 0, $approver_id, $appID);
-        $this->project_model->final_approval($id, 0, $approver_id, $appID);
+        $this->project_model->exempt_final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected</p>");
         
         redirect('exempt_approval/index');
     }
