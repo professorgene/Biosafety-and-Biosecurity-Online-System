@@ -250,29 +250,29 @@ class project_model extends CI_Model
         return true;
     }
     
-    function update_ssbc3($id, $type)
+    function update_ssbc3($id, $approverid, $res)
     {
-        $data = array('ssbc3_approver_id' => $type);
+        //$data = array('ssbc3_approver_id' => $type);
         $this->db->where('project_id', $id);
-        $this->db->update('project', $data);
+        $this->db->update('project', array('SSBC_mem3_id' => $approverid, 'SSBC_mem3_res' => $res));
         
         return true;
     }
     
-    function update_ssbc4($id, $type)
+    function update_ssbc4($id, $approverid, $res)
     {
-        $data = array('ssbc4_approver_id' => $type);
+        //$data = array('ssbc4_approver_id' => $type);
         $this->db->where('project_id', $id);
-        $this->db->update('project', $data);
+        $this->db->update('project', array('SSBC_mem4_id' => $approverid, 'SSBC_mem4_res' => $res));
         
         return true;
     }
     
-    function update_ssbc5($id, $type)
+    function update_ssbc5($id, $approverid, $res)
     {
-        $data = array('ssbc5_approver_id' => $type);
+        //$data = array('ssbc5_approver_id' => $type);
         $this->db->where('project_id', $id);
-        $this->db->update('project', $data);
+        $this->db->update('project', array('SSBC_mem5_id' => $approverid, 'SSBC_mem5_res' => $res));
         
         return true;
     }
@@ -574,7 +574,7 @@ class project_model extends CI_Model
         $this->db->select('*');
         $this->db->from('project');
         $this->db->join('accounts', 'project.account_id = accounts.account_id');
-        $this->db->where('project.project_approval', 1);
+        $this->db->where('project.project_approval', 41);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'incidentExempt');
         $query = $this->db->get();
@@ -598,7 +598,7 @@ class project_model extends CI_Model
         $this->db->select('*');
         $this->db->from('project');
         $this->db->join('accounts', 'project.account_id = accounts.account_id');
-        $this->db->where('project.project_approval', 1);
+        $this->db->where('project.project_approval', 36);
         $this->db->where('project.project_status', 'submitted');
         $this->db->where('project.project_type', 'minorbio');
         $query = $this->db->get();
@@ -779,6 +779,44 @@ class project_model extends CI_Model
         return true;
     }
     
+    function minor_update_approval($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('project_approval' => 101);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        } elseif ($type == 1) {
+            
+            $data = array('project_approval' => 36, 'BSO_approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        }
+        return true;
+    }
+    
+    function incident_exempt_update_approval($id, $type, $approver_id, $appID)
+    {
+        if ($type == 0) {
+            
+            $data = array('project_approval' => 101);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        } elseif ($type == 1) {
+            
+            $data = array('project_approval' => 41, 'BSO_approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appID);
+            $this->db->update('project', $data);
+        }
+        return true;
+    }
+    
     function proceed_ammend($id, $type, $approver_id, $appID)
     {
         if ($type == 0) {
@@ -879,7 +917,7 @@ class project_model extends CI_Model
             
         } elseif ($type == 1) {
             
-            $data = array('project_approval' => 3, 'approver_id' => $approver_id);
+            $data = array('project_approval' => 13, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
@@ -973,7 +1011,7 @@ class project_model extends CI_Model
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
         } elseif ($type == 1) {
-            $data = array('project_approval' => 4, 'approver_id' => $approver_id);
+            $data = array('project_approval' => 110, 'approver_id' => $approver_id);
             $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
@@ -992,7 +1030,7 @@ class project_model extends CI_Model
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
         } elseif ($type == 1) {
-            $data = array('project_approval' => 9, 'approver_id' => $approver_id);
+            $data = array('project_approval' => 110, 'approver_id' => $approver_id);
             $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
@@ -1125,12 +1163,30 @@ class project_model extends CI_Model
     {
         if ($type == 0) {
             
-            $data = array('project_approval' => 3);
+            $data = array('project_approval' => 102);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appid);
             $this->db->update('project', $data);
         } elseif ($type == 1) {
-            $data = array('project_approval' => 2, 'approver_id' => $approver_id);
+            $data = array('project_approval' => 110, 'HSO_approver_id' => $approver_id);
+            $this->db->set('approval_date', 'NOW()', FALSE);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appid);
+            $this->db->update('project', $data);
+        }
+        return true;
+    }
+    
+    function minor_update_approval_HSO($id, $type, $approver_id, $appid)
+    {
+        if ($type == 0) {
+            
+            $data = array('project_approval' => 102);
+            $this->db->where('account_id', $id);
+            $this->db->where('project_id', $appid);
+            $this->db->update('project', $data);
+        } elseif ($type == 1) {
+            $data = array('project_approval' => 110, 'HSO_approver_id' => $approver_id);
             $this->db->set('approval_date', 'NOW()', FALSE);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appid);

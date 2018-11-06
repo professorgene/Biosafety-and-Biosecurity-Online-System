@@ -161,15 +161,15 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                         
-                        <!-- After SSBC member review
-                        <?php #}elseif($row->ssbc_agreement > 5 ){ ?>
+                        <!-- After SSBC member review -->
+                        <?php }elseif($row->project_approval == 3 ){ ?>
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="final_approve(<?php #echo $row->account_id; ?>, <?php #echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="final_reject(<?php #echo $row->account_id; ?>, <?php #echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                         <?php } ?>
-                        -->
+                        
                     </tr>
                 <?php endforeach; ?>
                 </tbody>

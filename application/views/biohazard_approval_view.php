@@ -141,7 +141,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             ?></td>
                         <td><button type="button" name = 'biohazard_load' value = 'Load' onclick="location.href='<?php echo site_url().'/biohazardproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
-                        <?php if($row->project_approval == 1 ) { ?>
+                        <?php if($row->project_approval == 6 ) { ?>
                         <td id="biohazard_issue" class="text-center">
                                 <button class="btn btn-success" onclick="Chair_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="There's issue">Yes</button>
                                 <hr>
@@ -152,7 +152,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             <hr/>
                             <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
-                        <?php }elseif($row->project_approval == 3 ){ ?>
+                        <?php }elseif($row->project_approval == 8 ){ ?>
                         <td  class="text-center">
                             <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
@@ -246,19 +246,24 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <script>
         function approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
         }
         
         function reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject/" + i + "/" + k + "/" + btoa(j);
-            }
+            
+            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject/" + i + "/" + k ;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
         }
     </script>
     
     <script>
         function Chair_approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/Chair_approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function biohazard_show(){
@@ -270,32 +275,36 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             x.style.display = "block";
         }
         
-        function Chair_disapprove(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/Chair_disapprove/" + i + "/" + k;
-        }
         
         function final_approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/final_approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function final_reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/final_reject/" + i + "/" + k + "/" + btoa(j);
-            }
+           
+            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/final_reject/" + i + "/" + k;
+                
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
         }
     </script>
     
     <script>
         function approve2(i,k){
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/approve2/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function reject2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject2/" + i + "/" + k + "/" + btoa(j);
-            }
+    
+            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject2/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+    
+            
         }
     </script>
     

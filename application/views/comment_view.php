@@ -147,6 +147,13 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <?php } ?>
                 
+                <?php if($row->project_type == "minorbio" || $row->project_type == "majorbio" || $row->project_type == "incidentExempt" || $row->project_type == "occupational"){ ?>
+                <div class="form-group">
+                    <label for="incident_accident_comment">Incident or Accidents Report Comments</label>
+                    <textarea class="form-control" name="incident_accident_comment" ><?php if(isset($load)){echo set_value('incident_accident_comment', $comment->incident_accident_comment);}else{echo set_value('incident_accident_comment');} ?></textarea>
+                </div>
+                <?php } ?>
+                
                 <?php if($row->project_type == "app_lmo" || $row->project_type == "app_bio" || $row->project_type == "app_exempt" || $row->project_type == "exportLMO" || $row->project_type == "majorbio" || $row->project_type == "occupational" || $row->project_type == "anuualfinalreport"){ ?>
                 <div class="form-group">
                     <label for="type">No. of SSBC members to review:</label>

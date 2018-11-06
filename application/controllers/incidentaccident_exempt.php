@@ -37,9 +37,11 @@ class incidentaccident_exempt extends CI_Controller {
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
         $this->incidentaccidentreport_model->update_approval($id, 1, $approver_id, $appID);
-        $this->project_model->procurement_update_approval($id, 1, $approver_id, $appID);
+        $this->project_model->incident_exempt_update_approval($id, 1, $approver_id, $appID);
         
 		$this->notification_model->insert_new_notification(null, 5, "Minor Biological Incident/Accident Report Form Approved", "BSO has approved a Minor Biological Incident/Accident Form.");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('incidentaccident_exempt/index');
     }
@@ -51,9 +53,11 @@ class incidentaccident_exempt extends CI_Controller {
         $appID = $this->uri->segment(4);
         $msg = base64_decode($this->uri->segment(5));
         $this->incidentaccidentreport_model->update_approval($id, 0, $approver_id, $appID);
-        $this->project_model->procurement_update_approval($id, 0, $approver_id, $appID);
+        $this->project_model->incident_exempt_update_approval($id, 0, $approver_id, $appID);
         
         //No need to inform by email just continue with investigation
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('incidentaccident_exempt/index');
     }
@@ -70,6 +74,8 @@ class incidentaccident_exempt extends CI_Controller {
         //Send email to victim or witnesses investigation outcomes
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Project Submission Processed", "<p>Your Incident Accident Report Project Submission Has Been Processed. (Investigations Outcomes Here)</p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
+        
         redirect('incidentaccident_exempt/index');
     }
     
@@ -81,6 +87,8 @@ class incidentaccident_exempt extends CI_Controller {
         $msg = base64_decode($this->uri->segment(5));
         $this->incidentaccidentreport_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         $this->project_model->incident_exempt_update_approval_SSBC($id, 0, $approver_id, $appID);
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('incidentaccident_exempt/index');
     }
