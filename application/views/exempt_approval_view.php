@@ -269,25 +269,37 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <!-- Exempt Dealing Approval and Reject Function -->
     <script>
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/approve/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/exempt_approval/approve/" + i + "/" + k;
+            }
         }
         
         function reject(i,k){
-           
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/reject/" + i + "/" + k ;
             
-            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+           window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve/" + i + "/" + k;
+            }
+
             
         }
     </script>
     
     <script>
         function Chair_approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/Chair_approve/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/exempt_approval/Chair_approve/" + i + "/" + k;
+            }
         }
         
         function exempt_show(){
@@ -301,32 +313,46 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         
         function final_approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/final_approve/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/exempt_approval/final_approve/" + i + "/" + k;
+            }
         }
         
         function final_reject(i,k){
             
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/final_reject/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/exempt_approval/final_reject/" + i + "/" + k;
+            }
             
         }
     </script>
     
     <script>
         function approve2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/approve2/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/exempt_approval/approve2/" + i + "/" + k;
+            }
         }
         
         function reject2(i,k){
-           
-            window.location = "<?php echo base_url(); ?>index.php/exempt_approval/reject2/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/exempt_approval/reject2/" + i + "/" + k;
+            }
             
         }
     </script>

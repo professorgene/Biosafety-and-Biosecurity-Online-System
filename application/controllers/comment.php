@@ -55,12 +55,12 @@ class comment extends CI_Controller {
                 'exempt_comment' => $this->input->post('exempt_comment'),
                 'procurement_comment' => $this->input->post('procurement_comment'),
                 'notif_of_LMO_BM_comment' => $this->input->post('notif_of_LMO_BM_comment'),
-                //'formf_comment' => $this->input->post('formf_comment'),
+                'formf_comment' => $this->input->post('formf_comment'),
                 'notif_of_export_bio_comment' => $this->input->post('notif_of_export_bio_comment'),
                 'incident_accident_comment' => $this->input->post('incident_accident_comment'),
-                //'annex3_comment' => $this->input->post('annex3_comment'),
-                //'annex4_comment' => $this->input->post('annex4_comment'),
-                //'annual_report_comment' => $this->input->post('annual_report_comment')
+                'annex3_comment' => $this->input->post('annex3_comment'),
+                'annex4_comment' => $this->input->post('annex4_comment'),
+                'annual_report_comment' => $this->input->post('annual_report_comment')
                 
             );
             
@@ -132,14 +132,13 @@ class comment extends CI_Controller {
                 'biohazard_comment' => $this->input->post('biohazard_comment'),
                 'exempt_comment' => $this->input->post('exempt_comment'),
                 'procurement_comment' => $this->input->post('procurement_comment'),
-                //'notif_of_LMO_BM_comment' => $this->input->post('notif_of_LMO_BM_comment'),
-                //'formf_comment' => $this->input->post('formf_comment'),
-                //'notif_of_export_bio_comment' => $this->input->post('notif_of_export_bio_comment'),
-                //'incident_accident_comment' => $this->input->post('incident_accident_comment'),
-                //'annex3_comment' => $this->input->post('annex3_comment'),
-                //'annex4_comment' => $this->input->post('annex4_comment'),
-                //'annual_report_comment' => $this->input->post('annual_report_comment')
-                
+                'notif_of_LMO_BM_comment' => $this->input->post('notif_of_LMO_BM_comment'),
+                'formf_comment' => $this->input->post('formf_comment'),
+                'notif_of_export_bio_comment' => $this->input->post('notif_of_export_bio_comment'),
+                'incident_accident_comment' => $this->input->post('incident_accident_comment'),
+                'annex3_comment' => $this->input->post('annex3_comment'),
+                'annex4_comment' => $this->input->post('annex4_comment'),
+                'annual_report_comment' => $this->input->post('annual_report_comment')
                 
             );
             

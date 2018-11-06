@@ -45,15 +45,12 @@ class applicationapproval extends CI_Controller {
         $approver_id = $this->session->userdata('account_id');
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
-        $this->annex2_model->update_approval($id, 1, $approver_id, $appid);
-        $this->forme_model->update_approval($id, 1, $approver_id, $appid);
-        $this->hirarc_model->update_BSO($id, 1, $approver_id, $appid);
-        $this->pc1_model->update_approval($id, 1, $approver_id, $appid);
-        $this->pc2_model->update_approval($id, 1, $approver_id, $appid);
-        $this->swp_model->update_approval($id, 1, $approver_id, $appid);
+        
         $this->project_model->update_approval($id, 1, $approver_id, $appid);
         
         $this->notification_model->insert_new_notification(null, 2, "New Project Application For LMO Approved", "BSO has approved an application for LMO");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('applicationapproval/index');
     }
@@ -63,17 +60,14 @@ class applicationapproval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appid = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(5));
+        //$msg = base64_decode($this->uri->segment(5));
         $result = $this->account_model->get_account_by_id($id);
-        $this->annex2_model->update_approval($id, 0, $approver_id, $appid);
-        $this->forme_model->update_approval($id, 0, $approver_id, $appid);
-        $this->hirarc_model->update_BSO($id, 0, $approver_id, $appid);
-        $this->pc1_model->update_approval($id, 0, $approver_id, $appid);
-        $this->pc2_model->update_approval($id, 0, $approver_id, $appid);
-        $this->swp_model->update_approval($id, 0, $approver_id, $appid);
+        
         $this->project_model->update_approval($id, 0, $approver_id, $appid);
             
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For LMO Rejected", "<p>Your New Project Application Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For LMO Rejected", "<p>Your New Project Application Submission Has Been Rejected </p>");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('applicationapproval/index');
     }
@@ -93,6 +87,8 @@ class applicationapproval extends CI_Controller {
         
         //Notify All SSBC Members that SSBC Chair has approved a form but still requires their input
          $this->notification_model->insert_new_notification(null, 3, "New Project Application for LMO Approved", "SSBC Chair has approved an application for an LMO project that requires additional input");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('applicationapproval/index');
     }
@@ -322,6 +318,8 @@ class applicationapproval extends CI_Controller {
         
         //Notify SSBC Chair that SSBC Members have reviewed and approved the form
         $this->notification_model->insert_new_notification(null, 2, "New Project Application for LMO Approved", "SSBC members have approved an application for an LMO project.");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
             
         redirect('applicationapproval/index');
     }
@@ -331,7 +329,7 @@ class applicationapproval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(4));
+        //$msg = base64_decode($this->uri->segment(4));
         $result = $this->account_model->get_account_by_id($id);
         
         $r1 = $this->project_model->get_sub_proj_by_proj_id($appID);
@@ -555,6 +553,8 @@ class applicationapproval extends CI_Controller {
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Rejected", "<p>Your New Project Application for LMO Submission Has Been Rejected </p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
+        
         redirect('applicationapproval/index');
     }
     
@@ -575,6 +575,8 @@ class applicationapproval extends CI_Controller {
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Approved.</p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
+        
         redirect('applicationapproval/index');
     }
     
@@ -583,19 +585,15 @@ class applicationapproval extends CI_Controller {
         $approver_id = ' ';
         $id = $this->uri->segment(3);
         $appID = $this->uri->segment(4);
-        $msg = base64_decode($this->uri->segment(5));
+        //$msg = base64_decode($this->uri->segment(5));
         $result = $this->account_model->get_account_by_id($id);
-        $this->annex2_model->final_approval($id, 0, $approver_id, $appID);
-        $this->forme_model->final_approval($id, 0, $approver_id, $appID);
-        $this->hirarc_model->final_approval($id, 0, $approver_id, $appID);
-        $this->pc1_model->final_approval($id, 0, $approver_id, $appID);
-        $this->pc2_model->final_approval($id, 0, $approver_id, $appID);
-        $this->swp_model->final_approval($id, 0, $approver_id, $appID);
+        
         $this->project_model->final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for LMO Approved", "<p>Your New Project Application for LMO Submission Has Been Rejected</p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('applicationapproval/index');
     }

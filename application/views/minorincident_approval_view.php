@@ -178,32 +178,46 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
     
     <script>
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/approve/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/approve/" + i + "/" + k;
+            }
         }
         
         function reject(i,k){
             
-            window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/reject/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/reject/" + i + "/" + k;
+            }
             
         }
     </script>
     
     <script>
         function approve2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/approve2/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/approve2/" + i + "/" + k;
+            }
         }
         
         function reject2(i,k){
             
-            window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/reject2/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/minorincident_approval/reject2/" + i + "/" + k;
+            }
             
         }
     </script>

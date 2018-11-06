@@ -64,6 +64,8 @@ class biohazard_approval extends CI_Controller {
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Submission Has Been Rejected</p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
+        
         redirect('biohazard_approval/index');
     }
     
@@ -79,6 +81,8 @@ class biohazard_approval extends CI_Controller {
         
         //Notify All SSBC Members that SSBC Chair has approved a form but still requires their input
         $this->notification_model->insert_new_notification(null, 3, "New Project Application for Biohazard Material Approved", "SSBC Chair has approved a new project application for biohazard material that requires additional input");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('biohazard_approval/index');
     }
@@ -308,6 +312,8 @@ class biohazard_approval extends CI_Controller {
         
         //Notify SSBC Chair that SSBC Members have reviewed and approved the form
         $this->notification_model->insert_new_notification(null, 2, "New Project Application for Biohazardous Materials Approved", "SSBC members have approved a new project application for biohazardous materials.");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
             
         redirect('biohazard_approval/index');
     }
@@ -329,7 +335,7 @@ class biohazard_approval extends CI_Controller {
                     if($q1->SSBC_mem1_id == null ){
                         # do projectapproval update based on approve / reject
                         $this->project_model->update_ssbc1($appID, $approver_id, 0);
-                        $this->project_model->bio_update_approval_SSBC($id, 1, $approver_id, $appID);
+                        $this->project_model->bio_update_approval_SSBC($id, 0, $approver_id, $appID);
 
                     }
                 } elseif ( $q2->no_of_ssbc == 2 ){
@@ -541,6 +547,8 @@ class biohazard_approval extends CI_Controller {
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Materials Rejected", "<p>Your New Project Application for Biohazardous Materials Has Been Rejected </p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
+        
         redirect('biohazard_approval/index');
     }
     
@@ -557,6 +565,8 @@ class biohazard_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>New Project Application for Biohazard Material Submission Approved", "<p>Your New Project Application for Biohazard Material Submission Has Been Approved. </p>");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('biohazard_approval/index');
     }
@@ -576,6 +586,8 @@ class biohazard_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Has Been Rejected</p>");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('biohazard_approval/index');
     }

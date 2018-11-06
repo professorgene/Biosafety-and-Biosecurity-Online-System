@@ -140,10 +140,31 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <?php } ?>
                 
+                <?php if($row->project_type == "exportLMO"){ ?>
+                <div class="form-group">
+                    <label for="notif_of_export_bio_comment">Form F Comments</label>
+                    <textarea class="form-control" name="notif_of_export_bio_comment" ><?php if(isset($load)){echo set_value('notif_of_export_bio_comment', $comment->notif_of_export_bio_comment);}else{echo set_value('notif_of_export_bio_comment');} ?></textarea>
+                </div>
+                <?php } ?>
+                
                 <?php if($row->project_type == "exportExempt"){ ?>
                 <div class="form-group">
-                    <label for="notif_of_export_bio_comment">Exporting of Biological Material: Exempt Dealing or Biohazardous Material Comments</label>
-                    <textarea class="form-control" name="notif_of_export_bio_comment" ><?php if(isset($load)){echo set_value('notif_of_export_bio_comment', $comment->notif_of_export_bio_comment);}else{echo set_value('notif_of_export_bio_comment');} ?></textarea>
+                    <label for="formf_comment">Exporting of Biological Material: Exempt Dealing or Biohazardous Material Comments</label>
+                    <textarea class="form-control" name="formf_comment" ><?php if(isset($load)){echo set_value('formf_comment', $comment->formf_comment);}else{echo set_value('formf_comment');} ?></textarea>
+                </div>
+                <?php } ?>
+                
+                <?php if($row->project_type == "majorbio"){ ?>
+                <div class="form-group">
+                    <label for="annex3_comment">Annex 3 Comments</label>
+                    <textarea class="form-control" name="annex3_comment" ><?php if(isset($load)){echo set_value('annex3_comment', $comment->annex3_comment);}else{echo set_value('annex3_comment');} ?></textarea>
+                </div>
+                <?php } ?>
+                
+                <?php if($row->project_type == "occupational"){ ?>
+                <div class="form-group">
+                    <label for="annex4_comment">Annex 4 Comments</label>
+                    <textarea class="form-control" name="annex4_comment" ><?php if(isset($load)){echo set_value('annex4_comment', $comment->annex4_comment);}else{echo set_value('annex4_comment');} ?></textarea>
                 </div>
                 <?php } ?>
                 
@@ -151,6 +172,13 @@ if(!$this->session->userdata('isLogin')){
                 <div class="form-group">
                     <label for="incident_accident_comment">Incident or Accidents Report Comments</label>
                     <textarea class="form-control" name="incident_accident_comment" ><?php if(isset($load)){echo set_value('incident_accident_comment', $comment->incident_accident_comment);}else{echo set_value('incident_accident_comment');} ?></textarea>
+                </div>
+                <?php } ?>
+                
+                <?php if($row->project_type == "anuualfinalreport"){ ?>
+                <div class="form-group">
+                    <label for="annual_report_comment">Annual/Final Report Comments</label>
+                    <textarea class="form-control" name="annual_report_comment" ><?php if(isset($load)){echo set_value('annual_report_comment', $comment->annual_report_comment);}else{echo set_value('annual_report_comment');} ?></textarea>
                 </div>
                 <?php } ?>
                 

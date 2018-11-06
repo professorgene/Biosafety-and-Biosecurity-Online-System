@@ -37,6 +37,16 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 text-center">
+                <br/>
+                <?php echo $this->session->flashdata('msg'); ?>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
         
         <!-- Annual or Final Report Forms -->
         <!-- IF current user is BSO, then show applications that have not been approved -->
@@ -58,9 +68,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
-                        <th id="proceed1">Proceed/Ammend</th>
-                        <th id="issue" style="display:none;">Major Issues</th>
-                        <th id="approval" style="display:none;">Approval</th>
+                        <th></th>
+
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -85,22 +94,27 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                             ?></td>
                         <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualorfinalreportproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
+                        <?php if($row->project_approval == 0 ) { ?>
                         
-                        <td id="proceed2" class="text-center">
-                            <button class="btn btn-success" onclick="proceed(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Proceed"><i class="fa fa-check"></i></button>
+                        <td class="text-center">
+                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="ammend(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Ammend"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>, <?php echo $row->project_type; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
-                        <td id="issuecell" style="display:none;">
-                            <button class="btn btn-success" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve">Yes</button>
+                        
+                        <?php }elseif($row->project_approval == 56 ) { ?>
+                        <td id="annex2_issue" class="text-center">
+                                <button class="btn btn-success" onclick="BSO_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="There's issue">Yes</button>
+                                <hr>
+                                <button class="btn btn-danger" onclick="annex2_show()" title="No Issue">No</button>
+                        </td>
+                        <!-- If No Issue -->
+                        <td id="annex2_Chair" style="display:none;" class="text-center">
+                            <button class="btn btn-success" onclick="BSO_final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="show_approval()" title="Reject">No</button>
+                            <button class="btn btn-danger" onclick="BSO_final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
-                        <td id="approval_cell" style="display:none;">
-                            <button class="btn btn-success" onclick="approve_BSO(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve">Yes</button>
-                            <hr/>
-                            <button class="btn btn-danger" onclick="reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject">No</button>
-                        </td>
+                        <?php } ?>
                     </tr>
                 <?php endforeach; ?>
                 </tbody>
@@ -129,9 +143,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
-                        <th id="proceed1">Proceed/Ammend</th>
-                        <th id="issue" style="display:none;">Major Issues</th>
-                        <th id="approval" style="display:none;">Approval</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -189,9 +201,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <th>Project Name</th>
                         <th>Account Type</th>
                         <th>View Form</th>
-                        <th id="proceed1">Proceed/Ammend</th>
-                        <th id="issue" style="display:none;">Major Issues</th>
-                        <th id="approval" style="display:none;">Approval</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody id="account">
@@ -217,9 +227,9 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                         <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualorfinalreportproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
-                            <button class="btn btn-success" onclick="approve3(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
+                            <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
                             <hr/>
-                            <button class="btn btn-danger" onclick="reject3(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
+                            <button class="btn btn-danger" onclick="final_reject(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Reject"><i class="fa fa-times"></i></button>
                         </td>
                     </tr>
                 <?php endforeach; ?>
@@ -248,78 +258,110 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <!-- Annual & Final Report Approval and Reject Function -->
     <script>
-        function proceed(i,k){
-            //window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/proceed/" + i;
-            
-            var u = document.getElementById("issue");
-            u.style.display = "block";
-            var v = document.getElementById("issuecell");
-            v.style.display = "block";
-            
-            var w = document.getElementById("proceed1");
-            w.style.display = "none";
-            var x = document.getElementById("proceed2");
-            x.style.display = "none";
-        }
-        
-        function ammend(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/ammend/" + i + "/" + k + "/" + btoa(j);
-            }
-        }
-        
-        function show_approval(){
-            var u = document.getElementById("issue");
-            u.style.display = "none";
-            var v = document.getElementById("issuecell");
-            v.style.display = "none";
-            
-            var w = document.getElementById("approval");
-            w.style.display = "block";
-            var x = document.getElementById("approval_cell");
-            x.style.display = "block";
-        }
-        
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve/" + i + "/" + k;
-        }
-        
-        function approve_BSO(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve_BSO/" + i + "/" + k;
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve/" + i + "/" + k;
+            }
+            
         }
         
         function reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject/" + i + "/" + k + "/" + btoa(j);
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject/" + i + "/" + k;
             }
+            
+        }
+    </script>
+    
+    <script> 
+        function BSO_approve(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/BSO_approve/" + i + "/" + k;
+            }
+            
+        }
+        
+        function annex2_show(){
+        
+            var v = document.getElementById("annex2_issue");
+            v.style.display = "none";
+            
+            var x = document.getElementById("annex2_Chair");
+            x.style.display = "block";
+        }
+        
+        
+        function final_approve(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/final_approve/" + i + "/" + k;
+            }
+            
+        }
+        
+        function final_reject(i,k){
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/final_reject/" + i + "/" + k;
+            }
+            
+        }
+        
+        function BSO_final_approve(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/BSO_final_approve/" + i + "/" + k;
+            }
+            
+        }
+        
+        function BSO_final_reject(i,k){
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/BSO_final_reject/" + i + "/" + k;
+            }
+            
         }
     </script>
     
     <script>
         function approve2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve2/" + i + "/" + k;
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve2/" + i + "/" + k;
+            }
         }
         
         function reject2(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject2/" + i + "/" + k + "/" + btoa(j);
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/rejct2/" + i + "/" + k;
             }
-        }
-    </script>
-    
-    <script>
-        function approve3(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/approve3/" + i + "/" + k;
-        }
-        
-        function reject3(i,k){
-            var j = prompt("Reason for Rejecting:", "Does not meet requirements");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/annualreport_approval/reject3/" + i + "/" + k + "/" + btoa(j);
-            }
+            
         }
     </script>
     

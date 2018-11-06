@@ -245,25 +245,26 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <!-- Biohazard Approval and Reject Function -->
     <script>
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/approve/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/approve/" + i + "/" + k;
+
         }
         
         function reject(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
             
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject/" + i + "/" + k ;
-            
-            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
             
         }
     </script>
     
     <script>
         function Chair_approve(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/Chair_approve/" + i + "/" + k;
             
-            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function biohazard_show(){
@@ -277,32 +278,35 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         
         function final_approve(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/final_approve/" + i + "/" + k;
             
-            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function final_reject(i,k){
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
            
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/final_reject/" + i + "/" + k;
                 
-            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
             
         }
     </script>
     
     <script>
         function approve2(i,k){
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
             window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/approve2/" + i + "/" + k;
             
-            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
         }
         
         function reject2(i,k){
-    
-            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject2/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+    
+            window.location = "<?php echo base_url(); ?>index.php/biohazard_approval/reject2/" + i + "/" + k;
     
             
         }

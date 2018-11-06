@@ -253,15 +253,23 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
     
     <script>
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval/approve/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval/approve/" + i + "/" + k;
+            }
         }
         
         function reject(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval/reject/" + i + "/" + k;
             
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_approval/reject/" + i + "/" + k;
+            }
             
         }
     </script>

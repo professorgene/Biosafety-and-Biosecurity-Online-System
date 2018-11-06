@@ -48,7 +48,9 @@ class exempt_approval extends CI_Controller {
         $this->swp_model->update_approval($id, 1, $approver_id, $appID);
         $this->project_model->exempt_update_approval($id, 1, $approver_id, $appID);
         
-        $this->notification_model->insert_new_notification(null, 2, "New Project Application For Exempt Dealing Approved", "BSO has approved a new project application for exempt dealing.");        
+        $this->notification_model->insert_new_notification(null, 2, "New Project Application For Exempt Dealing Approved", "BSO has approved a new project application for exempt dealing.");      
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         redirect('exempt_approval/index');
     }
     
@@ -67,6 +69,8 @@ class exempt_approval extends CI_Controller {
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected </p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
+        
         redirect('exempt_approval/index');
     }
     
@@ -81,6 +85,8 @@ class exempt_approval extends CI_Controller {
         $this->project_model->exempt_update_yes_issue($id, 1, $approver_id, $appID);
         
         $this->notification_model->insert_new_notification(null, 3, "New Project Application For Exempt Dealing Approved", "SSBC Chair has approved a new project application for exempt dealing that requires additional input.");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('exempt_approval/index');
     }
@@ -331,7 +337,7 @@ class exempt_approval extends CI_Controller {
                     if($q1->SSBC_mem1_id == null ){
                         # do projectapproval update based on approve / reject
                         $this->project_model->update_ssbc1($appID, $approver_id, 0);
-                        $this->project_model->exempt_update_approval_SSBC($id, 1, $approver_id, $appID);
+                        $this->project_model->exempt_update_approval_SSBC($id, 0, $approver_id, $appID);
 
                     }
                 } elseif ( $q2->no_of_ssbc == 2 ){
@@ -543,6 +549,8 @@ class exempt_approval extends CI_Controller {
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Exempt Dealing Rejected", "<p>Your New Project Application for Exempt Dealing Has Been Rejected </p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
+        
         redirect('exempt_approval/index');
     }
     
@@ -559,6 +567,8 @@ class exempt_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been fully approved
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Approved", "<p>Your New Project Application For Exempt Dealing Has Been Approved. </p>");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
         redirect('exempt_approval/index');
     }
@@ -577,6 +587,8 @@ class exempt_approval extends CI_Controller {
         
         //Send email to applicant let them know their form submission has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application For Exempt Dealing Submission Rejected", "<p>Your New Project Application For Exempt Dealing Has Been Rejected</p>");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
         redirect('exempt_approval/index');
     }

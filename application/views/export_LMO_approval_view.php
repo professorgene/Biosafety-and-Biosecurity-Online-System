@@ -247,40 +247,72 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <script>
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/approve/" + i + "/" + k;
+            
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/approve/" + i + "/" + k;
+            }
         }
         
         function reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/reject/" + i + "/" + k + "/" + btoa(j);
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/reject/" + i + "/" + k;
             }
+            
         }
     </script>
     
     <script>
         function approve2(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/approve2/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/approve2/" + i + "/" + k;
+            }
         }
         
         function reject2(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/reject2/" + i + "/" + k + "/" + btoa(j);
+            
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/reject2/" + i + "/" + k;
             }
+            
         }
     </script>
     
     <script>
         function approve3(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/approve3/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/approve3/" + i + "/" + k;
+            }
         }
         
         function reject3(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/reject2/" + i + "/" + k + "/" + btoa(j);
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/export_LMO_approval/reject3/" + i + "/" + k ;
             }
+            
         }
     </script>
 </body>

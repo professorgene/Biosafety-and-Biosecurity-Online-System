@@ -37,6 +37,16 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <br/>
+        <div class="row">
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-10 text-center">
+                <br/>
+                <?php echo $this->session->flashdata('msg'); ?>
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
         
         <!-- New Application LMO Projects -->
         <!-- IF current user is BSO, then show projects that have not been approved -->
@@ -261,25 +271,36 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <!-- Annex2 Approval and Reject Function -->
     <script>
         function approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/approve/" + i + "/" + k;
+            }
+            
         }
         
         function reject(i,k){
             
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k + "/" + j;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject/" + i + "/" + k;
+            }
             
         }
     </script>
     
     <script> 
         function Chair_approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/Chair_approve/" + i + "/" + k;
+            }
+            
         }
         
         function annex2_show(){
@@ -293,16 +314,23 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         
         function final_approve(i,k){
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_approve/" + i + "/" + k;
+            }
+            
         }
         
         function final_reject(i,k){
             
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/final_reject/" + i + "/" + k;
+            }
             
         }
     </script>
@@ -318,10 +346,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         }
         
         function reject_2(i,k){
-            
-            window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject2/" + i + "/" + k;
-            
             window.open("<?php echo base_url(); ?>index.php/comment/load_comments/" + i + "/" + k );
+            
+            var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
+            if (x) {
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/rejct2/" + i + "/" + k;
+            }
             
         }
     </script>
