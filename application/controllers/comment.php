@@ -56,7 +56,7 @@ class comment extends CI_Controller {
                 'procurement_comment' => $this->input->post('procurement_comment'),
                 'notif_of_LMO_BM_comment' => $this->input->post('notif_of_LMO_BM_comment'),
                 //'formf_comment' => $this->input->post('formf_comment'),
-                //'notif_of_export_bio_comment' => $this->input->post('notif_of_export_bio_comment'),
+                'notif_of_export_bio_comment' => $this->input->post('notif_of_export_bio_comment'),
                 //'incident_accident_comment' => $this->input->post('incident_accident_comment'),
                 //'annex3_comment' => $this->input->post('annex3_comment'),
                 //'annex4_comment' => $this->input->post('annex4_comment'),

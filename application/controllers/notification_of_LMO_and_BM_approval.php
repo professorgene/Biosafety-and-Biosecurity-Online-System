@@ -41,6 +41,8 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         //Send email to PI giving them the required ID number for the notified LMO/Biohazard Material
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Approved", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Approved. </p>");
         
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Approved</div>');
+        
         redirect('notification_of_LMO_and_BM_approval/index');
     }
     
@@ -56,6 +58,8 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         
         //Send email to PI that their form has been rejected
         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Rejected", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Rejected.</p>");
+        
+        $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Rejected</div>');
         
         redirect('notification_of_LMO_and_BM_approval/index');
     }

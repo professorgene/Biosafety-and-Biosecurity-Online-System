@@ -68,7 +68,7 @@ if(!$this->session->userdata('isLogin')){
             <div class="col-md-1">
             </div>
             <div class="col-md-10 bg-white">
-                <legend>New Application For LMO Comments</legend>
+                <legend>Project Comments</legend>
                 <br/>
                 <?php if(!isset($load)){echo form_open('comment/save_comment');?>
                 <?php }else{echo form_open('comment/update_comment');} ?>
@@ -137,6 +137,13 @@ if(!$this->session->userdata('isLogin')){
                 <div class="form-group">
                     <label for="notif_of_LMO_BM_comment">Notification of LMO and Biohazardous Materials Comments</label>
                     <textarea class="form-control" name="notif_of_LMO_BM_comment" ><?php if(isset($load)){echo set_value('notif_of_LMO_BM_comment', $comment->notif_of_LMO_BM_comment);}else{echo set_value('notif_of_LMO_BM_comment');} ?></textarea>
+                </div>
+                <?php } ?>
+                
+                <?php if($row->project_type == "exportExempt"){ ?>
+                <div class="form-group">
+                    <label for="notif_of_export_bio_comment">Exporting of Biological Material: Exempt Dealing or Biohazardous Material Comments</label>
+                    <textarea class="form-control" name="notif_of_export_bio_comment" ><?php if(isset($load)){echo set_value('notif_of_export_bio_comment', $comment->notif_of_export_bio_comment);}else{echo set_value('notif_of_export_bio_comment');} ?></textarea>
                 </div>
                 <?php } ?>
                 

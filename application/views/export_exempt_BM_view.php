@@ -122,13 +122,16 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     <script>
         function approve(i,k){
             window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/approve/" + i + "/" + k;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
         }
         
         function reject(i,k){
-            var j = prompt("Reason for Rejecting:", "Did not meet requirement");
-            if (j != null) {
-                window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/reject/" + i + "/" + k + "/" + btoa(j);
-            }
+            
+            window.location = "<?php echo base_url(); ?>index.php/export_exempt_BM/reject/" + i + "/" + k ;
+            
+            window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
+            
         }
     </script>
 </body>
