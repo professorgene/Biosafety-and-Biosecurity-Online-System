@@ -134,7 +134,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             <?php if($this->session->userdata('account_type') == 4) {  ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/accountapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History2.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/accountapproval/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\accountapproval.jpg') ?>" alt=""></a>
                     <div style="text-align: center" class="card-body">
                         <h6 class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/accountapproval/index">Account Approvals<br> <br></a>
@@ -214,7 +214,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             </div>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
-                    <a href="<?php echo base_url(); ?>index.php/editrequest_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\History2.jpg') ?>" alt=""></a>
+                    <a href="<?php echo base_url(); ?>index.php/editrequest_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Modification.jpg') ?>" alt=""></a>
                     <div class="card-body">
                         <h6 style="text-align: center" class="card-title">
                             <a href="<?php echo base_url(); ?>index.php/editrequest_approval">Modification & Extension Requests</a>
