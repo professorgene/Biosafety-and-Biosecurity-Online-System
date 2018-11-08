@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 06, 2018 at 03:25 AM
+-- Generation Time: Nov 08, 2018 at 01:11 PM
 -- Server version: 10.1.31-MariaDB
 -- PHP Version: 7.2.3
 
@@ -21,6 +21,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `biosafety_and_biosecurity_online_system`
 --
+
 CREATE DATABASE IF NOT EXISTS biosafety_and_biosecurity_online_system;
 USE biosafety_and_biosecurity_online_system;
 -- --------------------------------------------------------
@@ -977,6 +978,7 @@ CREATE TABLE `inventory` (
   `project_title` varchar(100) DEFAULT NULL,
   `project_reference_no` varchar(100) DEFAULT NULL,
   `biohazard_type` varchar(100) NOT NULL,
+  `biohazard_type_others` varchar(250) DEFAULT NULL,
   `biohazard_name` varchar(100) NOT NULL,
   `biohazard_id` varchar(100) NOT NULL,
   `date_received` date DEFAULT NULL,
@@ -990,8 +992,8 @@ CREATE TABLE `inventory` (
 -- Dumping data for table `inventory`
 --
 
-INSERT INTO `inventory` (`inventory_id`, `account_id`, `program`, `program_type`, `unit_convenor`, `project_investigator`, `unit_name`, `experiment_title`, `project_title`, `project_reference_no`, `biohazard_type`, `biohazard_name`, `biohazard_id`, `date_received`, `log_in_personnel`, `keeper_name`, `remarks`, `approval`) VALUES
-(1, 2, 'a', 'Teaching', 'a', 'a', 'a', 'a', 'a', 'aa', 'aaaa', 'a', 'a', '2018-10-30', 'a', 'a', '', 0);
+INSERT INTO `inventory` (`inventory_id`, `account_id`, `program`, `program_type`, `unit_convenor`, `project_investigator`, `unit_name`, `experiment_title`, `project_title`, `project_reference_no`, `biohazard_type`, `biohazard_type_others`, `biohazard_name`, `biohazard_id`, `date_received`, `log_in_personnel`, `keeper_name`, `remarks`, `approval`) VALUES
+(1, 2, 'a', 'Teaching', 'a', 'a', 'a', 'a', 'a', 'aa', 'aaaa', NULL, 'a', 'a', '2018-10-30', 'a', 'a', '', 0);
 
 -- --------------------------------------------------------
 
