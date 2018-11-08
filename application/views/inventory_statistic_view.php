@@ -54,7 +54,7 @@ if(!$this->session->userdata('isLogin')){
         <hr/>
 		
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <h3>Statistics</h3>
                 <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
             </div>
@@ -91,7 +91,7 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <br/>
         <div class="row">
-            <div class="col-md-9">
+            <div class="col-md-12">
                 <h3>Labelling Requirements</h3>
                 <div class="row">
                     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
