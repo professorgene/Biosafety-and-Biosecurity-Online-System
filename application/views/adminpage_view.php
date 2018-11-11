@@ -50,6 +50,80 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <h3 class="my-4">Statistics</h3>
         <br/>
         <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <canvas id="user-chart" width="800" height="450"></canvas>
+            </div>
+            <div class="col-md-5">
+                <canvas id="proj-chart" width="800" height="450"></canvas>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <br/>
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <canvas id="approve-chart" width="800" height="450"></canvas>
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+        
+        <script>
+            new Chart(document.getElementById("user-chart"), {
+                type: 'pie',
+                data: {
+                  labels: ["New Users", "Approved Users"],
+                  datasets: [{
+                    label: "New Users",
+                    backgroundColor: ["#e171c2", "#67afeb"],
+                    data: [<?php echo $newuserstotal ?>, <?php echo $approveduserstotal ?>]
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Total no. of BBOS Users: <?php echo $existinguserstotal ?>'
+                  }
+                }
+            });
+            new Chart(document.getElementById("proj-chart"), {
+                type: 'doughnut',
+                data: {
+                  labels: ["New Project Applications"],
+                  datasets: [{
+                    label: "New Application",
+                    backgroundColor: ["#e171c2"],
+                    data: [<?php echo $allprojtotal ?>]
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Total no. of Applications Awaiting for Approval: <?php echo $allprojtotal ?>'
+                  }
+                }
+            });
+            new Chart(document.getElementById("approve-chart"), {
+                type: 'pie',
+                data: {
+                  labels: ["LMO", "Bio", "Exempt", "Procument", "LMOBM", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  datasets: [{
+                    label: "Population (millions)",
+                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#621621", "#7fd1ee", "#aab1c1", "#cbc223"],
+                    data: [<?php echo $alllmototal ?>, <?php echo $allbiototal ?>, <?php echo $allexempttotal ?>, <?php echo $allproctotal ?>, <?php echo $allnotiftotal ?>, <?php echo $allfinaltotal ?>, <?php echo $allexporttotal ?>, <?php echo $allexempttotal ?>, <?php echo $allincidenttotal ?>, <?php echo $allminortotal ?>, <?php echo $allmajortotal ?>, <?php echo $allocctotal ?>]
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Total no. of Approved Applications: <?php echo $allapprovedprojtotal ?>'
+                  }
+                }
+            });
+        </script>
+        
+        <!--
+        <div class="row">
             <div class="col-md-3">
                 <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
                     <div class="col-md-12"><br/></div>
@@ -123,6 +197,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 </div>
             </div>
         </div>
+        -->
         <?php } ?>
         
         <br/>

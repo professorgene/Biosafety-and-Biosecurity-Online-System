@@ -53,12 +53,13 @@ if(!$this->session->userdata('isLogin')){
         </div>
         <hr/>
 		
+        <h3>Statistics</h3>
         <div class="row">
-            <div class="col-md-12">
-                <h3>Statistics</h3>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
                 <canvas id="bar-chart-grouped" width="800" height="450"></canvas>
             </div>
-            
+            <div class="col-md-2"></div>
             <script>
                 new Chart(document.getElementById("bar-chart-grouped"), {
                     type: 'horizontalBar',
@@ -88,11 +89,14 @@ if(!$this->session->userdata('isLogin')){
                     }
                 });
             </script>
+            
         </div>
         <br/>
+        
+        <h3>Labelling Requirements</h3>
         <div class="row">
-            <div class="col-md-12">
-                <h3>Labelling Requirements</h3>
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
                 <div class="row">
                     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -126,6 +130,7 @@ if(!$this->session->userdata('isLogin')){
                     </div>				
                 </div>
             </div>
+            <div class="col-md-2"></div>
         </div>
         <br/>
         <br/>
