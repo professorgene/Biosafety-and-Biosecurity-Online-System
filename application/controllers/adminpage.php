@@ -24,19 +24,142 @@ class adminpage extends CI_Controller {
         
         $allprojtotal = $this->statistic_model->get_all_new_applications();
         $allapprovedprojtotal = $this->statistic_model->get_all_approved_applications();
+        
         $alllmototal = $this->statistic_model->get_all_approved_app_lmo_applications();
+        $newlmototal = $this->statistic_model->get_all_new_app_lmo_applications();
         $allbiototal = $this->statistic_model->get_all_approved_app_bio_applications();
+        $newbiototal = $this->statistic_model->get_all_new_app_bio_applications();
         $allexempttotal = $this->statistic_model->get_all_approved_app_exempt_applications();
+        $newexempttotal = $this->statistic_model->get_all_new_app_exempt_applications();
         $allproctotal = $this->statistic_model->get_all_approved_procurement_applications();
+        $newproctotal = $this->statistic_model->get_all_new_procurement_applications();
         $allnotiftotal = $this->statistic_model->get_all_approved_notifLMOBM_applications();
+        $newnotiftotal = $this->statistic_model->get_all_new_notifLMOBM_applications();
         $allfinaltotal = $this->statistic_model->get_all_approved_anuualfinalreport_applications();
+        $newfinaltotal = $this->statistic_model->get_all_new_anuualfinalreport_applications();
         $allexporttotal = $this->statistic_model->get_all_approved_exportLMO_applications();
+        $newexporttotal = $this->statistic_model->get_all_new_exportLMO_applications();
         $allexempttotal = $this->statistic_model->get_all_approved_exportExempt_applications();
+        $newexempttotal = $this->statistic_model->get_all_new_exportExempt_applications();
         $allincidenttotal = $this->statistic_model->get_all_approved_incidentExempt_applications();
+        $newincidenttotal = $this->statistic_model->get_all_new_incidentExempt_applications();
         $allminortotal = $this->statistic_model->get_all_approved_minorbio_applications();
+        $newminortotal = $this->statistic_model->get_all_new_minorbio_applications();
         $allmajortotal = $this->statistic_model->get_all_approved_majorbio_applications();
+        $newmajortotal = $this->statistic_model->get_all_new_majorbio_applications();
         $allocctotal = $this->statistic_model->get_all_approved_occupational_applications();
-        #$allprojtotal = $this->statistic_model->get_all_applications();
+        $newocctotal = $this->statistic_model->get_all_new_occupational_applications();
+        
+        # new applications
+        $i = 0;
+        foreach ($newlmototal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newlmototal'] = $i;
+        } else {
+            $data['newlmototal'] = 0;
+        }
+        $i = 0;
+        foreach ($newbiototal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newbiototal'] = $i;
+        } else {
+            $data['newbiototal'] = 0;
+        }
+        $i = 0;
+        foreach ($newexempttotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newexempttotal'] = $i;
+        } else {
+            $data['newexempttotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newproctotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newproctotal'] = $i;
+        } else {
+            $data['newproctotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newnotiftotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newnotiftotal'] = $i;
+        } else {
+            $data['newnotiftotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newfinaltotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newfinaltotal'] = $i;
+        } else {
+            $data['newfinaltotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newexporttotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newexporttotal'] = $i;
+        } else {
+            $data['newexporttotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newexempttotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newexempttotal'] = $i;
+        } else {
+            $data['newexempttotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newincidenttotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newincidenttotal'] = $i;
+        } else {
+            $data['newincidenttotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newminortotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newminortotal'] = $i;
+        } else {
+            $data['newminortotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newincidenttotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newmajortotal'] = $i;
+        } else {
+            $data['newmajortotal'] = 0;
+        }
+        $i = 0;
+        foreach ($newocctotal as $row){
+            $i++;
+        }
+        if ($i > 0 && $i != null){
+            $data['newocctotal'] = $i;
+        } else {
+            $data['newocctotal'] = 0;
+        }
+        
         
         # Project related
         $i = 0;

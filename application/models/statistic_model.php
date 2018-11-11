@@ -16,6 +16,7 @@ class statistic_model extends CI_Model
         # $enddate = date('Y-m-d H:i:s');
         
         $this->db->where('project_status', 'submitted');
+        $this->db->where('project_approval <', 100);
         
         # Logic:
         # select * from project where project_date between date_sub(now(),INTERVAL 1 WEEK) and now()
@@ -116,11 +117,29 @@ class statistic_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_new_app_lmo_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'app_lmo');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     function get_all_approved_app_lmo_applications()
     {
         $this->db->where('project_approval', 110);
         $this->db->where('project_status', 'submitted');
         $this->db->where('project_type', 'app_lmo');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    function get_all_new_app_bio_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'app_bio');
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -134,11 +153,29 @@ class statistic_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_new_app_exempt_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'app_exempt');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     function get_all_approved_app_exempt_applications()
     {
         $this->db->where('project_approval', 110);
         $this->db->where('project_status', 'submitted');
         $this->db->where('project_type', 'app_exempt');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    function get_all_new_procurement_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'procurement');
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -152,11 +189,29 @@ class statistic_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_new_notifLMOBM_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'notifLMOBM');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     function get_all_approved_notifLMOBM_applications()
     {
         $this->db->where('project_approval', 110);
         $this->db->where('project_status', 'submitted');
         $this->db->where('project_type', 'notifLMOBM');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    function get_all_new_anuualfinalreport_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'anuualfinalreport');
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -170,11 +225,29 @@ class statistic_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_new_exportLMO_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'exportLMO');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     function get_all_approved_exportLMO_applications()
     {
         $this->db->where('project_approval', 110);
         $this->db->where('project_status', 'submitted');
         $this->db->where('project_type', 'exportLMO');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    function get_all_new_exportExempt_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'exportExempt');
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -188,11 +261,29 @@ class statistic_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_new_incidentExempt_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'incidentExempt');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     function get_all_approved_incidentExempt_applications()
     {
         $this->db->where('project_approval', 110);
         $this->db->where('project_status', 'submitted');
         $this->db->where('project_type', 'incidentExempt');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    function get_all_new_minorbio_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'minorbio');
         $query = $this->db->get('project');
 		return $query->result();
     }
@@ -206,11 +297,29 @@ class statistic_model extends CI_Model
 		return $query->result();
     }
     
+    function get_all_new_majorbio_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'majorbio');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
     function get_all_approved_majorbio_applications()
     {
         $this->db->where('project_approval', 110);
         $this->db->where('project_status', 'submitted');
         $this->db->where('project_type', 'majorbio');
+        $query = $this->db->get('project');
+		return $query->result();
+    }
+    
+    function get_all_new_occupational_applications()
+    {
+        $this->db->where('project_approval <', 100);
+        $this->db->where('project_status', 'submitted');
+        $this->db->where('project_type', 'occupational');
         $query = $this->db->get('project');
 		return $query->result();
     }

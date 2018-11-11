@@ -61,11 +61,12 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         </div>
         <br/>
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-6">
                 <canvas id="approve-chart" width="800" height="450"></canvas>
             </div>
-            <div class="col-md-2"></div>
+            <div class="col-md-6">
+                <canvas id="approve2-chart" width="800" height="450"></canvas>
+            </div>
         </div>
         
         <script>
@@ -89,17 +90,17 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             new Chart(document.getElementById("proj-chart"), {
                 type: 'doughnut',
                 data: {
-                  labels: ["New Project Applications"],
+                  labels: ["Weekly New Project Applications"],
                   datasets: [{
                     label: "New Application",
                     backgroundColor: ["#e171c2"],
-                    data: [<?php echo $allprojtotal ?>]
+                    data: [<?php echo $newprojecttotal ?>]
                   }]
                 },
                 options: {
                   title: {
                     display: true,
-                    text: 'Total no. of Applications Awaiting for Approval: <?php echo $allprojtotal ?>'
+                    text: 'Total no. of Applications Awaiting for Approval (Weekly): <?php echo $newprojecttotal ?>'
                   }
                 }
             });
@@ -108,7 +109,24 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 data: {
                   labels: ["LMO", "Bio", "Exempt", "Procument", "LMOBM", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
                   datasets: [{
-                    label: "Population (millions)",
+                    label: "Pending Applications",
+                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#621621", "#7fd1ee", "#aab1c1", "#cbc223"],
+                    data: [<?php echo $newlmototal ?>, <?php echo $newbiototal ?>, <?php echo $newexempttotal ?>, <?php echo $newproctotal ?>, <?php echo $newnotiftotal ?>, <?php echo $newfinaltotal ?>, <?php echo $newexporttotal ?>, <?php echo $newexempttotal ?>, <?php echo $newincidenttotal ?>, <?php echo $newminortotal ?>, <?php echo $newmajortotal ?>, <?php echo $newocctotal ?>]
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Total no. of Applications Awaiting for Approval: <?php echo $newlmototal + $newbiototal + $newexempttotal + $newproctotal + $newnotiftotal + $newfinaltotal + $newexporttotal + $newexempttotal + $newincidenttotal + $newminortotal + $newmajortotal + $newocctotal ?>'
+                  }
+                }
+            });
+            new Chart(document.getElementById("approve2-chart"), {
+                type: 'pie',
+                data: {
+                  labels: ["LMO", "Bio", "Exempt", "Procument", "LMOBM", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  datasets: [{
+                    label: "Approved Applications",
                     backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#621621", "#7fd1ee", "#aab1c1", "#cbc223"],
                     data: [<?php echo $alllmototal ?>, <?php echo $allbiototal ?>, <?php echo $allexempttotal ?>, <?php echo $allproctotal ?>, <?php echo $allnotiftotal ?>, <?php echo $allfinaltotal ?>, <?php echo $allexporttotal ?>, <?php echo $allexempttotal ?>, <?php echo $allincidenttotal ?>, <?php echo $allminortotal ?>, <?php echo $allmajortotal ?>, <?php echo $allocctotal ?>]
                   }]
@@ -121,83 +139,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 }
             });
         </script>
-        
-        <!--
-        <div class="row">
-            <div class="col-md-3">
-                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><h2 class="text-center"><?php echo $newprojecttotal ?></h2></div>
-                    <div class="col-md-12"><p class="text-center">Recently Submitted Projects</p></div>
-                </div>
-                <br/>
-                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><h2 class="text-center"><?php echo $newuserstotal ?></h2></div>
-                    <div class="col-md-12"><p class="text-center">Monthly New BBOS Users</p></div>
-                </div>
-                <br/>
-                <div class="row" style="border: 1px solid white;border-radius: 3px;box-shadow: 3px 3px #F88C67;background-color:white;">
-                    <div class="col-md-12"><br/></div>
-                    <div class="col-md-12"><h2 class="text-center"><?php echo $existinguserstotal ?></h2></div>
-                    <div class="col-md-12"><p class="text-center">Total BBOS Users</p></div>
-                </div>
-            </div>
-            <div class="row col-md-9">
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <div id="newusers" class="donut-size">
-                        <div class="pie-wrapper">
-                            <span class="label">
-                                <span class="num">0</span>
-                            </span>
-                            <div class="pie">
-                                <div class="left-side half-circle"></div>
-                                <div class="right-side half-circle"></div>
-                            </div>
-                            <div class="shadow"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <p class="text-center">Pending User Account Approvals</p>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <div id="blank" class="donut-size">
-                        <div class="pie-wrapper">
-                            <span class="label">
-                                <span class="num">0</span><span class="smaller">%</span>
-                            </span>
-                            <div class="pie">
-                                <div class="left-side half-circle"></div>
-                                <div class="right-side half-circle"></div>
-                            </div>
-                            <div class="shadow"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <p class="text-center">Placeholder</p>
-                </div>
-                <div class="col-md-1"></div>
-                <div class="col-md-3">
-                    <div id="blank" class="donut-size">
-                        <div class="pie-wrapper">
-                            <span class="label">
-                                <span class="num">0</span><span class="smaller">%</span>
-                            </span>
-                            <div class="pie">
-                                <div class="left-side half-circle"></div>
-                                <div class="right-side half-circle"></div>
-                            </div>
-                            <div class="shadow"></div>
-                        </div>
-                    </div>
-                    <br/>
-                    <p class="text-center">Placeholder</p>
-                </div>
-            </div>
-        </div>
-        -->
         <?php } ?>
         
         <br/>
