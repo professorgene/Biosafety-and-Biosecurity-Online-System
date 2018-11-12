@@ -368,13 +368,13 @@ class applicationapproval extends CI_Controller {
                             }
 
                         } elseif ( $q1->SSBC_mem1_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             redirect('applicationapproval/index');
                         } else {
                             # do ssbc1 = this approver id 
                             $this->project_model->update_ssbc1($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                         }
 
@@ -402,25 +402,25 @@ class applicationapproval extends CI_Controller {
                             }
 
                         } elseif ( $q1->SSBC_mem2_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             redirect('applicationapproval/index');
                             
                         } elseif( $q1->SSBC_mem1_id != null && $q1->SSBC_mem1_id != $approver_id ){
 
                             $this->project_model->update_ssbc2($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                             
 
                         } elseif ( $q1->SSBC_mem1_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             redirect('applicationapproval/index');
                         } else {
                             # do ssbc1 = this approver id 
                             $this->project_model->update_ssbc1($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                         }
 
@@ -450,12 +450,12 @@ class applicationapproval extends CI_Controller {
                         } elseif( $q1->SSBC_mem2_id != null && $q1->SSBC_mem2_id != $approver_id ){
 
                             $this->project_model->update_ssbc3($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                             
 
                         } elseif ( $q1->SSBC_mem2_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             
                             redirect('applicationapproval/index');
@@ -463,18 +463,18 @@ class applicationapproval extends CI_Controller {
                         } elseif( $q1->SSBC_mem1_id != null && $q1->SSBC_mem1_id != $approver_id ){
 
                             $this->project_model->update_ssbc2($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                             
 
                         } elseif ( $q1->SSBC_mem1_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             redirect('applicationapproval/index');
                         } else {
                             # do ssbc1 = this approver id 
                             $this->project_model->update_ssbc1($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project rejected</div>');
                             redirect('applicationapproval/index');
                         }
 
@@ -504,12 +504,12 @@ class applicationapproval extends CI_Controller {
                         } elseif( $q1->SSBC_mem3_id != null && $q1->SSBC_mem3_id != $approver_id ){
 
                             $this->project_model->update_ssbc4($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                             
 
                         } elseif ( $q1->SSBC_mem3_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             
                             redirect('applicationapproval/index');
@@ -517,30 +517,30 @@ class applicationapproval extends CI_Controller {
                         } elseif( $q1->SSBC_mem2_id != null && $q1->SSBC_mem2_id != $approver_id ){
 
                             $this->project_model->update_ssbc3($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                             
 
                         } elseif ( $q1->SSBC_mem2_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             redirect('applicationapproval/index');
                             
                         } elseif( $q1->SSBC_mem1_id != null && $q1->SSBC_mem1_id != $approver_id ){
 
                             $this->project_model->update_ssbc2($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Rejected</div>');
                             redirect('applicationapproval/index');
                             
 
                         } elseif ( $q1->SSBC_mem1_id == $approver_id ) {
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already approved this project</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">You have already rejected this project</div>');
                             #leave blank and tell user he has already approved it
                             redirect('applicationapproval/index');
                         } else {
                             # do ssbc1 = this approver id 
                             $this->project_model->update_ssbc1($appID, $approver_id, 0);
-                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project Approved</div>');
+                            $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">Project rejected</div>');
                             redirect('applicationapproval/index');
                         }
 
