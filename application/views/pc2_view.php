@@ -31,16 +31,13 @@
     ?>
     
         <div class="row">
+    <div class="col-md-12">
+		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PC2.jpg') ?>" alt="">	
+    </div>
             
             <div class="col-md-10">
                
-                   <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
-                   
-                   <h3 class="centering">Application for Notifiable Low Risk Dealings</h3>
-                   <h3 class="centering">(NLRDs) suitable for Physical Containment level 2 </h3>
-                   <h3 class="centering">(PC2)</h3>
-                   
-                   <br>
+              <br>
                    
                    <table class="table table-bordered">
             <thead class="tblTitle2">

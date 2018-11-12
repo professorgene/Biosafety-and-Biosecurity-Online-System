@@ -24,7 +24,9 @@
      
 
         <div class="row">
-            
+    <div class="col-md-12">
+		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\IncidentAccidentReport.jpg') ?>" alt="">	
+    </div>            
             <div class="col-md-10">
                
                    <div>
