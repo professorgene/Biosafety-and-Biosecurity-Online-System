@@ -187,7 +187,7 @@ if(!$this->session->userdata('isLogin')){
                 <?php if($row->project_type == "app_lmo" || $row->project_type == "app_bio" || $row->project_type == "app_exempt" || $row->project_type == "exportLMO" || $row->project_type == "majorbio" || $row->project_type == "occupational" || $row->project_type == "anuualfinalreport"){ ?>
                 <div class="form-group">
                     <label for="type">No. of SSBC members to review:</label>
-                    <select <?php if(isset($load)){if($this->session->userdata('account_type') == 3){echo "disabled"; }}?> class="form-control" name="no_of_ssbc" >
+                    <select <?php if(isset($load)){if($this->session->userdata('account_type') != 2){echo "disabled"; }} else { echo "disabled"; } ?> class="form-control" name="no_of_ssbc" >
                         <option value="1" <?php if(isset($load)){if($comment->no_of_ssbc == 1){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>1</option>
                         <option value="2" <?php if(isset($load)){if($comment->no_of_ssbc == 2){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>2</option>
                         <option value="3" <?php if(isset($load)){if($comment->no_of_ssbc == 3){echo set_select('no_of_ssbc', '1', TRUE);}} ?>>3</option>
