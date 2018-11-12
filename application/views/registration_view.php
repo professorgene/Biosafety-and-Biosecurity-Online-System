@@ -40,6 +40,17 @@ if($this->session->userdata('isLogin')){
             <div class="row">
                 <div class="col-xl-3 col-md-3 col-sm-2 col-1">
                 </div>
+                <div class="col-xl-6 col-md-6 col-sm-8 col-10 text-center bg-white">
+                    <br/>
+                    <?php echo $this->session->flashdata('msg'); ?>
+                    <p>Already had an account? <a href="<?php echo base_url(); ?>index.php/landing/index">Login Now</a></p>
+                </div>
+                <div class="col-xl-3 col-md-3 col-sm-2 col-1">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-3 col-md-3 col-sm-2 col-1">
+                </div>
                 <div class="col-xl-6 col-md-6 col-sm-8 col-10 bg-white">
                     <?php echo form_open('registration/index'); ?>
                         <br/>
@@ -91,17 +102,6 @@ if($this->session->userdata('isLogin')){
                             <span class="col-md-1"></span>
                         </div>
                     <?php echo form_close(); ?>
-                </div>
-                <div class="col-xl-3 col-md-3 col-sm-2 col-1">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xl-3 col-md-3 col-sm-2 col-1">
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-8 col-10 text-center bg-white">
-                    <br/>
-                    <?php echo $this->session->flashdata('msg'); ?>
-                    <p>Already had an account? <a href="<?php echo base_url(); ?>index.php/landing/index">Login Now</a></p>
                 </div>
                 <div class="col-xl-3 col-md-3 col-sm-2 col-1">
                 </div>
