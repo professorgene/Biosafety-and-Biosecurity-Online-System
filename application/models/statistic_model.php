@@ -57,8 +57,8 @@ class statistic_model extends CI_Model
         # $startdate = date('Y-m-d H:i:s', strtotime('-1 month'));
         # $enddate = date('Y-m-d H:i:s');
         
-        $this->db->where('account_approved', 0);
-        $this->db->or_where('account_approved', 1);
+        #$this->db->where('account_approved', 0);
+        $this->db->where('account_approved', 1);
         #$this->db->where('account_approved', 1);
         
         # Logic:

@@ -66,7 +66,9 @@ if(!$this->session->userdata('isLogin')){
     <div class="container">
         <br/>
         <div class="row">  
-            
+    <div class="col-md-12">
+		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\AnnualFinalReport.jpg') ?>" alt="">	
+    </div>              
             <div class="col-md-10">
 
                     <div>
@@ -74,13 +76,6 @@ if(!$this->session->userdata('isLogin')){
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
                 
-                   <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
-                   
-                   <h3 class="centering">Annual/Final report for use of Biohazardous </h3>
-                   <h3 class="centering">materials</h3>
-                                      
-                   <br>
-                   
 				   <table class="table table-bordered">
                        <thead class="tblTitle2">
                            <tr>

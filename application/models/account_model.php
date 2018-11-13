@@ -52,7 +52,7 @@ class account_model extends CI_Model
     function get_all_approved_account($id) 
     {
         $this->db->where('account_approved', 1);
-        $this->db->not_like('account_id', $id);
+        $this->db->where('account_id !=', $id);
         $query = $this->db->select('*')->from('accounts')->get();
 		return $query->result();
     }

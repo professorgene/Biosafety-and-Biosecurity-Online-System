@@ -49,6 +49,7 @@ if(!$this->session->userdata('isLogin')){
 			<br>
         <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
 		<hr>
+        <h4 class="my-4">Please select the type of project you wish to apply</h4>
         <div class="row">
 		
             <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6 && $this->session->userdata('account_type') != 7) { ?>

@@ -492,7 +492,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     'project_facilities_room_no' => $this->input->post('pc2_project_facilities_room_no'),
                     'project_facilities_containment_level' => $this->input->post('pc2_project_facilities_containment_level'),
                     'project_facilities_certification_no' => $this->input->post('pc2_project_facilities_certification_no'),
-                    'pc1_officer_notified' => $this->input->post('pc1_officer_notified'),
+                    'officer_notified' => $this->input->post('pc1_officer_notified'),
                     'officer_name' => $this->input->post('pc2_officer_name'),
                     'laboratory_manager' => $this->input->post('pc2_laboratory_manager'),
                     'editable' => $editableValue,

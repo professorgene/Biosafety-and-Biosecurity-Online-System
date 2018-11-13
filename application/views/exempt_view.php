@@ -31,19 +31,14 @@
     ?>
     
         <div class="row">
-            
+    <div class="col-md-12">
+		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\ExemptDealing.jpg') ?>" alt="">	
+    </div>            
             <div class="col-md-10">
-                
+                <br>
                 <div>
-                        <br/>
-                        <?php echo $this->session->flashdata('msg'); ?>
-                    </div>
-                
-                   <h4 class="centering"><u>Swinburne Biosafety Commitee</u></h4>
-                   
-                   <h3 class="centering">Application for biosafety clearance for use of</h3>
-                   <h3 class="centering">Exempt dealings</h3>
-                   
+                   <?php echo $this->session->flashdata('msg'); ?>
+                </div>
                    <table class="table table-bordered blackborder">
                        <thead class="tblTitle2">
                            <tr>
