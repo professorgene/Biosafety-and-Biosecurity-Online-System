@@ -1,4 +1,5 @@
 <?php
+<?php
     
     
     if(isset($load)){
@@ -602,7 +603,7 @@
                                                 if(!$item->applicant_PI_signature_file== NULL){
                                                 $fname = $item->applicant_PI_signature_file; 
                                             ?>
-                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/uploads/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
                                             <?php 
                                                 } else {
 
@@ -657,7 +658,7 @@
                                                 if(!$item->IBC_chairperson_signature_file== NULL){
                                                 $fname = $item->IBC_chairperson_signature_file; 
                                             ?>
-                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/uploads/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
                                             <?php 
                                                 } else {
 
@@ -707,7 +708,7 @@
                                                 if(!$item->organization_representative_signature_file== NULL){
                                                 $fname = $item->organization_representative_signature_file; 
                                             ?>
-                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                            <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/uploads/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
                                             <?php 
                                                 } else {
 
@@ -891,7 +892,7 @@
                                             if(!$item->project_intro_activities== NULL){
                                                 $fname = $item->project_intro_activities; 
                                     ?>
-                                    <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                    <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/uploads/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
                                     <?php 
                                             } else {
 
@@ -920,7 +921,7 @@
                                             if(!$item->project_intro_duration== NULL){
                                                 $fname = $item->project_intro_duration; 
                                     ?>
-                                    <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                    <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/lmoproj/uploads/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
                                     <?php 
                                             } else {
 

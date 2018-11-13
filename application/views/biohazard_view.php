@@ -489,7 +489,7 @@
                                        if(!$item->biohazard_signature_file== NULL){
                                            $fname = $item->biohazard_signature_file; 
                                    ?>
-                                   <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/biohazardproj/download/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
+                                   <p>Click here to download your previously submitted file: <a href="<?php echo base_url(); ?>/index.php/biohazardproj/uploads/<?php echo $fname; ?>"><?php echo $fname; ?></a></p>
                                    <?php 
                                        } else {
 
