@@ -35,8 +35,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<hr>
 	<div class="row" >
-	    <div class="col-md-12">
-
         <div class="col-lg-5" >
             <?php echo form_open('notificationbiohazardouspage/index'); ?>
             <br/>
