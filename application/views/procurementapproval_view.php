@@ -94,7 +94,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/procurementproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
@@ -156,7 +156,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/procurementproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
@@ -218,7 +218,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
                                             echo "Student & Postgraduate";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/procurementproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <i class="btn btn-success fa fa-check" onclick="approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"></i>
@@ -250,6 +250,10 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
     </script>
     
     <script>
+        function load(i){
+            window.open("<?php echo base_url(); ?>index.php/procurementproj/load_project/" + i);
+        }
+        
         function approve(i,k){
             
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );

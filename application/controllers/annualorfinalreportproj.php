@@ -136,12 +136,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		}
 		
 		 //load project in disabled state
-        public function load_project(){
+        public function load_project($proj_id){
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $data['load'] = "true";
-            $data['disabled'] = "true";           
-            $id = $this->input->get('id');           
+            $data['disabled'] = "true";      
+            
+            //$id = $this->input->get('id');
+            $id = $this->uri->segment(3);  
+            
             $data['appID'] = $id;           
             $data['retrieved'] = $this->annualfinalreport_model->get_form_by_project_id($id);   
             

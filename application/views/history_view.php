@@ -71,9 +71,11 @@ if(!$this->session->userdata('isLogin')){
                         <td><?php echo $row['project_desc']; ?></td>
                         <td class="text-center">
                             <?php 
-                            if($row['approval'] != 110 || $row['approval'] == null){
+                            if($row['approval'] == 0 || $row['approval'] == null || $row['approval'] < 100){
                                 echo "Awaiting Approval";
-                            } else {
+                            } elseif($row['approval'] >= 100 && $row['approval'] <= 109 ) {
+                                echo "Rejected";
+                            } elseif($row['approval'] == 110) {
                                 echo "Approved";
                             }
                             ?>

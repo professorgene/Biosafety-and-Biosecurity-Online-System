@@ -10,7 +10,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Swinburne Biosafety and Biosecurity Online System - Procurement of Biological Material</title>
+    <title>Swinburne Biosafety and Biosecurity Online System - Exporting Biological Materials</title>
     
     <style>
         body {
@@ -29,7 +29,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-        <h5>Exempt Dealing or Biohazardous Material Approval</h5>
+        <h5>Export Exempt Dealing or Biohazardous Material Approval</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">
         <div class="row">
@@ -84,7 +84,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/exportingofbioexemptdealingproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         <!--
                         <td class="text-center">
                             <a class="btn btn-success" href="<?php echo base_url(); ?>index.php/accountapproval/approve/<?php echo $row->account_id; ?>" title="Approve"><i class="fa fa-check"></i></a>
@@ -120,6 +120,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     </script>
     
     <script>
+        function load(i){
+            window.open("<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/load_project/" + i);
+        }
+        
         function approve(i,k){
             
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );

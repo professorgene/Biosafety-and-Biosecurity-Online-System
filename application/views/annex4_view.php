@@ -117,17 +117,7 @@
 						   
                            </tbody>
                        </table>
-                       <span class="text-danger"><?php echo form_error('reference_no'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_name'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_NRIC'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_telephone_number'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_age'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_office_number'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_race'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_ext_number'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_employment_job'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_employment_faculty'); ?></span>
-                       <span class="text-danger"><?php echo form_error('personnel_employment_duration'); ?></span>
+                       
                    </div>
                 
                 

@@ -92,7 +92,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualorfinalreportproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         
                         <?php if($row->project_approval == 0 ) { ?>
                         
@@ -166,7 +166,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualorfinalreportproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <button class="btn btn-success" onclick="approve2(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
@@ -224,7 +224,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                                             echo "HSO / Lab Officer";
                                         }
                             ?></td>
-                        <td><button type="button" name = 'load' value = 'Load' onclick="location.href='<?php echo site_url().'/annualorfinalreportproj/load_project?id='.$row->project_id;?>'" class="btn btn-primary">Load</button></td>
+                        <td><button type="button" name = 'load' value = 'Load' onclick="load(<?php echo $row->project_id; ?>)" class="btn btn-primary">Load</button></td>
                         
                         <td class="text-center">
                             <button class="btn btn-success" onclick="final_approve(<?php echo $row->account_id; ?>, <?php echo $row->project_id; ?>)" title="Approve"><i class="fa fa-check"></i></button>
@@ -258,6 +258,10 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
     
     <!-- Annual & Final Report Approval and Reject Function -->
     <script>
+        function load(i){
+            window.open("<?php echo base_url(); ?>index.php/annualorfinalreportproj/load_project/" + i);
+        }
+        
         function approve(i,k){
             window.open("<?php echo base_url(); ?>index.php/comment/index/" + i + "/" + k );
             

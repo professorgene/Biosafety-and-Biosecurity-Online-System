@@ -1195,7 +1195,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
   
         //load project in disabled state
-        public function load_project(){
+        public function load_project($proj_id){
             $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('officer_notified', 'Visibility', ' ');
@@ -1203,7 +1203,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             $data['load'] = "true";
             $data['disabled'] = "true";
             
-            $id = $this->input->get('id');
+            //$id = $this->input->get('id');
+            $id = $this->uri->segment(3);
             
             $data['appID'] = $id;
             
