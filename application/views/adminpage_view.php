@@ -143,8 +143,8 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         
         <br/>
         <hr/>
-        <br/>
         
+        <h3 class="my-4">Navigation</h3>
         <?php if($this->session->userdata('account_type') == 2 || $this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 ) {  ?>
         <div class="row">
             <?php if($this->session->userdata('account_type') == 4) {  ?>
