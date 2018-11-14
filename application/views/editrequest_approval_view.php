@@ -735,43 +735,51 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         function view_application(i, j){
                 //check what type of project is it then go to project controller
                 if(j == "app_lmo"){
-                    window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/lmoproj/load_project/" + i);
                     
                 }else if(j == "app_bio"){
-                    window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/biohazardproj/load_project/" + i);
                     
                 }else if(j == "app_exempt"){
-                    window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/exemptproj/load_project/" + i);
+                    
                     
                 }else if(j == "procurement"){
-                    window.location = "<?php echo base_url(); ?>index.php/procurementproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/procurementproj/load_project/" + i);
                     
                 }else if(j == "notifLMOBM"){
-                    window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_project?id=" + i;
+                   
+                    window.open("<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_project/" + i);
                     
                 }else if(j == "anuualfinalreport"){
-                    window.location = "<?php echo base_url(); ?>index.php/annualorfinalreportproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/annualorfinalreportproj/load_project/" + i);
                     
                 }else if(j == "exportLMO"){
-                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioLMOproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/exportingofbioLMOproj/load_project/" + i);
                     
                 }else if(j == "exportExempt"){
-                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/load_project?id=" + i;
                     
-                }else if(j == "incidentExempt"){
-                    window.location = "<?php echo base_url(); ?>index.php/incidentaccidentreportingpageexemptproj/load_project?id=" + i;
+                    window.open("<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/load_project/" + i);
                     
                 }else if(j == "minorbio"){
-                    window.location = "<?php echo base_url(); ?>index.php/minorbioproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/minorbioproj/load_project/" + i);
                     
                 }else if(j == "majorbio"){
-                    window.location = "<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/load_project/" + i);
                     
                 }else if(j == "occupational"){
-                    window.location = "<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/load_project?id=" + i;
+                    window.open("<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/load_project/" + i);
                     
-                }                                  
-        }
+                }              
+            }
         
         
         function approve(i,k){

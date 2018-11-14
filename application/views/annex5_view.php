@@ -341,13 +341,14 @@ if(!$this->session->userdata('isLogin')){
                     <input type="hidden" name="appid" value="<?php if(isset($appID)){echo $appID;} ?>">
                 </div>
                 
-                   <div style="text-align: center">
+                <div style="text-align: center">
                        <?php if(isset($editload)){ ?>
-                       <button type="submit" name = 'annex5_update' value = 'Update' onclick="location.href='<?php echo site_url().'/annex5/update_form';?>'" class="btn btn-primary">Update</button>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/annex5/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="submit" type="submit" class="btn btn-primary col-md-2">Submit</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary col-md-2">Submit</button>
                        <?php } ?>
                    </div>
+                
                <?php if(isset($disabled)){ echo "</fieldset>"; } ?>
                <?php echo form_close(); ?>
             </div>

@@ -20,6 +20,122 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         }
         
         public function index(){
+            $data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
+            
+            $save = $this->input->post('saveButton');
+            $submit = $this->input->post('submitButton');
+            $proj_id = $this->session->userdata("projectId");
+            $saveStatus = "saved";
+            $submitStatus = "submitted";
+            $projectSave = 'saved';
+            $projectSubmit = 'submitted';
+            
+            if (!isset($save) && !isset($submit)){
+                
+                $this->load->template('annex5_view',$data);
+                
+            }elseif(isset($save)){
+                
+                $ar1 = implode(',',$this->input->post('IBC_approval'));
+                
+                $data = array(
+                    'account_id' => $this->session->userdata('account_id'),
+                    'identification_PI_name' => $this->input->post('identification_PI_name'),
+                    'identification_email_address' => $this->input->post('identification_email_address'),
+                    'identification_faculty' => $this->input->post('identification_faculty'),
+                    'identification_telephone' => $this->input->post('identification_telephone'),
+                    'identification_IBC_reference_no' => $this->input->post('identification_IBC_reference_no'),
+                    'identification_NBB_reference_no' => $this->input->post('identification_NBB_reference_no'),
+                    'identification_project_title' => $this->input->post('identification_project_title'),
+                    'identification_LMO_rDNA' => $this->input->post('identification_LMO_rDNA'),
+                    'request_type' => $this->input->post('request_type'),
+                    'PI_change' => $this->input->post('PI_change'),
+                    'RG_change' => $this->input->post('RG_change'),
+                    'BSL_change' => $this->input->post('BSL_change'),
+                    'LMO_rDNA_type_change' => $this->input->post('LMO_rDNA_type_change'),
+                    'LMO_rDNA_moved' => $this->input->post('LMO_rDNA_moved'),
+                    'adverse_events' => $this->input->post('adverse_events'),
+                    'incident_report' => $this->input->post('incident_report'),
+                    'signature_PI_name' => $this->input->post('signature_PI_name'),
+                    'signature_PI_date' => $this->input->post('signature_PI_date'),
+                    'signature_BO_name' => $this->input->post('signature_BO_name'),
+                    'signature_BO_date' => $this->input->post('signature_BO_date'),
+                    'signature_IBC_name' => $this->input->post('signature_BO_date'),
+                    'signature_IBC_date' => $this->input->post('signature_BO_date'),
+                    'IBC_approval' => $this->input->post('IBC_approval'),
+                    'IBC_termination' => $this->input->post('IBC_termination'),
+                );
+                
+                if($this->annex5_model->insert_new_applicant_data($data)){
+                    
+                   $this->notification_model->insert_new_notification(null, 4, "New Project Application for Extension Or Termination of Approved project", "The following user has submitted a new project application for Extension Or Termination of Approved project: " . $this->session->userdata('account_name'));
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
+                   redirect('annex5/index');
+                    
+                        
+                } else {
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+                   redirect('annex5/index');
+                    
+                    
+                    
+                }
+                
+            }elseif(isset($submit)){
+                
+                $ar1 = implode(',',$this->input->post('IBC_approval'));
+                
+                $data = array(
+                    'account_id' => $this->session->userdata('account_id'),
+                    'identification_PI_name' => $this->input->post('identification_PI_name'),
+                    'identification_email_address' => $this->input->post('identification_email_address'),
+                    'identification_faculty' => $this->input->post('identification_faculty'),
+                    'identification_telephone' => $this->input->post('identification_telephone'),
+                    'identification_IBC_reference_no' => $this->input->post('identification_IBC_reference_no'),
+                    'identification_NBB_reference_no' => $this->input->post('identification_NBB_reference_no'),
+                    'identification_project_title' => $this->input->post('identification_project_title'),
+                    'identification_LMO_rDNA' => $this->input->post('identification_LMO_rDNA'),
+                    'request_type' => $this->input->post('request_type'),
+                    'PI_change' => $this->input->post('PI_change'),
+                    'RG_change' => $this->input->post('RG_change'),
+                    'BSL_change' => $this->input->post('BSL_change'),
+                    'LMO_rDNA_type_change' => $this->input->post('LMO_rDNA_type_change'),
+                    'LMO_rDNA_moved' => $this->input->post('LMO_rDNA_moved'),
+                    'adverse_events' => $this->input->post('adverse_events'),
+                    'incident_report' => $this->input->post('incident_report'),
+                    'signature_PI_name' => $this->input->post('signature_PI_name'),
+                    'signature_PI_date' => $this->input->post('signature_PI_date'),
+                    'signature_BO_name' => $this->input->post('signature_BO_name'),
+                    'signature_BO_date' => $this->input->post('signature_BO_date'),
+                    'signature_IBC_name' => $this->input->post('signature_BO_date'),
+                    'signature_IBC_date' => $this->input->post('signature_BO_date'),
+                    'IBC_approval' => $this->input->post('IBC_approval'),
+                    'IBC_termination' => $this->input->post('IBC_termination'),
+                );
+                
+                if($this->annex5_model->insert_new_applicant_data($data)){
+                    
+                   $this->notification_model->insert_new_notification(null, 4, "New Project Application for Extension Or Termination of Approved project", "The following user has submitted a new project application for Extension Or Termination of Approved project: " . $this->session->userdata('account_name'));
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Form has been successfully submitted!</div>', $data);
+                   redirect('annex5/index');
+                    
+                        
+                } else {
+                    
+                   $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
+                   redirect('annex5/index');
+                    
+                    
+                    
+                }
+                
+            }
+        }
+        
+       /* public function index(){
 			$data['readnotif'] = $this->notification_model->get_read( $this->session->userdata('account_id'), $this->session->userdata('account_type') );
             
             $this->form_validation->set_rules('identification_PI_name', 'Name', 'required|callback_fullname_check');
@@ -107,7 +223,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                 
             }
             
-        }
+        }*/
         
         public function load_form(){
             
@@ -218,25 +334,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
         }
         
-        public function fullname_check($str) {
-            
-            if (!preg_match('/^([a-z0-9 ])+$/i', $str)) {
-                $this->form_validation->set_message('fullname_check', 'The %s field can only be alphanumerical');
-                return FALSE;
-            } else {
-                return TRUE;
-            }
-        }
-        
-        public function phone_check($str) {
-            
-            if (!preg_match('/^(\+?6?01)[0|1|2|3|4|6|7|8|9]\-*[0-9]{7,8}$/', $str)) {
-                $this->form_validation->set_message('phone_check', 'Use a valid phone number');
-                return FALSE;
-            } else {
-                return TRUE;
-            }
-        }
         
     }
 ?>
