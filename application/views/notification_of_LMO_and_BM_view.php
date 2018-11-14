@@ -89,7 +89,7 @@
                                        </div>
                                    </td>
                                    
-                                   <th class="tbheader1">1.02 1.02   Staff / Student No.:</th>
+                                   <th class="tbheader1">1.02 Staff / Student No.:</th>
                                    <td>
                                        <div class="form-group">
                                            <textarea name="personnel_staff_student_no" class="form-control" ><?php if(isset($load)){echo set_value('personnel_staff_student_no', $item->personnel_staff_student_no);}else{echo set_value('personnel_staff_student_no');} ?></textarea>
