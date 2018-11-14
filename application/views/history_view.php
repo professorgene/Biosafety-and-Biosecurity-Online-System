@@ -87,8 +87,8 @@ if(!$this->session->userdata('isLogin')){
                             
                             <i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>
             
-                            <i class="fa fa-clock btn btn-primary" onclick="extend_application()" title="Extend"></i>
-                            <i class="fa fa-times btn btn-danger" onclick="terminate_application()" title="Terminate"></i>
+                            <!-- <i class="fa fa-clock btn btn-primary" onclick="extend_application()" title="Extend"></i> -->
+                            <!-- <i class="fa fa-times btn btn-danger" onclick="terminate_application()" title="Terminate"></i> -->
                         </td>
                     </tr>
                     <?php endforeach; ?>

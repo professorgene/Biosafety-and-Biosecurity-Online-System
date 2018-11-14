@@ -330,7 +330,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             
             $data['retrieved'] = $this->procurement_model->get_form_by_project_id($id);
             
-        
             $this->load->template('procurementproj_view', $data);
         }
         
