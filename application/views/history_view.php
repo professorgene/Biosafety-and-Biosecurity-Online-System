@@ -82,6 +82,7 @@ if(!$this->session->userdata('isLogin')){
                         </td>
                         <td><button class="btn btn-primary" onclick="view_comment(<?php echo $row['project_id']; ?>)">View Comments</button></td>
                         <td class="text-center">
+                            
                             <i class="fa fa-bars btn btn-info" onclick="view_application(<?php echo $row['project_id']; ?>, '<?php echo $row['type']; ?>')" title="Details"></i>
                             
                             <i class="fa fa-edit btn btn-warning" onclick="location.href='<?php echo site_url().'/history/edit_application/'.$row['project_id'].'/'.$row['type'].'/'.$row['editable']; ?>'" title="Edit"></i>
@@ -114,37 +115,48 @@ if(!$this->session->userdata('isLogin')){
             function view_application(i, j){
                 //check what type of project is it then go to project controller
                 if(j == "app_lmo"){
-                    window.location = "<?php echo base_url(); ?>index.php/lmoproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/lmoproj/load_project/" + i);
                     
                 }else if(j == "app_bio"){
-                    window.location = "<?php echo base_url(); ?>index.php/biohazardproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/biohazardproj/load_project/" + i);
                     
                 }else if(j == "app_exempt"){
-                    window.location = "<?php echo base_url(); ?>index.php/exemptproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/exemptproj/load_project/" + i);
+                    
                     
                 }else if(j == "procurement"){
-                    window.location = "<?php echo base_url(); ?>index.php/procurementproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/procurementproj/load_project/" + i);
                     
                 }else if(j == "notifLMOBM"){
-                    window.location = "<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_project?id=" + i;
+                   
+                    window.open("<?php echo base_url(); ?>index.php/notification_of_LMO_and_BM_proj/load_project/" + i);
                     
                 }else if(j == "anuualfinalreport"){
-                    window.location = "<?php echo base_url(); ?>index.php/annualorfinalreportproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/annualorfinalreportproj/load_project/" + i);
                     
                 }else if(j == "exportLMO"){
-                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioLMOproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/exportingofbioLMOproj/load_project/" + i);
                     
                 }else if(j == "exportExempt"){
-                    window.location = "<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/exportingofbioexemptdealingproj/load_project/" + i);
                     
                 }else if(j == "minorbio"){
-                    window.location = "<?php echo base_url(); ?>index.php/minorbioproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/minorbioproj/load_project/" + i);
                     
                 }else if(j == "majorbio"){
-                    window.location = "<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/load_project?id=" + i;
+                    
+                    window.open("<?php echo base_url(); ?>index.php/majorincidentaccidentreportingpageproj/load_project/" + i);
                     
                 }else if(j == "occupational"){
-                    window.location = "<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/load_project?id=" + i;
+                    window.open("<?php echo base_url(); ?>index.php/occupationaldiseaseexposurepageproj/load_project/" + i);
                     
                 }              
             }
