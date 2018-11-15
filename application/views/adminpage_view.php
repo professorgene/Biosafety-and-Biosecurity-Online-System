@@ -206,6 +206,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            <?php if($this->session->userdata('account_type') == 3 || $this->session->userdata('account_type') == 4 ) {  ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/incidentaccident_type"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Incident Accident Reporting2.jpg') ?>" alt=""></a>
@@ -217,6 +218,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                     </div>
                 </div>
             </div>
+            <?php } ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/annualreport_approval"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\Annual Report2.jpg') ?>" alt=""></a>
@@ -297,12 +299,6 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
         <?php } ?>
         
     </div>
-    
     <br/>
-    
-    <script>
-        // Automatically loads data into Statistic Panel. Use Pie for comparison, Donut for standalone
-        updatePieChart('#newusers', <?php echo $newuserstotal ?>, <?php echo $approveduserstotal ?>);
-    </script>
 </body>
 </html>

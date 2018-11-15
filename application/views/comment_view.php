@@ -249,7 +249,7 @@ if(!$this->session->userdata('isLogin')){
                 </div>
                 <?php } ?>
                 
-                <?php if($this->session->userdata('account_type') != 1){ ?>
+                <?php if($this->session->userdata('account_type') == 2){ ?>
                     <?php if($row->project_type == "app_lmo" || $row->project_type == "app_bio" || $row->project_type == "app_exempt" || $row->project_type == "exportLMO" || $row->project_type == "majorbio" || $row->project_type == "occupational" || $row->project_type == "anuualfinalreport"){ ?>
                     <div class="form-group">
                         <label for="type">No. of SSBC members to review:</label>
