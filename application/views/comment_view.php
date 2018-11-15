@@ -44,75 +44,7 @@ if(!$this->session->userdata('isLogin')){
             
         }
     }else{ 
-        foreach($comment_info as $comment){
-            $comment->annex2_comment = "";
-            $comment->forme_comment = "";
-            $comment->pc1_comment = "";
-            $comment->pc2_comment = "";
-            $comment->hirarc_comment = "";
-            $comment->swp_comment = "";
-            $comment->biohazard_comment = "";
-            $comment->exempt_comment = "";
-            $comment->procurement_comment = "";
-            $comment->notif_of_LMO_BM_comment = "";
-            $comment->formf_comment = "";
-            $comment->notif_of_export_bio_comment = "";
-            $comment->incident_accident_comment = "";
-            $comment->annex3_comment = "";
-            $comment->annex4_comment = "";
-            $comment->annual_report_comment = "";
-            /*
-            foreach($comment_info as $comment){
-            if ($comment->annex2_comment == NULL) {
-                $comment->annex2_comment = "";
-            }
-            if ($comment->forme_comment == NULL) {
-                $comment->forme_comment = "";
-            }
-            if ($comment->pc1_comment == NULL) {
-                $comment->pc1_comment = "";
-            }
-            if ($comment->pc2_comment == NULL) {
-                $comment->pc2_comment = "";
-            }
-            if ($comment->hirarc_comment == NULL) {
-                $comment->hirarc_comment = "";
-            }
-            if ($comment->swp_comment == NULL) {
-                $comment->swp_comment = "";
-            }
-            if ($comment->biohazard_comment == NULL) {
-                $comment->biohazard_comment = "";
-            }
-            if ($comment->exempt_comment == NULL) {
-                $comment->exempt_comment = "";
-            }
-            if ($comment->procurement_comment == NULL) {
-                $comment->procurement_comment = "";
-            }
-            if ($comment->notif_of_LMO_BM_comment == NULL) {
-                $comment->notif_of_LMO_BM_comment = "";
-            }
-            if ($comment->formf_comment == NULL) {
-                $comment->formf_comment = "";
-            }
-            if ($comment->notif_of_export_bio_comment == NULL) {
-                $comment->notif_of_export_bio_comment = "";
-            }
-            if ($comment->incident_accident_comment == NULL) {
-                $comment->incident_accident_comment = "";
-            }
-            if ($comment->annex3_comment == NULL) {
-                $comment->annex3_comment = "";
-            }
-            if ($comment->annex4_comment == NULL) {
-                $comment->annex4_comment = "";
-            }
-            if ($comment->annual_report_comment == NULL) {
-                $comment->annual_report_comment = "";
-            }
-            */
-        }
+        
     }
     
     ?>
