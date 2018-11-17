@@ -272,11 +272,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             new Chart(document.getElementById("approve-chart"), {
                 type: 'pie',
                 data: {
-                  labels: ["LMO", "Bio", "Exempt", "Procument", "LMOBM", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  labels: ["LMO", "Bio", "Exempt", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
                   datasets: [{
                     label: "Pending Applications",
-                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#621621", "#7fd1ee", "#aab1c1", "#cbc223"],
-                    data: [<?php echo $newlmototal ?>, <?php echo $newbiototal ?>, <?php echo $newexempttotal ?>, <?php echo $newproctotal ?>, <?php echo $newnotiftotal ?>, <?php echo $newfinaltotal ?>, <?php echo $newexporttotal ?>, <?php echo $newexempttotal ?>, <?php echo $newincidenttotal ?>, <?php echo $newminortotal ?>, <?php echo $newmajortotal ?>, <?php echo $newocctotal ?>]
+                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#aab1c1", "#cbc223"],
+                    data: [<?php echo $newlmototal ?>, <?php echo $newbiototal ?>, <?php echo $newexempttotal ?>, <?php echo $newfinaltotal ?>, <?php echo $newexporttotal ?>, <?php echo $newexempttotal ?>, <?php echo $newincidenttotal ?>, <?php echo $newminortotal ?>, <?php echo $newmajortotal ?>, <?php echo $newocctotal ?>]
                   }]
                 },
                 options: {
@@ -289,11 +289,11 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             new Chart(document.getElementById("approve2-chart"), {
                 type: 'pie',
                 data: {
-                  labels: ["LMO", "Bio", "Exempt", "Procument", "LMOBM", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  labels: ["LMO", "Bio", "Exempt", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
                   datasets: [{
                     label: "Approved Applications",
-                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#621621", "#7fd1ee", "#aab1c1", "#cbc223"],
-                    data: [<?php echo $alllmototal ?>, <?php echo $allbiototal ?>, <?php echo $allexempttotal ?>, <?php echo $allproctotal ?>, <?php echo $allnotiftotal ?>, <?php echo $allfinaltotal ?>, <?php echo $allexporttotal ?>, <?php echo $allexempttotal ?>, <?php echo $allincidenttotal ?>, <?php echo $allminortotal ?>, <?php echo $allmajortotal ?>, <?php echo $allocctotal ?>]
+                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#aab1c1", "#cbc223"],
+                    data: [<?php echo $alllmototal ?>, <?php echo $allbiototal ?>, <?php echo $allexempttotal ?>, <?php echo $allfinaltotal ?>, <?php echo $allexporttotal ?>, <?php echo $allexempttotal ?>, <?php echo $allincidenttotal ?>, <?php echo $allminortotal ?>, <?php echo $allmajortotal ?>, <?php echo $allocctotal ?>]
                   }]
                 },
                 options: {
