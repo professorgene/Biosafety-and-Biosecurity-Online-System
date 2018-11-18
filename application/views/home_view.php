@@ -204,7 +204,6 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 </div>
             </div>
-            <?php if($this->session->userdata('account_type') != 5 && $this->session->userdata('account_type') != 6) { ?>
             <div class="col-lg-3 col-md-4 col-sm-6 col-6 portfolio-item d-flex align-items-stretch">
                 <div class="card card-block justify-content-center align-items-center">
                     <a href="<?php echo base_url(); ?>index.php/educational/index"><img class="card-img-top" src="<?php echo base_url('assets\images\ApplicantForm\educational activities.jpg') ?>" alt=""></a>
@@ -216,7 +215,6 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 </div>
             </div>
-            <?php } ?>
         </div>
 	</div>
 </body>

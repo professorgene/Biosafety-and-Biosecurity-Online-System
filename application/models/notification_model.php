@@ -25,6 +25,7 @@ class notification_model extends CI_Model
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
             #$this->db->where('account_id', $id);
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -32,6 +33,7 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 2);
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -40,6 +42,7 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 3);
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -47,6 +50,7 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 4);
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -54,6 +58,7 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 5);
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -61,12 +66,14 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 6);
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 7){
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -82,6 +89,7 @@ class notification_model extends CI_Model
             #$this->db->where('account_id', $id);
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -90,6 +98,7 @@ class notification_model extends CI_Model
             $this->db->or_where('notification_type', 2);
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -99,6 +108,7 @@ class notification_model extends CI_Model
             $this->db->or_where('notification_type', 3);
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -107,6 +117,7 @@ class notification_model extends CI_Model
             $this->db->or_where('notification_type', 4);
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -115,6 +126,7 @@ class notification_model extends CI_Model
             $this->db->or_where('notification_type', 5);
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -123,6 +135,7 @@ class notification_model extends CI_Model
             $this->db->or_where('notification_type', 6);
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -130,6 +143,7 @@ class notification_model extends CI_Model
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
             $this->db->like('notification_description', 'account');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -144,7 +158,11 @@ class notification_model extends CI_Model
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
             #$this->db->where('account_id', $id);
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -152,7 +170,11 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 2);
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -161,7 +183,11 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 3);
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -169,7 +195,11 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 4);
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -177,7 +207,11 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 5);
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -185,14 +219,22 @@ class notification_model extends CI_Model
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 6);
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 7){
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
             $this->db->like('notification_description', 'application');
+            $this->db->like('notification_description', 'project');
+            $this->db->not_like('notification_description', 'approve');
+            $this->db->not_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -206,18 +248,20 @@ class notification_model extends CI_Model
         if($account_type == 1){
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
             #$this->db->where('account_id', $id);
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 2){
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 2);
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
@@ -225,44 +269,49 @@ class notification_model extends CI_Model
             #$this->db->where(array('account_id' => $id, 'notification_type' => 3));
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 3);
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 4){
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 4);
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 5){
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 5);
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 6){
             $this->db->where('account_id', $id);
             $this->db->or_where('notification_type', 6);
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }
         if($account_type == 7){
             $this->db->where(array('account_id' => $id, 'notification_type' => 1));
-            $this->db->like('notification_description', 'approved');
-            $this->db->or_like('notification_description', 'rejected');
+            $this->db->like('notification_description', 'approve');
+            $this->db->or_like('notification_description', 'reject');
             $this->db->order_by("notification_id","desc");
+            $this->db->limit(50);
             $query = $this->db->get('notification');
             return $query->result();
         }

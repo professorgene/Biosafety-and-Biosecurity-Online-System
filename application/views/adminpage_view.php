@@ -233,7 +233,13 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
                 <canvas id="approve2-chart" width="800" height="450"></canvas>
             </div>
         </div>
-        
+        <br/>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <canvas id="completion-chart" width="800" height="450"></canvas>
+            </div>
+        </div>
         <script>
             new Chart(document.getElementById("user-chart"), {
                 type: 'pie',
@@ -272,34 +278,51 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             new Chart(document.getElementById("approve-chart"), {
                 type: 'pie',
                 data: {
-                  labels: ["LMO", "Bio", "Exempt", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  labels: ["LMO", "Bio", "Exempt", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
                   datasets: [{
                     label: "Pending Applications",
-                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#aab1c1", "#cbc223"],
-                    data: [<?php echo $newlmototal ?>, <?php echo $newbiototal ?>, <?php echo $newexempttotal ?>, <?php echo $newfinaltotal ?>, <?php echo $newexporttotal ?>, <?php echo $newexempttotal ?>, <?php echo $newincidenttotal ?>, <?php echo $newminortotal ?>, <?php echo $newmajortotal ?>, <?php echo $newocctotal ?>]
+                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#cbc223"],
+                    data: [<?php echo $newlmototal ?>, <?php echo $newbiototal ?>, <?php echo $newexempttotal ?>, <?php echo $newexporttotal ?>, <?php echo $newexportexempttotal ?>, <?php echo $newincidenttotal ?>, <?php echo $newminortotal ?>, <?php echo $newmajortotal ?>, <?php echo $newocctotal ?>]
                   }]
                 },
                 options: {
                   title: {
                     display: true,
-                    text: 'Total no. of Applications Awaiting for Approval: <?php echo $newlmototal + $newbiototal + $newexempttotal + $newproctotal + $newnotiftotal + $newfinaltotal + $newexporttotal + $newexempttotal + $newincidenttotal + $newminortotal + $newmajortotal + $newocctotal ?>'
+                    text: 'Total no. of Applications Awaiting for Approval: <?php echo $newlmototal + $newbiototal + $newexempttotal + $newexporttotal + $newexportexempttotal + $newincidenttotal + $newminortotal + $newmajortotal + $newocctotal ?>'
                   }
                 }
             });
             new Chart(document.getElementById("approve2-chart"), {
                 type: 'pie',
                 data: {
-                  labels: ["LMO", "Bio", "Exempt", "Annual / Final", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  labels: ["LMO", "Bio", "Exempt", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
                   datasets: [{
                     label: "Approved Applications",
-                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#aab1c1", "#cbc223"],
-                    data: [<?php echo $alllmototal ?>, <?php echo $allbiototal ?>, <?php echo $allexempttotal ?>, <?php echo $allfinaltotal ?>, <?php echo $allexporttotal ?>, <?php echo $allexempttotal ?>, <?php echo $allincidenttotal ?>, <?php echo $allminortotal ?>, <?php echo $allmajortotal ?>, <?php echo $allocctotal ?>]
+                    backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#cbc223"],
+                    data: [<?php echo $alllmototal ?>, <?php echo $allbiototal ?>, <?php echo $allexempttotal ?>, <?php echo $allexporttotal ?>, <?php echo $allexportexempttotal ?>, <?php echo $allincidenttotal ?>, <?php echo $allminortotal ?>, <?php echo $allmajortotal ?>, <?php echo $allocctotal ?>]
                   }]
                 },
                 options: {
                   title: {
                     display: true,
-                    text: 'Total no. of Approved Applications: <?php echo $allapprovedprojtotal ?>'
+                    text: 'Total no. of Approved Applications: <?php echo $alllmototal + $allbiototal + $allexempttotal + $allexporttotal + $allexportexempttotal + $allincidenttotal + $allminortotal + $allmajortotal + $allocctotal ?>'
+                  }
+                }
+            });
+            new Chart(document.getElementById("completion-chart"), {
+                type: 'doughnut',
+                data: {
+                  labels: ["Project Completion"],
+                  datasets: [{
+                    label: "Completed Projects",
+                    backgroundColor: ["#67afeb"],
+                    data: [<?php echo $allfinaltotal ?>]
+                  }]
+                },
+                options: {
+                  title: {
+                    display: true,
+                    text: 'Total no. of Completed Projects: <?php echo $allfinaltotal ?>'
                   }
                 }
             });
