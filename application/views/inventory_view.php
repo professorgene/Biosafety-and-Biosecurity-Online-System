@@ -112,7 +112,10 @@ if(!$this->session->userdata('isLogin')){
                     </tr>
                     <tr id="tr<?php echo $row->inventory_id; ?>" style="display:none;">
                         <td colspan="10">
-                            <p>Date Received: <?php echo $row->date_received; ?></p>
+                            <p>Date Received: <?php
+                                     $date=date_create($row->date_received);
+                                     echo date_format($date,"m/d/Y");
+                                ?></p>
                             <p>Log In Personnel: <?php echo $row->log_in_personnel; ?></p>
                             <p>Keeper's Name: <?php echo $row->keeper_name; ?></p>
                             <p>Remarks: <?php echo $row->remarks; ?></p>
@@ -197,7 +200,10 @@ if(!$this->session->userdata('isLogin')){
                         <td colspan="10">
                             <p>Location of Collection / Supplier Name: <?php echo $row->location; ?></p>
                             <p>Source of Biohazardous Material: <?php echo $row->biohazard_source; ?></p>
-                            <p>Date Created: <?php echo $row->date_created; ?></p>
+                            <p>Date Created: <?php
+                                    $date=date_create($row->date_created);
+                                    echo date_format($date,"m/d/Y");
+                                ?></p>
                         </td>
                     </tr>
                 <?php endforeach; ?>
