@@ -31,15 +31,10 @@
     ?>
     
         <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PC2.jpg') ?>" alt="">	
-    </div>
-            
             <div class="col-md-10">
-               
               <br>
-                   
                    <table class="table table-bordered">
+                       <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PC2.jpg') ?>" alt="">	
             <thead class="tblTitle2">
                 <tr>
                     <th>DATE RECEIVED</th>

@@ -14,9 +14,6 @@
     ?>
     
         <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PrePurchaseMaterialRiskAssessment.jpg') ?>" alt="">	
-    </div>  
             <div class="col-md-10">
                
                    
@@ -24,7 +21,7 @@
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
-                   
+                   <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PrePurchaseMaterialRiskAssessment.jpg') ?>" alt="">	
                    <div>
                        <h5 class="dark_background">PLEASE FILL IN ALL INFORMATION REQUESTED</h5>
                   </div>

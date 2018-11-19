@@ -65,10 +65,7 @@ if(!$this->session->userdata('isLogin')){
     
     <div class="container">
         <br/>
-        <div class="row">  
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\AnnualFinalReport.jpg') ?>" alt="">	
-    </div>              
+        <div class="row"> 
             <div class="col-md-10">
 
                     <div>
@@ -77,6 +74,7 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 
 				   <table class="table table-bordered">
+                       <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\AnnualFinalReport.jpg') ?>" alt="">	
                        <thead class="tblTitle2">
                            <tr>
                                <th>DATE RECEIVED</th>

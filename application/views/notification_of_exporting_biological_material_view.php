@@ -37,12 +37,9 @@
     
     <div class="container">
 
-        <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\NotificationOfLMOandBio.jpg') ?>" alt="">	
-    </div>           
+        <div class="row">   
             <div class="col-md-10">
-               
+               <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\NotificationOfLMOandBio.jpg') ?>" alt="">
                    <div>
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
                    </div>

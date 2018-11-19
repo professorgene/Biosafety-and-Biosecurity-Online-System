@@ -33,11 +33,8 @@
     
         <div id="hirarctop" class="row">  
 		
-            <div class="col-md-12">
-				<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\Hirarc.jpg') ?>" alt="">		
-            </div>
 			<div class="col-md-10">
-				<br>
+                <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\Hirarc.jpg') ?>" alt="">		
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
                    </div>

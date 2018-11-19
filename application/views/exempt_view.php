@@ -31,15 +31,13 @@
     ?>
     
         <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\ExemptDealing.jpg') ?>" alt="">	
-    </div>            
             <div class="col-md-10">
                 <br>
                 <div>
                    <?php echo $this->session->flashdata('msg'); ?>
                 </div>
                    <table class="table table-bordered blackborder">
+                       <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\ExemptDealing.jpg') ?>" alt="">	
                        <thead class="tblTitle2">
                            <tr>
                                <th>DATE RECEIVED</th>
