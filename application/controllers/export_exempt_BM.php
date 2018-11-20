@@ -13,6 +13,11 @@ class export_exempt_BM extends CI_Controller {
         $this->load->model('account_model');
         $this->load->model('notification_of_exporting_biological_material_model');
         $this->load->model('project_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Exporting of Biological Material','/exportingrequest',true);
+		$this->breadcrumbs->push('Export Exempt Dealing or Biohazardous Material Approval', true);
         
     }
     

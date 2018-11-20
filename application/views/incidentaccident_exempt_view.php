@@ -30,8 +30,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
-	        <br>
-  
+ 
     <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
         
 		<hr>

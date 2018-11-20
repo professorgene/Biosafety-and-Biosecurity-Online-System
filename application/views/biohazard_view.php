@@ -531,6 +531,11 @@
                     <a href="#section_9" class="btn btn-success">Section 9</a>
                     <a href="#section_10" class="btn btn-success">Section 10</a>
                     <a href="#section_11" class="btn btn-success">Section 11</a>
+                    <?php if(isset($editload)){ ?>
+                    <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/biohazard/update_form';?>'" class="btn btn-primary">Update</button>
+                    <?php }else{ ?>
+                    <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                    <?php } ?>
                 </div>   
             </div>
         </div>

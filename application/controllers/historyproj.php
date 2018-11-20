@@ -14,7 +14,7 @@ class historyproj extends CI_Controller {
         $this->load->model('email_model');
 		//breadcrumb
 		$this->breadcrumbs->unshift('Home', '/');
-        $this->breadcrumbs->push('History', true);
+        $this->breadcrumbs->push('Submitted or Past Applications', true);
         
         //Form Models
         $this->load->model('annex2_model');

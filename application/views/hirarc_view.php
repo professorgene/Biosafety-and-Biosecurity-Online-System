@@ -33,11 +33,8 @@
     
         <div id="hirarctop" class="row">  
 		
-            <div class="col-md-12">
-				<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\Hirarc.jpg') ?>" alt="">		
-            </div>
 			<div class="col-md-10">
-				<br>
+                <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\Hirarc.jpg') ?>" alt="">		
                    <div>
                        <h5><strong>PLEASE FILL OUT ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -503,6 +500,11 @@
                     <a href="#hirarctop" class="btn btn-success">Top</a>
                     <a href="#hirarc_section_1" class="btn btn-success">Section 1</a>
                     <a href="#hirarc_section_2" class="btn btn-success">Section 2</a>
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/hirarc/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
+                       <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                       <?php } ?>
                 </div>   
             </div>
         </div>

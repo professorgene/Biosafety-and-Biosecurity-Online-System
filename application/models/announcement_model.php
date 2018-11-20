@@ -11,6 +11,7 @@ class announcement_model extends CI_Model
     function get_all_announcement($page) 
     {
         $this->db->where('announcement_page', $page);
+        $this->db->limit(10);
         $query = $this->db->select('*')->from('announcement')->get();
 		return $query->result();
     }

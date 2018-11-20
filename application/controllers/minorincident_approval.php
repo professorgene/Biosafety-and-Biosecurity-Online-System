@@ -13,6 +13,12 @@ class minorincident_approval extends CI_Controller {
         $this->load->model('incidentaccidentreport_model');
         $this->load->model('email_model');
         $this->load->model('project_model');
+		
+		//breadcrum
+		$this->breadcrumbs->unshift('Administrator Panel', '/index.php/adminpage');	
+		$this->breadcrumbs->push('Incident Accident Reporting','/incidentaccident_type',true);
+		$this->breadcrumbs->push('LMO','/incidentaccident_LMO_type', true);
+		$this->breadcrumbs->push('Minor Biological Incident or Accident Project Approvals', true);
     }
     
 	public function index()

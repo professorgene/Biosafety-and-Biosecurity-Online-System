@@ -37,12 +37,9 @@
     
     <div class="container">
 
-        <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\NotificationOfLMOandBio.jpg') ?>" alt="">	
-    </div>           
+        <div class="row">   
             <div class="col-md-10">
-               
+               <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\NotificationOfLMOandBio.jpg') ?>" alt="">
                    <div>
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
                    </div>
@@ -464,6 +461,12 @@
                     <a href="#section_5" class="btn btn-success">Section 5</a>
 					<a href="#section_6" class="btn btn-success">Section 6</a>
 					<a href="#section_7" class="btn btn-success">Section 7</a>
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/notification_of_exporting_biological_material/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
+                        <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                       <?php } ?>
                 </div>   
             </div>
         </div>               

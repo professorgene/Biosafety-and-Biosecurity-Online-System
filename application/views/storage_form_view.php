@@ -105,13 +105,13 @@ if(!$this->session->userdata('isLogin')){
                         <legend>New Storage Application</legend>
                         <br/>
                         <div class="form-group">
-                            <label for="biohazardid">ID No.:</label>
+                            <label for="biohazardid" title="Enter the ID No. here.">ID No.:</label>
                             <input class="form-control" id="biohazardid" name="biohazard_id" placeholder="Enter the ID No. here." type="text" value="<?php echo set_value('biohazard_id', $form_biohazard_id); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_id'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardname">Name of Biohazardous Material:</label>
+                            <label for="biohazardname" title="Enter the biohazard name here.">Name of Biohazardous Material:</label>
                             <input class="form-control" id="biohazardname" name="biohazard_name" placeholder="Enter the biohazard name here." type="text" value="<?php echo set_value('biohazard_name', $form_biohazard_name); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_name'); ?></span>
                         </div>
@@ -126,37 +126,37 @@ if(!$this->session->userdata('isLogin')){
                         </div>
                     
                         <div class="form-group">
-                            <label for="locationname">Location of Collection / Supplier Name:</label>
+                            <label for="locationname" title="Enter location / supplier name here.">Location of Collection / Supplier Name:</label>
                             <input class="form-control" id="locationname" name="location" placeholder="Enter location / supplier name here." type="text" value="<?php echo set_value('location', $form_location); ?>" />
                             <span class="text-danger"><?php echo form_error('location'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="biohazardsource">Source of Biohazardous Material:</label>
+                            <label for="biohazardsource" title="Enter the source of biohazardous material here.">Source of Biohazardous Material:</label>
                             <input class="form-control" id="biohazardsource" name="biohazard_source" placeholder="Enter the source of biohazardous material here." type="text" value="<?php echo set_value('biohazard_source', $form_biohazard_source); ?>" />
                             <span class="text-danger"><?php echo form_error('biohazard_source'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="datecreated">Date Created:</label>
+                            <label for="datecreated" title="Enter the date here.">Date Created:</label>
                             <input class="form-control" id="datecreated" name="date_created" placeholder="Enter the date here." type="date" value="<?php echo set_value('date_created', $form_date_created); ?>" />
                             <span class="text-danger"><?php echo form_error('date_created'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="storagelocation">Storage Location:</label>
+                            <label for="storagelocation" title="Enter storage location here.">Storage Location:</label>
                             <input class="form-control" id="storagelocation" name="storage_location" placeholder="Enter storage location here." type="text" value="<?php echo set_value('storage_location', $form_storage_location); ?>" />
                             <span class="text-danger"><?php echo form_error('storage_location'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="keepername">Keeper Name:</label>
+                            <label for="keepername" title="Enter the keeper's name here.">Keeper Name:</label>
                             <input class="form-control" id="keepername" name="keeper_name" placeholder="Enter the keeper's name here." type="text" value="<?php echo set_value('keeper_name', $form_keeper_name); ?>" />
                             <span class="text-danger"><?php echo form_error('keeper_name'); ?></span>
                         </div>
                     
                         <div class="form-group">
-                            <label for="loginpersonnel">Log In Personnel:</label>
+                            <label for="loginpersonnel" title="Enter the log in personnel name here.">Log In Personnel:</label>
                             <input class="form-control" id="loginpersonnel" name="log_in_personnel" placeholder="Enter the log in personnel name here." type="text" value="<?php echo set_value('log_in_personnel', $form_log_in_personnel); ?>" />
                             <span class="text-danger"><?php echo form_error('log_in_personnel'); ?></span>
                         </div>

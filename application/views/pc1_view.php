@@ -31,15 +31,14 @@
     ?>
     
 <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PC1.jpg') ?>" alt="">	
-    </div>
     <div class="col-md-10">
            <br>
         <?php if(isset($error)){echo $error;} ?>
 
                    
         <table class="table table-bordered">
+            <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PC1.jpg') ?>" alt="">
+            
             <thead class="tblTitle2">
                 <tr>
                     <th>DATE RECEIVED</th>
@@ -697,6 +696,11 @@
                     <a href="#pc1_section_5" class="btn btn-success">Section 2</a>
                     <a href="#pc1_section_10" class="btn btn-success">Section 3</a>
                     <a href="#pc1_section_15" class="btn btn-success">Section 4</a>
+                    <?php if(isset($editload)){ ?>
+                    <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/pc1/update_form';?>'" class="btn btn-primary">Update</button>
+                    <?php }else{ ?>
+                    <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                    <?php } ?>
                 </div>   
             </div>
         </div>

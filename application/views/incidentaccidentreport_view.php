@@ -24,11 +24,8 @@
      
 
         <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\IncidentAccidentReport.jpg') ?>" alt="">	
-    </div>            
             <div class="col-md-10">
-               
+                <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\IncidentAccidentReport.jpg') ?>" alt="">	
                    <div>
                        <h5>OHS-F-4.20.X INCIDENT ACCIDENT REPORT</h5>	
                        <h5><strong>PLEASE FILL IN ALL INFORMATION REQUESTED</strong></h5>
@@ -378,6 +375,12 @@
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
                     <a href="#section_4" class="btn btn-success">Section 4</a>
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/incidentaccidentreport/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
+                       <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                       <?php } ?>
                 </div>   
             </div>
         </div>               

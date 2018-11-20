@@ -10,6 +10,7 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/styles.css" type="text/css">
     <title>Swinburne Biosafety and Biosecurity Online System - Minor Biological Incident or Accident Approval</title>
     
     <style>
@@ -29,6 +30,9 @@ if($this->session->userdata('account_type') != 4 && $this->session->userdata('ac
 
     <!-- Page Content -->
     <div class="container">
+        <div id='breadcrumb1'><?php echo $this->breadcrumbs->show(); ?></div>
+        <hr>
+		
         <h5>Minor Biological Incident or Accident Project Approvals</h5>
         <br/>
         <input class="form-control" id="searchbar" type="text" placeholder="Search here">

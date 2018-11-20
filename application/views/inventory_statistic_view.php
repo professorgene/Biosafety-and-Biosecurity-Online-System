@@ -82,10 +82,24 @@ if(!$this->session->userdata('isLogin')){
                       ]
                     },
                     options: {
-                      title: {
-                        display: true,
-                        text: 'Biohazard Types'
-                      }
+                        scales: {
+                             xAxes: [{
+                                 ticks: {
+                                     beginAtZero: true,
+                                     userCallback: function(label, index, labels) {
+                                         // returns whole numbers when floor value is similar
+                                         if (Math.floor(label) === label) {
+                                             return label;
+                                         }
+
+                                     },
+                                 }
+                             }],
+                         },
+                        title: {
+                            display: true,
+                            text: 'Biohazard Types'
+                        }
                     }
                 });
             </script>

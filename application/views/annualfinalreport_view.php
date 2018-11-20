@@ -65,10 +65,7 @@ if(!$this->session->userdata('isLogin')){
     
     <div class="container">
         <br/>
-        <div class="row">  
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\AnnualFinalReport.jpg') ?>" alt="">	
-    </div>              
+        <div class="row"> 
             <div class="col-md-10">
 
                     <div>
@@ -77,6 +74,7 @@ if(!$this->session->userdata('isLogin')){
                     </div>
                 
 				   <table class="table table-bordered">
+                       <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\AnnualFinalReport.jpg') ?>" alt="">	
                        <thead class="tblTitle2">
                            <tr>
                                <th>DATE RECEIVED</th>
@@ -414,6 +412,12 @@ if(!$this->session->userdata('isLogin')){
 					<a href="#section_7" class="btn btn-success">Section 7</a>
 					<a href="#section_8" class="btn btn-success">Section 8</a>
 					<a href="#section_9" class="btn btn-success">Section 9</a>
+                    <?php if(isset($editload)){ ?>
+                    <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/annualfinalreport/update_form';?>'" class="btn btn-primary">Update</button>
+                    <?php }else{ ?>
+                    <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                    <button name="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                    <?php } ?>
                 </div>   
             </div>
         </div>

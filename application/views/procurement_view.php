@@ -14,9 +14,6 @@
     ?>
     
         <div class="row">
-    <div class="col-md-12">
-		<img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PrePurchaseMaterialRiskAssessment.jpg') ?>" alt="">	
-    </div>  
             <div class="col-md-10">
                
                    
@@ -24,7 +21,7 @@
                         <br/>
                         <?php echo $this->session->flashdata('msg'); ?>
                     </div>
-                   
+                   <img class="card-img-top" src="<?php echo base_url('assets\images\FormLogo\PrePurchaseMaterialRiskAssessment.jpg') ?>" alt="">	
                    <div>
                        <h5 class="dark_background">PLEASE FILL IN ALL INFORMATION REQUESTED</h5>
                   </div>
@@ -777,6 +774,12 @@
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
                     <a href="#section_3" class="btn btn-success">Section 3</a>
+                       <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/procurement/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
+                        <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                       <?php } ?>
                 </div>   
             </div>
         </div>

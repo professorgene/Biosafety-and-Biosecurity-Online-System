@@ -39,8 +39,8 @@ class adminpage extends CI_Controller {
         $newfinaltotal = $this->statistic_model->get_all_new_anuualfinalreport_applications();
         $allexporttotal = $this->statistic_model->get_all_approved_exportLMO_applications();
         $newexporttotal = $this->statistic_model->get_all_new_exportLMO_applications();
-        $allexempttotal = $this->statistic_model->get_all_approved_exportExempt_applications();
-        $newexempttotal = $this->statistic_model->get_all_new_exportExempt_applications();
+        $allexportexempttotal = $this->statistic_model->get_all_approved_exportExempt_applications();
+        $newexportexempttotal = $this->statistic_model->get_all_new_exportExempt_applications();
         $allincidenttotal = $this->statistic_model->get_all_approved_incidentExempt_applications();
         $newincidenttotal = $this->statistic_model->get_all_new_incidentExempt_applications();
         $allminortotal = $this->statistic_model->get_all_approved_minorbio_applications();
@@ -115,13 +115,13 @@ class adminpage extends CI_Controller {
             $data['newexporttotal'] = 0;
         }
         $i = 0;
-        foreach ($newexempttotal as $row){
+        foreach ($newexportexempttotal as $row){
             $i++;
         }
         if ($i > 0 && $i != null){
-            $data['newexempttotal'] = $i;
+            $data['newexportexempttotal'] = $i;
         } else {
-            $data['newexempttotal'] = 0;
+            $data['newexportexempttotal'] = 0;
         }
         $i = 0;
         foreach ($newincidenttotal as $row){
@@ -244,13 +244,13 @@ class adminpage extends CI_Controller {
             $data['allexporttotal'] = 0;
         }
         $i = 0;
-        foreach ($allexempttotal as $row){
+        foreach ($allexportexempttotal as $row){
             $i++;
         }
         if ($i > 0 && $i != null){
-            $data['allexempttotal'] = $i;
+            $data['allexportexempttotal'] = $i;
         } else {
-            $data['allexempttotal'] = 0;
+            $data['allexportexempttotal'] = 0;
         }
         $i = 0;
         foreach ($allincidenttotal as $row){
