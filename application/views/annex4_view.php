@@ -350,6 +350,11 @@
                     <a href="#top" class="btn btn-success">Top</a>
                     <a href="#section_1" class="btn btn-success">Section 1</a>
                     <a href="#section_2" class="btn btn-success">Section 2</a>
+                    <?php if(isset($editload)){ ?>
+                       <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/annex4/update_form';?>'" class="btn btn-primary">Update</button>
+                       <?php }else{ ?>
+                       <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                       <?php } ?>
                 </div>   
             </div>
         </div>

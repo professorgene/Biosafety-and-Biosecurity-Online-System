@@ -696,6 +696,11 @@
                     <a href="#pc1_section_5" class="btn btn-success">Section 2</a>
                     <a href="#pc1_section_10" class="btn btn-success">Section 3</a>
                     <a href="#pc1_section_15" class="btn btn-success">Section 4</a>
+                    <?php if(isset($editload)){ ?>
+                    <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/pc1/update_form';?>'" class="btn btn-primary">Update</button>
+                    <?php }else{ ?>
+                    <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                    <?php } ?>
                 </div>   
             </div>
         </div>

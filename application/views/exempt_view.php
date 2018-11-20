@@ -559,6 +559,11 @@
                     <a href="#section_7" class="btn btn-success">Section 7</a>
                     <a href="#section_8" class="btn btn-success">Section 8</a>
                     <a href="#section_9" class="btn btn-success">Section 9</a>
+                   <?php if(isset($editload)){ ?>
+                   <button type="submit" name = 'updateButton' value = 'Update' class="btn btn-primary">Update</button>
+                   <?php }else{ ?>
+                   <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                   <?php } ?>
                 </div>   
             </div>
         </div>

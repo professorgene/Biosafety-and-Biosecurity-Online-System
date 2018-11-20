@@ -318,6 +318,12 @@
                         <a href="#swp_section_3" class="btn btn-success">Section 3</a>
                         <a href="#swp_section_4" class="btn btn-success">Section 4</a>
                         <a href="#swp_section_5" class="btn btn-success">Section 5</a>
+                        <?php if(isset($editload)){ ?>
+                        <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/swp/update_form';?>'" class="btn btn-primary">Update</button>
+                        <?php }else{ ?>
+                        <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                        <button name="submitButton" type="submit" class="btn btn-primary">Submit</button>
+                        <?php } ?>
                     </div>   
                 </div>
             
