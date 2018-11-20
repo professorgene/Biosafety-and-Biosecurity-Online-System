@@ -823,7 +823,7 @@
                        <?php if(isset($editload)){ ?>
                        <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/pc2/update_form';?>'" class="btn btn-primary">Update</button>
                        <?php }else{ ?>
-                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2">Save</button>
+                       <button name="saveButton" type="submit" class="btn btn-primary col-md-2" <?php if(isset($disabled)){echo "disabled='disabled'";} ?>>Save</button>
                        <?php } ?>
                        
                    </div>

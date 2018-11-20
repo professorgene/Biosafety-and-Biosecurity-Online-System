@@ -77,7 +77,7 @@ class editrequest_approval extends CI_Controller {
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For New Application For LMO Project Approved", "<p>Your Request For Editing An Application For LMO Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For New Application For LMO Project Approved", "<p>Your Request For Editing An Application For LMO Project Has Been Approved. </p>");
         $this->notification_model->insert_new_notification($id, 1, "Edit Request For New Application For LMO Project Approved", "Edit Request For New Application For LMO Project Approved by : " . $this->session->userdata('account_name'));
 		
         redirect('editrequest_approval/index');
@@ -98,7 +98,7 @@ class editrequest_approval extends CI_Controller {
         $this->swp_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For New Application For LMO Project Rejected", "<p>Your Request For Editing An Application For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For New Application For LMO Project Rejected", "<p>Your Request For Editing An Application For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For New Application For LMO Project Rejected", "Edit Request For New Application For LMO Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -117,7 +117,7 @@ class editrequest_approval extends CI_Controller {
         $this->swp_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Application for Biohazardous Materials Approved", "<p>Your Request For Editing An Application for Biohazardous Materials Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Application for Biohazardous Materials Approved", "<p>Your Request For Editing An Application for Biohazardous Materials Has Been Approved. </p>");
         $this->notification_model->insert_new_notification($id, 1, "Edit Request For Application for Biohazardous Materials Approved", "Edit Request For Application for Biohazardous Materials Approved by : " . $this->session->userdata('account_name'));
 		
         redirect('editrequest_approval/index');
@@ -135,7 +135,7 @@ class editrequest_approval extends CI_Controller {
         $this->swp_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Application for Biohazardous Materials Rejected", "<p>Your Request For Editing An Application for Biohazardous Materials Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Application for Biohazardous Materials Rejected", "<p>Your Request For Editing An Application for Biohazardous Materials Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Application for Biohazardous Materials Rejected", "Edit Request For Application for Biohazardous Materials Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -154,7 +154,7 @@ class editrequest_approval extends CI_Controller {
         $this->swp_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Application for Exempt Dealing Approved", "<p>Your Request For Editing An Application for Exempt Dealing Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Application for Exempt Dealing Approved", "<p>Your Request For Editing An Application for Exempt Dealing Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Application for Exempt Dealing Approved", "Edit Request For Application for Exempt Dealing Approved by : " . $this->session->userdata('account_name'));
 		
@@ -173,7 +173,7 @@ class editrequest_approval extends CI_Controller {
         $this->swp_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Application for Exempt Dealing", "<p>Your Request For Editing An AApplication for Exempt Dealing Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Application for Exempt Dealing", "<p>Your Request For Editing An AApplication for Exempt Dealing Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Application for Exempt Dealing", "Edit Request For Application for Exempt Dealing by : " . $this->session->userdata('account_name'));
 		
@@ -192,7 +192,7 @@ class editrequest_approval extends CI_Controller {
         $this->procurement_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Project Approved", "<p>Your Request For Editing A Pre-purchase Material Risk Assessment Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Pre-purchase Material Risk Assessment Project Approved", "<p>Your Request For Editing A Pre-purchase Material Risk Assessment Project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Pre-purchase Material Risk Assessment Project Approved", "Edit Request For Pre-purchase Material Risk Assessment Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -209,7 +209,7 @@ class editrequest_approval extends CI_Controller {
         $this->procurement_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Pre-purchase Material Risk Assessment Project Rejected", "<p>Your Request For Editing Pre-purchase Material Risk Assessment Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Pre-purchase Material Risk Assessment Project Rejected", "<p>Your Request For Editing Pre-purchase Material Risk Assessment Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Pre-purchase Material Risk Assessment Project Rejected", "Edit Request For Pre-purchase Material Risk Assessment Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -226,7 +226,7 @@ class editrequest_approval extends CI_Controller {
         $this->notification_of_LMO_and_BM_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and BM Project Approved", "<p>Your Request For Editing A Notification of LMO and BM Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Notification of LMO and BM Project Approved", "<p>Your Request For Editing A Notification of LMO and BM Project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Notification of LMO and BM Project Approved", "Edit Request For Notification of LMO and BM Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -243,7 +243,7 @@ class editrequest_approval extends CI_Controller {
         $this->notification_of_LMO_and_BM_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Notification of LMO and BM Project Rejected", "<p>Your Request For Editing Notification of LMO and BM Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Notification of LMO and BM Project Rejected", "<p>Your Request For Editing Notification of LMO and BM Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         $this->notification_model->insert_new_notification($id, 1, "Edit Request For Notification of LMO and BM Project Rejected", "Edit Request For Notification of LMO and BM Project Rejected by : " . $this->session->userdata('account_name'));
 		
         redirect('editrequest_approval/index');
@@ -259,7 +259,7 @@ class editrequest_approval extends CI_Controller {
         $this->annualfinalreport_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Approved", "Edit Request For Annual Final Report Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -276,7 +276,7 @@ class editrequest_approval extends CI_Controller {
         $this->annualfinalreport_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Rejected", "Edit Request For Annual Final Report Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -292,7 +292,7 @@ class editrequest_approval extends CI_Controller {
         $this->formf_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Approved", "Edit Request For Annual Final Report Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -309,7 +309,7 @@ class editrequest_approval extends CI_Controller {
         $this->formf_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Rejected", "Edit Request For Annual Final Report Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -325,7 +325,7 @@ class editrequest_approval extends CI_Controller {
         $this->notification_of_exporting_biological_material_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Approved", "<p>Your Request For Editing A Annual Final Report Project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Approved", "Edit Request For Annual Final Report Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -342,7 +342,7 @@ class editrequest_approval extends CI_Controller {
         $this->notification_of_exporting_biological_material_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Rejected", "Edit Request For Annual Final Report Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -358,7 +358,7 @@ class editrequest_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Incident Accident Report For Exempt Dealings or Biohazardous Material Project Approved", "<p>Your Request For Editing A Incident Accident Report For Exempt Dealings or Biohazardous Material project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Incident Accident Report For Exempt Dealings or Biohazardous Material Project Approved", "<p>Your Request For Editing A Incident Accident Report For Exempt Dealings or Biohazardous Material project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Incident Accident Report For Exempt Dealings or Biohazardous Material Project Approved", "Edit Request For Incident Accident Report For Exempt Dealings or Biohazardous Material Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -375,7 +375,7 @@ class editrequest_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Annual Final Report Project Rejected", "<p>Your Request For Editing Annual Final Report Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Annual Final Report Project Rejected", "Edit Request For Annual Final Report Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -391,7 +391,7 @@ class editrequest_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Minor Incident Accident Report For LMO Project Approved", "<p>Your Request For Editing A Minor Incident Accident Report For LMO Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Minor Incident Accident Report For LMO Project Approved", "<p>Your Request For Editing A Minor Incident Accident Report For LMO Project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Minor Incident Accident Report For LMO Project Approved", "Edit Request For Minor Incident Accident Report For LMO Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -408,7 +408,7 @@ class editrequest_approval extends CI_Controller {
         $this->incidentaccidentreport_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Minor Incident Accident Report For LMO Project Rejected", "<p>Your Request For Editing Minor Incident Accident Report For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Minor Incident Accident Report For LMO Project Rejected", "<p>Your Request For Editing Minor Incident Accident Report For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Minor Incident Accident Report For LMO Project Rejected", "Edit Request For Minor Incident Accident Report For LMO Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -425,7 +425,7 @@ class editrequest_approval extends CI_Controller {
         $this->annex3_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Major Incident Accident Report For LMO Project Approved", "<p>Your Request For Editing A Major Incident Accident Report For LMO project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Major Incident Accident Report For LMO Project Approved", "<p>Your Request For Editing A Major Incident Accident Report For LMO project Has Been Approved. </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Major Incident Accident Report For LMO Project Approved", "Edit Request For Major Incident Accident Report For LMO Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -443,7 +443,7 @@ class editrequest_approval extends CI_Controller {
         $this->annex3_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Major Incident Accident Report For LMO Project Rejected", "<p>Your Request For Editing Major Incident Accident Report For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Major Incident Accident Report For LMO Project Rejected", "<p>Your Request For Editing Major Incident Accident Report For LMO Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Major Incident Accident Report For LMO Project Rejected", "Edit Request For Major Incident Accident Report For LMO Project Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -460,7 +460,7 @@ class editrequest_approval extends CI_Controller {
         $this->annex4_model->update_editable($id, 1, $approver_id, $appid);
         $this->project_model->update_editable($id, 1, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Occupational Disease or Exposure Project Approved", "<p>Your Request For Editing A Occupational Disease or Exposure Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Occupational Disease or Exposure Project Approved", "<p>Your Request For Editing A Occupational Disease or Exposure Project Has Been Approved. </p>");
                 
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Occupational Disease or Exposure Project Approved", "Edit Request For Occupational Disease or Exposure Project Approved by : " . $this->session->userdata('account_name'));
 		
@@ -478,7 +478,7 @@ class editrequest_approval extends CI_Controller {
         $this->annex4_model->update_editable($id, 0, $approver_id, $appid);
         $this->project_model->update_editable($id, 0, $approver_id, $appid);
         
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Edit Request For Occupational Disease or Exposure Project Rejected", "<p>Your Request For Editing MOccupational Disease or Exposure Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
+        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Edit Request For Occupational Disease or Exposure Project Rejected", "<p>Your Request For Editing MOccupational Disease or Exposure Project Has Been Rejected Due to The Following Reason(s): " . $msg . "</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Edit Request For Occupational Disease or Exposure Project Rejected", "Edit Request For Occupational Disease or Exposure Project Rejected by : " . $this->session->userdata('account_name'));
 		
