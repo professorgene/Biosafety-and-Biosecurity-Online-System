@@ -297,7 +297,7 @@ class majorincident_approval extends CI_Controller {
         //$this->project_model->major_update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Incident Accident Report Form Submission Processed", "<p>Dear ". $result[0]->account_fullname .", Your Incident Accident Report Form Submission Has Been Processed.</p>");
        
 	   $this->notification_model->insert_new_notification($id, 1, "Incident Accident Reporting (Major Biological Incident Or Accident) Form Submission Rejected", "Incident Accident Reporting (Major Biological Incident Or Accident) Form Submission Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -547,7 +547,7 @@ class majorincident_approval extends CI_Controller {
         $this->project_model->major_update_approval_HSO($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Incident Accident Report Form Submission Processed", "<p>Your Incident Accident Report Form Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Incident Accident Report Form Submission Processed", "<p>Dear ". $result[0]->account_fullname .", Your Incident Accident Report Form Submission Has Been Processed.</p>");
         $this->notification_model->insert_new_notification($id, 1, "Incident Accident Reporting (Major Biological Incident Or Accident) Form Submission Processed", "Incident Accident Reporting (Major Biological Incident Or Accident) Form Submission Processed by : " . $this->session->userdata('account_name'));
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');

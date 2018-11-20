@@ -39,7 +39,7 @@ class procurementapproval extends CI_Controller {
         $this->project_model->procurement_update_approval($id, 1, $approver_id, $appID);
         
         //Send email to Applicant requesting them to print out assessment sheets, QSF, and Pathogen data safety sheet. Tell them they can proceed to Notification of LMO and Biohazardous materials when the items arrived
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Approved", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Approved. You are required to print out the assessment, and attach it together with QSF and Pathogen Safety Data Sheet, which are to be approved by BSO, RCO director, Faculty manager and or/etc. Furthermore, once the items have arrived, you may proceed with filling out a Notification of LMO and Biohazardous Materials form. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Pre-Purchase Material Risk assessment Form Submission Approved", "<p>Dear ". $result[0]->account_fullname .", Your Pre-Purchase Material Risk assessment Form Has Been Approved. You are required to print out the assessment, and attach it together with QSF and Pathogen Safety Data Sheet, which are to be approved by BSO, RCO director, Faculty manager and or/etc. Furthermore, once the items have arrived, you may proceed with filling out a Notification of LMO and Biohazardous Materials form. </p>");
         
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Approved</div>');
         
@@ -57,7 +57,7 @@ class procurementapproval extends CI_Controller {
         $this->project_model->procurement_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to Applicant telling them their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Pre-Purchase Material Risk assessment Form Submission Rejected", "<p>Your Pre-Purchase Material Risk assessment Form Has Been Rejected</p>");
+        $this->email_model->send_email($result[0]->account_email, "Pre-Purchase Material Risk assessment Form Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Pre-Purchase Material Risk assessment Form Has Been Rejected</p>");
         $this->notification_model->insert_new_notification($id, 1, "Pre-Purchase Material Risk assessment Project Rejected", "Pre-Purchase Material Risk assessment Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Rejected</div>');
         

@@ -40,7 +40,7 @@ class export_exempt_BM extends CI_Controller {
         $this->project_model->export_exempt_update_approval($id, 1, $approver_id, $appID);
         
         //Send email to PI, remind them to inform BSO when the shipped exempt dealing or biohazardous material arrived in importing country
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Notification For Exporting Biohazardous Materials Project Submission Approved", "<p>Your Notification For Exporting Biohazardous Materials Project Submission Has Been Approved. Please Be sure to inform BSO when the shipped Biohazardous Materials had arrive to importing country</p>");
+        $this->email_model->send_email($result[0]->account_email, "Notification For Exporting Biohazardous Materials Project Submission Approved", "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Your Notification For Exporting Biohazardous Materials Project Submission Has Been Approved. Please Be sure to inform BSO when the shipped Biohazardous Materials had arrive to importing country</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "New Project For Exporting of Biological Material(Exempt Dealing/Biohazardous Material)", "New Project For Exporting of Biological Material(Exempt Dealing/Biohazardous Material) Project Submission Approved by : " . $this->session->userdata('account_name'));
 		
@@ -59,7 +59,7 @@ class export_exempt_BM extends CI_Controller {
         $this->project_model->export_exempt_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to PI notify them that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting Biohazardous Materials Project Submission Rejected", "<p>Your Notification For Exporting Biohazardous Materials Project Submission Has Been Rejected.</p>");
+        $this->email_model->send_email($result[0]->account_email, "Notification For Exporting Biohazardous Materials Project Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Notification For Exporting Biohazardous Materials Project Submission Has Been Rejected.</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "New Project For Exporting of Biological Material(Exempt Dealing/Biohazardous Material)", "New Project For Exporting of Biological Material(Exempt Dealing/Biohazardous Material) Project Submission Rejected by : " . $this->session->userdata('account_name'));
 			

@@ -39,7 +39,7 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         $this->project_model->notif_LMO_BM_update_approval($id, 1, $approver_id, $appID);
         
         //Send email to PI giving them the required ID number for the notified LMO/Biohazard Material
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Approved", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "Notification of LMO and Biohazardous Materials Project Submission Approved", "<p>Dear ". $result[0]->account_fullname .", Your Notification of LMO and Biohazardous Materials Project Has Been Approved. </p>");
         
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Approved</div>');
 		
@@ -60,7 +60,7 @@ class notification_of_LMO_and_BM_approval extends CI_Controller {
         
         //Send email to PI that their form has been rejected
 
-		$this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification of LMO and Biohazardous Materials Project Submission Rejected", "<p>Your Notification of LMO and Biohazardous Materials Project Has Been Rejected.</p>");
+		$this->email_model->send_email($result[0]->account_email, "Notification of LMO and Biohazardous Materials Project Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Notification of LMO and Biohazardous Materials Project Has Been Rejected.</p>");
         $this->notification_model->insert_new_notification($id, 1, "New Project For Notification of LMO and Biohazardous Material Project Rejected", "Notification of LMO and Biohazardous Materials Project Rejected by : " . $this->session->userdata('account_name'));        
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project Rejected</div>');

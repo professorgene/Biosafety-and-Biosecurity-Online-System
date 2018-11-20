@@ -62,7 +62,7 @@ class biohazard_approval extends CI_Controller {
         $this->project_model->bio_update_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Submission Has Been Rejected</p>");
+        $this->email_model->send_email($result[0]->account_email, "New Project Application for Biohazard Material Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your New Project Application for Biohazard Material Submission Has Been Rejected</p>");
         $this->notification_model->insert_new_notification($id, 1, "New Project Application for Biohazard Material Rejected", "New Project Application for Biohazard Material Project Rejected by : " . $this->session->userdata('account_name'));
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been Rejected!</div>');
@@ -546,7 +546,7 @@ class biohazard_approval extends CI_Controller {
         //$this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Materials Rejected", "<p>Your New Project Application for Biohazardous Materials Has Been Rejected </p>");
+        $this->email_model->send_email($result[0]->account_email, "New Project Application for Biohazard Materials Rejected", "<p>Dear ". $result[0]->account_fullname .", Your New Project Application for Biohazardous Materials Has Been Rejected </p>");
         $this->notification_model->insert_new_notification($id, 1, "New Project Application for Biohazard Material Rejected", "New Project Application for Biohazard Material Project Rejected by : " . $this->session->userdata('account_name'));
 
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
@@ -566,7 +566,7 @@ class biohazard_approval extends CI_Controller {
         $this->project_model->bio_final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "<p>Dear ". $result[0]->account_fullname .", <br/><br/>New Project Application for Biohazard Material Submission Approved", "<p>Your New Project Application for Biohazard Material Submission Has Been Approved. </p>");
+        $this->email_model->send_email($result[0]->account_email, "New Project Application for Biohazard Material Submission Approved", "<p>Dear ". $result[0]->account_fullname .", <br/><br/>Your New Project Application for Biohazard Material Submission Has Been Approved. </p>");
         $this->notification_model->insert_new_notification($id, 1, "New Project Application for Biohazard Material Approved", "New Project Application for Biohazard Material Project Approved by : " . $this->session->userdata('account_name'));
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
@@ -588,7 +588,7 @@ class biohazard_approval extends CI_Controller {
         
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", New Project Application for Biohazard Material Submission Rejected", "<p>Your New Project Application for Biohazard Material Has Been Rejected</p>");
+        $this->email_model->send_email($result[0]->account_email, "New Project Application for Biohazard Material Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your New Project Application for Biohazard Material Has Been Rejected</p>");
         $this->notification_model->insert_new_notification($id, 1, "New Project Application for Biohazard Material Rejected", "New Project Application for Biohazard Material Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         

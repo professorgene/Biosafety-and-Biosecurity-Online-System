@@ -60,7 +60,7 @@ class annualreport_approval extends CI_Controller {
         
         $this->project_model->annual_update_approval($id, 0, $approver_id, $appid);
             
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annual/Final Report Rejected", "<p>Your Annual/Final Report Has Been Rejected </p>");
+        $this->email_model->send_email($result[0]->account_email, "Annual/Final Report Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Annual/Final Report Has Been Rejected </p>");
 		
         $this->notification_model->insert_new_notification($id, 1, "Annual/Final Report Rejected", "Annual/Final Report Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -543,7 +543,7 @@ class annualreport_approval extends CI_Controller {
         //$this->project_model->update_approval_SSBC($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annual/Final Report Rejected", "<p>Your Annual/Final Report Submission Has Been Rejected </p>");
+        $this->email_model->send_email($result[0]->account_email, "Annual/Final Report Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Annual/Final Report Submission Has Been Rejected </p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Annual/Final Report Rejected", "Annual/Final Report Rejected by : " . $this->session->userdata('account_name'));
 		
@@ -562,7 +562,7 @@ class annualreport_approval extends CI_Controller {
         $this->project_model->annual_final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annual/Final Report Approved", "<p>Your Annual/Final Report Submission Has Been Approved.</p>");
+        $this->email_model->send_email($result[0]->account_email, "Annual/Final Report Approved", "<p>Dear ". $result[0]->account_fullname .", Your Annual/Final Report Submission Has Been Approved.</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Annual/Final Report Approved", "Annual/Final Report Approved by : " . $this->session->userdata('account_name'));
 		
@@ -582,7 +582,7 @@ class annualreport_approval extends CI_Controller {
         $this->project_model->annual_final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annual/Final Report Rejected", "<p>Your Annual/Final Report Submission Has Been Rejected</p>");
+        $this->email_model->send_email($result[0]->account_email, "Annual/Final Report Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Annual/Final Report Submission Has Been Rejected</p>");
         $this->notification_model->insert_new_notification($id, 1, "Annual/Final Report Rejected", "Annual/Final Report Rejected by : " . $this->session->userdata('account_name'));
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
@@ -600,7 +600,7 @@ class annualreport_approval extends CI_Controller {
         $this->project_model->annual_BSO_final_approval($id, 1, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been fully approved
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annual/Final Report Approved", "<p>Your Annual/Final Report Submission Has Been Approved.</p>");
+        $this->email_model->send_email($result[0]->account_email, "Annual/Final Report Approved", "<p>Dear ". $result[0]->account_fullname .", Your Annual/Final Report Submission Has Been Approved.</p>");
         $this->notification_model->insert_new_notification($id, 1, "Annual/Final Report Approved", "Annual/Final Report Approved by : " . $this->session->userdata('account_name'));
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
@@ -619,7 +619,7 @@ class annualreport_approval extends CI_Controller {
         $this->project_model->annual_BSO_final_approval($id, 0, $approver_id, $appID);
         
         //Send email to applicant let them know their form submission has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Annual/Final Report Approved", "<p>Your Annual/Final Report Submission Has Been Rejected</p>");
+        $this->email_model->send_email($result[0]->account_email, "Annual/Final Report Approved", "<p>Dear ". $result[0]->account_fullname .", Your Annual/Final Report Submission Has Been Rejected</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Annual/Final Report Rejected", "Annual/Final Report Rejected by : " . $this->session->userdata('account_name'));
         

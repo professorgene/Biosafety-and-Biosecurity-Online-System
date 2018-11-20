@@ -293,7 +293,7 @@ class occupationaldisease_approval extends CI_Controller {
         //$this->project_model->occupational_update_approval_SSBC($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Occupational Disease or Exposure Project Submission Processed", "<p>Your Occupational Disease or Exposure Project Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Occupational Disease or Exposure Project Submission Processed", "<p>Dear ". $result[0]->account_fullname .", Your Occupational Disease or Exposure Project Submission Has Been Processed.</p>");
         
 		$this->notification_model->insert_new_notification($id, 1, "Occupational Disease or Exposure Project Submission Processed", "Occupational Disease or Exposure Project Submission Processed by : " . $this->session->userdata('account_name'));
 		
@@ -543,7 +543,7 @@ class occupationaldisease_approval extends CI_Controller {
         $this->project_model->occupational_update_approval_HSO($id, 1, $approver_id, $appID);
         
         //send email to victim or witnesses for investigation outcomes
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Occupational Disease or Exposure Project Submission Processed", "<p>Your Occupational Disease or Exposure Project Submission Has Been Processed. (Investigations Outcomes Here)</p>");
+        $this->email_model->send_email($result[0]->account_email, "Occupational Disease or Exposure Project Submission Processed", "<p>Dear ". $result[0]->account_fullname .", Your Occupational Disease or Exposure Project Submission Has Been Processed.</p>");
         $this->notification_model->insert_new_notification($id, 1, "Occupational Disease or Exposure Project Submission Processed", "Occupational Disease or Exposure Project Submission Processed by : " . $this->session->userdata('account_name'));
 		
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');

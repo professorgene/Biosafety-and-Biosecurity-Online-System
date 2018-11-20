@@ -59,7 +59,7 @@ class export_LMO_approval extends CI_Controller {
         $this->project_model->formf_update_approval($id, 0, $approver_id, $appID);
         
         //Send email notify PI that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Project Submission Rejected", "<p>Your Notification For Exporting LMO Project Submission Has Been Rejected </p>");
+        $this->email_model->send_email($result[0]->account_email, "Notification For Exporting LMO Project Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Notification For Exporting LMO Project Submission Has Been Rejected </p>");
         $this->notification_model->insert_new_notification($id, 1, "Notification For Exporting LMO Project Project Rejected", "Notification For Exporting LMO Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
@@ -526,7 +526,7 @@ class export_LMO_approval extends CI_Controller {
         //$this->project_model->formf_update_approval_SSBC($id, 0, $approver_id, $appID);
         
          //Send email notify PI that their form has been rejected
-         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Project Submission Rejected", "<p>Your Notification For Exporting LMO Project Submission Has Been Rejected </p>");
+         $this->email_model->send_email($result[0]->account_email, "Notification For Exporting LMO Project Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Notification For Exporting LMO Project Submission Has Been Rejected </p>");
         $this->notification_model->insert_new_notification($id, 1, "Notification For Exporting LMO Project Project Rejected", "Notification For Exporting LMO Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
@@ -544,7 +544,7 @@ class export_LMO_approval extends CI_Controller {
         
 		$this->notification_model->insert_new_notification($id, 1, "Notification For Exporting LMO Project Approved", "Your Notification For Exporting LMO Project has approved by: " . $this->session->userdata('account_name'));
         //Send email to PI, remind them to inform BSO when LMO will arrive to importing country
-         $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Project Submission Approved", "<p>Your Notification For Exporting LMO Project Submission Has Been Approved. Please Be sure to inform BSO when the shipped LMO had arrive to importing country</p>");
+         $this->email_model->send_email($result[0]->account_email, "Notification For Exporting LMO Project Submission Approved", "<p>Dear ". $result[0]->account_fullname .", Your Notification For Exporting LMO Project Submission Has Been Approved. Please Be sure to inform BSO when the shipped LMO had arrive to importing country</p>");
         
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been approved!</div>');
         
@@ -562,7 +562,7 @@ class export_LMO_approval extends CI_Controller {
         $this->project_model->formf_update_approval_Chair($id, 0, $approver_id, $appID);
         
          //Send email notify PI that their form has been rejected
-        $this->email_model->send_email($result[0]->account_email, "Dear ". $result[0]->account_fullname .", Notification For Exporting LMO Project Submission Rejected", "<p>Your Notification For Exporting LMO Project Submission Has Been Rejected </p>");
+        $this->email_model->send_email($result[0]->account_email, "Notification For Exporting LMO Project Submission Rejected", "<p>Dear ". $result[0]->account_fullname .", Your Notification For Exporting LMO Project Submission Has Been Rejected </p>");
         $this->notification_model->insert_new_notification($id, 1, "Notification For Exporting LMO Project Project Rejected", "Notification For Exporting LMO Project Rejected by : " . $this->session->userdata('account_name'));
         $this->session->set_flashdata('msg','<div class="alert alert-success text-center">Project has been rejected!</div>');
         
