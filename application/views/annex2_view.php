@@ -399,7 +399,7 @@
                     <?php if(isset($editload)){ ?>
                     <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/annex2/update_form';?>'" class="btn btn-primary">Update</button>
                     <?php }else{ ?>
-                    <button name="saveButton" type="submit" class="btn btn-primary">Save</button>
+                    <button name="saveButton" type="submit" class="btn btn-primary" <?php if(isset($disabled)){echo "disabled='disabled'";} ?>>Save</button>
                     <?php } ?>
                     <!-- <a href="#" onclick="window.print()" class="btn btn-success">Print</a> -->
                 </div>   
