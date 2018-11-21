@@ -278,7 +278,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             new Chart(document.getElementById("approve-chart"), {
                 type: 'pie',
                 data: {
-                  labels: ["LMO", "Bio", "Exempt", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  labels: ["New LMO", "New Biohazardous Material", "Exempt Dealings", "Exporting of LMO", "Exporting of Exempt Dealings & Biological Materials", "Incident Reporting for Exempt Dealings & Biological Materials", "Minor Biological Incidents", "Major Biological Incidents", "Occupational Disease or Exposure"],
                   datasets: [{
                     label: "Pending Applications",
                     backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#cbc223"],
@@ -295,7 +295,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             new Chart(document.getElementById("approve2-chart"), {
                 type: 'pie',
                 data: {
-                  labels: ["LMO", "Bio", "Exempt", "Export LMO", "Export Exempt", "Incident Exempt", "Minor Bio", "Major Bio", "Occupational"],
+                  labels: ["New LMO", "New Biohazardous Material", "Exempt Dealings", "Exporting of LMO", "Exporting of Exempt Dealings & Biological Materials", "Incident Reporting for Exempt Dealings & Biological Materials", "Minor Biological Incidents", "Major Biological Incidents", "Occupational Disease or Exposure"],
                   datasets: [{
                     label: "Approved Applications",
                     backgroundColor: ["#e171c2", "#67afeb", "#354486", "#fa2531", "#acac85", "#b318c4", "#2a9b55", "#88888a", "#cbc223"],
