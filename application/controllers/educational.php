@@ -51,17 +51,17 @@ class educational extends CI_Controller {
             $this->load->template('newquiz_view', $data);
         } else {
             
-            $questions = serialize($this->input->post('ques[]'));
-            $answersA = serialize($this->input->post('optA[]'));
-            $answersB = serialize($this->input->post('optB[]'));
-            $answersC = serialize($this->input->post('optC[]'));
-            $answersD = serialize($this->input->post('optD[]'));
-            $correctans = serialize($this->input->post('true[]'));
+            $questions = serialize($this->input->post('ques[]', TRUE));
+            $answersA = serialize($this->input->post('optA[]', TRUE));
+            $answersB = serialize($this->input->post('optB[]', TRUE));
+            $answersC = serialize($this->input->post('optC[]', TRUE));
+            $answersD = serialize($this->input->post('optD[]', TRUE));
+            $correctans = serialize($this->input->post('true[], TRUE'));
             
             $data = array(
                 'account_id' => $this->session->userdata('account_id'),
-                'quiz_name' => $this->input->post('quiz_name'),
-                'quiz_desc' => $this->input->post('quiz_desc'),
+                'quiz_name' => $this->input->post('quiz_name', TRUE),
+                'quiz_desc' => $this->input->post('quiz_desc', TRUE),
                 'quiz_fullmark' => $this->input->post('quiz_fullmark'),
                 'quiz_question' => $questions,
                 'quiz_ans_a' => $answersA,
