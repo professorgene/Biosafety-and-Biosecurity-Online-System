@@ -356,7 +356,7 @@ if($this->session->userdata('account_type') != 2 && $this->session->userdata('ac
             
             var x = confirm("Please fill in the comments, if any, in the new window before selecting OK.");
             if (x) {
-                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/rejct2/" + i + "/" + k;
+                window.location = "<?php echo base_url(); ?>index.php/applicationapproval/reject2/" + i + "/" + k;
             }
             
         }

@@ -73,10 +73,10 @@ class educational extends CI_Controller {
             
             if($this->educational_model->insert_new_quiz($data)){
                 $this->session->set_flashdata('msg','<div class="alert alert-success text-center">You have successfully created a new quiz!</div>');
-                redirect('educational/new_quiz');
+                redirect('educational/index');
             } else {
                 $this->session->set_flashdata('msg','<div class="alert alert-danger text-center">An error has occured. Please try again later.</div>');
-                redirect('educational/new_quiz');
+                redirect('educational/index');
             }
         }
     }
