@@ -33,10 +33,10 @@ class procurementpage extends CI_Controller {
                 $this->load->template('procurementpage_view', $data);
             } else {
                 $data = array(
-                    'project_name' => $this->input->post('project_name'),
-                    'project_desc' => $this->input->post('project_desc'),
+                    'project_name' => $this->input->post('project_name', TRUE),
+                    'project_desc' => $this->input->post('project_desc', TRUE),
                     'project_type' => 'procurement',
-                    'project_duration' => $this->input->post('project_duration'),
+                    'project_duration' => $this->input->post('project_duration', TRUE),
                     'account_id' => $this->session->userdata('account_id')
                 );
             

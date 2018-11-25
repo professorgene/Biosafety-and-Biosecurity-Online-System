@@ -31,10 +31,10 @@ class livingmodifiedorganismpage extends CI_Controller {
                 $this->load->template('livingmodifiedorganismpage_view', $data);
             } else {
                 $data = array(
-                    'project_name' => $this->input->post('project_name'),
-                    'project_desc' => $this->input->post('project_desc'),
+                    'project_name' => $this->input->post('project_name', TRUE),
+                    'project_desc' => $this->input->post('project_desc', TRUE),
                     'project_type' => 'app_lmo',
-                    'project_duration' => $this->input->post('project_duration'),
+                    'project_duration' => $this->input->post('project_duration', TRUE),
                     'account_id' => $this->session->userdata('account_id')
                 );
             
