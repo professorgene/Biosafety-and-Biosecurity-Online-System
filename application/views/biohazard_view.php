@@ -521,15 +521,15 @@
                 <div class="btn-group-vertical btn-sample">
                     <a href="#top" class="btn btn-success">Top</a>    
                     <a href="#section_1" class="btn btn-success">Section 1</a>
-                    <a href="#section_2" class="btn btn-success">Section 2</a>
+                    <!-- <a href="#section_2" class="btn btn-success">Section 2</a>-->
                     <a href="#section_3" class="btn btn-success">Section 3</a>
-                    <a href="#section_4" class="btn btn-success">Section 4</a>
+                    <!-- <a href="#section_4" class="btn btn-success">Section 4</a> -->
                     <a href="#section_5" class="btn btn-success">Section 5</a>
-                    <a href="#section_6" class="btn btn-success">Section 6</a>
+                    <!-- <a href="#section_6" class="btn btn-success">Section 6</a> -->
                     <a href="#section_7" class="btn btn-success">Section 7</a>
-                    <a href="#section_8" class="btn btn-success">Section 8</a>
+                    <!-- <a href="#section_8" class="btn btn-success">Section 8</a> -->
                     <a href="#section_9" class="btn btn-success">Section 9</a>
-                    <a href="#section_10" class="btn btn-success">Section 10</a>
+                   <!-- <a href="#section_10" class="btn btn-success">Section 10</a> -->
                     <a href="#section_11" class="btn btn-success">Section 11</a>
                     <?php if(isset($editload)){ ?>
                     <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/biohazard/update_form';?>'" class="btn btn-primary">Update</button>

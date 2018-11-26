@@ -1809,6 +1809,11 @@
                          <a href="#part_e" class="btn btn-success">Section 5</a>
                          <a href="#part_f" class="btn btn-success">Section 6</a>
                          <a href="#part_g" class="btn btn-success">Section 7</a>
+                         <?php if(isset($editload)){ ?>
+                    <button type="submit" name = 'updateButton' value = 'Update' onclick="location.href='<?php echo site_url().'/annex2/update_form';?>'" class="btn btn-primary">Update</button>
+                    <?php }else{ ?>
+                    <button name="saveButton" type="submit" class="btn btn-primary" <?php if(isset($disabled)){echo "disabled='disabled'";} ?>>Save</button>
+                    <?php } ?>
                      </div>   
                  </div>
                 
