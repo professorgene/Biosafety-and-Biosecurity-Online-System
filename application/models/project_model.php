@@ -990,7 +990,7 @@ class project_model extends CI_Model
             
         } elseif ($type == 1) {
             
-            $data = array('project_approval' => 13, 'approver_id' => $approver_id);
+            $data = array('project_approval' => 3, 'approver_id' => $approver_id);
             $this->db->where('account_id', $id);
             $this->db->where('project_id', $appID);
             $this->db->update('project', $data);
